@@ -1,0 +1,407 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-navbar-background-color: transparent;
+  --ifm-navbar-height: 80px;
+  --ifm-navbar-padding-horizontal: 2rem;
+  --ifm-color-primary: #fff;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/**
+ * Wonderland theme CSS
+ */
+
+/* Sharp Grotesk Font Faces */
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-Light15.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-LightItalic10.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sharp Grotesk';
+  src: url('/fonts/SharpGrotesk-Medium25.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors */
+  --wonderland-dark: #0E152C;
+  --wonderland-purple: #3C2A86;
+  --wonderland-blue: #1F55D5;
+  --wonderland-pink: #E95B9B;
+  --wonderland-yellow: #FECC40;
+  
+  /* Theme Colors */
+  --ifm-color-primary: var(--wonderland-blue);
+  --ifm-color-primary-dark: var(--wonderland-purple);
+  --ifm-color-primary-darker: #1a44aa;
+  --ifm-color-primary-darkest: #15368c;
+  --ifm-color-primary-light: #3666dd;
+  --ifm-color-primary-lighter: #4775df;
+  --ifm-color-primary-lightest: #6b91e5;
+  
+  --ifm-background-color: var(--wonderland-dark);
+  --ifm-navbar-background-color: rgba(14, 21, 44, 0.8);
+  --ifm-footer-background-color: rgba(14, 21, 44, 0.9);
+  
+  --ifm-font-family-base: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Sharp Grotesk', var(--ifm-font-family-base);
+  --ifm-code-font-size: 95%;
+  
+  --ifm-navbar-height: 80px;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Global styles */
+body {
+  background: var(--wonderland-dark);
+  color: #ffffff;
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 300;
+  font-style: italic;
+}
+
+p {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Remove the cosmic background effect since we have the image */
+body::before {
+  display: none;
+}
+
+/* Navbar styling */
+.navbar {
+  background: transparent;
+  border-bottom: none;
+  height: var(--ifm-navbar-height);
+  backdrop-filter: none;
+}
+
+/* Center logo */
+.navbar__inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navbar__brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-logo-center {
+  height: 40px;
+  width: auto;
+}
+
+/* Navbar items */
+.navbar__items {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__items--left {
+  justify-content: flex-end;
+  padding-right: 100px;
+}
+
+.navbar__items--right {
+  justify-content: flex-start;
+  padding-left: 100px;
+}
+
+/* Navbar links */
+.navbar__link {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.25rem;
+  text-transform: lowercase;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  margin: 0;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.navbar__link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 996px) {
+  .navbar__inner {
+    padding: 0 1rem;
+  }
+
+  .navbar__brand {
+    position: relative;
+    left: auto;
+    transform: none;
+  }
+
+  .navbar__items {
+    justify-content: center;
+  }
+
+  .navbar__items--left,
+  .navbar__items--right {
+    padding: 0;
+  }
+
+  .navbar__link {
+    font-size: 1rem;
+  }
+}
+
+/* Footer styling */
+footer {
+  background: none !important;
+}
+
+.footer {
+  background: none !important;
+  border-top: none;
+}
+
+.footer--dark {
+  --ifm-footer-background-color: transparent;
+  background: none !important;
+}
+
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sidebar styling */
+.theme-doc-sidebar-container {
+  background: rgba(14, 21, 44, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu__link {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu__link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--wonderland-yellow);
+}
+
+/* Card styling */
+.card {
+  background: rgba(14, 21, 44, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling */
+.button {
+  background: linear-gradient(45deg, var(--wonderland-purple), var(--wonderland-blue));
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 85, 213, 0.3);
+}
+
+/* Code blocks */
+.prism-code {
+  background: rgba(14, 21, 44, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table styling */
+table {
+  background: rgba(14, 21, 44, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Announcement bar */
+div[class^='announcementBar_'] {
+  background: linear-gradient(90deg, var(--wonderland-purple), var(--wonderland-blue), var(--wonderland-pink), var(--wonderland-yellow));
+  color: #ffffff;
+}
+
+/* Homepage Hero Section */
+.hero {
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__title {
+  font-family: 'Sharp Grotesk';
+  font-weight: 300;
+  font-style: italic;
+  font-size: 6rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  transform: skew(-10deg);
+}
+
+.hero__subtitle {
+  font-family: 'Sharp Grotesk';
+  font-weight: 300;
+  font-size: 1.25rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  position: relative;
+  display: inline-block;
+  padding: 0 3rem;
+}
+
+.hero__subtitle::before,
+.hero__subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 1px;
+  background: #ffffff;
+}
+
+.hero__subtitle::before {
+  left: 0;
+}
+
+.hero__subtitle::after {
+  right: 0;
+}
+
+/* Category Cards */
+.category-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+.category-card {
+  background: rgba(14, 21, 44, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-card__icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.category-card__title {
+  font-family: 'Sharp Grotesk';
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 4rem;
+  }
+
+  .category-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
