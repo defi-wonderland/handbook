@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Wonderland Handbook',
-  tagline: 'Made in Wonderland',
+  tagline: 'A curated guide to our best practices, processes, and technical insights.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -17,7 +17,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'wonderland', // Usually your GitHub org/user name.
+  organizationName: 'defi-wonderland', // Usually your GitHub org/user name.
   projectName: 'handbook', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -39,7 +39,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/wonderland/handbook/tree/main/',
+          editUrl: 'https://github.com/defi-wonderland/handbook/tree/main/',
         },
         blog: false,
         theme: {
@@ -56,10 +56,10 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     // Replace with your project's social card
-    image: 'img/wonderland-social-card.jpg',
+    image: 'img/wonderland-social-card.png',
     navbar: {
       logo: {
-        alt: 'Wonderland Logo',
+        alt: 'Wonderland Handbook',
         src: 'img/logo.svg',
         style: { height: '40px', width: 'auto' },
         className: 'navbar-logo-center',
@@ -71,7 +71,6 @@ const config: Config = {
       style: 'dark',
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()} Wonderland.`,
-      className: 'footer-transparent',
     },
     prism: {
       theme: prismThemes.vsDark,
