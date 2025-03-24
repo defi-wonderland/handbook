@@ -434,3 +434,12 @@ div[class*='buttonGroup'],
   color: #ffffff;
   text-decoration: none;
 }
+
+/* Custom sidebar styling */
+.sidebar-category {
+  font-style: normal !important;
+}
+
+.menu__link {
+  font-style: normal;
+}
