@@ -75,17 +75,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* Global styles */
-body {
-  font-family: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-  color: #ffffff;
-  font-weight: 300;
+html {
+  height: 100%;
   background-color: var(--wonderland-dark);
   background-image: url('/img/handbook-3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+body {
+  font-family: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+  font-weight: 300;
   min-height: 100vh;
+  background: transparent;
+}
+
+/* Main content background */
+#__docusaurus {
+  min-height: 100vh;
+  background: transparent;
 }
 
 /* Typography */
@@ -94,32 +105,43 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   font-style: italic;
   color: #ffffff;
+  margin-bottom: 0.3rem;
 }
 
 /* Specific heading styles */
 .theme-doc-markdown h1 {
   font-style: italic;
   font-size: 3.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h2 {
   font-style: italic;
   font-size: 2.5rem;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h3 {
   font-style: italic;
   font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
+/* Paragraph spacing */
 p {
   font-weight: 300;
   line-height: 1.6;
+  margin-bottom: 0.3rem;
+}
+
+/* Add minimal space between sections */
+.theme-doc-markdown > div > * + * {
+  margin-top: 0.3rem;
 }
 
 /* Light bold text */
@@ -170,6 +192,8 @@ article {
   background: rgba(14, 21, 44, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  height: auto;
 }
 
 /* Center logo */
@@ -177,6 +201,7 @@ article {
   display: flex;
   justify-content: center;
   position: relative;
+  padding: 0.5rem 0;
 }
 
 .navbar__brand {
@@ -185,10 +210,12 @@ article {
   transform: translateX(-50%);
   margin: 0;
   font-style: italic;
+  padding: 0.5rem 0;
 }
 
 .navbar__items {
   flex: 1;
+  padding: 0.5rem 0;
 }
 
 .navbar__items--left {
@@ -257,9 +284,13 @@ a:hover {
   background: var(--wonderland-dark) !important;
 }
 
+/* Make all menu links consistent */
 .menu__link {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
+  font-size: 1rem !important;
+  font-style: italic;
+  transition: color 0.2s ease;
 }
 
 .menu__link:hover {
@@ -272,22 +303,25 @@ a:hover {
   color: #ffffff;
 }
 
-/* Tutorial sections styling */
+/* Remove special styling for tutorial sections */
 .menu__link[href^="/docs"],
 .menu__link[href^="/docs/tutorial-intro"],
 .menu__link[href^="/docs/tutorial-basics"],
 .menu__link[href^="/docs/tutorial-extras"] {
-  font-style: italic;
-  font-size: 1.4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
+  font-size: 1rem !important;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-/* Sidebar section titles */
+/* Make category headers consistent */
 .menu__list-item-collapsible .menu__link {
-  font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1rem !important;
+  font-weight: 300;
+}
+
+/* Ensure nested items have consistent styling */
+.menu__list-item .menu__list .menu__link {
+  font-size: 1rem !important;
   font-weight: 300;
 }
 
