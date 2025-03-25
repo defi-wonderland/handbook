@@ -1,6 +1,6 @@
 ---
 title: Build Safe, Build Legendary ✨
-sidebar_position: 1
+sidebar_position: 6
 ---
 
 You made it to the end of the handbook — and hopefully the beginning of something legendary ✨

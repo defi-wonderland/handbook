@@ -1,34 +1,17 @@
 ---
-sidebar_position: 1
+title: How We Build
+sidebar_position: 2
 ---
 
-# Development Overview
+We live in a space where code is law, and law is fragile.
 
-Welcome to our development documentation. This guide covers our development practices, standards, and processes across different areas.
+In Wonderland we care about crafting systems that lasts. Every line we write carries consequences — sometimes financial, sometimes reputational, sometimes ethical. We believe great engineering happens at the intersection of curiosity and discipline. That means saying *no* to shortcuts. That means understanding why code patterns matter, why onboarding isn’t a formality, and why tests are not an afterthought. We do not separate writing from thinking — or thinking from responsibility.
 
-## Areas of Development
+Here, you’ll find the foundations of how we build:
+- How we onboard people across roles
+- What we expect in Solidity, frontend, and offchain code
+- How we write and share research with clarity and care
 
-### Frontend Development
-Our frontend development practices ensure consistent, maintainable, and high-quality user interfaces.
+Each of these domains is a lens through which we can strengthen the system. And when in doubt, we come back to the one principle that matters most:
 
-[Learn more about Frontend Development →](/docs/development/frontend/overview)
-
-### Solidity Development
-Our smart contract development guidelines focus on security, efficiency, and best practices.
-
-[Learn more about Solidity Development →](/docs/development/solidity/overview)
-
-### Offchain Development
-Our backend and infrastructure development practices ensure reliable and scalable systems.
-
-[Learn more about Offchain Development →](/docs/development/offchain/overview)
-
-### Research
-Our research methodologies and technical documentation standards.
-
-[Learn more about Research →](/docs/development/research/overview)
-
-### Development Processes
-Our development workflows, Git practices, and project management guidelines.
-
-[Learn more about Development Processes →](/docs/development/processes/overview) 
+**Build like it will be attacked.** 

@@ -1,4 +1,8 @@
 {
   "label": "Processes",
-  "position": 3
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "processes/overview"
+  }
 }

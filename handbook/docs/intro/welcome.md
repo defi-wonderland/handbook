@@ -7,4 +7,4 @@ At Wonderland, we believe that the ecosystem thrives on collaboration and shared
 
 This handbook is for **Wonderland contributors**, **devs**, **partners, organizations** and **anyone** eager to learn about best practices in development and security. Whether you're refining your testing workflow, bolstering your security practices, or diving into offchain and solidity style guidelines, **this guide has something for you.**
 
-So let’s dive in and **stay safe**—for ourselves, for the community, and the future of Web3 🐇✨
+So let’s dive in and **stay safe** for ourselves, for the community, and the future of Web3 🐇✨

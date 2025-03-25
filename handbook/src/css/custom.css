@@ -24,9 +24,11 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-background-color: var(--wonderland-dark);
-  --ifm-background-surface-color: rgba(14, 21, 44, 0.95);
+  --ifm-background-surface-color: var(--wonderland-dark);
   --ifm-navbar-background-color: rgba(14, 21, 44, 0.95);
   --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
+  --ifm-dropdown-background-color: var(--wonderland-dark);
+  --ifm-card-background-color: var(--wonderland-dark);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -330,27 +332,27 @@ a:hover {
 
 /* Cards and Admonitions */
 .card {
-  background: rgba(31, 85, 213, 0.1);
+  background: var(--wonderland-dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .alert {
-  background: rgba(31, 85, 213, 0.1);
+  background: var(--wonderland-dark);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .alert--info {
-  --ifm-alert-background-color: rgba(31, 85, 213, 0.1);
+  --ifm-alert-background-color: var(--wonderland-dark);
   --ifm-alert-border-color: var(--wonderland-blue);
 }
 
 .alert--warning {
-  --ifm-alert-background-color: rgba(254, 204, 64, 0.1);
+  --ifm-alert-background-color: var(--wonderland-dark);
   --ifm-alert-border-color: var(--wonderland-yellow);
 }
 
 .alert--danger {
-  --ifm-alert-background-color: rgba(233, 91, 155, 0.1);
+  --ifm-alert-background-color: var(--wonderland-dark);
   --ifm-alert-border-color: var(--wonderland-pink);
 }
 

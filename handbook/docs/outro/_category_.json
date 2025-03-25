@@ -1,4 +1,9 @@
 {
-  "label": "Outro",
-  "position": 2
-}
+    "label": "Closing",
+    "position": 6,
+    "link": {
+      "type": "doc",
+      "id": "outro/closing"
+    }
+  }
+  

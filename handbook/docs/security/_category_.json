@@ -1,4 +1,8 @@
 {
   "label": "Security",
-  "position": 3
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "security/overview"
+  }
 }
