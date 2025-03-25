@@ -256,7 +256,7 @@
 }
 
 .categoryTitle {
-  font-family: 'Sharp Grotesk';
+  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 2.5rem;
@@ -306,15 +306,16 @@
 }
 
 .description {
-  font-family: 'Sharp Grotesk';
-  font-weight: 300;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.6;
   text-align: center;
-  max-width: 600px;
+  color: #ffffff;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  opacity: 0.9;
 }
 
 @media (max-width: 996px) {

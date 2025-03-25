@@ -6,6 +6,11 @@ import styles from './index.module.css';
 
 const categories = [
   {
+    title: 'Processes',
+    icon: '/img/processes.svg',
+    href: '/docs/processes/overview',
+  },
+  {
     title: 'Development',
     icon: '/img/key-hole.svg',
     href: '/docs/development/overview',
@@ -35,7 +40,7 @@ function Home(): React.ReactElement {
             <img src="/img/hero-section.svg" alt="Wonderland Handbook" className={styles.heroImage} />
           </div>
           <p className={styles.description}>
-            At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository—a curated guide to our best practices, processes, and technical insights.
+            At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository: a curated guide to our best practices, processes, and technical insights.
           </p>
           <div className={styles.buttonContainer}>
             <Link to="/docs/intro/welcome" className={styles.buttonLink}>
