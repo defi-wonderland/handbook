@@ -55,7 +55,7 @@ By adhering to these guidelines, we ensure robust and modular development, foste
 
 # Naming conventions
 
-### Classes
+## Classes
 
 A `Service` typically encapsulates a broader business logic or workflow. It might orchestrate various components or interact with multiple data sources or APIs to fulfill a specific domain-related task.
 A `Provider` usually focuses on supplying a specific type of data or resource. It’s often more narrowly scoped, providing access to a particular piece of data, a configuration, or a service needed by other parts of the application.

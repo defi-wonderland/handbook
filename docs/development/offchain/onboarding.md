@@ -14,7 +14,7 @@ By completing this challenge, you'll gain hands-on experience with the technolog
 
 ## UniswapV2 Multichain TVL Aggregator Challenge
 
-## Context ℹ
+## Context
 
 Develop a system to aggregate and report Total Value Locked (TVL) from UniswapV2 pools across multiple blockchains. This project aims to create a robust, efficient, and scalable solution for TVL tracking in decentralized finance (DeFi) ecosystems.
 
