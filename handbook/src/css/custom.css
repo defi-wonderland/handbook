@@ -315,6 +315,11 @@ a:hover {
   align-items: center;
 }
 
+/* Regular menu items (non-collapsible) should align with nested items */
+.menu__list .menu__link:not(.menu__list-item-collapsible .menu__link) {
+  padding-left: 3.5rem;
+}
+
 .menu__list-item-collapsible .menu__link::before {
   content: '';
   width: 14px;
