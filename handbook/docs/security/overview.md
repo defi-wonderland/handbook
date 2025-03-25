@@ -13,9 +13,9 @@ Our security documentation covers several key areas:
 ### Internal Reviews
 Guidelines and processes for conducting internal security reviews.
 
-[Learn more about Internal Reviews →](/security/internal-reviews)
+[Learn more about Internal Reviews →](/docs/security/internal-reviews)
 
 ### Multisig Management
 Best practices for secure multisig wallet configuration and management.
 
-[Learn more about Multisig →](/security/multisig/overview) 
+[Learn more about Multisig →](/docs/security/multisig/hardware-requirements) 

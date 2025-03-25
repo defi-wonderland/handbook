@@ -13,9 +13,9 @@ Our testing documentation covers several key areas:
 ### Unit and Integration Testing
 Guidelines for writing and maintaining effective tests.
 
-[Learn more about Unit and Integration Testing →](/testing/unit-integration)
+[Learn more about Unit and Integration Testing →](/docs/testing/unit-integration)
 
 ### Campaign Processes
 Our systematic approach to planning and executing testing campaigns.
 
-[Learn more about Campaign Processes →](/testing/campaign-processes) 
+[Learn more about Campaign Processes →](/docs/testing/campaign-processes) 
