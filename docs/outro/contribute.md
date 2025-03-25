@@ -1,12 +1,13 @@
 ---
-title: "Build Safe ✨"
+title: Contributing
 sidebar_position: 6
 ---
 
 # Build Safe ✨
+
 You made it to the end of the handbook — and hopefully the beginning of something legendary ✨
 
-This isn't just a documentation site — it's our shared craft. We're constantly refining how we build, test, and coordinate — and your input is part of that process.
+This is our shared craft. We're constantly refining how we build, test, and coordinate. Your input is part of that process.
 
 # Contributing Guidelines
 
@@ -37,5 +38,5 @@ We welcome contributions from everyone! Here's how you can help improve the hand
 
 Remember: The best handbooks grow with the team. Your insights and experience make this resource better for everyone.
 
-Stay safe. Stay curious. Build with care.  
+Stay safe. Build with care.  
 🌌 — Wonderland

@@ -296,6 +296,7 @@ a:hover {
   transition: color 0.2s ease;
   position: relative;
   padding-left: 1.5rem;
+  transition: color 0.2s ease;
 }
 
 .menu__link:hover {
@@ -568,10 +569,10 @@ div[class*='buttonGroup'],
   font-weight: 500;
 }
 
-/* Fix sidebar appearing behind content on mobile */
+
 @media (max-width: 996px) {
   .navbar-sidebar {
-    z-index: 9999 !important; /* Make sure it's on top */
+    z-index: 9999 !important; 
     position: fixed !important;
     top: 0;
     left: 0;
@@ -584,7 +585,7 @@ div[class*='buttonGroup'],
   }
 
   .navbar-sidebar__backdrop {
-    z-index: 9998 !important; /* Just below the sidebar itself */
+    z-index: 9998 !important; 
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
   }

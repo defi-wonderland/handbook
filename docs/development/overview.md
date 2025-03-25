@@ -15,6 +15,7 @@ In Wonderland we care about crafting systems that lasts. Every line we write car
 That means saying *no* to shortcuts. That means understanding why code patterns matter, why onboarding isn't a formality, and why tests are not an afterthought. We do not separate writing from thinking — or thinking from responsibility.
 
 Here, you'll find the foundations of how we build:
+
 - How we onboard people across roles
 - What we expect in Solidity, frontend, and offchain code
 - How we write and share research with clarity and care
