@@ -8,17 +8,17 @@ const categories = [
   {
     title: 'Development',
     icon: '/img/key-hole.svg',
-    href: '/docs/development',
+    href: '/docs/development/overview',
   },
   {
     title: 'Security',
     icon: '/img/key.svg',
-    href: '/docs/security',
+    href: '/docs/security/overview',
   },
   {
     title: 'Testing',
     icon: '/img/bug.svg',
-    href: '/docs/testing',
+    href: '/docs/testing/overview',
   },
 ];
 
@@ -28,7 +28,7 @@ function Home(): React.ReactElement {
   return (
     <Layout
       title={siteConfig.title}
-      description="Wonderland Handbook - Your guide to the ecosystem">
+      description="A curated guide to our best practices, processes, and technical insights.">
       <main className={styles.main}>
         <div className={styles.centerContent}>
           <div className={styles.heroTitle}>
@@ -38,7 +38,7 @@ function Home(): React.ReactElement {
             At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository—a curated guide to our best practices, processes, and technical insights.
           </p>
           <div className={styles.buttonContainer}>
-            <Link to="/docs/intro" className={styles.buttonLink}>
+            <Link to="/docs/intro/welcome" className={styles.buttonLink}>
               <img src="/img/Button.svg" alt="Go down the rabbit hole" className={styles.buttonImage} />
             </Link>
           </div>
