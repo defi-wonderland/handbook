@@ -14,14 +14,14 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
-    {
-      type: 'category',
-      label: 'Introduction',
-      items: ['intro/welcome'],
-    },
+    'intro/welcome',
     {
       type: 'category',
       label: 'Processes',
+      link: {
+        type: 'doc',
+        id: 'processes/overview'
+      },
       items: [
         'processes/overview',
         'processes/project-lifecycle',
@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
           label: 'GitHub',
           items: [
             'processes/github/overview',
-            'processes/github/git-environment',
+            'processes/github/git-environment', 
             'processes/github/git-practices',
             'processes/github/pr-guidelines',
             'processes/github/repo-readiness',
@@ -40,8 +40,12 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category',
+      type: 'category', 
       label: 'Development',
+      link: {
+        type: 'doc',
+        id: 'development/overview'
+      },
       items: [
         'development/overview',
         {
@@ -82,6 +86,10 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Security',
+      link: {
+        type: 'doc',
+        id: 'security/overview'
+      },
       items: [
         'security/overview',
         'security/internal-reviews',
@@ -99,19 +107,18 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Testing',
+      link: {
+        type: 'doc',
+        id: 'testing/overview'
+      },
       items: [
         'testing/overview',
         'testing/campaign-processes',
         'testing/unit-integration',
       ],
     },
-    {
-      type: 'category',
-      label: 'Contribute',
-      items: ['outro/contribute'],
-    },
+    'outro/contribute',
   ],
 };
 
 export default sidebars;
-

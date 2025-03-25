@@ -1,7 +1,8 @@
 ---
-title: Build Safe ✨
+title: Contributing
 sidebar_position: 6
 ---
+
 # Build Safe ✨
 You made it to the end of the handbook and hopefully the beginning of something legendary ✨
 

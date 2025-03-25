@@ -279,6 +279,8 @@ a:hover {
 .theme-doc-sidebar-container {
   background: rgba(14, 21, 44, 0.95) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .menu {
@@ -291,7 +293,9 @@ a:hover {
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 1.5rem;
 }
 
 .menu__link:hover {
@@ -304,14 +308,70 @@ a:hover {
   color: #ffffff;
 }
 
-/* Remove special styling for tutorial sections */
-.menu__link[href^="/docs"],
-.menu__link[href^="/docs/tutorial-intro"],
-.menu__link[href^="/docs/tutorial-basics"],
-.menu__link[href^="/docs/tutorial-extras"] {
-  font-size: 1rem !important;
-  margin-top: 0;
-  margin-bottom: 0;
+/* Category icons - only for main categories */
+.menu__list-item-collapsible .menu__link {
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.menu__list-item-collapsible .menu__link::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  opacity: 0.8;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Process category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
+  background-image: url('/img/processes.svg');
+}
+
+/* Development category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
+  background-image: url('/img/key-hole.svg');
+}
+
+/* Security category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
+  background-image: url('/img/key.svg');
+}
+
+/* Testing category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
+  background-image: url('/img/bug.svg');
+}
+
+.menu__list-item-collapsible .menu__link:hover::before {
+  opacity: 1;
+  filter: brightness(1.2) 
+    drop-shadow(0 0 8px var(--wonderland-blue))
+    drop-shadow(0 0 12px var(--wonderland-pink))
+    drop-shadow(0 0 3px #fff);
+  transform: scale(1.15);
+}
+
+.menu__list-item-collapsible .menu__link--active::before {
+  opacity: 1;
+}
+
+/* Hover effect for the entire menu item */
+.menu__list-item-collapsible .menu__link:hover {
+  color: #ffffff;
+  background: rgba(31, 85, 213, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 20px rgba(233, 91, 155, 0.3);
+}
+
+/* Remove padding for nested items */
+.menu__list-item-collapsible .menu__list .menu__link {
+  padding-left: 1.5rem;
 }
 
 /* Sidebar titles */

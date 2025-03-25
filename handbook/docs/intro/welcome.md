@@ -1,7 +1,8 @@
 ---
-title: Welcome to Wonderland
+title: Introduction
 sidebar_position: 1
 ---
+# Welcome to Wonderland 🐇
 
 At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository: a curated guide to our best practices, processes, and technical insights. We’re proud of the work we do, and we’re committed to fostering transparency and trust within the community.
 
