@@ -21,6 +21,26 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Processes',
+      items: [
+        'processes/overview',
+        'processes/project-lifecycle',
+        {
+          type: 'category',
+          label: 'GitHub',
+          items: [
+            'processes/github/overview',
+            'processes/github/git-environment',
+            'processes/github/git-practices',
+            'processes/github/pr-guidelines',
+            'processes/github/repo-readiness',
+            'processes/github/ssh-setup',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Development',
       items: [
         'development/overview',
@@ -28,7 +48,6 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Frontend',
           items: [
-            'development/frontend/overview',
             'development/frontend/best-practices',
             'development/frontend/onboarding',
           ],
@@ -62,26 +81,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Processes',
-      items: [
-        'processes/overview',
-        'processes/project-lifecycle',
-        {
-          type: 'category',
-          label: 'GitHub',
-          items: [
-            'processes/github/overview',
-            'processes/github/git-environment',
-            'processes/github/git-practices',
-            'processes/github/pr-guidelines',
-            'processes/github/repo-readiness',
-            'processes/github/ssh-setup',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Security',
       items: [
         'security/overview',
@@ -108,8 +107,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Closing',
-      items: ['outro/closing'],
+      label: 'Contribute',
+      items: ['outro/contribute'],
     },
   ],
 };

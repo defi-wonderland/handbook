@@ -149,7 +149,7 @@ In this case, you want to have both being the same ssh key.
 
 Go ahead and try it out now.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/7683bccd-1174-4689-a817-b27fd9d7ef00/19bc92a2-c60b-4eec-98d6-d960c31ea34d/image.png)
+![image.png](/img/thats-too-easy.png)
 
 # References
 
