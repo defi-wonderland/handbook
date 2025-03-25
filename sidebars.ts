@@ -40,7 +40,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category', 
+      type: 'category',
       label: 'Development',
       link: {
         type: 'doc',
@@ -91,7 +91,6 @@ const sidebars: SidebarsConfig = {
         id: 'security/overview'
       },
       items: [
-        'security/overview',
         'security/internal-reviews',
         {
           type: 'category',
@@ -112,7 +111,6 @@ const sidebars: SidebarsConfig = {
         id: 'testing/overview'
       },
       items: [
-        'testing/overview',
         'testing/campaign-processes',
         'testing/unit-integration',
       ],

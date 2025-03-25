@@ -1,22 +1,12 @@
 ---
-<<<<<<< HEAD:docs/outro/contribute.md
-title: Contributing
+title: "Build Safe ✨"
 sidebar_position: 6
 ---
 
-# Build Safe ✨
-You made it to the end of the handbook and hopefully the beginning of something legendary ✨
-
-This is our shared craft. We're constantly refining how we build, test, and coordinate. Your input is part of that process.
-=======
-title: Build Safe ✨
-sidebar_position: 6
----
 # Build Safe ✨
 You made it to the end of the handbook — and hopefully the beginning of something legendary ✨
 
 This isn't just a documentation site — it's our shared craft. We're constantly refining how we build, test, and coordinate — and your input is part of that process.
->>>>>>> dev:handbook/docs/outro/contribute.md
 
 # Contributing Guidelines
 

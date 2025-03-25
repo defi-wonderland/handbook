@@ -1,3 +1,4 @@
+
 # Best Practices
 
 This guide outlines our frontend development best practices. It covers code quality standards, GitHub workflows, and security measures to help us build robust, maintainable, and secure frontend applications.

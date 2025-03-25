@@ -132,16 +132,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.3rem;
 }
 
-<<<<<<< HEAD:src/css/custom.css
 /* Paragraphs */
 p, .theme-doc-markdown, .markdown {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 400;
-=======
-/* Paragraph spacing */
-p {
-  font-weight: 300;
->>>>>>> dev:handbook/src/css/custom.css
   line-height: 1.6;
   margin-bottom: 0.3rem;
 }
@@ -299,13 +293,9 @@ a:hover {
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
-<<<<<<< HEAD:src/css/custom.css
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   position: relative;
   padding-left: 1.5rem;
-=======
-  transition: color 0.2s ease;
->>>>>>> dev:handbook/src/css/custom.css
 }
 
 .menu__link:hover {
@@ -318,7 +308,6 @@ a:hover {
   color: #ffffff;
 }
 
-<<<<<<< HEAD:src/css/custom.css
 /* Category icons - only for main categories */
 .menu__list-item-collapsible .menu__link {
   padding-left: 2rem;
@@ -400,28 +389,6 @@ a:hover {
 .menu__list-item-collapsible .menu__link {
   font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
   font-weight: 600;
-=======
-/* Remove special styling for tutorial sections */
-.menu__link[href^="/docs"],
-.menu__link[href^="/docs/tutorial-intro"],
-.menu__link[href^="/docs/tutorial-basics"],
-.menu__link[href^="/docs/tutorial-extras"] {
-  font-size: 1rem !important;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* Make category headers consistent */
-.menu__list-item-collapsible .menu__link {
-  font-size: 1rem !important;
-  font-weight: 300;
-}
-
-/* Ensure nested items have consistent styling */
-.menu__list-item .menu__list .menu__link {
-  font-size: 1rem !important;
-  font-weight: 300;
->>>>>>> dev:handbook/src/css/custom.css
 }
 
 /* Table of contents */
@@ -604,7 +571,7 @@ div[class*='buttonGroup'],
 /* Fix sidebar appearing behind content on mobile */
 @media (max-width: 996px) {
   .navbar-sidebar {
-    z-index: 9999 !important; /* Make sure it’s on top */
+    z-index: 9999 !important; /* Make sure it's on top */
     position: fixed !important;
     top: 0;
     left: 0;
