@@ -76,6 +76,16 @@ const config: Config = {
       theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
     },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

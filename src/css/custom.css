@@ -394,12 +394,46 @@ a:hover {
 
 /* Table of contents */
 .table-of-contents {
-  border-left-color: rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-of-contents__link {
+  display: block;
+  padding: 0.4rem 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateX(4px);
 }
 
 .table-of-contents__link--active {
-  color: var(--wonderland-blue) !important;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Make TOC sticky on desktop */
+@media (min-width: 997px) {
+  .theme-doc-toc {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflow-y: auto;
+  }
+}
+
+/* Hide TOC on mobile in a clean way */
+@media (max-width: 996px) {
+  .theme-doc-toc {
+    display: none;
+  }
 }
 
 /* Breadcrumbs */
@@ -595,5 +629,40 @@ div[class*='buttonGroup'],
     position: relative;
     z-index: 0 !important;
   }
+}
+
+/* Sidebar collapse button styling */
+.theme-doc-sidebar-container button[class*='collapseSidebarButton'] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  margin: 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(14, 21, 44, 0.95);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton'] svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover svg {
+  transform: scale(1.1);
 }
 
