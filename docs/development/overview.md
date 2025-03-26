@@ -4,7 +4,7 @@ sidebar_position: 1
 pagination_next: development/frontend/best-practices
 ---
 
-# How we build 
+# Welcome to the Development Section 👩‍💻 
 
 We live in a space where code is law, and law is fragile.
 

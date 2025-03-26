@@ -44,32 +44,30 @@ const sidebars: SidebarsConfig = {
       label: 'Development',
       link: {
         type: 'doc',
-        id: 'development/overview'
+        id: 'development/overview',
       },
       items: [
         'development/overview',
         {
           type: 'category',
-          label: 'Frontend',
-          items: [
-            'development/frontend/best-practices',
-            'development/frontend/onboarding',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Offchain',
-          items: [
-            'development/offchain/best-practices',
-            'development/offchain/onboarding',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Research',
           items: [
-            'development/research/onboarding',
+            'development/research/overview',
             'development/research/technical-writing',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/research/onboarding/overview',
+                {
+                  type: 'category',
+                  label: 'Knowledge Base',
+                  items: [
+                    'development/research/onboarding/knowledge-base/overview',
+                  ],
+                },
+              ],
+            },
           ],
         },
         {
@@ -78,7 +76,58 @@ const sidebars: SidebarsConfig = {
           items: [
             'development/solidity/coding-style',
             'development/solidity/natspec',
-            'development/solidity/onboarding/getting-started',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/solidity/onboarding/getting-started',
+                'development/solidity/onboarding/knowledge-base',
+                {
+                  type: 'category',
+                  label: 'Challenges',
+                  items: [
+                    'development/solidity/onboarding/challenges/overview',
+                    'development/solidity/onboarding/challenges/swapper',
+                    'development/solidity/onboarding/challenges/oracle-relayer',
+                    'development/solidity/onboarding/challenges/flashloan',
+                    'development/solidity/onboarding/challenges/security-challenges',
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Offchain',
+          items: [
+            'development/offchain/best-practices',
+            'development/offchain/rpc-request',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/offchain/onboarding/overview',
+                'development/offchain/onboarding/knowledge-base',
+                'development/offchain/onboarding/challenge',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Frontend',
+          items: [
+            'development/frontend/best-practices',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/frontend/onboarding/overview',
+                'development/frontend/onboarding/front-knowledge-base',
+                'development/frontend/onboarding/frontend-dev-challenge',
+              ],
+            },
           ],
         },
       ],

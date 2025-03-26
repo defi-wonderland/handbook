@@ -666,3 +666,97 @@ div[class*='buttonGroup'],
   transform: scale(1.1);
 }
 
+/* Magical card hover effects */
+.docCard {
+  background: rgba(14, 21, 44, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 rgba(31, 85, 213, 0);
+}
+
+.docCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.docCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(233, 91, 155, 0.4),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.docCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.docCard:hover::before,
+.docCard:hover::after {
+  opacity: 1;
+}
+
+.docCard article {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
+}
+
+.docCard h2 {
+  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.docCard:hover h2 {
+  background: linear-gradient(90deg, #E95B9B, #FECC40);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(4px);
+  text-shadow: 0 0 20px rgba(233, 91, 155, 0.5);
+}
+
+.docCard svg {
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.docCard:hover svg {
+  transform: scale(1.1) rotate(-5deg);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Add mouse tracking for cards */
+.docCard {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Add this script to track mouse position */
+
