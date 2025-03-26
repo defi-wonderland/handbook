@@ -11,8 +11,6 @@ Limit order books serve as the foundation of modern financial markets, enabling 
 
 The aim of this article is to provide an overview of limit order books, from basic concepts to advanced mechanics. It also introduces some key terminology and market behaviours. Apart from that, we encourage you to read the resources at the end of the article.
 
----
-
 ## The Role of Markets
 
 A functional market requires both buyers and sellers. Whether at a farmers' market or a stock exchange, transactions occur when both parties agree on a price. Financial exchanges consolidate all trading activity in a centralized location, enabling two fundamental processes:

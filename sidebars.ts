@@ -75,7 +75,9 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'DeFi',
                       items: [
-                        'development/research/onboarding/knowledge-base/defi/limit-order'
+                        'development/research/onboarding/knowledge-base/defi/limit-order',
+                        'development/research/onboarding/knowledge-base/defi/amm',
+                        'development/research/onboarding/knowledge-base/defi/lending-protocol'
                       ]
                     },
                     {

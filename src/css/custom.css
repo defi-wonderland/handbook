@@ -100,7 +100,7 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
@@ -108,25 +108,58 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.3rem;
 }
 
+h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
 /* Specific heading styles */
 .theme-doc-markdown h1 {
+  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-style: italic;
-  font-size: 3.5rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
+  font-size: 4.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .theme-doc-markdown h2 {
-  font-style: italic;
-  font-size: 2.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-size: 2rem;
   margin-top: 0.6rem;
   margin-bottom: 0.3rem;
   padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h3 {
-  font-style: italic;
-  font-size: 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h4 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h5 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.1rem;
   margin-top: 0.6rem;
   margin-bottom: 0.3rem;
   padding-bottom: 0.3rem;
@@ -759,4 +792,48 @@ div[class*='buttonGroup'],
 }
 
 /* Add this script to track mouse position */
+
+/* Rabbit hole button styling */
+.rabbit-hole-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.rabbit-hole-button:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 0 20px rgba(31, 85, 213, 0.2),
+    0 0 30px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.rabbit-hole-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(233, 91, 155, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.rabbit-hole-button:hover::before {
+  opacity: 1;
+}
 
