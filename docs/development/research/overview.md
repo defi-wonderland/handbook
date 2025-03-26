@@ -1,4 +1,4 @@
-# Research Overview
+# Overview
 
 Welcome to the Research section of our handbook. This section covers our research processes, technical writing guidelines, and onboarding materials for new research team members.
 

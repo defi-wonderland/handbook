@@ -64,8 +64,66 @@ const sidebars: SidebarsConfig = {
                   label: 'Knowledge Base',
                   items: [
                     'development/research/onboarding/knowledge-base/overview',
+                    {
+                      type: 'category',
+                      label: 'Basics',
+                      items: [
+                        'development/research/onboarding/knowledge-base/basics/tokenomics'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'DeFi',
+                      items: [
+                        'development/research/onboarding/knowledge-base/defi/limit-order'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Intermediate',
+                      items: [
+                        'development/research/onboarding/knowledge-base/intermediate/solidity'
+                      ]
+                    }
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Challenges',
+                  items: [
+                    'development/research/onboarding/challenges/overview',
+                    {
+                      type: 'category',
+                      label: 'Basic',
+                      items: [
+                        'development/research/onboarding/challenges/basic/game-theory',
+                        'development/research/onboarding/challenges/basic/tokenomics'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Intermediate',
+                      items: [
+                        'development/research/onboarding/challenges/intermediate/cryptography',
+                        'development/research/onboarding/challenges/intermediate/solidity'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'DeFi',
+                      items: [
+                        'development/research/onboarding/challenges/defi/defi'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Core',
+                      items: [
+                        'development/research/onboarding/challenges/core/core'
+                      ]
+                    }
+                  ]
+                }
               ],
             },
           ],
