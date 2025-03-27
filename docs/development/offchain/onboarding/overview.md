@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-# **Welcome to the Offchain Onboarding**
+# Welcome to the Offchain Onboarding 
 
 This onboarding process is designed to provide you with the necessary knowledge, best practices, and development standards required to contribute effectively to our projects.
 
