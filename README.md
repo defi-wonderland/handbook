@@ -52,3 +52,5 @@ The handbook is automatically deployed to Vercel when changes are pushed to the 
 2. Make your changes in the `handbook/docs` directory
 3. Test locally using `npm run start`
 4. Submit a pull request
+
+If you have any ideas for improving the handbook, feel free to open an issue (check the templates!) to start a discussion! 
