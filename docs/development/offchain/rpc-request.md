@@ -171,7 +171,7 @@ A sample working version of this method can be found at  https://github.com/defi
 - ✅ Tenderly Web3 Gateways
 - ✅ Hardhat
 - ✅ Ankr
-- ✅ LlamasNodes
+- ✅ LlamaNodes
 - ❎ Anvil
 
 # Real-life examples
