@@ -93,5 +93,5 @@ Once the War Room is set up, a checklist ensures every critical step is covered:
 Parallel actions—web changes, external communication, and protocol fixes—run alongside each other, tracked in the war room. Afterward, teams document all findings, transactions, timelines, attacker data, to wrap up the incident, create necessary post-mortem reports, and plan any future improvements.
 
 <div style={{textAlign: "center"}}>
-  <img src="/img/project-lifecycle.png" alt="project-lifecycle" width={600} />
+  <img src="/img/project-lifecycle-meme.png" alt="project-lifecycle" width={600} />
 </div>

@@ -1,6 +1,12 @@
-# Overview
+---
+id: research-overview
+title: Overview
+sidebar_position: 1
+---
 
-Welcome to the Research section of our handbook. This section covers our research processes, technical writing guidelines, and onboarding materials for new research team members.
+# Research Overview
+
+Welcome to the Research section of our development documentation. This section covers our research methodologies, ongoing projects, and findings in the DeFi space.
 
 ## What's Inside
 

@@ -52,7 +52,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Research',
           items: [
-            'development/research/overview',
+            'development/research/research-overview',
             'development/research/technical-writing',
             {
               type: 'category',
@@ -73,6 +73,13 @@ const sidebars: SidebarsConfig = {
                     },
                     {
                       type: 'category',
+                      label: 'Intermediate',
+                      items: [
+                        'development/research/onboarding/knowledge-base/intermediate/solidity'
+                      ]
+                    },
+                    {
+                      type: 'category',
                       label: 'DeFi',
                       items: [
                         'development/research/onboarding/knowledge-base/defi/limit-order',
@@ -82,9 +89,9 @@ const sidebars: SidebarsConfig = {
                     },
                     {
                       type: 'category',
-                      label: 'Intermediate',
+                      label: 'Core',
                       items: [
-                        'development/research/onboarding/knowledge-base/intermediate/solidity'
+                        'development/research/onboarding/knowledge-base/core/evm'
                       ]
                     }
                   ],

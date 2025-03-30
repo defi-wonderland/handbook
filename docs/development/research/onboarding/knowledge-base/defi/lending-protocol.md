@@ -1,4 +1,4 @@
-# Lending Protocol
+# Lending Protocols
 
 As you probably know, lending markets are a cornerstone of TradFi and DeFi. In any financial system, lenders provide capital to borrowers in exchange for interest on the loan. Traditionally, banks and financial institutions intermediate this process — they take deposits and lend them out, profiting from the interest rate spread. These *money markets* offer instruments like loans, bonds or repurchase agreements to facilitate short-term lending and borrowing needs.
 
