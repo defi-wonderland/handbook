@@ -1,8 +1,9 @@
 # Git Practices 
 
-Here we will discuss the processes and best practices to implement on the software management side.
+Here we'll explore our approach to code management and development workflows. These guidelines help us maintain clean, organized repositories while keeping our development process efficient.
 
 # Repository Settings
+
 - [ ] Disable "Allow rebase merging"
 - [ ] Enable "Automatically delete head branches"
 - [ ] Enable "Always suggest updating pull request branches"
@@ -35,11 +36,18 @@ When working on a new feature we will create a new branch (`feat/my-feature`) us
 
 - If it's a small feature, we should be fine working and pushing the commits to this new branch directly (`feat/my-feature`)
 - If it's a big feature, we should think about splitting the task in different sub-branches. This way we can have smaller PRs from `sub-branches` to `feat/my-feature`  at different stages of the development. So instead of having people reviewing one massive PR, we will provide smaller PRs. This is also beneficiary for the developers since the chances of catching an early error are higher with this approach.
+
 Let’s admit it: Reviewing 50 files changed in a PR **WILL NOT BE A GOOD REVIEW.**
+
+<div align="center">
+  <img src="/img/pr-meme.png" width="900" />
+</div>
 
 Once the feature is finished, it will be merged to `dev` (base branch) and the project’s workflow will continue. Different projects will have different workflows.
 
-![git-flow](/img/flow-pr.png)
+<div align="center">
+  <img src="/img/flow-pr.png" alt="git-flow" />
+</div>
 
 # Branches and commits naming
 

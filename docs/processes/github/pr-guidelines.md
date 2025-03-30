@@ -1,6 +1,6 @@
 # Pull Requests
 
-The guideline shall assign clear responsibilities to each party involved in a pull request.
+These guidelines outline the roles, responsibilities and best practices for all parties involved in the pull request process. By following these guidelines, we ensure efficient code review, maintain high code quality, and facilitate smooth collaboration between contributors and reviewers.
 
 ## Contributor
 

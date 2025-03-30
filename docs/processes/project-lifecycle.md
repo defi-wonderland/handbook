@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 # *Immutable code means we have one chance to get it right.*
 
-Our project lifecycle systematically eliminates vulnerabilities at every stage. Each phase—from initial design to final deployment—adds a validation layer. **No assumption goes unverified, no edge case is unexplored.**
+Our project lifecycle systematically eliminates vulnerabilities at every stage. Each phase, from initial design to final deployment, adds a validation layer. **No assumption goes unverified, no edge case is unexplored.**
 
 Users trust their assets to our code, and we take quality seriously. **Quality is paramount for us**, so we strive to exceed expectations in all aspects of our development process, including writing automated tests, creating comprehensive documentation, implementing effective monitoring systems, and more. Our development process is divided into:
 
@@ -34,7 +34,7 @@ Wonderland development team is ready and eager to hit the ground running. Throug
 
 All our partners have a front-row seat to the action through a real-time view of all development tasks on our project management board.
 
-We strive to follow strict [code quality and style guidelines](https://www.notion.so/Wonderland-Solidity-Style-Guide-c5d8e9f8fa1349a797e30e1f053d130e?pvs=21) while accommodating our partner’s preferred coding style to the best of our capacity. We will also contribute with suggestions for code-base improvements, even if they exceed the project’s defined scope.
+We strive to follow strict [code quality and style guidelines](/development/solidity/coding-style.md) while accommodating our partner’s preferred coding style to the best of our capacity. We will also contribute with suggestions for code-base improvements, even if they exceed the project’s defined scope.
 
 - **More than 100% test coverage:** All agreed test suites from the tech design must be completed. Sometimes, 100% coverage isn’t enough, so we include fuzzing, E2E edge cases, and invariant tests. Here’s an example: https://github.com/allo-protocol/allo-v2/tree/v2.1/test
 - **Automated alerts & monitoring dashboards:** Every metric outlined in the tech design is tracked via a dashboard, for example, [Dune](https://dune.com/defi_wonderland/mev-bots) or [Grafana](https://snapshots.raintank.io/dashboard/snapshot/pdIYOBrhqixu0lpidVXH4dsEF1iwclMO?orgId=2). We’ll help set up any required infrastructure if needed, and alerts will be configured to speed up issue response times.
@@ -52,8 +52,7 @@ As mentioned before, we take our work seriously. Testing at Wonderland is a cont
 During development, each Solidity developer is responsible for writing unit and integration tests. These tests aim to cover all major branches and paths of the logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on network forks to replicate real-world behavior. This *QA phase* ensures continuous monitoring and improvement of the protocol as it evolves.
 
 Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios—finalizing the testing process before the protocol moves into production.
-
-For further reading on how we do testing, see [Testing Campaign Processes](https://www.notion.so/Testing-Campaign-Processes-1359a4c092c781acad22f0fb9322632b?pvs=21) and [Unit and Integration Testing ](https://www.notion.so/Unit-and-Integration-Testing-1359a4c092c7814ba93afac246d451f4?pvs=21).
+For further reading on how we do testing, see [Testing Campaign Processes](/testing/campaign-processes.md) and [Unit and Integration Testing](/testing/unit-integration.md).
 
 # Internal Reviews 🔍 
 
@@ -61,7 +60,7 @@ Millions of dollars rely on the security of on-chain code, and history proves ev
 
 Our internal review process kicks in once development is finished and the code is *frozen.* A specialized Security Team (or developers who switch to an attacking mindset) meticulously examines the code for bugs, logic flaws, and opportunities to improve best practices and security. If critical issues are found, we conduct internal post-mortems to learn how they went unnoticed, then immediately fix and recheck before delivering the revised code to external auditors. This multi-layered approach—coupled with thoughtful fix management, code-based complexity estimates, and thorough post-review analysis—helps us produce robust and resilient protocols.
 
-For complete details, refer to [Internal Reviews](https://www.notion.so/Internal-Reviews-1589a4c092c78015948ce096dcbff31b?pvs=21).
+For complete details, refer to [Internal Reviews](/security/internal-reviews.md).
 
 Every fix is checked by the testing and security team.
 
@@ -92,3 +91,7 @@ Once the War Room is set up, a checklist ensures every critical step is covered:
 - Enact short-term measures, like pausing contracts or disabling parts of the frontend
 
 Parallel actions—web changes, external communication, and protocol fixes—run alongside each other, tracked in the war room. Afterward, teams document all findings, transactions, timelines, attacker data, to wrap up the incident, create necessary post-mortem reports, and plan any future improvements.
+
+<div style={{textAlign: "center"}}>
+  <img src="/img/project-lifecycle.png" alt="project-lifecycle" width={600} />
+</div>

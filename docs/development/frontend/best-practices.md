@@ -2,6 +2,12 @@
 
 This guide outlines our frontend development best practices. It covers code quality standards, GitHub workflows, and security measures to help us build robust, maintainable, and secure frontend applications.
 
+<div align="center">
+  <img src="/img/frontend-meme.png" width="900" alt="A panda developer frustrated with code, then realizing the importance of following best practices" />
+</div>
+
+We've all been there: staring at confusing code and wondering "why?". That's exactly why we maintain these best practices. They help turn those "why???" moments into "aha!" moments by providing clear, consistent patterns and guidelines for our codebase.
+
 ## Code Quality
 
 ### Avoid Logic in the Render Section of React Components
@@ -205,38 +211,38 @@ Depending on the chosen component (in this case, a button), it will function the
 
 ### Use [**``theme``**](https://mui.com/system/experimental-api/css-theme-variables/#usage) property and dark/light mode from the MUI context
 
-When implementing colors from a theme, it's important to use the defined theme variables rather than hardcoding color values in HEX or RGB. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette. 
+When implementing colors from a theme, it's important to use the defined theme variables rather than hardcoding color values in HEX or RGB. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette. 
 
-This promotes greater consistency across the project.
+This promotes greater consistency across the project.
 
-Here's an example to illustrate this concept:
+Here's an example to illustrate this concept:
 
 **Bad:**
 ```jsx
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
-const BadButton = styled("button")({
-	backgroundColor: "#ff5733", // BAD: Hardcoded HEX color
-	color: "#fff",
-	padding: "0.5rem 1rem",
-	border: "none",
-	borderRadius: "4px",
+const BadButton = styled("button")({
+	backgroundColor: "#ff5733", // BAD: Hardcoded HEX color
+	color: "#fff",
+	padding: "0.5rem 1rem",
+	border: "none",
+	borderRadius: "4px",
 });
 ```
 
 **Good:**
 
-In this example, the button's background color is set using a theme variable, allowing it to adapt to theme changes:
+In this example, the button's background color is set using a theme variable, allowing it to adapt to theme changes:
 
 ```jsx
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 
-const GoodButton = styled("button")(({ theme }) => ({
-	backgroundColor: theme.palette.secondaryBackground.default, // GOOD: Uses theme variable
-	color: theme.palette.text.primary,
-	padding: "0.5rem 1rem",
-	border: "none",
-	borderRadius: "4px",
+const GoodButton = styled("button")(({ theme }) => ({
+	backgroundColor: theme.palette.secondaryBackground.default, // GOOD: Uses theme variable
+	color: theme.palette.text.primary,
+	padding: "0.5rem 1rem",
+	border: "none",
+	borderRadius: "4px",
 }));
 ```
 

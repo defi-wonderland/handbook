@@ -1,8 +1,8 @@
 # Git Enviroment
 
-**Security Recommendation**
-
+:::tip
 The most secure approach is to create a separate user account on your computer for your anonymous profile, completely isolating it from your personal one. **This provides the strongest separation of concerns and security.**
+:::
 
 The following guide describes how to configure both profiles under a single user account if you choose not to create a separate user. However, be aware this is less secure than full user isolation.
 
@@ -241,13 +241,13 @@ git config --global commit.gpgsign true
 git config --global --list | grep gpg
 ```
 
-1. Ensure GPG agent is running:
+2. Ensure GPG agent is running:
 
 ```bash
 gpg-agent --daemon
 ```
 
-1. Test GPG signing:
+3. Test GPG signing:
 
 ```bash
 echo "test" | gpg --clearsign
@@ -263,7 +263,7 @@ ssh-add ~/.ssh/personal/id_ed25519
 ssh-add ~/.ssh/defi/id_ed25519
 ```
 
-1. Verify key permissions:
+2. Verify key permissions:
 
 ```bash
 chmod 600 ~/.ssh/personal/id_ed25519
