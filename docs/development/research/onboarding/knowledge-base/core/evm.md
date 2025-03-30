@@ -64,11 +64,11 @@ You might be asking: why should I care? And the answer is that a good mental mod
 
 ## Contracts
 
-Contracts in Ethereum are not *“launched and run somewhere else”*—they are **deployed** to the EVM, then **invoked** by transactions or message calls. Let’s break this down:
+Contracts in Ethereum are not *"launched and run somewhere else"*—they are **deployed** to the EVM, then **invoked** by transactions or message calls. Let's break this down:
 
 - **Contract Creation**
     - A special transaction with `to = null` is used to deploy code.
-    - During creation, an **init code** segment runs to set up the contract’s storage or code. The final code is then stored at the address.
+    - During creation, an **init code** segment runs to set up the contract's storage or code. The final code is then stored at the address.
         
         We recommend you to watch this video : ) 👇
         
@@ -86,7 +86,7 @@ Contracts in Ethereum are not *“launched and run somewhere else”*—they are
 
 ## Examples
 
-To give a flavor of how this looks under the hood, here’s a simplified snippet focusing on `SSTORE`:
+To give a flavor of how this looks under the hood, here's a simplified snippet focusing on `SSTORE`:
 
 ```nasm
 # Pseudocode for storing a value in contract storage:
@@ -98,7 +98,7 @@ SSTORE
 - **Gas Implications**: Storing a non-zero value in an empty slot costs significantly more (20,000 gas pre-London adjustments) than updating a slot from non-zero to another non-zero.
 - **Memory vs. Storage**: If a contract just needs data during execution, storing it in **memory** is cheaper. But for cross-transaction persistence, you need **storage**.
 
-For a deeper discussion of how these operations are priced, see the Appendix G in the *Yellow Paper* or [learnevm’s Working with Memory and Storage.](https://learnevm.com/chapters/evm/memory)
+For a deeper discussion of how these operations are priced, see the Appendix G in the *Yellow Paper* or [learnevm's Working with Memory and Storage.](https://learnevm.com/chapters/evm/memory)
 
 This was a short introduction, we encorage you to read https://cypherpunks-core.github.io/ethereumbook/13evm.html and the references that have been attached.  
 
@@ -108,14 +108,14 @@ This was a short introduction, we encorage you to read https://cypherpunks-core.
 
 At its heart, Ethereum is a **transaction-based state machine**. Each transaction modifies a global state (balances, storage, etc.), and blocks group these transactions in an orderly sequence.
 
-**State Evolves Block by Block:** Each block includes a set of valid transactions, and the network collectively “*executes*” these on top of the previous state to arrive at a new state. [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf) (Ch. 4 & 5) and the [Ethereum Gitbook](https://cypherpunks-core.github.io/ethereumbook/02intro.html) detail how balances, contract storage, and code get updated deterministically.
+**State Evolves Block by Block:** Each block includes a set of valid transactions, and the network collectively "*"executes*" these on top of the previous state to arrive at a new state. [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf) (Ch. 4 & 5) and the [Ethereum Gitbook](https://cypherpunks-core.github.io/ethereumbook/02intro.html) detail how balances, contract storage, and code get updated deterministically.
 
 **Block Structure: a b**locks contain:
 
 - A **header** (metadata like parent block hash, timestamp, base fee).
 - A **list of transactions**.
 - (Post-merge) A set of **withdrawals** for PoS validators.
-- An (unused) “ommers” field, legacy from PoW.
+- An (unused) "ommers" field, legacy from PoW.
 
 If you want to dive deep into this, the [Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf), sections 4 & 11, rigorously define the block header fields (e.g., `stateRoot`, `transactionsRoot`, `receiptsRoot`) and how they point to tries that represent the world state, transactions, and transaction receipts.
 
@@ -123,7 +123,7 @@ Understanding this state transition mechanism is key to analyzing **transaction 
 
 ## Consensus & Forks
 
-Historically, Ethereum started with **proof-of-work (PoW)**—similar to Bitcoin’s approach—but later transitioned to **proof-of-stake (PoS)** via *The Merge*. This shift changed how blocks are proposed and finalized.
+Historically, Ethereum started with **proof-of-work (PoW)**—similar to Bitcoin's approach—but later transitioned to **proof-of-stake (PoS)** via *The Merge*. This shift changed how blocks are proposed and finalized.
 
 1. **Proof of Work to Proof of Stake**
     - Under [PoW](https://youtu.be/bBC-nXj3Ng4?t=870), miners expended computational resources solving cryptographic challenges, securing the chain in return for block rewards.
@@ -138,37 +138,37 @@ See https://inevitableeth.com/home/ethereum/network/consensus/PoW-vs-PoS for ref
 
 # The Network
 
-While the EVM and the blockchain provide Ethereum’s computational and data-security layers, **the network** is what ties it all together globally. Nodes discover each other, exchange transactions, and synchronize new blocks—ensuring a single coherent state.
+While the EVM and the blockchain provide Ethereum's computational and data-security layers, **the network** is what ties it all together globally. Nodes discover each other, exchange transactions, and synchronize new blocks—ensuring a single coherent state.
 
 ## The P2P Layer
 
 We need to discover nodes, right? For doing that, Ethereum relies on the devp2p protocol suite, which covers everything from initial node discovery to encrypted data transport. This has been introduced in the EIP-8, as an overview:
 
-1. Node Discovery: Uses a kademlia-like protocol (UDP based) to find peers. Once discovered, a node’s identity and capabilities are exchanged, so others know which subprotocols you support.
+1. Node Discovery: Uses a kademlia-like protocol (UDP based) to find peers. Once discovered, a node's identity and capabilities are exchanged, so others know which subprotocols you support.
 2. Peer connections & devp2p RLPx: After discovery, nodes set up an encrypted TCP session using RLPx, with ephemeral key exchange.
     
     They will do a handshake, exchanging a Hello —or *Status*— message. EIP-8 ensures that version mismatches or extra list elements do not break the handshake — older nodes can interoperate with newer devp2p versions.
     
-    The handshake and subsequent devp2p messages are encoded in RLP (Recursive Length Prefix). Extra fields or new versions can be gracefully ignored if the node doesn’t recognize them.
+    The handshake and subsequent devp2p messages are encoded in RLP (Recursive Length Prefix). Extra fields or new versions can be gracefully ignored if the node doesn't recognize them.
     
 
 :::info
-**Ref. [EIP-8](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-8.md)** – Explains the relaxed decoding rules for devp2p “hello” packets, RLPx discovery, and ephemeral key negotiation. This approach was critical for pushing future upgrades like RLPx v5 without fracturing the network.
+**Ref. [EIP-8](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-8.md)** – Explains the relaxed decoding rules for devp2p "hello" packets, RLPx discovery, and ephemeral key negotiation. This approach was critical for pushing future upgrades like RLPx v5 without fracturing the network.
 :::
 
 1. Message Gossiping: once the handshake completes, nodes gossip new transactions, blocks, receipts, etc. as part of the eth subprotocol. So that the entire network quickly sees fresh data and coverages on a canonical chain. 
 
 ## Client Diversity
 
-**As you probably know, clients a**re software implementations that speak the protocol’s rules. Having multiple clients fosters resilience against bugs and centralization:
+**As you probably know, clients a**re software implementations that speak the protocol's rules. Having multiple clients fosters resilience against bugs and centralization:
 
 - **Prominent Clients**
     - **Geth** (Go-Ethereum) – Historically the most used.
     - **Prysm, Lighthouse, Teku** – Clients for the PoS consensus layer (Beacon chain).
     - **Nethermind**, **Besu**, and (formerly) **OpenEthereum** – Additional choices with various performance trade-offs.
 - **Why Multiple Clients?**
-    - A single reference client (like “Bitcoin Core”) can become a single point of failure.
-    - If one client’s implementation has a consensus bug, others might reject it, preventing chain-wide meltdown.
+    - A single reference client (like "Bitcoin Core") can become a single point of failure.
+    - If one client's implementation has a consensus bug, others might reject it, preventing chain-wide meltdown.
 
 :::info
 Deeper info in https://cypherpunks-core.github.io/ethereumbook/03clients.html
@@ -181,21 +181,21 @@ Deeper info in https://cypherpunks-core.github.io/ethereumbook/03clients.html
 When you first run an Ethereum client, it **syncs** from the genesis block to the tip:
 
 - **Full Sync** (in older versions) – Download every block and execute all transactions.
-- **Fast Sync** or **Snap Sync** – Trust the state root after some checkpoint and fetch the state tries or “snapshots” on demand.
+- **Fast Sync** or **Snap Sync** – Trust the state root after some checkpoint and fetch the state tries or "snapshots" on demand.
 - **Light Clients** – Only download block headers and request proofs for specific state data, minimal disk usage.
 
 ### Network Upgrades
 
-Ethereum’s approach to protocol evolution includes **hard forks**:
+Ethereum's approach to protocol evolution includes **hard forks**:
 
 - **Block number or TTD triggers**
-    - e.g., “Byzantium” fork at block 4,370,000 (PoW era).
+    - e.g., "Byzantium" fork at block 4,370,000 (PoW era).
     - *The Merge* triggered by the Terminal Total Difficulty (TTD) instead of block number.
-- **Backward-incompatible changes** require node upgrades. Non-upgraded nodes follow the old chain, forming a fork if there’s disagreement (like the classic “DAO fork”).
+- **Backward-incompatible changes** require node upgrades. Non-upgraded nodes follow the old chain, forming a fork if there's disagreement (like the classic "DAO fork").
 
 ## Takeaways
 
-So, as a takeaway, the network can be seen as the “circulatory system,” it carries blocks, transactions, and state across thousands of nodes. Node diversity ensures resilience, while a robust devp2p protocol ensures timely data propagation. For a researcher, comprehending how nodes discover each other, gossip transactions, and keep the chain in sync helps you:
+So, as a takeaway, the network can be seen as the "circulatory system," it carries blocks, transactions, and state across thousands of nodes. Node diversity ensures resilience, while a robust devp2p protocol ensures timely data propagation. For a researcher, comprehending how nodes discover each other, gossip transactions, and keep the chain in sync helps you:
 
 - Pinpoint potential **latency-based** attack vectors.
 - Evaluate finality times or block distribution for advanced protocols.
@@ -209,11 +209,11 @@ Ethereum Improvement Proposals are the way we propose protocol upgrades, applica
 
 ## What are EIPs, and why do they matter?
 
-**An EIP** is a design document for introducing or discussing changes in Ethereum. Authors describe the motivation, the specification, and (often) a reference implementation. Whether it’s a fundamental shift in the core protocol (like [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)) or a contract standard —they are ERCs now—, EIPs are the “source of truth.”
+**An EIP** is a design document for introducing or discussing changes in Ethereum. Authors describe the motivation, the specification, and (often) a reference implementation. Whether it's a fundamental shift in the core protocol (like [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)) or a contract standard —they are ERCs now—, EIPs are the "source of truth."
 
 - **They are community-driven:** Anyone can propose an EIP by opening a Pull Request on the [ethereum/EIPs GitHub repository](https://github.com/ethereum/EIPs). It is then discussed on forums such as Ethereum Magicians, ensuring open debate and iteration.
-- **It tries to achieve a consensus at scale:** Critical “Core” EIPs (e.g., changing consensus rules) must achieve near-universal buy-in from client developers, node operators, and the broader community. This distributed acceptance is fundamental to the Ethereum ethos of permissionless evolution.
-- **Historically anchored:** EIP-1 launched in 2015, based on Bitcoin’s BIP process. This has since grown into a robust system for documenting changes, from large upgrades (The Merge) to small meta-proposals like EIP-5757, which clarifies how external resources can be referenced by EIPs.
+- **It tries to achieve a consensus at scale:** Critical "Core" EIPs (e.g., changing consensus rules) must achieve near-universal buy-in from client developers, node operators, and the broader community. This distributed acceptance is fundamental to the Ethereum ethos of permissionless evolution.
+- **Historically anchored:** EIP-1 launched in 2015, based on Bitcoin's BIP process. This has since grown into a robust system for documenting changes, from large upgrades (The Merge) to small meta-proposals like EIP-5757, which clarifies how external resources can be referenced by EIPs.
 
 ## The EIP Lifecycle
 
@@ -229,17 +229,17 @@ An EIP typically moves through these stages:
     - The EIP is refined publicly, with the community (and EIP editors) giving feedback for at least 45 days.
     - If it gains traction and thorough discussion, an editor can move it to **Last Call**.
 4. **Last Call**
-    - The final chance for any major change. Typically lasts 14 days unless there’s a substantial revision.
+    - The final chance for any major change. Typically lasts 14 days unless there's a substantial revision.
     - If no major objection arises, the EIP can be marked **Final**.
 5. **Final**
-    - Means “it’s done on paper.” For a **Core** EIP, being Final does **not** guarantee immediate activation on the network. Instead, it often waits for an upcoming upgrade (fork) that includes it.
-    - Some EIPs remain “finalized” only on an application level (e.g., an ERC standard that dApps can optionally adopt).
+    - Means "it's done on paper." For a **Core** EIP, being Final does **not** guarantee immediate activation on the network. Instead, it often waits for an upcoming upgrade (fork) that includes it.
+    - Some EIPs remain "finalized" only on an application level (e.g., an ERC standard that dApps can optionally adopt).
 
 Additionally:
 
-- **Stagnant**: If there’s no activity for 6+ months, the EIP becomes inactive.
+- **Stagnant**: If there's no activity for 6+ months, the EIP becomes inactive.
 - **Withdrawn**: The author retracts it.
-- **Living**: A special permanent-draft status for “evergreen” EIPs like EIP-1.
+- **Living**: A special permanent-draft status for "evergreen" EIPs like EIP-1.
 
 :::tip
 It is *super* useful to be updated with the EIPs, for doing that, we recommend you check out [EIPs.wtf](https://www.eips.wtf/), [EIP.Fun](http://EIP.Fun) and [EIPs Insight](https://eipsinsight.com/). Also, if interested in discussing, you should refer to [Ethereum Magicians Forum](https://ethereum-magicians.org/) —it is the primary place to discuss EIPs with other devs/researchers.
@@ -248,7 +248,7 @@ It is *super* useful to be updated with the EIPs, for doing that, we recommend y
 ## Who Oversees EIPs?
 
 - **EIP Editors**: Volunteers that check the correctness, style, and structure of EIP submissions. They assign EIP numbers and can move EIPs through statuses if criteria are met. Current editors include well-known community members like Alex Beregszaszi, Greg Colvin, Micah Zoltu, etc.
-- **Core Devs & the Community**: For protocol-level changes, the entire developer community weighs in. Ultimately, clients (e.g., Geth, Nethermind, Besu) must implement the EIP in a fork if it’s a consensus-level change. If they do not, the chain can split.
+- **Core Devs & the Community**: For protocol-level changes, the entire developer community weighs in. Ultimately, clients (e.g., Geth, Nethermind, Besu) must implement the EIP in a fork if it's a consensus-level change. If they do not, the chain can split.
 
 ## Some historical EIPs
 
@@ -256,7 +256,7 @@ It is *super* useful to be updated with the EIPs, for doing that, we recommend y
 
 It overhauled the fee market by introducing a *base fee* that is burned, plus a *priority fee* to block proposers. Aims to reduce fee volatility, make gas pricing more predictable, and partially offset ETH issuance by burning fees. The key features were:
 
-- Transaction “max fee” and “max priority fee” replaced the old single gasPrice model.
+- Transaction "max fee" and "max priority fee" replaced the old single gasPrice model.
 - Introduced block elasticity mechanism, so blocks can handle short congestion spikes.
 - The base fee gradually adjusts, aiming for a gas usage target per block.
 
@@ -266,7 +266,7 @@ Read https://eips.ethereum.org/EIPS/eip-1559 and watch https://www.youtube.com/w
 
 ### **EIP-779** – The DAO Fork (July 2016)
 
-It documented the consensus rules that implemented the DAO fork after the major DAO hack, returning funds to the contract’s rightful owners. This event led to two chains: Ethereum (forked) and Ethereum Classic (unforked). Keep in midn that it was:
+It documented the consensus rules that implemented the DAO fork after the major DAO hack, returning funds to the contract's rightful owners. This event led to two chains: Ethereum (forked) and Ethereum Classic (unforked). Keep in midn that it was:
 
 - A hard fork to effectively reverse transactions from a compromised contract.
 - It sparked debate around immutability vs. community intervention.
@@ -277,10 +277,10 @@ See https://eips.ethereum.org/EIPS/eip-779
 
 ### **EIP-7** – `DELEGATECALL` Introduction (late 2015)
 
-`DELEGATECALL` replaced the older `CALLCODE` opcode, addressing issues where `CALLCODE` didn’t preserve `msg.sender` or `msg.value` as the *original* caller. This was a key enabler for proxy contract patterns, libraries, and composable “logic & data” separation. The important things are that:
+`DELEGATECALL` replaced the older `CALLCODE` opcode, addressing issues where `CALLCODE` didn't preserve `msg.sender` or `msg.value` as the *original* caller. This was a key enabler for proxy contract patterns, libraries, and composable "logic & data" separation. The important things are that:
 
 - Code is called in the *context* of the current contract.
-- `msg.sender` remains the original caller, enabling advanced patterns like “upgradeable proxies.”
+- `msg.sender` remains the original caller, enabling advanced patterns like "upgradeable proxies."
 
 :::info
 See https://ethereum.stackexchange.com/questions/3667/difference-between-call-callcode-and-delegatecall
@@ -288,9 +288,9 @@ See https://ethereum.stackexchange.com/questions/3667/difference-between-call-ca
 
 ### **EIP-1014** – `CREATE2` Opcode (2019)
 
-- **Why Important**Introduced a new way to compute a contract’s address before it’s deployed, using `create2`. This helps in “counterfactual” contract deployments, where you can *reserve* an address in advance, which is vital in meta-transactions or on-chain address commitments.
-- Address formula is `keccak256(0xFF, sender, salt, code)`, all known at creation time.
-- Allows advanced patterns in DeFi, state channels, “factory” contracts, etc.
+- **Why Important**Introduced a new way to compute a contract's address before it's deployed, using `create2`. This helps in "counterfactual" contract deployments, where you can *reserve* an address in advance, which is vital in meta-transactions or on-chain address commitments.
+- Address formula is $$keccak256(0xFF, sender, salt, code)$$ all known at creation time.
+- Allows advanced patterns in DeFi, state channels, "factory" contracts, etc.
 
 :::info
 Read https://eips.ethereum.org/EIPS/eip-1014 — We use this **all the time**.  
@@ -313,20 +313,20 @@ Ethereum Request for Comments are a subset of EIPs that define **standards for a
 
 # Resources
 
-https://inevitableeth.com/
+[Inevitable Ethereum](https://inevitableeth.com/)
 
-https://learnevm.com/chapters/intro/overview
+[Learn EVM](https://learnevm.com/chapters/intro/overview)
 
-https://cypherpunks-core.github.io/ethereumbook/13evm.html
+[Mastering Ethereum - EVM Chapter](https://cypherpunks-core.github.io/ethereumbook/13evm.html)
 
-Ethereum Whitepaper - https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf
+[Ethereum Whitepaper](https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf)
 
-Mastering Ethereum - https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf
+[Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf)
 
-Ethereum Yellow Paper https://ethereum.github.io/yellowpaper/paper.pdf
+[Ethereum Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf)
 
- https://eth2book.info/
+[Ethereum 2.0 Book](https://eth2book.info/)
 
-https://ethereum-magicians.org/
+[Ethereum Magicians Forum](https://ethereum-magicians.org/)
 
-https://ethresear.ch/t/the-end-game-for-oracles/19276
+[The End Game for Oracles](https://ethresear.ch/t/the-end-game-for-oracles/19276)

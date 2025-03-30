@@ -68,14 +68,16 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Basics',
                       items: [
-                        'development/research/onboarding/knowledge-base/basics/tokenomics'
+                        'development/research/onboarding/knowledge-base/basics/tokenomics',
+                        'development/research/onboarding/knowledge-base/basics/game-theory'
                       ]
                     },
                     {
                       type: 'category',
                       label: 'Intermediate',
                       items: [
-                        'development/research/onboarding/knowledge-base/intermediate/solidity'
+                        'development/research/onboarding/knowledge-base/intermediate/solidity',
+                        'development/research/onboarding/knowledge-base/intermediate/cryptography'
                       ]
                     },
                     {
@@ -91,7 +93,8 @@ const sidebars: SidebarsConfig = {
                       type: 'category',
                       label: 'Core',
                       items: [
-                        'development/research/onboarding/knowledge-base/core/evm'
+                        'development/research/onboarding/knowledge-base/core/evm',
+                        'development/research/onboarding/knowledge-base/core/oracles'
                       ]
                     }
                   ],
