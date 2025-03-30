@@ -1,7 +1,7 @@
 ---
 title: Overview
 sidebar_position: 1
-pagination_next: development/frontend/best-practices
+pagination_next: development/research/research-overview
 ---
 
 # Welcome to the Development Section 👩‍💻 
