@@ -638,6 +638,11 @@ div[class*='buttonGroup'],
 
 
 @media (max-width: 996px) {
+
+  .navbar {
+    padding: 0 16px;
+  }
+
   .navbar-sidebar {
     z-index: 9999 !important; 
     position: fixed !important;
