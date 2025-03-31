@@ -641,6 +641,7 @@ div[class*='buttonGroup'],
 
   .navbar {
     padding: 0 16px;
+    min-height: 62px;
   }
 
   .navbar-sidebar {
