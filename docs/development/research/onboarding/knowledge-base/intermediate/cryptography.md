@@ -1,152 +1,143 @@
 # Cryptography
 
-If you don't have a background in math, we strongly recommend reading https://explained-from-first-principles.com/number-theory/#exhaustive-search before diving into Cryptography. 
+If you don't have a background in math, we strongly recommend starting with [this gentle introduction to number theory](https://explained-from-first-principles.com/number-theory/#exhaustive-search) before diving into cryptography.
 
 > *"At the outbreak of the Second World War, possibly no shortage was more acute — or less publicized — than that of qualified cryptographers." — Laurence D. Smith, Cryptography: The Science of Secret Writing.*
-> 
 
-Cryptography has long been crucial to military operations. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by easily deciphering a supposedly "unbreakable" cipher—one that the German forces were almost certain to break as well. This incident underscores why "the secrecy of communications is vital" and how a single compromise might lead to catastrophe on the battlefield.
+Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cipher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
 
-By World War II, the role of codebreakers and cryptographers had expanded dramatically. From Allied efforts against German U-boats to the deciphering of Japanese communications, cryptographic expertise often tipped the balance. The cipher experts had to cope with Japanese and with countless other languages. A slip—like accidentally transmitting a message both in cipher and in plain text—could reveal an entire encryption system to enemy forces in an instant.
+By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs — such as the deciphering of German Enigma or Japanese naval codes — had direct strategic consequences. A careless transmission, especially one sent both in cipher and plain text, could reveal entire encryption systems and undermine months of planning.
 
-Today, cryptography extends far beyond the battlefield, but the lessons remain: robust encryption and careful key management are paramount. Whether securing financial transactions or protecting data, cryptography ensures critical information never falls into the wrong hands.
+Today, the battlefield has shifted to digital networks and cryptography secures everything from bank transfers to blockchain protocols. But the lessons endure: robust encryption and careful key management remain foundational to privacy and security.
 
-Against this historical backdrop, the sections that follow will explain how cryptography matured from basic substitution ciphers into sophisticated schemes based on fundamental mathematical problems. We will begin with the three major types of cryptography, then move to the classic puzzle of **key distribution**, showing how **Diffie–Hellman** revolutionized secure communications. Next, we will highlight **RSA** and its reliance on the hardness of factorization. We then move on to **elliptic curves**, covering not only elliptic-curve Diffie–Hellman and elliptic-curve digital signatures, but also advanced **pairing-based** protocols that underpin many cutting-edge cryptographic systems in use today.
+Against this historical backdrop, the sections that follow trace the evolution of cryptography. We begin with the three major types of cryptographic primitives, then talk about the pivotal problem of **key distribution**, the **Diffie-Hellman** solution, and the advent of **RSA**. We continue with **elliptic curves**, including **ECDH**, **ECDSA**, and **pairing-based protocols**.
 
-## Symmetric vs. Asymmetric Crypto vs. Hash Functions
+## Cryptographic Primitives: Symmetric, Asymmetric, and Hash Functions
 
-In **symmetric** cryptography, both sender and receiver share the *same key* for encryption and decryption. Algorithms such as AES (Advanced Encryption Standard) or ChaCha20 operate on this principle, providing speed and efficiency once the key is in place. The **main drawback** is how to distribute that key securely. If Alice and Bob are on opposite sides of the world, they must still find a way to share a secret key that an eavesdropper cannot steal—no trivial task.
+### Symmetric Encryption
+In **symmetric** cryptography, both parties share a *single secret key* used for both encryption and decryption. Algorithms like AES (Advanced Encryption Standard) and ChaCha20 are widely used for their speed and efficiency.
 
-In **asymmetric** (public-key) cryptography, each user has:
+**Drawback:** Key distribution. If Alice and Bob are on different continents, how do they agree on a secret key without interception?
 
-- A freely shareable public key
-- A closely guarded private key
+### Asymmetric (Public-Key) Encryption
+**Asymmetric cryptography** solves this problem with a key pair:
 
-Data encrypted with the public key can only be decrypted by the holder of the private key. This separation of public and private components solves many of the logistical hurdles of symmetric cryptography: there is no need to pre-share a common secret. RSA and elliptic-curve systems are prime examples. However, these schemes rely on deeper mathematical assumptions (e.g., factoring large numbers or solving discrete logs on elliptic curves), and they tend to be more computationally expensive for encryption/decryption than symmetric algorithms.
+- A **public key** (shared freely)
+- A **private key** (kept secret)
 
-## The problem of key distribution
+Anyone can encrypt a message using the public key, but only the private key can decrypt it. RSA and elliptic curve cryptography (ECC) are two major systems here. Asymmetric cryptography is computationally more expensive but enables secure communication without pre-shared secrets.
 
-Historically, symmetric systems required **physical key delivery** or secure channels that rarely existed. Even robust ciphers collapse if keys are compromised. As networks globalized, purely symmetric models became impractical.
+### Cryptographic Hash Functions
+Hash functions are one-way operations that map input data to a fixed-size output. Key properties include:
 
-The 1970s public-key breakthrough resolved this elegantly: anyone can encrypt messages with Bob's public key (freely available online), knowing only Bob's private key can decrypt them. Hybrid systems now dominate—for example, TLS uses asymmetric exchanges (RSA/Diffie-Hellman) to establish symmetric session keys (AES) for bulk encryption.
+- **Determinism**: Same input, same output
+- **Preimage resistance**: Hard to reverse
+- **Collision resistance**: Hard to find two inputs with the same hash
 
-## Diffie-Hellman
+Hashes underpin digital signatures, Merkle trees, password security, and zero-knowledge proofs. Common algorithms: SHA-256, Keccak (used in Ethereum).
 
-The **Diffie–Hellman** (DH) protocol addresses the key-distribution problem by letting two parties, Alice and Bob, generate a shared secret over an insecure channel without initially sharing any secret. In a **finite-field** variant, we choose:
+## The Problem of Key Distribution
 
-1. A large prime $p$ and a generator $g$ (an element of $\mathbb{Z}_p^*$ with high order)
+Symmetric systems once required **physical key exchange**. This worked for spies, but not for global internet systems. Even the strongest ciphers are useless if the keys are compromised.
 
-:::tip
-$\mathbb{Z}_p^*$ denotes the set of all integers $\{0, 1, 2, \dots, p-1\}$ with addition and multiplication performed **modulo $p$.** Because $p$ is prime, every nonzero element in this set has a multiplicative inverse.
-:::
+In the 1970s, public-key cryptography changed everything. Anyone can encrypt with Bob's public key, but only Bob can decrypt it with his private key. Today, hybrid systems like TLS combine asymmetric key exchange (RSA or Diffie-Hellman) with symmetric session keys (AES) for performance.
 
-1. Alice picks a random integer $a$ and computes her public value $A = g^a \bmod p$.
-2. Bob picks a random integer $b$ and computes his public value $B = g^b \bmod p$
+## Diffie-Hellman: A Breakthrough in Secure Key Exchange
 
-To find the shared secret, Alice computes $B^a \bmod p=(g^b)^a = g^{ab} \bmod p$. Bob computes $A^b \bmod p = (g^a)^b = g^{ab} \bmod p$. They both arrive at the same number $g^{ab} \bmod p$, which functions as their private key. The discrete logarithm problem (recovering $a$ from $g^a$) is assumed to be hard, so an eavesdropper cannot easily compute $g^{ab}$ from the observed values. 
+The **Diffie-Hellman (DH)** protocol allows two parties to generate a shared secret over an insecure channel. Here’s how it works (finite field version):
 
-:::tip
-Read more about Diffie-Hellman in https://www.geeksforgeeks.org/implementation-diffie-hellman-algorithm/
-:::
+1. Choose a large prime $p$ and generator $g$.
+2. Alice picks random $a$, computes $A = g^a \bmod p$.
+3. Bob picks random $b$, computes $B = g^b \bmod p$.
+4. Shared secret: Alice computes $B^a = g^{ab} \bmod p$, Bob computes $A^b = g^{ab} \bmod p$.
 
-## RSA: Factorization as a Foundation
+The **discrete logarithm problem** protects the exchange: it is hard to derive $a$ or $b$ from $g^a$ or $g^b$.
 
-**RSA** (Rivest–Shamir–Adleman, 1977) sort of revolutionized cryptography by providing the first practical implementation of public-key encryption. Its security relies on the computational difficulty of **factoring large integers** into primes.
+## RSA: Public-Key Encryption Built on Factorization
 
-### How It Works
+**RSA** (1977) was the first practical public-key system. Its security depends on the hardness of factoring large integers.
 
-1. **Key Generation**:
-    - Choose two distinct large primes $p$ and $q$.
-    - Compute modulus $n=p \times q$ and Euler's totient $\phi(n)=(p-1)(q-1)$
-    - Select public exponent $e$ (commonly 65537) such that $\gcd(e,\phi(n))=1$.
-    - Compute private exponent $d$ where $d \equiv e^{-1} \pmod{\phi(n)}$.
-2. **Encryption/Decryption**:
-    - Encrypt message $m$ (as integer): $c=m^e \bmod n$.
-    - Decrypt ciphertext $c$: $m=c^d \bmod n$.
+### Key Generation
 
-:::tip
-**Why Factoring Matters**: If an attacker can factor $n$ into $p$ and $q$, they can compute $d$ and decrypt messages. Factoring large numbers (e.g., 2048-bit $n$) remains infeasible even for supercomputers using classical algorithms. 
-:::
-### Example with Small Primes
+1. Choose large primes $p$ and $q$
+2. Compute $n = pq$, $\phi(n) = (p-1)(q-1)$
+3. Choose public exponent $e$ (e.g., 65537)
+4. Compute private key $d$ where $d \equiv e^{-1} \pmod{\phi(n)}$
 
-Let $p=3$, $q=11$:
+### Encryption/Decryption
+- Encrypt: $c = m^e \bmod n$
+- Decrypt: $m = c^d \bmod n$
 
-- $n=33$, $\phi(n)=20$
-- Choose $e=3$ (since $\gcd(3,20)=1$).
-- Compute $d=7$ (because $3 \times 7 \equiv 1 \pmod{20}$).
-- Encrypt $m=7$: $7^3 \bmod 33 = 13$
-- Decrypt $13$: $13^7 \bmod 33 = 7$
-
-While RSA is versatile (used in TLS, digital signatures), it's slower than symmetric encryption. Modern systems often combine RSA for key exchange with AES for bulk data.
+If an attacker factors $n$, they can find $d$ and break the system. But factoring 2048-bit numbers remains infeasible for classical computers.
 
 ## Elliptic Curve Cryptography (ECC)
 
-**Elliptic curves** provide a more efficient alternative to RSA and finite-field Diffie–Hellman. A cryptographic elliptic curve is defined by $y^2 = x^3 + ax + b$ over a finite field, where points on the curve form a cyclic group. Some key things are:
+Elliptic curves offer smaller keys and faster operations compared to RSA. An elliptic curve is defined by $y^2 = x^3 + ax + b$ over a finite field. Points on the curve form a group with an addition operation.
 
-- **Smaller Key Sizes**: A 256-bit ECC key offers security comparable to a 3072-bit RSA key.
-- **Faster Computations**: Scalar multiplication (core ECC operation) is more efficient than modular exponentiation.
+### Advantages
+- **256-bit ECC** key = **3072-bit RSA** key
+- Faster signature generation and verification
 
-### Elliptic Curve Diffie–Hellman (ECDH)
+### Elliptic Curve Diffie-Hellman (ECDH)
 
-Analogous to classic DH, but uses elliptic curve points:
+1. Choose curve (e.g. `secp256k1`) and base point $G$
+2. Alice: private $a$, public $aG$
+3. Bob: private $b$, public $bG$
+4. Shared secret: $abG$
 
-1. Alice and Bob agree on a public curve (e.g., `secp256k1`) and base point $G$.
-2. Alice picks private key $a$, computes public key $aG$ (point multiplication).
-3. Bob picks private key $b$, computes public key $bG$.
-4. Shared secret: $a(bG) = b(aG) = abG$.
+Security relies on the **Elliptic Curve Discrete Log Problem (ECDLP)**.
 
-The **Elliptic Curve Discrete Logarithm Problem (ECDLP)** ensures security: given $aG$ and $G$, finding $a$ is computationally infeasible.
+### Elliptic Curve Digital Signature Algorithm (ECDSA)
 
-### Elliptic Curve Digital Signatures (ECDSA)
+Used by Ethereum and Bitcoin:
 
-Used in Ethereum for signing transactions:
+- **Sign**:
+  - Choose random $k$, compute $r = (kG)_x$
+  - $s = k^{-1}(h + dr) \bmod n$
+  - Signature: $(r, s)$
+- **Verify**:
+  - Compute $u_1 = hs^{-1}$, $u_2 = rs^{-1}$
+  - Check: $u_1G + u_2Q = R$
 
-1. **Signing**:
-    - Private key $d$, message hash $h$.
-    - Generate random $k$, compute $(x, y) = kG$.
-    - Signature $(r, s) = (x \bmod n, k^{-1}(h + dr) \bmod n)$
-2. **Verification**:
-    - Compute $u_1 = hs^{-1} \bmod n$, $u_2 = rs^{-1} \bmod n$.
-    - Check if $u_1G + u_2Q = (x, y)$, where $Q = dG$ is the public key.
 
-# Hands On!
+ 
 
-We strongly recommend you to do the Unit 1.1 and 1.2 from the [**Ethereum Bootcamp**](https://university.alchemy.com/course/ethereum/md/630e3d0a456dc80004ad6b6d) by Alchemy University. Specially, the cryptographic hashes assigment. Then, you can move to the challenge of this section:
+## Pairing-Based Cryptography
 
-# Resources
+Pairings map two elliptic curve points into a finite field, enabling new primitives:
 
-https://www.pearson.com/en-us/subject-catalog/p/cryptography-and-network-security-principles-and-practice/P200000003477/9780135764213
+- **Identity-based encryption**
+- **BLS signatures** (used in Ethereum staking)
+- **Zero-knowledge proofs** like zk-SNARKs
 
-https://www.web3citizen.xyz/research/zk/articles/zk-101
+Pairings are bilinear and non-degenerate, enabling succinct multiparty verifications and aggregations.
 
-https://www.cs.umd.edu/~waa/414-F11/IntroToCrypto.pdf
+For a deeper intro, check [Vitalik's guide](https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627).
 
-Neal Koblitz - [A Course in Number Theory and Cryptography](https://almuhammadi.com/sultan/crypto_books/Koblitz.2ndEd.pdf) (1994, Springer)
+## Hands-On
 
-https://explained-from-first-principles.com/number-theory/
+We strongly recommend Units 1.1 and 1.2 of the [**Ethereum Bootcamp**](https://university.alchemy.com/course/ethereum/md/630e3d0a456dc80004ad6b6d) by Alchemy. Focus especially on the **hash function assignments**.
 
-Phillip Rogaway, [The Moral Character of Cryptographic Work](https://eprint.iacr.org/2015/1162.pdf)
+Then, try the hands-on challenge at the end of this module.
 
-https://polkadot-blockchain-academy.github.io/pba-book/cryptography/index.html
+## Further Reading
 
-If curious about the history of cryptography, see  https://www.geeksforgeeks.org/history-of-cryptography/
+- [Cryptography and Network Security: Principles and Practice](https://www.pearson.com/en-us/subject-catalog/p/cryptography-and-network-security-principles-and-practice/P200000003477/9780135764213)
+- [Introduction to Modern Cryptography (UMD)](https://www.cs.umd.edu/~waa/414-F11/IntroToCrypto.pdf)
+- Neal Koblitz, [A Course in Number Theory and Cryptography](https://almuhammadi.com/sultan/crypto_books/Koblitz.2ndEd.pdf)
+- [Explained From First Principles: Number Theory](https://explained-from-first-principles.com/number-theory/)
+- Phillip Rogaway, [The Moral Character of Cryptographic Work](https://eprint.iacr.org/2015/1162.pdf)
+- [Polkadot Blockchain Academy - Cryptography](https://polkadot-blockchain-academy.github.io/pba-book/cryptography/index.html)
+- [History of Cryptography](https://www.geeksforgeeks.org/history-of-cryptography/)
+- [Laurence D. Smith book (archive)](https://archive.org/details/cryptography-the-science-of-secret-writing-laurence-d.-smith/page/14/mode/1up)
 
-https://archive.org/details/cryptography-the-science-of-secret-writing-laurence-d.-smith/page/14/mode/1up 
+**Elliptic Curves:**
+- [Cloudflare ECC primer](https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/)
+- [ECC YouTube explainer](https://www.youtube.com/watch?v=dCvB-mhkT0w)
+- Chapter 4 of *Mastering Ethereum*
 
-### Eliptic Curve
-
-https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
-
-https://www.youtube.com/watch?v=dCvB-mhkT0w
-
-Chapter 4 from Mastering Ethereum
-
-**Pairings**
-
-https://blog.statebox.org/elliptic-curve-pairings-213131769fac
-
-https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627
-
-https://www.math.ru.nl/~bosma/Students/MScThesis_DennisMeffert.pdf
-
-https://people.cs.nctu.edu.tw/~rjchen/ECC2012S/Elliptic%20Curves%20Number%20Theory%20And%20Cryptography%202n.pdf
+**Pairings:**
+- [Statebox intro](https://blog.statebox.org/elliptic-curve-pairings-213131769fac)
+- [Vitalik on pairings](https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627)
+- [Dennis Meffert MSc thesis](https://www.math.ru.nl/~bosma/Students/MScThesis_DennisMeffert.pdf)
+- [ECC & Pairings textbook (NCTU)](https://people.cs.nctu.edu.tw/~rjchen/ECC2012S/Elliptic%20Curves%20Number%20Theory%20And%20Cryptography%202n.pdf)

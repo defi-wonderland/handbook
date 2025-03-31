@@ -94,7 +94,9 @@ const sidebars: SidebarsConfig = {
                       label: 'Core',
                       items: [
                         'development/research/onboarding/knowledge-base/core/evm',
-                        'development/research/onboarding/knowledge-base/core/oracles'
+                        'development/research/onboarding/knowledge-base/core/oracles',
+                        'development/research/onboarding/knowledge-base/core/bridges',
+                        'development/research/onboarding/knowledge-base/core/layer_2'
                       ]
                     }
                   ],

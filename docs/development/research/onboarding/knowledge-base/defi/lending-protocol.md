@@ -8,7 +8,7 @@ During this introduction, we'll explore how DeFi lending differs in requiring co
 
 # Overcollateralized vs. Undercollateralized Lending
 
-One major difference in DeFi lending is the prevalent use of **overcollateralization**. In DeFi, loans are typically **overcollateralized**, meaning a borrower must deposit collateral worth more than the loan they take. For example, a DeFi platform might require a user to deposit $150 of ETH to borrow $100 of a stablecoin. This excess collateral acts as a buffer to protect lenders: if the borrower fails to repay, the protocol can seize and sell the collateral to cover the debt. The concept of *overcollateralization* is essential in an anonymous system with no credit scores, as it ensures solvency of the loan pool even under volatile market conditions
+One major difference in DeFi lending is the prevalent use of **overcollateralization**. In DeFi, loans are typically **overcollateralized**, meaning a borrower must deposit collateral worth more than the loan they take. For example, a DeFi platform might require a user to deposit \$ 150 of ETH to borrow \$ 100 of a stablecoin. This excess collateral acts as a buffer to protect lenders: if the borrower fails to repay, the protocol can seize and sell the collateral to cover the debt. The concept of *overcollateralization* is essential in an anonymous system with no credit scores, as it ensures solvency of the loan pool even under volatile market conditions
 
 In contrast, **undercollateralized** or unsecured lending means the loan value exceeds the collateral value (or no collateral at all). This is common in traditional finance – for instance, credit cards and student loans are extended based on creditworthiness with little or no collateral. Such loans rely on identity, credit scores, and legal enforcement for repayment. In DeFi, true undercollateralized lending is more challenging because users are pseudonymous and there's no built-in credit scoring on-chain. As a result, DeFi protocols initially all adopted overcollateralized models to mitigate default risk.
 
@@ -22,21 +22,21 @@ Whether overcollateralized or not, DeFi lending platforms share some *key* compo
 
 **Collateralization ratio** is the proportion of collateral value to loan value, usually expressed as a percentage. It is calculated as:
 
-Collateralization Ratio = (Collateral Value / Loan (Debt) Value) * 100%
+$\text{Collateralization Ratio} = \frac{\text{Collateral Value}}{\text{Loan (Debt) Value}} * 100\%$
 
-This metric will indicate the *buffer* a loan has before it becomes undercollateralized. For exmaple, a ratio of 150% means the collateral is worth 1.5x the outstanding debt. Higher collateralization ratios imply lowr risk for the lender, since more collateral is available to cover the loan. 
+This metric will indicate the *buffer* a loan has before it becomes undercollateralized. For exmaple, a ratio of $150 \%$ means the collateral is worth 1.5x the outstanding debt. Higher collateralization ratios imply lowr risk for the lender, since more collateral is available to cover the loan. 
 
-En general, the protocols will enforce a minimum collateralization ratio —or a maximum *loan-to-valuo (LTV).* When a user supplies assets to borrow against, the platform will only allow borrowing up to a certain percentage of the collateral's value – this is the borrowing limit. For instance, if a platform sets a 150% minimum ratio (which corresponds to ~66% max LTV), depositing $150 of ETH would allow at most a $100 loan. If the user tries to borrow more, the loan would not meet the required collateral ratio and the transaction is not allowed. Different assets have different required ratios depending on their volatility and risk (stablecoins often have lower requirements, while volatile tokens need higher collateralization).
+En general, the protocols will enforce a minimum collateralization ratio —or a maximum *loan-to-valuo (LTV).* When a user supplies assets to borrow against, the platform will only allow borrowing up to a certain percentage of the collateral's value – this is the borrowing limit. For instance, if a platform sets a 150% minimum ratio (which corresponds to ~66% max LTV), depositing  \$150 of ETH would allow at most a  \$100 loan. If the user tries to borrow more, the loan would not meet the required collateral ratio and the transaction is not allowed. Different assets have different required ratios depending on their volatility and risk (stablecoins often have lower requirements, while volatile tokens need higher collateralization).
 
-For example, on MakerDAO —now Sky protocol—, the standard collateralization ratio was 150%. If you deposit $150 of ETH in a vault, you can generate up to $100 of DAI (that's a 150% ratio). On Aave, each collateral asset has a specified **Loan-to-Value (LTV)**; for example an 80% LTV on ETH means you can borrow up to 0.8 USD of stablecoin per 1 USD of ETH collateral. In practice, **safe borrowers leave a buffer** and do not borrow the absolute maximum. 
+For example, on MakerDAO —now Sky protocol—, the standard collateralization ratio was 150%. If you deposit  \$150 of ETH in a vault, you can generate up to  \$100 of DAI (that's a 150% ratio). On Aave, each collateral asset has a specified **Loan-to-Value (LTV)**; for example an 80% LTV on ETH means you can borrow up to 0.8 USD of stablecoin per 1 USD of ETH collateral. In practice, **safe borrowers leave a buffer** and do not borrow the absolute maximum. 
 
 :::tip
 As [*How to DeFi*](https://landing.coingecko.com/how-to-defi/) advises, you should not draw out the full loan allowed by your collateral – maintaining some margin reduces the chance of liquidation if the collateral's price fluctuates.
 :::
 
-![Example collateralization scenarios for a $150 ETH deposit. Borrowing $100 yields a 150% ratio (at the threshold). Borrowing less ($75) improves the ratio to 200%, reducing liquidation risk. If collateral value falls to $125% (e.g. due to an ETH price drop to $125 while $100 debt remains), the position is undercollateralized and can be liquidated.](/img/lending-protocol-1.png)
+![Example collateralization scenarios for a  \$150 ETH deposit. Borrowing  \$100 yields a 150% ratio (at the threshold). Borrowing less ( \$75) improves the ratio to 200%, reducing liquidation risk. If collateral value falls to  \$125% (e.g. due to an ETH price drop to  \$125 while  \$100 debt remains), the position is undercollateralized and can be liquidated.](/img/lending-protocol-1.png)
 
-Example collateralization scenarios for a $150 ETH deposit. Borrowing $100 yields a 150% ratio (at the threshold). Borrowing less ($75) improves the ratio to 200%, reducing liquidation risk. If collateral value falls to $125% (e.g. due to an ETH price drop to $125 while $100 debt remains), the position is undercollateralized and can be liquidated.
+Example collateralization scenarios for a  \$150 ETH deposit. Borrowing  \$100 yields a 150% ratio (at the threshold). Borrowing less ( \$75) improves the ratio to 200%, reducing liquidation risk. If collateral value falls to  \$125% (e.g. due to an ETH price drop to  \$125 while  \$100 debt remains), the position is undercollateralized and can be liquidated.
 
 ## Liquidation Mechanisms
 
@@ -92,7 +92,7 @@ To bring the concepts together, let's walk through a simplified example of using
 **MakerDAO is now Sky, but we will refer to it as the former for the example.**
 :::
 
-**1. Supplying Collateral:** Alice has 1.5 ETH and wants to unlock some liquidity without selling her ETH. She deposits her 1.5 ETH into a lending protocol (e.g. MakerDAO or Aave) as collateral. Let's say the current price of ETH is $100, so her collateral is worth $150 total. The protocol acknowledges this deposit and Alice now has a collateral balance. In a pool model like Aave, she would receive **aTokens** (interest-bearing tokens) representing her supplied ETH which will accrue interest. In MakerDAO, a vault is created for Alice's collateral.
+**1. Supplying Collateral:** Alice has 1.5 ETH and wants to unlock some liquidity without selling her ETH. She deposits her 1.5 ETH into a lending protocol (e.g. MakerDAO or Aave) as collateral. Let's say the current price of ETH is \$100, so her collateral is worth \$150 total. The protocol acknowledges this deposit and Alice now has a collateral balance. In a pool model like Aave, she would receive **aTokens** (interest-bearing tokens) representing her supplied ETH which will accrue interest. In MakerDAO, a vault is created for Alice's collateral.
 
 **2. Borrowing Assets:** Given the platform's collateralization requirement (assume 150%), Alice can borrow up to \$ 100 worth of another asset – she decides to borrow 100 DAI. When she takes this loan, the smart contract issues 100 DAI to her (in Maker's case by minting new DAI against her vault, or in Aave's case by transferring DAI from the pool's liquidity). Alice now has 100 DAI to use freely, and a debt of 100 DAI recorded in the protocol. Her collateralization ratio at loan creation is exactly 150\%: \$150 collateral / \$100 debt = 1.5. She's at the minimum threshold in this example, which is risky – it's usually advised to borrow less. (If Alice were prudent, she might have borrowed only, say, 50–70 DAI, leaving a cushion.)
 
@@ -116,16 +116,16 @@ This was a general introduction, but you should check out the following:
 We encourage you to write some notes and ask questions about them! What do you think? Do they make sense? Is there any way we could improve them?
 
 # References
-[Great overview of DeFi lending fundamentals](https://finematics.com/lending-and-borrowing-in-defi-explained/)
+https://finematics.com/lending-and-borrowing-in-defi-explained/ - Great overview of DeFi lending fundamentals
 
-[Beginner-friendly guide to DeFi concepts](https://nucks.co/notes/how-to-defi-beginner)
+https://nucks.co/notes/how-to-defi-beginner - Beginner-friendly guide to DeFi concepts
 
-[Deep dive into undercollateralized lending](https://blog.chain.link/undercollateralized-lending-teller-deco-poc/)
+https://blog.chain.link/undercollateralized-lending-teller-deco-poc/ - Deep dive into undercollateralized lending
 
-[Understanding DeFi liquidations](https://www.coinbase.com/learn/advanced-trading/what-is-defi-liquidation)
+https://www.coinbase.com/learn/advanced-trading/what-is-defi-liquidation - Understanding DeFi liquidations
 
-[Technical details of liquidation mechanisms](https://www.rareskills.io/post/defi-liquidations-collateral)
+https://www.rareskills.io/post/defi-liquidations-collateral - Technical details of liquidation mechanisms
 
-[Analysis of Aave's interest rate model](https://www.rareskills.io/post/aave-interest-rate-model)
+https://www.rareskills.io/post/aave-interest-rate-model - Analysis of Aave's interest rate model
 
-[Comprehensive guide to DeFi lending](https://www.coinmetro.com/learning-lab/defi-lending-and-borrowing)
+https://www.coinmetro.com/learning-lab/defi-lending-and-borrowing - Comprehensive guide to DeFi lending
