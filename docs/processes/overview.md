@@ -3,7 +3,7 @@ title: Overview
 sidebar_position: 1
 pagination_next: processes/project-lifecycle
 ---
-# Great software it's forged through process.
+# Great software is forged through process.
 
 At Wonderland, we treat process as product. The way we plan, the way we review, the way we commit. All of it shapes what we ship. And in a world where small oversights can have massive consequences, we don't leave this part of the system to chance.
 

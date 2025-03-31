@@ -100,7 +100,7 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
@@ -108,25 +108,58 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.3rem;
 }
 
+h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
 /* Specific heading styles */
 .theme-doc-markdown h1 {
+  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-style: italic;
-  font-size: 3.5rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
+  font-size: 4.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .theme-doc-markdown h2 {
-  font-style: italic;
-  font-size: 2.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-style: normal;
+  font-size: 2rem;
   margin-top: 0.6rem;
   margin-bottom: 0.3rem;
   padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h3 {
-  font-style: italic;
-  font-size: 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h4 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h5 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.theme-doc-markdown h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.1rem;
   margin-top: 0.6rem;
   margin-bottom: 0.3rem;
   padding-bottom: 0.3rem;
@@ -394,12 +427,46 @@ a:hover {
 
 /* Table of contents */
 .table-of-contents {
-  border-left-color: rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-of-contents__link {
+  display: block;
+  padding: 0.4rem 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateX(4px);
 }
 
 .table-of-contents__link--active {
-  color: var(--wonderland-blue) !important;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Make TOC sticky on desktop */
+@media (min-width: 997px) {
+  .theme-doc-toc {
+    position: sticky;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflow-y: auto;
+  }
+}
+
+/* Hide TOC on mobile in a clean way */
+@media (max-width: 996px) {
+  .theme-doc-toc {
+    display: none;
+  }
 }
 
 /* Breadcrumbs */
@@ -595,5 +662,178 @@ div[class*='buttonGroup'],
     position: relative;
     z-index: 0 !important;
   }
+}
+
+/* Sidebar collapse button styling */
+.theme-doc-sidebar-container button[class*='collapseSidebarButton'] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  margin: 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(14, 21, 44, 0.95);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton'] svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover svg {
+  transform: scale(1.1);
+}
+
+/* Magical card hover effects */
+.docCard {
+  background: rgba(14, 21, 44, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 rgba(31, 85, 213, 0);
+}
+
+.docCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.docCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(233, 91, 155, 0.4),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.docCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.docCard:hover::before,
+.docCard:hover::after {
+  opacity: 1;
+}
+
+.docCard article {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
+}
+
+.docCard h2 {
+  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.docCard:hover h2 {
+  background: linear-gradient(90deg, #E95B9B, #FECC40);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(4px);
+  text-shadow: 0 0 20px rgba(233, 91, 155, 0.5);
+}
+
+.docCard svg {
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.docCard:hover svg {
+  transform: scale(1.1) rotate(-5deg);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Add mouse tracking for cards */
+.docCard {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Add this script to track mouse position */
+
+/* Rabbit hole button styling */
+.rabbit-hole-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.rabbit-hole-button:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 0 20px rgba(31, 85, 213, 0.2),
+    0 0 30px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.rabbit-hole-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(233, 91, 155, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.rabbit-hole-button:hover::before {
+  opacity: 1;
 }
 

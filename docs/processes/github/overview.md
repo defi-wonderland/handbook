@@ -1,4 +1,4 @@
-# GitHub
+# Overview
 
 For us Github is the space where we structure our projects and the way we manage these things directly affects the security, clarity, and resilience of our systems.
 

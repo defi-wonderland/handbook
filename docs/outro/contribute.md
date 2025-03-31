@@ -38,5 +38,10 @@ We welcome contributions from everyone! Here's how you can help improve the hand
 
 Remember: The best handbooks grow with the team. Your insights and experience make this resource better for everyone.
 
+
+# Join the Team
+
+Want to build with us? Visit [apply.defi.sucks](https://apply.defi.sucks) to explore open roles ✨
+
 Stay safe. Build with care.  
 🌌 — Wonderland

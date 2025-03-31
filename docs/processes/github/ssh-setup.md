@@ -9,13 +9,13 @@ This guide will show you how to:
 
 > 📎 Wonderland provides paid 1Password accounts for every member of the org.
 
-# Requirements
+## Requirements
 
 1. Install [1Password](https://1password.com/) as an application on your computer.
 
-# Steps
+## Steps
 
-**1. Create a new SSH key**
+### 1. Create a new SSH key
 
 If you want a fresh start, create a new SSH key with the following steps:
 
@@ -29,13 +29,13 @@ If you want to use your current SSH for this setup:
 Do the above **2 times**, to have both a personal and an anon ssh key (**ONLY Mac/Linux**).
 :::
 
-**2. Turn on the 1Password SSH agent**
+### 2. Turn on the 1Password SSH agent
 
 *If you are on **Windows (Ubuntu WSL)*** you will need to check if the **OpenSSH Authentication Agent** service is installed and disable it: 
 
 - Press Win+R and look for **OpenSSH Authentication Agent** in the list of services
-    1. If you don’t see it on the list, skip ahead.
-    2. if you see it on the list then double click on **OpenSSH Authentication Agent**, in the “**Startup type**” menu, choose “**Disabled**”.
+    1. If you don't see it on the list, skip ahead.
+    2. if you see it on the list then double click on **OpenSSH Authentication Agent**, in the "**Startup type**" menu, choose "**Disabled**".
 
 To Turn on the SSH agent for any OS: 
 
@@ -55,9 +55,8 @@ Test your connection:
     ```bash
     ssh -T git@github.com
     ```
-    
 
-**3. Configure your git profile**
+### 3. Configure your git profile
 
 - **Windows (WSL)**
     1. Create `~/.gitconfig`
@@ -76,9 +75,8 @@ Test your connection:
     In order to try this out, using the terminal go to any **git project** inside `~/Code/wonderland` and paste the following:
     
     That command should print your anon git information.
-    
 
-**4. Configure your SSH**
+### 4. Configure your SSH
 
 - **Windows (WSL)**
     
@@ -100,7 +98,7 @@ Test your connection:
     account = "<THE_1PASSWORD_ACCOUNT_WHERE_YOU_HAVE_YOUR_PERSONAL_SSH>"
     ```
     
-    **Warning**: This doesn’t allow you to use multiple keys for different host as mentioned in [https://www.notion.so/defi-wonderland/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=4#14c0bf386ef74c09b889b7cc85823af9](https://www.notion.so/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=21)
+    **Warning**: This doesn't allow you to use multiple keys for different host as mentioned in [https://www.notion.so/defi-wonderland/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=4#14c0bf386ef74c09b889b7cc85823af9](https://www.notion.so/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=21)
     
     In this case, it is only useful for specifying the default ssh keys that 1Password will use.
     
@@ -118,12 +116,11 @@ Test your connection:
     Sample remote: `personalgit:my-user/very-important-project.git`
     
     </aside>
-    
 
-**5. Configure your Github account**
+### 5. Configure your Github account
 
 1. Go to https://github.com/settings/keys.
-2. Make sure “**Flag unsigned commits as unverified”** is checked.
+2. Make sure "**Flag unsigned commits as unverified"** is checked.
 3. Click on New SSH Key
     1. Title: **1Password Wonderland**
     2. Key type: **Authentication Key**
@@ -141,13 +138,13 @@ In this case, you want to have both being the same ssh key.
 :::
 
 
-# That’s it!
+## That's it!
 
 Go ahead and try it out now.
 
 ![image.png](/img/thats-too-easy.png)
 
-# References
+## References
 
 - https://developer.1password.com/docs/ssh/get-started/
 - https://developer.1password.com/docs/ssh/integrations/wsl/

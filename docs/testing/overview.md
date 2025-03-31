@@ -1,21 +1,24 @@
 ---
+title: Overview
 sidebar_position: 1
 ---
 
-# Overview
+# **Welcome to the Testing Section 🧪**
 
-This section outlines our testing practices and methodologies. We focus on thorough testing to build robust and reliable systems.
+At Wonderland, rigorous testing is fundamental to everything we build. This section provides the building blocks of our testing practices, methodologies and standards that help ensure the reliability and security of our systems.
 
-## Key Areas
-
-We cover two main testing areas:
+## What's Inside?
 
 ### Unit and Integration Testing
-Best practices and guidelines for writing effective tests.
+Our testing framework is built on industry best practices and battle-tested approaches. Here you'll find detailed guidelines on writing effective tests, from basic unit tests to complex integration scenarios.
 
-[Learn more about Unit and Integration Testing →](/docs/testing/unit-integration)
+[Unit and Integration Testing →](/docs/testing/unit-integration)
 
-### Campaign Processes  
-A structured approach to planning and executing test campaigns.
+### Campaign Processes
+Testing campaigns are structured approaches to validating system-wide functionality. This section covers planning, execution and reporting of test campaigns to ensure thorough coverage.
 
-[Learn more about Campaign Processes →](/docs/testing/campaign-processes)
+[Campaign Processes →](/docs/testing/campaign-processes)
+
+:::tip
+Testing is a critical responsibility. Whether you're a developer, researcher, or part of our operations team, these guidelines will help you contribute to our robust testing culture.
+:::

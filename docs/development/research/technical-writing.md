@@ -1,3 +1,7 @@
+---
+title: Best Practices
+sidebar_position: 1
+---
 # Tech Writing Best Practices
 
 ![image.png](/img/meme-tech.png)

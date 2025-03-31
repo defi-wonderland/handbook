@@ -1,18 +1,7 @@
-# Onboarding
-
-This is the onboarding process for new developers joining the Offchain team. It provides a challenge that introduces key concepts, tools, and best practices we use in our development workflow.
-
-The onboarding process consists of a practical challenge - building a UniswapV2 TVL aggregator. This project is designed to familiarize you with:
-
-- Our monorepo structure and development patterns
-- TypeScript best practices and architectural principles 
-- Testing methodologies and documentation standards
-- Common tools and libraries we use
-- Our GitHub workflow and code review process
-
-By completing this challenge, you'll gain hands-on experience with the technologies and practices outlined in our [best practices guide](./best-practices.md).
-
-## UniswapV2 Multichain TVL Aggregator Challenge
+---
+title: Coding Challenge
+---
+# UniswapV2 Multichain TVL Aggregator Challenge
 
 ## Context
 
@@ -26,12 +15,6 @@ Develop a system to aggregate and report Total Value Locked (TVL) from UniswapV2
 - Ensure high test coverage and deployment readiness
 - Get a grasp on the tech and tools we commonly use
 
-### Tracking
-
-Use the Linear project assigned to you during the onboarding process. There you’ll find all the tasks for the challenge too. Feel free to write any issue/sub-issue that you may consider necessary
-
-[Remember our guidelines on PRs](https://www.notion.so/General-guidelines-bb8b0a84d06841279337fd4502124d42?pvs=21)
-
 
 ## Starting point: Tech design 
 
@@ -43,11 +26,11 @@ Tech design must address:
 - 1 Sequence diagram (include diff contracts)
 - 1 UML (relationship between missing modules)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/7683bccd-1174-4689-a817-b27fd9d7ef00/e0ff657c-20c6-40f8-99ce-0e24bb9f3134/image.png)
+![offchain-img.png](/img/offchain-img.png)
 
 ## Coding fun 
 
-Create the challenge repo using the [Wonder’s Repo Creator](https://github.com/defi-wonderland/repo-creatooor) and the [Offchain-Turborepo-Boilerplate](https://github.com/defi-wonderland/ts-turborepo-boilerplate) template. Give it a meaningful name 🙂
+Create the challenge repo using the [Wonder's Repo Creator](https://github.com/defi-wonderland/repo-creatooor) and the [Offchain-Turborepo-Boilerplate](https://github.com/defi-wonderland/ts-turborepo-boilerplate) template. Give it a meaningful name 🙂
 
 ## Must-do Components
 
@@ -61,11 +44,11 @@ Create the challenge repo using the [Wonder’s Repo Creator](https://github.com
     - Implement using [singleton pattern](https://refactoring.guru/design-patterns/singleton)
 - EVM Provider:
     - Implement `readContract`  method
-    - Utilize `Viem` as the blockchain interfacing client (we ❤️ viem)
+    - Utilize `Viem` as the blockchain interfacing client (we ❤️ viem)
 - Batching System:
     - Develop a batching contract for fetching TVL from different pools of Uniswap using token addresses as inputs
     - Use `Foundry` for smart contract development
-        - Note: don’t need to become an expert on SC development
+        - Note: don't need to become an expert on SC development
     - Extend EVM Provider with `readBatchContract` and test your contract implementation
 - TVL Provider:
     - Support multiple chains

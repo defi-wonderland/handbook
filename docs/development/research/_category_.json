@@ -1,6 +1,9 @@
 {
     "label": "Research",
-    "position": 5,
-    "className": "regular"
+    "position": 3,
+    "link": {
+      "type": "doc",
+      "id": "development/research/overview"
+    }
   }
   

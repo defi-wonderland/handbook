@@ -44,32 +44,102 @@ const sidebars: SidebarsConfig = {
       label: 'Development',
       link: {
         type: 'doc',
-        id: 'development/overview'
+        id: 'development/overview',
       },
       items: [
         'development/overview',
         {
           type: 'category',
-          label: 'Frontend',
-          items: [
-            'development/frontend/best-practices',
-            'development/frontend/onboarding',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Offchain',
-          items: [
-            'development/offchain/best-practices',
-            'development/offchain/onboarding',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Research',
           items: [
-            'development/research/onboarding',
+            'development/research/research-overview',
             'development/research/technical-writing',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/research/onboarding/overview',
+                {
+                  type: 'category',
+                  label: 'Knowledge Base',
+                  items: [
+                    'development/research/onboarding/knowledge-base/overview',
+                    {
+                      type: 'category',
+                      label: 'Basics',
+                      items: [
+                        'development/research/onboarding/knowledge-base/basics/tokenomics',
+                        'development/research/onboarding/knowledge-base/basics/game-theory'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Intermediate',
+                      items: [
+                        'development/research/onboarding/knowledge-base/intermediate/solidity',
+                        'development/research/onboarding/knowledge-base/intermediate/cryptography'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'DeFi',
+                      items: [
+                        'development/research/onboarding/knowledge-base/defi/limit-order',
+                        'development/research/onboarding/knowledge-base/defi/amm',
+                        'development/research/onboarding/knowledge-base/defi/lending-protocol'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Core',
+                      items: [
+                        'development/research/onboarding/knowledge-base/core/evm',
+                        'development/research/onboarding/knowledge-base/core/oracles',
+                        'development/research/onboarding/knowledge-base/core/bridges',
+                        'development/research/onboarding/knowledge-base/core/layer_2'
+                      ]
+                    }
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Challenges',
+                  items: [
+                    'development/research/onboarding/challenges/overview',
+                    {
+                      type: 'category',
+                      label: 'Basic',
+                      items: [
+                        'development/research/onboarding/challenges/basic/game-theory',
+                        'development/research/onboarding/challenges/basic/tokenomics'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Intermediate',
+                      items: [
+                        'development/research/onboarding/challenges/intermediate/cryptography',
+                        'development/research/onboarding/challenges/intermediate/solidity'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'DeFi',
+                      items: [
+                        'development/research/onboarding/challenges/defi/defi'
+                      ]
+                    },
+                    {
+                      type: 'category',
+                      label: 'Core',
+                      items: [
+                        'development/research/onboarding/challenges/core/core'
+                      ]
+                    }
+                  ]
+                }
+              ],
+            },
           ],
         },
         {
@@ -78,7 +148,58 @@ const sidebars: SidebarsConfig = {
           items: [
             'development/solidity/coding-style',
             'development/solidity/natspec',
-            'development/solidity/onboarding/getting-started',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/solidity/onboarding/getting-started',
+                'development/solidity/onboarding/knowledge-base',
+                {
+                  type: 'category',
+                  label: 'Challenges',
+                  items: [
+                    'development/solidity/onboarding/challenges/overview',
+                    'development/solidity/onboarding/challenges/swapper',
+                    'development/solidity/onboarding/challenges/oracle-relayer',
+                    'development/solidity/onboarding/challenges/flashloan',
+                    'development/solidity/onboarding/challenges/security-challenges',
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Offchain',
+          items: [
+            'development/offchain/best-practices',
+            'development/offchain/rpc-request',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/offchain/onboarding/overview',
+                'development/offchain/onboarding/knowledge-base',
+                'development/offchain/onboarding/challenge',
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Frontend',
+          items: [
+            'development/frontend/best-practices',
+            {
+              type: 'category',
+              label: 'Onboarding',
+              items: [
+                'development/frontend/onboarding/overview',
+                'development/frontend/onboarding/front-knowledge-base',
+                'development/frontend/onboarding/frontend-dev-challenge',
+              ],
+            },
           ],
         },
       ],
