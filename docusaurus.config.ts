@@ -74,7 +74,7 @@ const config: Config = {
       logo: {
         alt: 'Wonderland Handbook',
         src: 'img/logo.svg',
-        style: { height: '40px', width: 'auto' },
+        style: { height: '100%', width: 'auto' },
         className: 'navbar-logo-center',
       },
       style: 'dark',
