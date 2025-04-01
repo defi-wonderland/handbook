@@ -15,7 +15,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://wonderland-handbook.vercel.app/',
+  url: 'https://wonderland-handbook.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -113,8 +113,12 @@ const config: Config = {
           const { siteDir } = context;
           const contentDir = path.join(siteDir, 'docs');
           const allMdx: string[] = [];
+          const docsRecords: {
+            title: string;
+            path: string;
+            description: string;
+          }[] = [];
 
-          // recursive function to get all mdx files with their paths
           const getMdxFiles = async (
             dir: string,
             relativePath: string = '',
@@ -124,12 +128,9 @@ const config: Config = {
               withFileTypes: true,
             });
 
-            // Sort entries to ensure consistent order
             entries.sort((a, b) => {
-              // Directories come first
               if (a.isDirectory() && !b.isDirectory()) return -1;
               if (!a.isDirectory() && b.isDirectory()) return 1;
-              // Then sort alphabetically
               return a.name.localeCompare(b.name);
             });
 
@@ -138,91 +139,72 @@ const config: Config = {
               const currentRelativePath = path.join(relativePath, entry.name);
 
               if (entry.isDirectory()) {
-                // Add directory as a header with proper nesting level
                 const dirName = entry.name
                   .split('-')
                   .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                   .join(' ');
-                const headingLevel = '#'.repeat(depth + 2); // Start with ## for root folders
+                const headingLevel = '#'.repeat(depth + 2);
                 allMdx.push(`\n${headingLevel} ${dirName}\n`);
                 await getMdxFiles(fullPath, currentRelativePath, depth + 1);
               } else if (entry.name.endsWith('.md')) {
-                // Read the file content
                 const content = await fs.promises.readFile(fullPath, 'utf8');
-
-                // Extract title from frontmatter if it exists
                 let title = entry.name.replace('.md', '');
+                let description = '';
+
                 const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
                 if (frontmatterMatch) {
                   const titleMatch = frontmatterMatch[1].match(/title:\s*(.+)/);
+                  const descriptionMatch =
+                    frontmatterMatch[1].match(/description:\s*(.+)/);
+
                   if (titleMatch) {
                     title = titleMatch[1].trim();
                   }
+                  if (descriptionMatch) {
+                    description = descriptionMatch[1].trim();
+                  }
                 }
 
-                // Add the file with its title and proper nesting level
-                const headingLevel = '#'.repeat(depth + 3); // Files are one level deeper than their folder
+                const headingLevel = '#'.repeat(depth + 3);
                 allMdx.push(`\n${headingLevel} ${title}\n\n${content}`);
+
+                // Add to docs records for llms.txt
+                docsRecords.push({
+                  title,
+                  path: currentRelativePath.replace(/\\/g, '/'),
+                  description,
+                });
               }
             }
           };
 
           await getMdxFiles(contentDir);
-          return { allMdx };
+          return { allMdx, docsRecords };
         },
-        postBuild: async ({ content, routes, outDir }) => {
-          const { allMdx } = content as { allMdx: string[] };
+        postBuild: async ({ content, outDir, routes }) => {
+          const { allMdx, docsRecords } = content as {
+            allMdx: string[];
+            docsRecords: { title: string; path: string; description: string }[];
+          };
 
-          // Write concatenated MDX content with proper spacing
+          // Write concatenated MDX content
           const concatenatedPath = path.join(outDir, 'llms-full.txt');
           await fs.promises.writeFile(
             concatenatedPath,
             allMdx.join('\n\n---\n\n')
           );
 
-          // Find the docs plugin route
-          const docsPluginRoute = routes.find(
-            (route) => route.plugin?.name === 'docusaurus-plugin-content-docs'
-          );
-
-          if (!docsPluginRoute?.routes) {
-            console.warn('No docs routes found');
-            return;
-          }
-
-          // Find the root docs route
-          const rootDocsRoute = docsPluginRoute.routes.find(
-            (route) => route.path === '/'
-          );
-
-          if (!rootDocsRoute?.props?.version) {
-            console.warn('No version found in docs route');
-            return;
-          }
-
-          const version = rootDocsRoute.props.version as {
-            docs?: Record<string, { title: string; description?: string }>;
-          };
-
-          if (!version.docs) {
-            console.warn('No docs found in version');
-            return;
-          }
-
-          // Create docs records
-          const docsRecords = Object.entries(version.docs).map(
-            ([docPath, doc]) => {
-              const description = doc.description || '';
-              return `- [${doc.title}](${docPath}): ${description}`;
-            }
-          );
-
-          // Build up llms.txt file
+          // Create llms.txt with the requested format
           const llmsTxt = `# ${
             context.siteConfig.title
-          }\n\n## Docs\n\n${docsRecords.join('\n')}`;
-
-          // Write llms.txt file
+          }\n\n## Documentation\n\n${docsRecords
+            .map(
+              (doc) =>
+                `- [${doc.title}](${
+                  context.siteConfig.url
+                }/docs/${doc.path.replace('.md', '')}): ${doc.description}`
+            )
+            .join('\n')}`;
           const llmsTxtPath = path.join(outDir, 'llms.txt');
           await fs.promises.writeFile(llmsTxtPath, llmsTxt);
         },

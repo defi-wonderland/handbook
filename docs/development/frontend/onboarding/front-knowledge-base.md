@@ -1,4 +1,10 @@
+---
+title: Frontend Knowledge Base
+description: A comprehensive guide covering frontend development standards, security practices, and essential DeFi protocols and smart contracts at Wonderland
+---
+
 # Knowledge Base
+
 ## Best Practices & Standards
 
 Our development standards differentiate us in the industry. Learning and adhering to these best practices is a crucial part of your onboarding:
