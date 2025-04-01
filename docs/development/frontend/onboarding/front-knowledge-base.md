@@ -1,5 +1,5 @@
 ---
-title: Frontend Knowledge Base
+title: Knowledge Base
 description: A comprehensive guide covering frontend development standards, security practices, and essential DeFi protocols and smart contracts at Wonderland
 ---
 
