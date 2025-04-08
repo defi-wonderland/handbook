@@ -86,8 +86,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Wonderland.`,
     },
     prism: {
-      theme: prismThemes.vsDark,
-      darkTheme: prismThemes.vsDark,
+      theme: {...prismThemes.vsDark, plain: {color: '#9473b0'}},
+      darkTheme: {...prismThemes.vsDark, plain: {color: '#9473b0'}}, 
     },
     docs: {
       sidebar: {

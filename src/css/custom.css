@@ -8,19 +8,21 @@
 :root {
   /* Brand Colors */
   --wonderland-dark: #0E152C;
+  --wonderland-light: #1c1f37;
   --wonderland-purple: #3C2A86;
   --wonderland-blue: #1F55D5;
   --wonderland-pink: #E95B9B;
   --wonderland-yellow: #FECC40;
+  --wonderland-lila: #a371ce;
 
   /* Theme Colors */
-  --ifm-color-primary: var(--wonderland-blue);
-  --ifm-color-primary-dark: #1a44aa;
-  --ifm-color-primary-darker: #1539a0;
-  --ifm-color-primary-darkest: #102d83;
-  --ifm-color-primary-light: #3666dd;
-  --ifm-color-primary-lighter: #4775df;
-  --ifm-color-primary-lightest: #6b91e5;
+  --ifm-color-primary: var(--wonderland-lila);
+  --ifm-color-primary-dark: #8c5ab8;
+  --ifm-color-primary-darker: #7d4aad;
+  --ifm-color-primary-darkest: #6b3a97;
+  --ifm-color-primary-light: #ad7ed5;
+  --ifm-color-primary-lighter: #bc90dc;
+  --ifm-color-primary-lightest: #cba2e3;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-background-color: var(--wonderland-dark);
@@ -29,17 +31,19 @@
   --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
   --ifm-dropdown-background-color: var(--wonderland-dark);
   --ifm-card-background-color: var(--wonderland-dark);
+  --ifm-blockquote-border-color: var(--wonderland-lila);
+  --ifm-breadcrumb-item-background-active: var(--wonderland-light);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: var(--wonderland-blue);
-  --ifm-color-primary-dark: #1a44aa;
-  --ifm-color-primary-darker: #1539a0;
-  --ifm-color-primary-darkest: #102d83;
-  --ifm-color-primary-light: #3666dd;
-  --ifm-color-primary-lighter: #4775df;
-  --ifm-color-primary-lightest: #6b91e5;
+  --ifm-color-primary: var(--wonderland-lila);
+  --ifm-color-primary-dark: #8c5ab8;
+  --ifm-color-primary-darker: #7d4aad;
+  --ifm-color-primary-darkest: #6b3a97;
+  --ifm-color-primary-light: #ad7ed5;
+  --ifm-color-primary-lighter: #bc90dc;
+  --ifm-color-primary-lightest: #cba2e3;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-background-color: var(--wonderland-dark);
   --ifm-background-surface-color: rgba(14, 21, 44, 0.95);
@@ -72,7 +76,7 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 /* Global styles */
 html {
@@ -93,6 +97,11 @@ body {
   background: transparent;
 }
 
+::selection {
+  background: var(--wonderland-lila);
+  color: var(--wonderland-dark);
+}
+
 /* Main content background */
 #__docusaurus {
   min-height: 100vh;
@@ -105,72 +114,58 @@ h1 {
   font-weight: 300;
   font-style: italic;
   color: #ffffff;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.04em;
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-weight: 500;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.3rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 /* Specific heading styles */
 .theme-doc-markdown h1 {
-  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-style: italic;
   font-size: 4.5rem;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .theme-doc-markdown h2 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-style: normal;
   font-size: 2rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h3 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.6rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h4 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.4rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h5 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.2rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.1rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* Paragraphs */
-p, .theme-doc-markdown, .markdown {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 400;
+p,
+.theme-doc-markdown,
+.markdown {
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   margin-bottom: 0.3rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Add minimal space between sections */
@@ -300,11 +295,16 @@ a:hover {
 
 .table-of-contents__link {
   color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
+  font-weight: 100;
 }
 
-.table-of-contents__link:hover,
+.table-of-contents__link:hover {
+  color: #ffffff;
+}
+
 .table-of-contents__link--active {
-  color: #ffffff !important;
+  color: #ffffff;
   font-weight: 300;
 }
 
@@ -322,24 +322,49 @@ a:hover {
 
 /* Make all menu links consistent */
 .menu__link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
-  transition: color 0.2s ease;
+  will-change: color, transform;
+  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
   position: relative;
   padding-left: 1.5rem;
-  transition: color 0.2s ease;
+  border-radius: 0;
 }
 
-.menu__link:hover {
-  color: #ffffff;
+.menu__list .menu__link:hover {
+  background: unset;
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.025);
+  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
+}
+
+.menu__list .menu__link:active,
+.menu__list .menu__link:focus {
+  transform: scale(1);
 }
 
 .menu__link--active {
-  background: rgba(31, 85, 213, 0.15) !important;
+  border-radius: 0;
   font-weight: 300;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: unset;
+}
+
+.menu__list-item-collapsible:hover {
+  background: unset;
+}
+
+.menu__list-item-collapsible .menu__caret {
+  background: unset;
+}
+
+.menu__list-item-collapsible--active {
+  background: unset;
 }
 
 /* Category icons - only for main categories */
@@ -403,9 +428,9 @@ a:hover {
 /* Hover effect for the entire menu item */
 .menu__list-item-collapsible .menu__link:hover {
   color: #ffffff;
-  background: rgba(31, 85, 213, 0.15) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow: 0 0 20px rgba(233, 91, 155, 0.3);
+  background: unset;
 }
 
 /* Remove padding for nested items */
@@ -415,19 +440,19 @@ a:hover {
 
 /* Sidebar titles */
 .menu__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
 /* Sidebar category titles */
 .menu__list-item-collapsible .menu__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 600;
 }
 
 /* Table of contents */
 .table-of-contents {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -436,7 +461,7 @@ a:hover {
 .table-of-contents__link {
   display: block;
   padding: 0.4rem 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
@@ -449,7 +474,6 @@ a:hover {
 
 .table-of-contents__link--active {
   color: #ffffff;
-  font-weight: 500;
 }
 
 /* Make TOC sticky on desktop */
@@ -472,6 +496,7 @@ a:hover {
 /* Breadcrumbs */
 .breadcrumbs__link {
   color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
 }
 
 .breadcrumbs__link:hover {
@@ -481,6 +506,7 @@ a:hover {
 .breadcrumbs__item--active .breadcrumbs__link {
   color: #ffffff;
   font-weight: 300;
+  background: var(--wonderland-light);
 }
 
 /* Tabs */
@@ -524,6 +550,16 @@ a:hover {
   --ifm-alert-border-color: var(--wonderland-pink);
 }
 
+.alert a {
+  text-decoration: none;
+}
+
+code {
+  color: var(--wonderland-lila);
+  background: var(--wonderland-light);
+  padding: 0.2rem 0.4rem;
+}
+
 /* Code blocks - ensure solid background */
 .theme-code-block,
 div[class^='codeBlock'],
@@ -539,12 +575,13 @@ code[class*='language-'],
 }
 
 /* Ensure code content has solid background */
-.theme-code-block *,
-.prism-code *,
-div[class^='codeBlock'] * {
-  background-color: var(--wonderland-dark) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+.prism-code {
+  --wonderland-pink-rgb: 233, 91, 155;
+  background-image: linear-gradient(30deg, rgba(var(--wonderland-pink-rgb), 0) 70%, rgba(var(--wonderland-pink-rgb), 0.05) 95%, rgba(var(--wonderland-pink-rgb), 0.1) 100%);
+  background-size: 100% 40rem;
+  background-repeat: no-repeat;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 /* Code block specific styling */
@@ -577,6 +614,10 @@ div[class*='codeBlockTitle'],
   color: rgba(255, 255, 255, 0.8);
 }
 
+.theme-code-block .prism-code + div >button {
+  opacity: 0.4;
+}
+
 /* Token and line styling */
 .token,
 .token-line,
@@ -587,22 +628,32 @@ div[class*='codeBlockTitle'],
 
 /* Copy button and other controls */
 div[class*='copyButtonCopyCode'],
-div[class*='buttonGroup'],
 [class*='playgroundPreview'] {
   background: var(--wonderland-dark) !important;
 }
 
+div[class*='buttonGroup'] button {
+  border-radius: 8px;
+  background: var(--wonderland-dark);
+}
+
 /* Links in markdown content */
-.markdown a,
-.theme-doc-markdown a {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s ease;
+.markdown a:not(.card),
+.theme-doc-markdown a:not(.card) {
+  color: var(--wonderland-lila);
+  background: linear-gradient(currentColor 0 0) 
+    bottom left/
+    var(--underline-width, 0%) 1px
+    no-repeat;
+  will-change: color, background-size;
+  transition: color 0.2s ease, background-size 0.3s ease-in-out;
 }
 
 .markdown a:hover,
 .theme-doc-markdown a:hover {
-  color: #ffffff;
-  text-decoration: none;
+  color: var(--wonderland-lila);
+  --underline-width: 100%;
+  transition: color 0.2s ease, background-size 0.2s ease-in;
 }
 
 /* Custom sidebar styling */
@@ -616,23 +667,27 @@ div[class*='buttonGroup'],
 
 /* Button styling in documentation */
 .pagination-nav__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
+.pagination-nav__link:hover {
+  border: 1px solid var(--wonderland-lila);
+}
+
 .pagination-nav__sublabel {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 400;
 }
 
 .pagination-nav__label {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
 /* All buttons in documentation */
 .button {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
@@ -683,14 +738,13 @@ div[class*='buttonGroup'],
   background: rgba(14, 21, 44, 0.95);
   backdrop-filter: blur(10px);
   color: rgba(255, 255, 255, 0.7);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
-  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
@@ -703,6 +757,10 @@ div[class*='buttonGroup'],
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover svg {
   transform: scale(1.1);
+}
+
+.theme-doc-sidebar-container div[class*='expandButton'] {
+  background: unset;
 }
 
 /* Magical card hover effects */
@@ -805,7 +863,7 @@ div[class*='buttonGroup'],
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
   padding: 1rem 2rem;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
