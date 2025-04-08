@@ -5,7 +5,7 @@ Our development standards differentiate us in the industry. Learning and adherin
 
 - [Frontend Best Practices](/docs/development/frontend/best-practices)
 - [Git Practices](docs/processes/github/git-practices.md)
-- [GitHub Pull Request Guidelines](docs/processes/github/pr-guidelines.md)
+- [GitHub Pull Request Guidelines](docs/processes/github/pr-guidelines/pr-guidelines.md)
 
 ## Security & Processes
 
