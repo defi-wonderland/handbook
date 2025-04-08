@@ -22,7 +22,7 @@ A contributor is whoever contributes changes to a GitHub repository by pushing c
 
 ### Managing pull requests
 
-- Should create pull requests for his contributing branches as soon as conveniently possible, linking Linear issues in their descriptions, correspondingly.
+- Should create pull requests for his contributing branches as soon as conveniently possible, linking GitHub or Linear issues in their descriptions, correspondingly.
 
     The creation of a pull request signalizes the changes being worked on a contributing branch and unlocks the easy viewing (and reviewing) of all of its relevant commits, files, conversations and workflow runs; thus, doing it early streamlines development.
 
@@ -74,7 +74,7 @@ A contributor is whoever contributes changes to a GitHub repository by pushing c
 
 - Should address the reviewers' feedbacks, replying or reacting to their comments or conversations properly.
 
-    In many cases, reviews will be left with suggestions that require further actions from the contributor, commonly code actualizations and/or answers. It is a good practice to link conversations to their resulting commits, pull requests, or Linear issues, when applicable.
+    In many cases, reviews will be left with suggestions that require further actions from the contributor, commonly code actualizations and/or answers. It is a good practice to link conversations to their resulting commits, pull requests, or GitHub or Linear issues, when applicable.
 
     ![My reply](docs/processes/github/pr-guidelines/my-reply.png)
 
