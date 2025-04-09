@@ -32,7 +32,7 @@ const sidebars: SidebarsConfig = {
             'processes/github/overview',
             'processes/github/git-environment', 
             'processes/github/git-practices',
-            'processes/github/pr-guidelines',
+            'processes/github/pr-guidelines/pr-guidelines',
             'processes/github/repo-readiness',
             'processes/github/ssh-setup',
           ],
