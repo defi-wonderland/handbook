@@ -42,7 +42,7 @@ A contributor is whoever contributes changes to a GitHub repository by pushing c
 
         - If the pull request is *open* and changes are approved by sufficient reviewers, the pull request should be *merged*.
 
-        ![My merged pull request](./my-merged-pull-request.png)
+        ![My merged pull request](my-merged-pull-request.png)
 
     - If changes are not meant to be merged but their underlying contribution is wanted and not merged, the pull request should be a *draft*.
 
