@@ -286,6 +286,12 @@ article {
   }
 }
 
+@media (max-width: 600px) {
+  .navbar__inner {
+    padding: 0;
+  }
+}
+
 /* Search input */
 .navbar__search-input {
   outline-color: white;
@@ -311,6 +317,10 @@ article {
 
 .navbar__search .algolia-autocomplete {
   --ifm-background-color: var(--wonderland-light);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion {
+  z-index: 1000;
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
@@ -343,6 +353,33 @@ article {
   padding-top: 2rem;
 }
 
+@media (max-width: 600px) {
+  .navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+    max-height: 80vh;
+  }
+
+  .navbar [class^=navbarSearchContainer] {
+    position: relative;
+    right: unset;
+  }
+
+  .navbar__search .algolia-autocomplete .ds-dropdown-menu {
+    top: 4.5rem !important;
+  }
+
+  .navbar__search .navbar__search-input.search-bar {
+    width: 2rem;
+    padding: 1.25rem;
+  }
+
+  .navbar__search .navbar__search-input.search-bar[aria-expanded="true"],
+  .navbar__search .navbar__search-input.search-bar:active,
+  .navbar__search .navbar__search-input.search-bar:focus {
+    width: 65vw;
+    padding-left: 2.5rem;
+  }
+}
+
 /* Footer styling */
 .footer {
   background: var(--wonderland-dark);
@@ -360,6 +397,12 @@ article {
 
 .footer__copyright {
   color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 0.5rem 0;
+  }
 }
 
 /* Links */

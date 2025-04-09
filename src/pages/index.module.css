@@ -326,6 +326,10 @@
   .categoryCard {
     width: 100%;
   }
+
+  .centerContent {
+    padding-bottom: 0;
+  }
 }
 
 .description {
