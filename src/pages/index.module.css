@@ -179,10 +179,6 @@
     max-width: 400px;
   }
   
-  .buttonImage {
-    max-width: 200px;
-  }
-  
   .centerContent {
     gap: 1.5rem;
   }
@@ -328,7 +324,7 @@
   }
   
   .categoryCard {
-    width: 320px;
+    width: 100%;
   }
 }
 
@@ -345,9 +341,15 @@
   opacity: 0.9;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
   .description {
     font-size: 1rem;
     max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .description {
+    max-width: 100%;
   }
 }

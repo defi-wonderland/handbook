@@ -5,7 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
-:root {
+:root, html[data-theme='dark'] {
   /* Brand Colors */
   --wonderland-dark: #0E152C;
   --wonderland-light: #1c1f37;
@@ -33,22 +33,6 @@
   --ifm-card-background-color: var(--wonderland-dark);
   --ifm-blockquote-border-color: var(--wonderland-lila);
   --ifm-breadcrumb-item-background-active: var(--wonderland-light);
-}
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: var(--wonderland-lila);
-  --ifm-color-primary-dark: #8c5ab8;
-  --ifm-color-primary-darker: #7d4aad;
-  --ifm-color-primary-darkest: #6b3a97;
-  --ifm-color-primary-light: #ad7ed5;
-  --ifm-color-primary-lighter: #bc90dc;
-  --ifm-color-primary-lightest: #cba2e3;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: var(--wonderland-dark);
-  --ifm-background-surface-color: rgba(14, 21, 44, 0.95);
-  --ifm-navbar-background-color: rgba(14, 21, 44, 0.95);
-  --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
 }
 
 /* Sharp Grotesk Font Faces */
@@ -89,6 +73,20 @@ html {
   background-attachment: fixed;
 }
 
+@media (max-width: 1024px) {
+  html {
+    background-size: 110%;
+    background-position: right center;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    background-size: 45rem;
+    background-position: 100% 59%;
+  }
+}
+
 body {
   font-family: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
   color: #ffffff;
@@ -114,6 +112,7 @@ h1 {
   font-weight: 300;
   font-style: italic;
   color: #ffffff;
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   letter-spacing: 0.04em;
@@ -133,6 +132,13 @@ h2, h3, h4, h5, h6 {
 .theme-doc-markdown h1 {
   font-style: italic;
   font-size: 4.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .theme-doc-markdown h1 {
+    font-size: 3.5rem;
+  }
 }
 
 .theme-doc-markdown h2 {
@@ -261,6 +267,21 @@ article {
 
 .navbar__link:hover {
   color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .navbar__items {
+    padding: 0;
+  }
+
+  .navbar__brand {
+    padding: 0;
+  }
+
+  .navbar__logo {
+    margin: 0;
+    height: 40px;
+  }
 }
 
 /* Footer styling */
@@ -488,7 +509,7 @@ a:hover {
 
 /* Hide TOC on mobile in a clean way */
 @media (max-width: 996px) {
-  .theme-doc-toc {
+  .theme-doc-toc-mobile {
     display: none;
   }
 }
@@ -582,6 +603,12 @@ code[class*='language-'],
   background-repeat: no-repeat;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 480px) {
+  .prism-code {
+    background-size: 100% 20rem;
+  }
 }
 
 /* Code block specific styling */
@@ -683,6 +710,13 @@ div[class*='buttonGroup'] button {
 .pagination-nav__label {
   font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .pagination-nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* All buttons in documentation */
