@@ -45,6 +45,7 @@
   align-items: center;
   gap: 1rem;
   max-width: 90%;
+  width: 100%;
   margin-bottom: 1rem;
   padding-bottom: 4rem;
 }
@@ -168,10 +169,6 @@
   .heroTitle {
     max-width: 500px;
   }
-  
-  .buttonImage {
-    max-width: 250px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -179,19 +176,22 @@
     max-width: 400px;
   }
   
-  .buttonImage {
-    max-width: 200px;
-  }
-  
   .centerContent {
     gap: 1.5rem;
+  }
+
+  .buttonImage {
+    max-width: 280px;
   }
 }
 
 .categoryCards {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 2rem;
+  width: 100%;
   margin-top: 1.5rem;
   padding: 0 2rem;
   margin-bottom: 2rem;
@@ -202,9 +202,9 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 2rem;
-  width: 300px;
+  padding: 2rem 4rem;
   display: flex;
+  flex: 0 0 270px;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
@@ -262,6 +262,8 @@
   font-weight: 300;
   font-style: italic;
   font-size: 2.5rem;
+  line-height: 0.7;
+  padding-top: 0.15em;
   color: #ffffff;
   margin: 0;
   text-transform: uppercase;
@@ -281,7 +283,13 @@
   letter-spacing: 0.08em;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1440px) {
+  .categoryCard {
+    flex: 1 0 40%;
+  }
+}
+
+@media (max-width: 1024px) {
   .main {
     padding: 1rem 0;
     min-height: 100vh;
@@ -294,31 +302,8 @@
     padding-bottom: 6rem;
   }
 
-  .categoryCards {
-    margin: 1rem auto 2rem;
-    gap: 2rem;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 1rem;
-  }
-
   .categoryCard {
-    width: 340px;
-    padding: 2.5rem;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .categoryIcon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .categoryTitle {
-    font-size: 2.75rem;
+    flex: 0 0 100%;
   }
 }
 
@@ -326,9 +311,9 @@
   .categoryCards {
     padding: 0 0.75rem;
   }
-  
-  .categoryCard {
-    width: 320px;
+
+  .centerContent {
+    padding-bottom: 0;
   }
 }
 
@@ -345,9 +330,15 @@
   opacity: 0.9;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
   .description {
     font-size: 1rem;
     max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .description {
+    max-width: 100%;
   }
 }

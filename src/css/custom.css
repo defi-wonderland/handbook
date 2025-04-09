@@ -5,22 +5,24 @@
  */
 
 /* You can override the default Infima variables here. */
-:root {
+:root, html[data-theme='dark'] {
   /* Brand Colors */
   --wonderland-dark: #0E152C;
+  --wonderland-light: #1c1f37;
   --wonderland-purple: #3C2A86;
   --wonderland-blue: #1F55D5;
   --wonderland-pink: #E95B9B;
   --wonderland-yellow: #FECC40;
+  --wonderland-lila: #a371ce;
 
   /* Theme Colors */
-  --ifm-color-primary: var(--wonderland-blue);
-  --ifm-color-primary-dark: #1a44aa;
-  --ifm-color-primary-darker: #1539a0;
-  --ifm-color-primary-darkest: #102d83;
-  --ifm-color-primary-light: #3666dd;
-  --ifm-color-primary-lighter: #4775df;
-  --ifm-color-primary-lightest: #6b91e5;
+  --ifm-color-primary: var(--wonderland-lila);
+  --ifm-color-primary-dark: #8c5ab8;
+  --ifm-color-primary-darker: #7d4aad;
+  --ifm-color-primary-darkest: #6b3a97;
+  --ifm-color-primary-light: #ad7ed5;
+  --ifm-color-primary-lighter: #bc90dc;
+  --ifm-color-primary-lightest: #cba2e3;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-background-color: var(--wonderland-dark);
@@ -29,22 +31,10 @@
   --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
   --ifm-dropdown-background-color: var(--wonderland-dark);
   --ifm-card-background-color: var(--wonderland-dark);
-}
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: var(--wonderland-blue);
-  --ifm-color-primary-dark: #1a44aa;
-  --ifm-color-primary-darker: #1539a0;
-  --ifm-color-primary-darkest: #102d83;
-  --ifm-color-primary-light: #3666dd;
-  --ifm-color-primary-lighter: #4775df;
-  --ifm-color-primary-lightest: #6b91e5;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-background-color: var(--wonderland-dark);
-  --ifm-background-surface-color: rgba(14, 21, 44, 0.95);
-  --ifm-navbar-background-color: rgba(14, 21, 44, 0.95);
-  --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
+  --ifm-blockquote-border-color: var(--wonderland-lila);
+  --ifm-breadcrumb-item-background-active: var(--wonderland-light);
+  --ifm-navbar-search-input-icon: url("data:image/svg+xml;utf8,<svg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='16px' width='16px'><path d='M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z' /></svg>");
+  --ifm-navbar-search-input-background-color: var(--wonderland-light);
 }
 
 /* Sharp Grotesk Font Faces */
@@ -72,7 +62,7 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 /* Global styles */
 html {
@@ -85,12 +75,31 @@ html {
   background-attachment: fixed;
 }
 
+@media (max-width: 1024px) {
+  html {
+    background-size: 110%;
+    background-position: right center;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    background-size: 45rem;
+    background-position: 100% 59%;
+  }
+}
+
 body {
   font-family: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
   color: #ffffff;
   font-weight: 300;
   min-height: 100vh;
   background: transparent;
+}
+
+::selection {
+  background: var(--wonderland-lila);
+  color: var(--wonderland-dark);
 }
 
 /* Main content background */
@@ -105,72 +114,66 @@ h1 {
   font-weight: 300;
   font-style: italic;
   color: #ffffff;
-  margin-bottom: 0.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.04em;
 }
 
 h2, h3, h4, h5, h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-weight: 500;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.3rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
 /* Specific heading styles */
 .theme-doc-markdown h1 {
-  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-style: italic;
   font-size: 4.5rem;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .theme-doc-markdown h1 {
+    font-size: 3.5rem;
+  }
 }
 
 .theme-doc-markdown h2 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-style: normal;
   font-size: 2rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h3 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.6rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h4 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.4rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h5 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.2rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
 }
 
 .theme-doc-markdown h6 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 1.1rem;
-  margin-top: 0.6rem;
-  margin-bottom: 0.3rem;
-  padding-bottom: 0.3rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* Paragraphs */
-p, .theme-doc-markdown, .markdown {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-weight: 400;
+p,
+.theme-doc-markdown,
+.markdown {
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   margin-bottom: 0.3rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Add minimal space between sections */
@@ -268,6 +271,115 @@ article {
   color: #ffffff;
 }
 
+@media (max-width: 1024px) {
+  .navbar__items {
+    padding: 0;
+  }
+
+  .navbar__brand {
+    padding: 0;
+  }
+
+  .navbar__logo {
+    margin: 0;
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar__inner {
+    padding: 0;
+  }
+}
+
+/* Search input */
+.navbar__search-input {
+  outline-color: white;
+}
+
+.navbar.navbar--dark {
+  --ifm-navbar-search-input-background-color: var(--wonderland-light);
+}
+
+.navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+  background: transparent;
+  border: 1px solid white;
+}
+
+.navbar__search  {
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif
+}
+
+.navbar__search .algolia-autocomplete .ds-dropdown-menu:before {
+  background: white;
+  border-color: white;
+}
+
+.navbar__search .algolia-autocomplete {
+  --ifm-background-color: var(--wonderland-light);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion {
+  z-index: 1000;
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  padding: 0.5rem 1rem 0.25rem;
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
+  padding: 0.25rem 1rem 0.5rem;
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  background: var(--wonderland-lila);
+  color: var(--wonderland-dark);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+  box-shadow: inset 0 -2px 0 0 var(--wonderland-lila);
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+  background: var(--wonderland-light);
+  padding-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+    max-height: 80vh;
+  }
+
+  .navbar [class^=navbarSearchContainer] {
+    position: relative;
+    right: unset;
+  }
+
+  .navbar__search .algolia-autocomplete .ds-dropdown-menu {
+    top: 4.5rem !important;
+  }
+
+  .navbar__search .navbar__search-input.search-bar {
+    width: 2rem;
+    padding: 1.25rem;
+  }
+
+  .navbar__search .navbar__search-input.search-bar[aria-expanded="true"],
+  .navbar__search .navbar__search-input.search-bar:active,
+  .navbar__search .navbar__search-input.search-bar:focus {
+    width: 65vw;
+    padding-left: 2.5rem;
+  }
+}
+
 /* Footer styling */
 .footer {
   background: var(--wonderland-dark);
@@ -287,6 +399,12 @@ article {
   color: rgba(255, 255, 255, 0.6);
 }
 
+@media (max-width: 600px) {
+  .footer {
+    padding: 0.5rem 0;
+  }
+}
+
 /* Links */
 a {
   color: rgba(255, 255, 255, 0.8);
@@ -300,11 +418,16 @@ a:hover {
 
 .table-of-contents__link {
   color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
+  font-weight: 100;
 }
 
-.table-of-contents__link:hover,
+.table-of-contents__link:hover {
+  color: #ffffff;
+}
+
 .table-of-contents__link--active {
-  color: #ffffff !important;
+  color: #ffffff;
   font-weight: 300;
 }
 
@@ -322,24 +445,49 @@ a:hover {
 
 /* Make all menu links consistent */
 .menu__link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
-  transition: color 0.2s ease;
+  will-change: color, transform;
+  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
   position: relative;
   padding-left: 1.5rem;
-  transition: color 0.2s ease;
+  border-radius: 0;
 }
 
-.menu__link:hover {
-  color: #ffffff;
+.menu__list .menu__link:hover {
+  background: unset;
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.025);
+  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
+}
+
+.menu__list .menu__link:active,
+.menu__list .menu__link:focus {
+  transform: scale(1);
 }
 
 .menu__link--active {
-  background: rgba(31, 85, 213, 0.15) !important;
+  border-radius: 0;
   font-weight: 300;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 1);
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: unset;
+}
+
+.menu__list-item-collapsible:hover {
+  background: unset;
+}
+
+.menu__list-item-collapsible .menu__caret {
+  background: unset;
+}
+
+.menu__list-item-collapsible--active {
+  background: unset;
 }
 
 /* Category icons - only for main categories */
@@ -403,9 +551,9 @@ a:hover {
 /* Hover effect for the entire menu item */
 .menu__list-item-collapsible .menu__link:hover {
   color: #ffffff;
-  background: rgba(31, 85, 213, 0.15) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow: 0 0 20px rgba(233, 91, 155, 0.3);
+  background: unset;
 }
 
 /* Remove padding for nested items */
@@ -415,19 +563,19 @@ a:hover {
 
 /* Sidebar titles */
 .menu__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
 /* Sidebar category titles */
 .menu__list-item-collapsible .menu__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 600;
 }
 
 /* Table of contents */
 .table-of-contents {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -436,7 +584,7 @@ a:hover {
 .table-of-contents__link {
   display: block;
   padding: 0.4rem 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
@@ -449,7 +597,6 @@ a:hover {
 
 .table-of-contents__link--active {
   color: #ffffff;
-  font-weight: 500;
 }
 
 /* Make TOC sticky on desktop */
@@ -464,7 +611,7 @@ a:hover {
 
 /* Hide TOC on mobile in a clean way */
 @media (max-width: 996px) {
-  .theme-doc-toc {
+  .theme-doc-toc-mobile {
     display: none;
   }
 }
@@ -472,6 +619,7 @@ a:hover {
 /* Breadcrumbs */
 .breadcrumbs__link {
   color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.04em;
 }
 
 .breadcrumbs__link:hover {
@@ -481,6 +629,7 @@ a:hover {
 .breadcrumbs__item--active .breadcrumbs__link {
   color: #ffffff;
   font-weight: 300;
+  background: var(--wonderland-light);
 }
 
 /* Tabs */
@@ -524,6 +673,16 @@ a:hover {
   --ifm-alert-border-color: var(--wonderland-pink);
 }
 
+.alert a {
+  text-decoration: none;
+}
+
+code {
+  color: var(--wonderland-lila);
+  background: var(--wonderland-light);
+  padding: 0.2rem 0.4rem;
+}
+
 /* Code blocks - ensure solid background */
 .theme-code-block,
 div[class^='codeBlock'],
@@ -539,12 +698,19 @@ code[class*='language-'],
 }
 
 /* Ensure code content has solid background */
-.theme-code-block *,
-.prism-code *,
-div[class^='codeBlock'] * {
-  background-color: var(--wonderland-dark) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+.prism-code {
+  --wonderland-pink-rgb: 233, 91, 155;
+  background-image: linear-gradient(30deg, rgba(var(--wonderland-pink-rgb), 0) 70%, rgba(var(--wonderland-pink-rgb), 0.05) 95%, rgba(var(--wonderland-pink-rgb), 0.1) 100%);
+  background-size: 100% 40rem;
+  background-repeat: no-repeat;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+@media (max-width: 480px) {
+  .prism-code {
+    background-size: 100% 20rem;
+  }
 }
 
 /* Code block specific styling */
@@ -577,6 +743,10 @@ div[class*='codeBlockTitle'],
   color: rgba(255, 255, 255, 0.8);
 }
 
+.theme-code-block .prism-code + div >button {
+  opacity: 0.4;
+}
+
 /* Token and line styling */
 .token,
 .token-line,
@@ -587,22 +757,32 @@ div[class*='codeBlockTitle'],
 
 /* Copy button and other controls */
 div[class*='copyButtonCopyCode'],
-div[class*='buttonGroup'],
 [class*='playgroundPreview'] {
   background: var(--wonderland-dark) !important;
 }
 
+div[class*='buttonGroup'] button {
+  border-radius: 8px;
+  background: var(--wonderland-dark);
+}
+
 /* Links in markdown content */
-.markdown a,
-.theme-doc-markdown a {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s ease;
+.markdown a:not(.card),
+.theme-doc-markdown a:not(.card) {
+  color: var(--wonderland-lila);
+  background: linear-gradient(currentColor 0 0) 
+    bottom left/
+    var(--underline-width, 0%) 1px
+    no-repeat;
+  will-change: color, background-size;
+  transition: color 0.2s ease, background-size 0.3s ease-in-out;
 }
 
 .markdown a:hover,
 .theme-doc-markdown a:hover {
-  color: #ffffff;
-  text-decoration: none;
+  color: var(--wonderland-lila);
+  --underline-width: 100%;
+  transition: color 0.2s ease, background-size 0.2s ease-in;
 }
 
 /* Custom sidebar styling */
@@ -616,23 +796,34 @@ div[class*='buttonGroup'],
 
 /* Button styling in documentation */
 .pagination-nav__link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
+.pagination-nav__link:hover {
+  border: 1px solid var(--wonderland-lila);
+}
+
 .pagination-nav__sublabel {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 400;
 }
 
 .pagination-nav__label {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .pagination-nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* All buttons in documentation */
 .button {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
@@ -683,14 +874,13 @@ div[class*='buttonGroup'],
   background: rgba(14, 21, 44, 0.95);
   backdrop-filter: blur(10px);
   color: rgba(255, 255, 255, 0.7);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
-  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
 
@@ -703,6 +893,10 @@ div[class*='buttonGroup'],
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover svg {
   transform: scale(1.1);
+}
+
+.theme-doc-sidebar-container div[class*='expandButton'] {
+  background: unset;
 }
 
 /* Magical card hover effects */
@@ -805,7 +999,7 @@ div[class*='buttonGroup'],
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
   padding: 1rem 2rem;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
