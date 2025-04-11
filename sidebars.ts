@@ -105,7 +105,6 @@ const sidebars: SidebarsConfig = {
                   type: 'category',
                   label: 'Challenges',
                   items: [
-                    'development/research/onboarding/challenges/overview',
                     {
                       type: 'category',
                       label: 'Basic',
