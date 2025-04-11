@@ -8,7 +8,7 @@ Our project lifecycle systematically eliminates vulnerabilities at every stage. 
 
 Users trust their assets to our code, and we take quality seriously. **Quality is paramount for us**, so we strive to exceed expectations in all aspects of our development process, including writing automated tests, creating comprehensive documentation, implementing effective monitoring systems, and more. Our development process is divided into:
 
-# Idea Draft 🎨 
+# Idea Draft 
 
 The foundation of every successful project lies in its initial conception. During this phase, we work closely with partners to understand the project's scope, requirements, and potential challenges. 
 
@@ -18,7 +18,7 @@ Before proceeding, both parties must review and approve the Idea Draft. This doc
 
 Find the template: [Idea Draft](https://www.notion.so/Idea-Draft-1859a4c092c780ae8453f83898fa03b6?pvs=21)
 
-# Tech Design 📐 
+# Tech Design 
 
 Once the Idea Draft is approved, the Partner Lead, Team Lead and Architect will move on to the Tech Design. This document provides an overview of each contract, external function, and off-chain component, defining how every piece of functionality works and outlining a time estimate. To mitigate risks, we also break the project into smaller milestones—each with its own timeline and deliverables—to keep everyone aligned and help achieve the partner’s goals efficiently.
 
@@ -28,7 +28,7 @@ Before moving forward, the Tech Design must be signed by both parties. A Tech De
 
 Find the template here: [Tech Design](https://www.notion.so/Tech-Design-1859a4c092c780e08b2ddf022ab3e228?pvs=21)
 
-# Development 👩‍💻 
+# Development 
 
 Wonderland development team is ready and eager to hit the ground running. Throughout the process, we stay in ongoing contact with our partners to ensure everything is on track and to share our progress along the way.
 
@@ -45,7 +45,7 @@ We strive to follow strict [code quality and style guidelines](/development/sol
 **Completion requirements: Before moving forward, the latest revision of the code must be approved by our partner.**
 
 
-# Advanced Testing Campaign 🧪 
+# Advanced Testing Campaign  
 
 As mentioned before, we take our work seriously. Testing at Wonderland is a continuous process that begins before the first line of code is written and extends throughout the entire development lifecycle. Our testing framework reflects years of experience in securing infrastructure.
 
@@ -54,7 +54,7 @@ During development, each Solidity developer is responsible for writing unit and 
 Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios—finalizing the testing process before the protocol moves into production.
 For further reading on how we do testing, see [Testing Campaign Processes](/testing/campaign-processes.md) and [Unit and Integration Testing](/testing/unit-integration.md).
 
-# Internal Reviews 🔍 
+# Internal Reviews 
 
 Millions of dollars rely on the security of on-chain code, and history proves even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritize security by having developers adopt a “break it” mentality in internal reviews, so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps *lazy* code or testing from slipping through.
 
@@ -65,7 +65,7 @@ For complete details, refer to [Internal Reviews](/security/internal-reviews.md)
 Every fix is checked by the testing and security team.
 
 
-# QA 👀 
+# QA
 
 Quality is a shared responsibility among all team members, but we have a dedicated QA team because testing independence is important to ensure an unbiased evaluation of the software to be delivered.
 
@@ -79,7 +79,7 @@ We apply:
 - Out-of-the-box thinking to go beyond basic functionality checks and contribute in creating robust, user-friendly, and high-quality dApps.
 - User perspective to test dApps as end-users would, identifying areas where the user experience can be enhanced.
 
-# Emergency Response 🚨 
+# Emergency Response 
 
 The Emergency Plan provides a step-by-step guide for handling emergencies (e.g., exploits, active hacks). Partners can immediately report an incident by using the form available in their Partner page on our Notion. The plan also includes a ready-to-use Discord template —https://discord.new/aPnYUdJM6mkc or https://discord.new/CkADqy5aWsAH— for quickly creating a **War Room** where trusted members can coordinate actions in real time.
 
