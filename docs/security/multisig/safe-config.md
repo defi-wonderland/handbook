@@ -49,7 +49,7 @@ A **Guard Smart Contract** is a modular contract that enforces specific security
 
 This approach is often used with solutions like **Gnosis Safe**, which allows custom Guard contracts to be added. — Read https://docs.safe.global/advanced/smart-account-guards. 
 
-::
+:::
 
 :::warning
 **Delegate calls** are **EXTREMELY** dangerous, and should be avoided at all costs.

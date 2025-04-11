@@ -26,7 +26,7 @@ By dedicating specific devices solely to signing and managing multisig transacti
 - **Controlled Software Environment:** Only secure, vetted applications (e.g. Ledger Live, MetaMask, Safari / Chrome) are installed. Custom software and version control ensures updates are managed carefully, reducing unexpected risks.
 - **Secure Network Use:** Avoiding untrusted networks (e.g. public Wi-Fi at airports or cafes) minimizes exposure to network-based attacks.
 - **Strict User Access:** Only authorized users can access the device, adding an extra layer of security.
-- **Simplified Monitoring and Auditing:** With a device dedicated to signing, monitoring becomes simpler, and keeping settings and apps secure is easier with fewer variables to track. ****
+- **Simplified Monitoring and Auditing:** With a device dedicated to signing, monitoring becomes simpler, and keeping settings and apps secure is easier with fewer variables to track.
 
 ## Device
 
