@@ -4,7 +4,7 @@ title: Overview
 
 # **Welcome to the Research Onboarding 📎**
 
-## To begin with, what do we do at the research team?
+## What do we do at the research team?
 
 As you’ve probably seen in the [Project Lifecycle](/docs/processes/project-lifecycle.md), Wonderland usually reaches out to certain protocols with new ideas and ways we believe they can be improved. In general, the entire process starts with us—the research team.
 
