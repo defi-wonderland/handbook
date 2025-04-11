@@ -1,7 +1,5 @@
 # Coding Challenge
 
-## Project Setup
-
 This challenge is designed to immerse you in Wonderland's development culture. You'll be working on tasks similar to your take-home assignment, but now adapted to align with our team's standards and best practices. 
 
 As you navigate our workflows, we welcome your critical perspective—suggest improvements and alternatives when you identify better solutions. Success in this challenge means not just completing the technical tasks, but also demonstrating your ability to integrate into our collaborative environment and contribute to our continuous improvement.
