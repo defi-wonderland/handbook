@@ -13,7 +13,7 @@
 
 **Seed Phrase Security** strengthens wallet recovery and asset protection by splitting your seed phrase into shards and engraving backups on durable metal plates. By combining sharding schemes like **2-of-3**, secure storage you greatly reduce risks from theft, disasters, and unauthorized access.
 
-# Wallet Factory Reset
+## Wallet Factory Reset
 
 As a measure to mitigate potential exploits involving temporary firmware modifications or un-authorized state access on hardware wallets, we recommend performing multiple factory resets. This helps reduce the risk of such exploits.
 
@@ -21,7 +21,7 @@ As a measure to mitigate potential exploits involving temporary firmware modific
 **Recommended Action:** Perform a factory reset on the device three times.
 :::
 
-# Sharding
+## Sharding
 
 Wallet sharding is the process of splitting your **24-word seed phrase** into multiple parts (**shards**) and distributing them across different secure locations. This way, no single shard can reconstruct the wallet by itself, providing an extra layer of security against loss or theft.
 
@@ -31,9 +31,9 @@ Wallet sharding is the process of splitting your **24-word seed phrase** into mu
 - **Protects against disasters**: By distributing shards in different locations, you increase your chances of recovery even if one location is compromised (e.g. fire or flood).
 - **Adds redundancy**: Using a multi-shard scheme like **2 of 3** or **3 of 5**, you can lose some shards and still recover your wallet.
 
-## Setup
+### Setup
 
-### Simple Manual Split
+#### Simple Manual Split
 
 In this method, the seed phrase is divided into **3 parts**, and any **2 parts** are sufficient to reconstruct the entire seed phrase.
 
@@ -61,7 +61,7 @@ When splitting, you should always use a 24 word seed phrase, since splits are pr
 - A 24 word seed phrase shard will take: 3830854 years
 :::
 
-## Engrave the Shards on Metal Plates!
+### Engrave the Shards on Metal Plates!
 
 A highly durable backup option, unlike paper, metal plates will remain legible even in the event of a fire, flood, or physical impact, significantly improving the longevity and reliability of your shards:
 
@@ -70,7 +70,7 @@ A highly durable backup option, unlike paper, metal plates will remain legible e
 - **Use a stamping kit** for durability and readiness.
 - Double-check, mistakes could render the shard unusable.
 
-## Storage
+### Storage
 
 Distribute the shards in **separate and secure locations**
 

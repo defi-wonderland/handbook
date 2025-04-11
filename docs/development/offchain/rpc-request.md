@@ -9,13 +9,13 @@ Same happens in Web3, and that's why `Multicall` exists, but we can do better!
 
 At Wonderland, we have developed a different approach to batch requests, which is infinite times more flexible: **Constructor Batching Method**.
 
-# The benefits
+## The benefits
 
 - **Independent**: Doesn't require any extra deployed contracts to work (undistinguishable from a contract deployment).
 - **Versatile**: Can perform complex code logic, not restricting itself to batching individual calls into an array.
 - **Efficient**: Solidity logic (vs making calls) can make the reading more efficient, reducing the load on the RPC provider.
 
-# But how????
+## But how????
 
 Solidity constructors are a thing of beauty which runs in the node's memory before contract deployment, we are going to take advantage of that 😈.
 
@@ -27,7 +27,7 @@ The magic of forcing the constructor to return data is that we save ourselves th
 Since the calls are made during the `constructor` runtime, all sub-calls to other contracts will be called with a `msg.sender` being the address where the virtual contract would be deployed. The contract cannot implement any external methods, as they will be inexistent during the creation time.
 :::
 
-# Step by step
+## Step by step
 
 To illustrate this approach, two simple solidity contracts are created. The source code can be downloaded from https://github.com/defi-wonderland/rpc-batching-sample:
 
@@ -73,7 +73,7 @@ for (let i = 0; i < poolCount; i++) {
 }
 ```
 
-### Batching calls
+## Batching calls
 
 To avoid doing a ton of calls, we will create the **`BatchPoolManagerData`** contract:
 
@@ -164,7 +164,7 @@ And that's all. The data is now available to be requested by the client with onl
 A sample working version of this method can be found at  https://github.com/defi-wonderland/rpc-batching-sample
 :::
 
-# RPC Support
+## RPC Support
 
 - ✅ Infura
 - ✅ Alchemy
@@ -174,7 +174,7 @@ A sample working version of this method can be found at  https://github.com/defi
 - ✅ LlamaNodes
 - ❎ Anvil
 
-# Real-life examples
+## Real-life examples
 
 Public repositories using the Constructor Batching Method we found:
 

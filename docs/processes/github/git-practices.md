@@ -2,7 +2,7 @@
 
 Here we'll explore our approach to code management and development workflows. These guidelines help us maintain clean, organized repositories while keeping our development process efficient.
 
-# Repository Settings
+## Repository Settings
 
 - [ ] Disable "Allow rebase merging"
 - [ ] Enable "Automatically delete head branches"
@@ -28,7 +28,7 @@ Here we'll explore our approach to code management and development workflows. Th
     - [ ] Enable "Require branches to be up to date before merging"
     - [ ] Enable "Require signed commits"
 
-# Branches architecture
+## Branches architecture
 
 The most common and simple architecture is to have a production branch (`main`) and a development branch (`dev`). 
 
@@ -49,7 +49,7 @@ Once the feature is finished, it will be merged to `dev` (base branch) and the p
   <img src="/img/flow-pr.png" alt="git-flow" />
 </div>
 
-# Branches and commits naming
+## Branches and commits naming
 
 For branches the idea is to have explicit branch names so we will follow this structure: `<type>/<description>`.
 
@@ -66,7 +66,7 @@ The available `types` are the following (taken from [Conventional Commits](https
 - **test**: Adding missing tests
 - **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
-## Example branch names
+### Example branch names
 
 `feat/user-can-deposit-tokens`
 
@@ -74,7 +74,7 @@ The available `types` are the following (taken from [Conventional Commits](https
 
 `docs/readme`
 
-## Example commit messages
+### Example commit messages
 
 `fix: user cant be undefined anymore`
 

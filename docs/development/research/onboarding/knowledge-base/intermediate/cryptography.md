@@ -99,9 +99,6 @@ Used by Ethereum and Bitcoin:
   - Compute $u_1 = hs^{-1}$, $u_2 = rs^{-1}$
   - Check: $u_1G + u_2Q = R$
 
-
- 
-
 ## Pairing-Based Cryptography
 
 Pairings map two elliptic curve points into a finite field, enabling new primitives:

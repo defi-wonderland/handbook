@@ -5,14 +5,14 @@ This document outlines the key principles, patterns, and practices for the Offch
 
 By adhering to these guidelines, we ensure robust and modular development, fostering effective collaboration and streamlined workflows.
 
-# Patterns
+## Patterns
 
 - Design Patterns:
     - **Factory**: Creates objects dynamically based on input or configuration without exposing the instantiation logic.
     - **Proxy**: Acts as a placeholder to control access, add caching, or optimize performance.
     - **Singleton**: Ensures a class has only one instance and provides a global point of access to it.
 
-# **Principles**
+## **Principles**
 
 - Over-abstraction leads to tighter coupling in the code; avoid it.
 - Favor **composition over inheritance** to build reusable and flexible components.
@@ -24,13 +24,13 @@ By adhering to these guidelines, we ensure robust and modular development, foste
     4. **Interface Segregation Principle**: Many specific interfaces are better than a single, general-purpose interface.
     5. **Dependency Inversion Principle**: Depend on abstractions, not concretions.
 
-## **Architectural Patterns**
+### **Architectural Patterns**
 
 - **Read-Write Service Pattern**: Separate read and write responsibilities into distinct services to improve scalability and maintainability.
 - **Database Per Service Pattern**: Each service owns its database to ensure loose coupling and avoid cross-service data dependencies.
 - **API Gateway Pattern**: Use an API gateway as a single entry point for routing requests to multiple services, handling concerns like rate limiting, authentication, and caching.
 
-# **TypeScript Best Practices**
+## **TypeScript Best Practices**
 
 ### **1. Module Structure**
 
@@ -53,9 +53,9 @@ By adhering to these guidelines, we ensure robust and modular development, foste
 
 - Avoid the use of `any`; prefer `unknown` and use type narrowing to ensure safety.
 
-# Naming conventions
+## Naming conventions
 
-## Classes
+### Classes
 
 A `Service` typically encapsulates a broader business logic or workflow. It might orchestrate various components or interact with multiple data sources or APIs to fulfill a specific domain-related task.
 A `Provider` usually focuses on supplying a specific type of data or resource. It’s often more narrowly scoped, providing access to a particular piece of data, a configuration, or a service needed by other parts of the application.
@@ -67,7 +67,7 @@ Ex:
 
 If we look at it from composability a `Service` can be made up of `Providers` and the service works on applying the business and orchestration logic
 
-# Errors
+## Errors
 
 - Enable the `useUnknownInCatchVariables` flag in your `tsconfig.json`
 - Enable the `noUncheckedIndexedAccess` flag for safe object access
@@ -77,12 +77,12 @@ If we look at it from composability a `Service` can be made up of `Providers` an
     - Avoid the usage of suffixes like `Exception` or `Error` :
         - Ex: Don’t write `EmptyArrayException`, write `EmptyArray`
 
-# **Testing**
+## **Testing**
 
 - Avoid usage of `should` each time you are writing an `it` statement.
     - Ex: Don’t write `it('should run successfully'`), write `it('runs successfully')`.
 
-## **Key points:**
+### **Key points:**
 
 1. **Purpose of Tests**:
     1. Use tests to clearly state the expected behavior for core business scenarios. Well-written tests can often be more clarifying than code comments.
@@ -94,7 +94,7 @@ If we look at it from composability a `Service` can be made up of `Providers` an
 4. **Clarity:**
     1. Aim for a test suite that clearly indicates the intended behavior of the code. Reading the test results should provide a clear understanding of what the code is supposed to do.
 
-# **Scripting**
+## **Scripting**
 
 ### **Monorepo Projects**
 
@@ -106,15 +106,15 @@ If we look at it from composability a `Service` can be made up of `Providers` an
     - `infra/` for infrastructure scripts.
     - `utilities/` for utility scripts.
 
-## **Package Management**
+### **Package Management**
 
 - Do not use carets (`^`) for dependency versions to prevent unintended updates. Use `E` to enforce exact versions (this is pre-configured in the project template).
 
-# **Documentation**
+## **Documentation**
 
 - Every part of the code (functions, method, classes, interfaces) should be documented. Always use JSDoc (TS): https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
 - We leverage the usage of [Mermaid](https://mermaid.js.org/) for charts in our docs (tech designs, PRs, READMEs, etc)
 
-# **Discord**
+## **Discord**
 
 - We use Discord for communication—whenever you have a PR ready for review make sure to drop it in the pr-reviews channel!

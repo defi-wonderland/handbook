@@ -60,7 +60,7 @@ The overarching moral is that conventional solutions work fine day to day but ca
 See https://defi.sucks/insights/rip-oracles
 :::
 
-# Price
+## Price
 
 To address these concerns, some years ago we developed [**Price**](https://docs.oracles.rip/content/why-price.html), an oracle solution that is based on Uniswap v3 but introduces certain safety measures to offset liquidity unpredictability and multi-block attacks. First, Price requires a pool seeded with a *“full-range”* position of liquidity, ensuring the oracle feed won’t vanish suddenly if LPs exit. Part of the fees earned by that pool goes back into maintaining the oracle’s operational security, such as paying gas for keepers or building up the cardinality needed for more precise $TWAP$ calculations.
 

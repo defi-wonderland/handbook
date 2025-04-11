@@ -4,15 +4,15 @@ This page serves as a starting point for learning Solidity. It includes recommen
 
 Feel free to use this section as a reference throughout your onboarding or whenever you want to deepen your knowledge of Solidity.
 
-# Why learning Solidity
+## Why learning Solidity
 
 As a researcher, it’s important to have the ability to read and understand Solidity code, along with a grasp of the language’s basic nuances. You don’t need to dive deep into advanced technical details, but it’s crucial to be aware of common security concerns and issues in writing smart contracts.
 
 This foundational knowledge will help you analyze protocols more effectively and contribute to discussions on smart contract design and evaluation.
 
-# General resources
+## General resources
 
-## Starting from scratch — **this *must** be addressed during the onboarding.*
+### Starting from scratch — **this *must** be addressed during the onboarding.*
 
 1. **Blockchain Basics (Cyfrin Updraft)**
     
@@ -26,7 +26,7 @@ This foundational knowledge will help you analyze protocols more effectively and
     
     [Learn Solidity Smart Contract Development - Cyfrin Updraft](https://updraft.cyfrin.io/courses/solidity)
 
-## Deep dive, foundry —*Optional*
+### Deep dive, foundry —*Optional*
 
 If you feel confident after completing the recommended resources and want to continue building your Solidity expertise, consider diving into the following courses:
 
@@ -39,13 +39,13 @@ If you feel confident after completing the recommended resources and want to con
 
 [Advanced Smart Contract Development With Foundry](https://updraft.cyfrin.io/courses/advanced-foundry)
 
-# Additional Resources
+## Additional Resources
 
  [Solidity Coding Style](/docs/development/solidity/coding-style.md) : The handbook include a detailed section on Solidity, read it!
 
 https://www.alchemy.com/university/courses/ethereum: pretty cool introduction in general. It include challenges, cryptography content and more.
 
-# Optional Exercises
+## Optional Exercises
 
 Feeling curious? Here are some cool exercises and challenges:
 

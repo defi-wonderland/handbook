@@ -49,7 +49,7 @@ Wi-Fi. Using device with a 3G/4G connection via eSIM significantly reduces the a
 **Factory Reset:** All devices / hardware wallets used for signing transactions should be factory reset multiple times before initial setup to ensure no pre-installed malware or vulnerabilities are present.
 :::
 
-# Hardware Recommendation
+## Hardware Recommendation
 
 - Apple iPad Air or iPad 10 Gen, with Cellular
     - 10 hours of battery life

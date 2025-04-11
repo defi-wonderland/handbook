@@ -84,7 +84,7 @@ It's worth noting that some protocols and platforms also offer hybrid models:
 
 As take aways, fixed rates offer certainty, variable rates offer responsive markets, and algorithmic models underlie most lending protocols to secure solvent, efficient operation. Borrowers must contend with the fact that their interest costs could change over time, while lenders need to understand that their yield comes from these same models and can fluctuate with utilization and market conditions.
 
-# How a loan works
+## How a loan works
 
 To bring the concepts together, let's walk through a simplified example of using a DeFi lending platform:
 
@@ -106,7 +106,7 @@ To bring the concepts together, let's walk through a simplified example of using
 
 So, our classic flow would be: deposit collateral, borrow, manage the position while interest accrues and collateral value fluctuates, and either get liquidated if the position becomes unsafe or repay to reclaim collateral. You can see why managing collateral ratio is vital – a user like Alice should borrow more conservatively (say 60% of collateral value) to withstand market swings. It also shows how **interest** and **liquidation** come into play: interest adds to the debt over time, and liquidation is the fail-safe to protect the system (at the borrower's expense) when things go wrong.
 
-# Case Studies!
+## Case Studies!
 
 This was a general introduction, but you should check out the following:
 
@@ -115,7 +115,8 @@ This was a general introduction, but you should check out the following:
 
 We encourage you to write some notes and ask questions about them! What do you think? Do they make sense? Is there any way we could improve them?
 
-# References
+## References
+
 https://finematics.com/lending-and-borrowing-in-defi-explained/ - Great overview of DeFi lending fundamentals
 
 https://nucks.co/notes/how-to-defi-beginner - Beginner-friendly guide to DeFi concepts

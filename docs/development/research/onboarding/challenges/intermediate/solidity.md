@@ -198,4 +198,4 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 - Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
-# 🍀 Good luck!
+## 🍀 Good luck!
