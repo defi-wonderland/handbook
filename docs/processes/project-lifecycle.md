@@ -22,7 +22,7 @@ Find the template: [Idea Draft](https://www.notion.so/Idea-Draft-1859a4c092c780a
 
 Once the Idea Draft is approved, the Partner Lead, Team Lead and Architect will move on to the Tech Design. This document provides an overview of each contract, external function, and off-chain component, defining how every piece of functionality works and outlining a time estimate. To mitigate risks, we also break the project into smaller milestones—each with its own timeline and deliverables—to keep everyone aligned and help achieve the partner’s goals efficiently.
 
-While the project is still being defined and refined, we start preparing the advanced tests, by collecting invariants. This initial collection is often a first draft, as many of these might still change during the development.
+While the project is still being defined and refined, we start preparing the advanced tests, by collecting invariants. This initial collection is often a first draft, as many of these might still change during the development. In addition, to ensure as must robustness as possible, the security department will review it to catch early problems.
 
 Before moving forward, the Tech Design must be signed by both parties. A Tech Design is valid when it considers all the new, modified or removed functionality in an easily understandable way. This document will explain and justify any added complexity to the system. Moreover, all partner comments will be adequately addressed and marked as resolved.
 
