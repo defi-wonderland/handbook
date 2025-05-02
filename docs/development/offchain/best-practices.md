@@ -52,6 +52,8 @@ By adhering to these guidelines, we ensure robust and modular development, foste
 ### **4. Type Safety**
 
 - Avoid the use of `any`; prefer `unknown` and use type narrowing to ensure safety.
+- Leverage Branded types pattern for adding clarity, safety and correctness to our code:
+    https://egghead.io/blog/using-branded-types-in-typescript
 
 ## Naming conventions
 
