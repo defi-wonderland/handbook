@@ -41,7 +41,12 @@ If you feel confident after completing the recommended resources and want to con
 
 ## Additional Resources
 
- [Solidity Coding Style](/docs/development/solidity/coding-style.md) : The handbook include a detailed section on Solidity, read it!
+If you are more about reading, we recommend you:
+- [Solidity by Example](https://solidity-by-example.org/)
+- [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.29/)
+- [Ethereum for Web Developers by Santiago Palladino](https://link.springer.com/book/10.1007/978-1-4842-5278-9)
+
+[Solidity Coding Style](/docs/development/solidity/coding-style.md) : The handbook include a detailed section on Solidity, read it!
 
 https://www.alchemy.com/university/courses/ethereum: pretty cool introduction in general. It include challenges, cryptography content and more.
 
