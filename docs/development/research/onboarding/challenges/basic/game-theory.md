@@ -15,6 +15,7 @@ All work must be submitted to the GitHub repository assigned to you during onboa
 ## Oracle Manipulation Attack
 
 Analyze the feasibility of an attack on a lending protocol that relies on two types of price oracles:
+
     - Uniswap V2 TWAP oracle
     - Chainlink aggregated price feed
 
