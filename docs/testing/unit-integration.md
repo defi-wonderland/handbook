@@ -46,7 +46,8 @@ function foo(uint256 input) external {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     
     There are 2 external calls which must be mocked: `token.balanceOf` and `vault.bonus`.
     
@@ -82,7 +83,7 @@ function foo(uint256 input) external {
     }
     
     ```
-    
+</details>
 
 Another similar cheat code we use in our unit tests to check if an address has emitted a specific event is `vm.expectEmit(address)`. We tend to avoid using `vm.expectEmit(bool,bool,bool,bool)` or `vm.expectEmit(bool,bool,bool,bool,address)` that specifically matches topics, for better future-proofing (if an event signature changes and adds/removes some indexed parameters for instance, it might break the test).
 
@@ -267,10 +268,10 @@ function foo(uint256 in) external returns(bool) {
 }
 ```
 
-- ✅ Solution
-    
+<details>
+<summary>✅ Solution</summary>    
     There are 2 branches and 2 identical paths. Testing both is ideal.
-    
+</details>
 
 ```solidity
 function foo(uint256 in) external returns(uint256) {
@@ -281,10 +282,10 @@ function foo(uint256 in) external returns(uint256) {
 }
 ```
 
-- ✅ Solution
-    
+<details>
+<summary>✅ Solution</summary>
     There are 4 branches (input less than or equal to 4, greater than 4, greater than 5, and greater than 6). The input being the only function parameter, these branches are paths too and should all be tested.
-    
+</details>
 
 ```solidity
 function foo(uint256 in1, uint256 in2) external returns(uint256) {
@@ -294,10 +295,10 @@ function foo(uint256 in1, uint256 in2) external returns(uint256) {
 }
 ```
 
-- ✅ Solution
-    
+<details>
+<summary>✅ Solution</summary>
     There are 3 branches corresponding to the 3 returns in this example. There are equally 3 paths.
-    
+</details>
 
 ```solidity
 function foo(uint256 in1, uint256 in2) external returns(uint256) {
@@ -308,10 +309,11 @@ function foo(uint256 in1, uint256 in2) external returns(uint256) {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     
     There are 2 branches corresponding to the 2 if's but 4 paths: in1 lte or gt 100, and in2 lte or gt 100. Even though the ifs look independent, they have an effect on the same underlying variable `tmp` and are therefore not. The 4 paths should be tested.
-    
+</details>
 
 ```solidity
 function foo(uint256 in1, uint256 in2) external returns(bool) {
@@ -321,11 +323,12 @@ function foo(uint256 in1, uint256 in2) external returns(bool) {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     
     There are 3 branches and 4 paths. The 2 ifs are here independents, i.e. in1 has no influence on in2, and therefore testing every paths is not bringing any new meaningful information.
     Here, the paths taken in `foo(500, 1)` and `foo(500, 500)`, even though different, are not useful to test, because with the first if being true, in2 has no effect.
-    
+</details>
 
 ### Coverage
 
@@ -566,7 +569,8 @@ function test_fooWhenOneIsSmaller() external {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     
     The condition being greater than or equal (`>=`), both cases are in the same paths (and can be part of the same range of fuzzed values).
     
@@ -596,7 +600,7 @@ function test_fooWhenOneIsSmaller() external {
         assertFalse(witness);
     }
     ```
-    
+</details>
 
 Avoiding `vm.assume` (and maintaining a decent number of runs) is crucial to the test accuracy. See this counter-example that demonstrates the absence of an integer divisible by 10…
 

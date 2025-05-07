@@ -231,22 +231,19 @@ const sidebars: SidebarsConfig = {
         id: 'testing/overview'
       },
       items: [
-        'testing/campaign-processes',
         'testing/unit-integration',
         'testing/mutation-testing',
         {
           type: 'category',
-          label: 'Advanced testing',
-          link: {
-            type: 'doc',
-            id: 'testing/advanced-testing/overview'
-          },
+          label: 'Advanced Testing',
           items: [
+            'testing/advanced-testing/overview',
             'testing/advanced-testing/property-based-fuzzing',
             'testing/advanced-testing/formal-verification',
             'testing/advanced-testing/invariants-writing',
           ]
-        }
+        },
+        'testing/campaign-processes',
       ],
     },
     'outro/contribute',

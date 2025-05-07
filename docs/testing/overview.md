@@ -29,7 +29,7 @@ Our testing framework is built on industry best practices and battle-tested appr
 ### Campaign Processes
 Testing campaigns are structured approaches to validating system-wide functionality. This section covers planning, execution and reporting of test campaigns to ensure thorough coverage.
 
-[Campaign Processes →](./campaign-processes.md)
+[Campaign Processes](./campaign-processes.md)
 
 :::tip
 Testing is a critical responsibility. Whether you're a developer, researcher, or part of our operations team, these guidelines will help you contribute to our robust testing culture.

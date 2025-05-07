@@ -109,13 +109,15 @@ We then go to the previous predicate of our original path condition and negate i
 
 From there, we iteratively continue this process (concrete execution with `x = 1`, collect the branch condition, negate, solve, execute the new branch, etc).
 
-## Reachability
+## Reachability / Kontrol
 
-Another approach to formal verification is the reachability logic. Instead of exploring every executable path with symbolic values, this approach is based on the language semantic, defined in a specification language called K in Kontrol.
+Another approach to formal verification is reachability logic. Instead of exploring every executable path with symbolic inputs, this approach operates over the semantic of the language, defined using the K framework.
 
-K is a framework used to model programming languages or hardware specs. It therefore isn’t a symbolic execution tool, as it instead prove *reachability* (”based on pre-conditions, if I apply the language semantic that I defined, can I *reach* this post-condition?”).
+K is a framework for formally defining a programming languages or hardware. Kontrol is a tool built on top of K, used to prove properties reachability (”based on a given state and the language semantic, can I *reach* this other state?”).
 
-To do so, instead of executing paths with symbolic values (as illustrated above for SMT), it will try to match patterns and rewrite what’s called the “configuration” (the state), before verifying if any state satisfying the pre-conditions *will lead* to the post-condition. Using Kontrol therefore needs to compile, then verify a proof.
+To do so, Kontrol rewrite what’s called the *configuration* (the state - ie memory, storage, etc - organised in nested cells) using the language semantic defined in K. It then rewrite the reachability claims themselves, to check if any configuration satisfying the pre-conditions can be rewritten into one satisfying the post-condition ("under these assumptions, all executions must eventually satisfy this condition").
+
+As Kontrol isn't building path constraints to solve them (as a symbolic execution engine would), but rather focus on working directly on the semantic itself, it allows handling things which are usually hard for solvers (unbounded loops for instance). For specific, non-trivial, properties, Kontrol supports *auxiliay lemmas*, allowing providing intermediate results, to "guide" the proof. 
 
 ## Tools
 

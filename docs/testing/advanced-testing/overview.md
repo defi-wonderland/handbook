@@ -1,6 +1,4 @@
-# Advanced Testing
-
-# Testers 🧪
+# Overview
 
 This part of the guide covers our best practices for more advanced testing techniques, which are done at the end of the development cycle only (as they're more time and caffeine-consuming) and test the system as a whole.
 
@@ -40,11 +38,13 @@ function burn(uint256 amount) external {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     - totalMinted is the sum of all the mint
     - an address cannot burn more than its current balance
     - an address balance is the sum of all its mints, minus its burns
     - totalMinted never decreases
+</details>
 
 Special cases: for math library or functions, properties can take the form of the underlying mathematical properties describing the operation (eg an addition is commutative, has a neutral element 0 over the real numbers, etc), as well as hedge cases (0, max, etc).
 
@@ -59,13 +59,15 @@ function mul(uint256 a, uint256 b) external returns(uint256) {
 }
 ```
 
-- ✅ Solution
+<details>
+<summary>✅ Solution</summary>
     - Unit: mul should be associative, so that `mul(mul(a, b), c)` is the same as `mul(a, mul(b, c))`
     - Unit: mul should be commutative
     - Unit: mul should be distributive
     - Unit: mul should have 1 as identity element
     - Unit: mul should have 0 as absorbing element (this is both a property and a hedge case)
     - Unit: should throw if a*b is greater than uint256 max
+</details>
 
 ## General tricks
 
