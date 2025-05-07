@@ -1,6 +1,6 @@
 # Property-based fuzzing
 
-We use Medusa for fuzzing campaigns, as it's fast, can save the corpus used between campaigns and, unlike Echidna, supports Cancun.
+We use Medusa for fuzzing campaigns, as it's fast, saves the corpus used between campaigns and, unlike Echidna, supports Cancun.
 
 Our most frequent testing mode is assertion-based external test. In other words, we deploy the target contract and interact with it from the test contract, instead of inheriting it.
 
@@ -8,8 +8,8 @@ Trail of Bits released a [hands-on tutorial on Echidna](https://github.com/cryti
 
 We’ve build and use some additional tools build around Medusa, to ease the test-writing process:
 
-- Youdusa, to generate tests based on failed properties.
-- Medusa template generator
+- [Youdusa](https://crates.io/crates/youdusa), to generate tests based on failed properties.
+- [Medusa](https://crates.io/crates/medusa-gen) template generator
 - Trail of Bits has [a collection of properties](https://blog.trailofbits.com/2023/02/27/reusable-properties-ethereum-contracts-echidna/) for erc20/erc721/etc, these should be the standard to use when testing a contract relying on these standard (in addition to tests for any custom logic)
 
 ## File structure
@@ -151,15 +151,14 @@ In the `try` block, we’re asserting the properties the test is supposed to cov
 
 ![Predeploy contracts for Medusa](/img/fuzz-predeploy.png)
 
-- When reviewing a PR for a fuzzing campaign, it’s crucial to run the fuzzer for a few minutes and check for coverage gaps in the assertion tests. It’s otherwise too easy to have tests silently skip most of the interesting stuff due to early reverts. We could add this into CI *somehow* in the future, when medusa implements lcov or otherwise machine readable reports.
-- As some of our projects are relying on crosschain messaging, we use a mock bridge. The main idea is to use the single chain provided by Medusa/Echidna (or even Halmos), and use a contract acting as a bridge (in summary, a queue containing all the crosschain message + a public function to “flush”/relay all message to their targets - avoiding atomic bridging, which isn’t realistic - which is exposed to the fuzzer via a handler).
+- When reviewing a PR for a fuzzing campaign, it’s crucial to run the fuzzer for a few minutes and check for coverage gaps in the assertion tests. It’s otherwise too easy to have tests silently skip most of the interesting stuff due to early reverts.
+- As some of our projects are relying on crosschain messaging, we use a mock bridge. The main idea is to use the single chain provided by Medusa/Echidna (or even Halmos), and use a contract acting as a bridge (in summary, a queue containing all the crosschain message + a handler to “flush”/relay all message to their targets - avoiding atomic bridging, which isn’t realistic).
 Further logic can be included for, eg, have a non-fifo ordering (lifo, random, etc), rely on additional relayers/hyperlane/etc.
 
-Beyond writing tests
+## Beyond writing tests
 
-Having a good *and tidy* properties and invariant tests is nice, but would be useless if it wasn’t being actively used. As the space the fuzzer has to explore grows (in the worst case scenario) exponentially, running fuzzing campaign for a decent amount of time is mandatory.
+Having a good *and tidy* properties and invariant test suite is nice, but would be useless if it wasn’t being actively used. As the space the fuzzer has to explore grows (in the worst case scenario) exponentially, running fuzzing campaign for a decent amount of time is mandatory.
 
-To do so, we use our Wonder-Fuzzer (actively built for further CI integration as well as for continuous monitoring of invariants, post-deployment).
 
 ## Additional Resources
 
