@@ -12,7 +12,7 @@ At Wonderland, rigorous testing is fundamental to everything we build. This sect
 ### Unit and Integration Testing
 Our testing framework is built on industry best practices and battle-tested approaches. Here you'll find detailed guidelines on writing effective tests, from basic unit tests to complex integration scenarios.
 
-[Unit and Integration Testing →](./unit-integration.md)
+[Unit and Integration Testing](./unit-integration.md)
 
 [Mutation Testing](./mutation-testing.md)
 
