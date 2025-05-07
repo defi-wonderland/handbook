@@ -46,11 +46,6 @@ function prove_alwaysCorrect(uint a, uint b) public {
 
 To fix this, we use mutation testing. While we manually mutate some isolated assertion while writing our tests (to check their predictive value), we use tools to automate mutation of the whole codebase.
 
-For test built with Foundry, we use vertigo-rs, while Medusa can be fairly easily fuzzed with slither-mutate (note: for bigger codebase or test base, it might be too slow). Symbolic tests with Kontrol or Halmos are too computation intensive to be currently mutated.
+For test built with Foundry, we currently use vertigo-rs, while Medusa can be fairly easily fuzzed with slither-mutate (note: for bigger codebase or test base, it might be too slow). We're currently finishing a PR to integrate mutation test in Foundry, see this issue to find the latest development or the current roadmap.
 
-We’re currently working on another tool, aimed at assessing the predictive power of a Medusa corpus (by mutating the related properties) but is currently not production-ready.
-
-For the avid readers, here are additional *optional* ressources:
-
-- Certora has developed [Gambit](https://docs.certora.com/en/latest/docs/gambit/index.html), which has been forecasted as potentially integrated with Foundry for a couple of years now (draft PR slowly dying);
-- non-focusing on solidity only, the big name in mutation testing is universalmutator (lots of languages supported, incl solidity). This tool will produce (and store by default) thousands of mutants
+Symbolic tests with Kontrol or Halmos are too computation intensive to be currently mutated. 
