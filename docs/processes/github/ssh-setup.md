@@ -74,6 +74,9 @@ Test your connection:
     
     In order to try this out, using the terminal go to any **git project** inside `~/Code/wonderland` and paste the following:
     
+    ```bash
+    git config --get user.name && git config --get user.email
+    ```
     That command should print your anon git information.
 
 ### 4. Configure your SSH
