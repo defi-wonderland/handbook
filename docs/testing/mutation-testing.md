@@ -19,7 +19,7 @@ function test() public {
 }
 ```
 
-Having a mathematical certainty with a formal method is nice too, but what if the assertion are bugged, or preconditions are too constrained? You can only be sure of what you’ve implemented, not what you expect to have implemented
+Having a mathematical certainty with a formal method is nice too, but what if the assertion are bugged, or preconditions are too constrained? You can only be sure of what you’ve implemented, not what you *expect* to have implemented
 
 ```solidity
 function floor(uint a, uint b) public returns(uint) {

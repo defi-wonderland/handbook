@@ -244,6 +244,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'testing/advanced-testing/property-based-fuzzing',
             'testing/advanced-testing/formal-verification',
+            'testing/advanced-testing/invariants-writing',
           ]
         }
       ],

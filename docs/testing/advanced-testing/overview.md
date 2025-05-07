@@ -19,13 +19,9 @@ During the design phase of a new project, we start collecting the protocol prope
 
 In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details. 
 
-One useful approach to do so is to consider every actor from the system, then go through every of the properties and invariant this actor might go through (for instance in a classic erc20 implementation, one actor is a token holder, which should have its balance lowered when transferring token, or which can never have a balance greater than the total supply).
+For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](docs/testing/advanced-testing/invariants-writing)
 
 These properties are the foundations of the last step in the tests implementation, as they are the invariants which will be challenged via formal verification or fuzzing campaign. It is therefore important to make sure they're well written from the start, with no stones left unturned.
-
-See:
-
-[Tips for implementing Invariants](https://www.notion.so/Tips-for-implementing-Invariants-dd51f7b0c2d340478ddb1fbe8c562f2d?pvs=21)
 
 📝 Exercise: try to find the properties/invariants of this system
 
@@ -75,9 +71,9 @@ function mul(uint256 a, uint256 b) external returns(uint256) {
 
 Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps *a lot*. Here are some take-aways from previous project, which *might* help:
 
-- Start by reviewing the properties and invariants. Most of the time, testing multiple/every branches of a given function can be discarded - extending this, some properties might only assess a specific part of a whole path, and should be rewritten to be more general or high level. For example, “if user deposit X, deposit mapping should increase” should rather be “if user deposit X, he can withdraw X max”. One common pitfalls we’ve seen is having *too many invariants*, with most of them being less relevant. **Having only a few selected critical (and well tested) invariants is therefore better than a list of 50 highly complex, tightly coupled to the implementation, ones.**
-- Once invariants are well defined, sort them out. First, by value at risk, like if you had to choose only one invariant to test, which would it be? Then by simplicity, e.g. if you have 5 invariants leading to protocol getting rekt, which one looks like the easiest to assess.
-- Setup for both tools can be taken from the integration tests, rather as a template than blindly pasting them, as to avoid inheriting any complexity debt coming from setting up a fork for instance.
+- Start by reviewing the properties and invariants. See the doc above on how to find them, keeping in mind that **"having only a few selected critical (and well tested) invariants is therefore better than a list of 50 highly complex, tightly coupled to the implementation, ones"**.
+- Setup for fuzzing or formal verification can be taken from the integration tests - rather as a template than blindly pasting them, as to avoid inheriting any complexity debt coming from setting up a fork for instance.
+- We tend to start from one given path (ie "how to test the first invariant" for instance), including handlers to reach it, then incrementally add to cover other (instead of, for instance, adding handlers for every functions and deal with the complexity later).
 - Test functions are easier to grasp when expressed in Hoare logic (precondition, including pranks - action, as a single call - postcondition). In the rare case where multiple actions are conducted within a single test function, this is expressed as multiple Hoare logic blocks.
 
 ```solidity
@@ -97,10 +93,10 @@ function testOne() public {
 }
 ```
 
-- Assessing a test function has 3 approaches, once the test passes:
-    - Check the coverage to see if the test itself is not (silently) reverting and if the target code covered
+- Assessing a test function has 3 steps, once the test passes:
+    - Check the coverage to see if the test itself is not (silently) reverting and if the target code is actually covered
     - Make sure both sides of a revert are covered with try - assert - catch - assert.
-    - Mutate the property itself or the target code. See [Mutation testing](Advanced%20Testing%2033020b44d28345ea8b4581b118e1c68f/Mutation%20testing%203b5564c6bc5a45a5819c0b5d29151728.md) for more details
+    - Mutate the property itself or the target code. See [Mutation testing](docs/testing/mutation-testing) for more details
     
     <aside>
     ⚠️
@@ -119,13 +115,13 @@ function testOne() public {
     
     </aside>
     
-- Any state which can be accessed from the original implementation should be (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
+- Any state which can be accessed or reconstructed from the target should be (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
 - Always start with validating the initial setup and sanity checks as “property-0”. For instance, address of the deployed contract ≠ 0, calling some constant variables, etc.
     
     ![Fuzzing sanity check](/img/fuzz-sanity-check.png)
     
 - Function names:
-    - `setup_*` functions shouldn’t have assertion, they’re used to set some stuff up, in Medusa, with fuzzed args as constructor cannot have args
+    - `setup_*` functions shouldn’t have assertion, they’re used to set some stuff up, in Medusa, with fuzzed args as constructor cannot have args, same for handlers.
     - `property_*` functions are targets in assert mode
     - `prove_*` is the default prefix for Kontrol, `check_*` is the equivalent for Halmos
 
@@ -154,18 +150,4 @@ If the issue won’t be fixed, we still need a way to reproduce it. To simplify 
       "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
     ]
     ```
-    
-
-## Tool-specific Guides
-
-The following section of the guide is a living part where we'll collect any new development in both tools.
-
-[Property-based fuzzing](Advanced%20Testing%2033020b44d28345ea8b4581b118e1c68f/Property-based%20fuzzing%2073f7a5bc10e6412796e5228f2d8199e5.md)
-
-[Formal verification](Advanced%20Testing%2033020b44d28345ea8b4581b118e1c68f/Formal%20verification%2072040568137c4765863976d33b102218.md)
-
-[Mutation testing](Advanced%20Testing%2033020b44d28345ea8b4581b118e1c68f/Mutation%20testing%203b5564c6bc5a45a5819c0b5d29151728.md)
-
-The following is a work in progress, collecting Halmos tricks we’ve learned (most of the time, the hard way)
-
-[Halmos](Advanced%20Testing%2033020b44d28345ea8b4581b118e1c68f/Halmos%2089fcadfcda624d4c95d58bcaadf20961.md)
+  

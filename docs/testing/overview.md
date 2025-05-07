@@ -14,6 +14,8 @@ Our testing framework is built on industry best practices and battle-tested appr
 
 [Unit and Integration Testing →](/docs/testing/unit-integration)
 
+[Mutation Testing](/docs/testing/mutation-testing)
+
 ### Advanced Testing
 
 [Advanced Testing](/docs/testing/advanced-testing)
@@ -22,7 +24,7 @@ Our testing framework is built on industry best practices and battle-tested appr
 
 [Formal Verification](/docs/testing/formal-verification)
 
-[Mutation Testing](/docs/testing/mutation-testing)
+[Invariant writing strategy](/docs/testing/advanced-testing/invariants-writing)
 
 ### Campaign Processes
 Testing campaigns are structured approaches to validating system-wide functionality. This section covers planning, execution and reporting of test campaigns to ensure thorough coverage.
