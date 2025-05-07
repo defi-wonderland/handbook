@@ -1,4 +1,4 @@
-# Testing Campaign Processes
+# Testing Processes
 
 ## Guidelines summary: what do we do?
 
