@@ -71,10 +71,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [
-      {name: 'keywords', content: 'cooking, blog'},
-      {name: 'twitter:card', content: 'summary_large_image'},
-    ],
     image: 'img/wonderland-social-card.png',
     colorMode: {
       defaultMode: 'dark',
