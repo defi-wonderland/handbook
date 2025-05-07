@@ -3,7 +3,6 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import llmsTxtPlugin from './plugins/llmsTxtPlugin';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -14,7 +13,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://wonderland-handbook.vercel.app',
+  url: 'https://handbook.defi.sucks/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -37,6 +36,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-lunr-search',
+    './plugins/llmsTxtPlugin',
   ],
 
   presets: [
@@ -70,13 +70,16 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {name: 'keywords', content: 'cooking, blog'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+    ],
+    image: 'img/wonderland-social-card.png',
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
-    // Replace with your project's social card
-    image: 'img/wonderland-social-card.png',
     navbar: {
       logo: {
         alt: 'Wonderland Handbook',
@@ -108,8 +111,6 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
   } satisfies Preset.ThemeConfig,
-
-  plugins: [llmsTxtPlugin],
 };
 
 export default config;
