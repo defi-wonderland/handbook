@@ -165,5 +165,3 @@ Having a good *and tidy* properties and invariant test suite is nice, but would 
 [Building secure contracts](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna), a Echidna tutorial.
 
 [Solutions](https://github.com/crytic/echidna-streaming-series/tree/main) from the Trail of Bits youtube streams.
-
-[Learning from 6 weeks of fuzzing Badger DAO's eBTC](https://allthingsfuzzy.substack.com/p/learnings-from-6-weeks-of-fuzzing)[Echidna tricks from OfficerCIA](https://officercia.mirror.xyz/4A39GO-YRE8JTe_M0CsMpig4tXOHb1-vg1Mcjz9Vd4M)

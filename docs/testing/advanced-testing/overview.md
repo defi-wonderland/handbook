@@ -2,7 +2,7 @@
 
 # Testers 🧪
 
-This part of the guide is only relevant for the Tester role, and isn't part of the mandatory onboarding material. It covers our best practices for more advanced testing techniques, which are done at the end of the development cycle only, as they're more time and caffeine-consuming, and test the system as a whole.
+This part of the guide covers our best practices for more advanced testing techniques, which are done at the end of the development cycle only (as they're more time and caffeine-consuming) and test the system as a whole.
 
 We add more formalized testing suite following 2 different approaches:
 
@@ -19,7 +19,7 @@ During the design phase of a new project, we start collecting the protocol prope
 
 In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details. 
 
-For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](docs/testing/advanced-testing/invariants-writing)
+For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](./invariants-writing.md)
 
 These properties are the foundations of the last step in the tests implementation, as they are the invariants which will be challenged via formal verification or fuzzing campaign. It is therefore important to make sure they're well written from the start, with no stones left unturned.
 
@@ -96,7 +96,7 @@ function testOne() public {
 - Assessing a test function has 3 steps, once the test passes:
     - Check the coverage to see if the test itself is not (silently) reverting and if the target code is actually covered
     - Make sure both sides of a revert are covered with try - assert - catch - assert.
-    - Mutate the property itself or the target code. See [Mutation testing](docs/testing/mutation-testing) for more details
+    - Mutate the property itself or the target code. See [Mutation testing](../mutation-testing.md) for more details
     
     <aside>
     ⚠️

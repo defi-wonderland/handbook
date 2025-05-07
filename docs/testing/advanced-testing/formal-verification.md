@@ -58,7 +58,7 @@ b5 T means result >= 0
 
 this system can be simplified as `(x >= 0) and (result = x) and (result >= 0)`, which gather no contradiction/the system is satisfiable and we’ve proved it (we can produce examples, like x = 1 and result = 1 for instance), the solver will return SAT.
 
-One of the most used SMT solver/prover is Z3, built by Microsoft (https://github.com/Z3Prover/z3/wiki#background). It is the default solver for solc, Halmos or some parts of Kontrol. 
+One of the most used SMT solver/prover is [Z3](https://github.com/Z3Prover/z3/wiki#background), built by Microsoft. It is the default solver for solc, Halmos or some parts of Kontrol. 
 
 ## Concolic execution
 
