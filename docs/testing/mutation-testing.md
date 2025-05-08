@@ -1,7 +1,5 @@
 # Mutation testing
 
-grrrnrrnbbblblbblbmmmmutttaaaaaaant
-
 Having good tests is nice, but how can you know they are actually good?
 
 Coverage is one type of measure, but it can be easily tricked, like this (we say it’s a discovery tool, not a measure btw)
@@ -46,6 +44,6 @@ function prove_alwaysCorrect(uint a, uint b) public {
 
 To fix this, we use mutation testing. While we manually mutate some isolated assertion while writing our tests (to check their predictive value), we use tools to automate mutation of the whole codebase.
 
-For test built with Foundry, we currently use vertigo-rs, while Medusa can be fairly easily fuzzed with slither-mutate (note: for bigger codebase or test base, it might be too slow). We're currently finishing a PR to integrate mutation test in Foundry, see this issue to find the latest development or the current roadmap.
+For test built with Foundry, we currently use vertigo-rs, while Medusa can be fairly easily fuzzed with slither-mutate (note: for bigger codebase or test base, it might be too slow). We're currently finishing a PR to integrate mutation test in Foundry, see [this PR](https://github.com/foundry-rs/foundry/pull/10193) to find the latest development, the [issue](https://github.com/foundry-rs/foundry/issues/478) trackin it or the [current roadmap](https://github.com/simon-something/foundry/issues/2).
 
 Symbolic tests with Kontrol or Halmos are too computation intensive to be currently mutated. 

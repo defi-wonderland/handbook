@@ -17,7 +17,7 @@ During the design phase of a new project, we start collecting the protocol prope
 
 In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details. 
 
-For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](./invariants-writing.md)
+For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](./invariants-writing.md).
 
 These properties are the foundations of the last step in the tests implementation, as they are the invariants which will be challenged via formal verification or fuzzing campaign. It is therefore important to make sure they're well written from the start, with no stones left unturned.
 

@@ -8,8 +8,8 @@ Trail of Bits released a [hands-on tutorial on Echidna](https://github.com/cryti
 
 We’ve build and use some additional tools build around Medusa, to ease the test-writing process:
 
-- [Youdusa](https://crates.io/crates/youdusa), to generate tests based on failed properties.
-- [Medusa](https://crates.io/crates/medusa-gen) template generator
+- [Youdusa](https://github.com/defi-wonderland/youdusa-rs), to generate tests based on failed properties.
+- [Medusa](https://github.com/defi-wonderland/medusa-gen-rs) template generator
 - Trail of Bits has [a collection of properties](https://blog.trailofbits.com/2023/02/27/reusable-properties-ethereum-contracts-echidna/) for erc20/erc721/etc, these should be the standard to use when testing a contract relying on these standard (in addition to tests for any custom logic)
 
 ## File structure
