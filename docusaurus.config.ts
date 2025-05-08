@@ -95,7 +95,9 @@ const config: Config = {
     prism: {
       theme: {...prismThemes.dracula},
       darkTheme: {...prismThemes.dracula},
-      additionalLanguages: ['solidity', 'bash', 'json'],
+      // Available languages: https://github.com/PrismJS/prism/tree/master/components
+      // Default list: languagesToBundle - https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L26
+      additionalLanguages: ['solidity', 'bash', 'mermaid', 'java', 'nasm'],
     },
     docs: {
       sidebar: {
