@@ -14,7 +14,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://wonderland-handbook.vercel.app',
+  url: 'https://handbook.defi.sucks/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -37,6 +37,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-lunr-search',
+    llmsTxtPlugin,
   ],
 
   presets: [
@@ -70,13 +71,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: 'img/wonderland-social-card.png',
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
-    // Replace with your project's social card
-    image: 'img/wonderland-social-card.png',
     navbar: {
       logo: {
         alt: 'Wonderland Handbook',
@@ -108,8 +108,6 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
   } satisfies Preset.ThemeConfig,
-
-  plugins: [llmsTxtPlugin],
 };
 
 export default config;

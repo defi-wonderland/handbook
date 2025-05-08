@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
 const categories = [
@@ -28,11 +27,8 @@ const categories = [
 ];
 
 function Home(): React.ReactElement {
-  const {siteConfig} = useDocusaurusContext();
-  
   return (
     <Layout
-      title={siteConfig.title}
       description="A curated guide to our best practices, processes, and technical insights.">
       <main className={styles.main}>
         <div className={styles.centerContent}>
