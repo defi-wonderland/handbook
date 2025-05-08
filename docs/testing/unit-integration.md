@@ -604,6 +604,6 @@ function test_fooWhenOneIsSmaller() external {
 
 Avoiding `vm.assume` (and maintaining a decent number of runs) is crucial to the test accuracy. See this counter-example that demonstrates the absence of an integer divisible by 10…
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/7683bccd-1174-4689-a817-b27fd9d7ef00/110b250d-0674-412a-93da-c3c5b1a4628d/image.png)
+![test-low-fuzz-run.png](/img/test-low-fuzz-run.png)
 
 This is a practical guide on how we write our tests during the development of a project. For more advanced testing technique and tools, that we use at the end of our projects, see the "advanced tests" article.
