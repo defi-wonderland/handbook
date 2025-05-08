@@ -14,7 +14,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://wonderland-handbook.vercel.app',
+  url: 'https://handbook.defi.sucks/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -37,6 +37,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-lunr-search',
+    llmsTxtPlugin,
   ],
 
   presets: [
@@ -70,13 +71,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: 'img/wonderland-social-card.png',
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
-    // Replace with your project's social card
-    image: 'img/wonderland-social-card.png',
     navbar: {
       logo: {
         alt: 'Wonderland Handbook',
@@ -93,8 +93,11 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Wonderland.`,
     },
     prism: {
-      theme: {...prismThemes.vsDark, plain: {color: '#9473b0'}},
-      darkTheme: {...prismThemes.vsDark, plain: {color: '#9473b0'}}, 
+      theme: {...prismThemes.dracula},
+      darkTheme: {...prismThemes.dracula},
+      // Available languages: https://github.com/PrismJS/prism/tree/master/components
+      // Default list: languagesToBundle - https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L26
+      additionalLanguages: ['solidity', 'bash', 'mermaid', 'java', 'nasm'],
     },
     docs: {
       sidebar: {
@@ -107,8 +110,6 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
   } satisfies Preset.ThemeConfig,
-
-  plugins: [llmsTxtPlugin],
 };
 
 export default config;
