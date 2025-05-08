@@ -12,40 +12,28 @@ All work must be submitted to the GitHub repository assigned to you during onboa
 * `/diagrams`: Provide visual illustrations such as payoff diagrams, equilibrium maps, or attack trees.
 * `solution.md`: Include your formal analysis, explanations, and conclusions.
 
-## Oracle Manipulation Attack
+## Mandatory Task
 
-Analyze the feasibility of an attack on a lending protocol that relies on two types of price oracles:
+- **Validator Collusion and Slashing Risk** (MANDATORY) 
 
-    - Uniswap V2 TWAP oracle
-    - Chainlink aggregated price feed
+Analyze the strategic behavior of validators in a staking network where validators can either follow the protocol honestly or attempt collusion for additional rewards.
 
-1. Define the attacker’s cost to manipulate the Uniswap TWAP over $T$ blocks, given:
+1. Define the following parameters:
 
-   * Liquidity $L$ in the pool
-   * Desired price shift $\Delta P$
-   * Block time
+    * Reward $R$ for honest participation
+    * Additional gain $G$ from successful collusion
+    * Probability $p$ of detection and slashing
+    * Slashing penalty $S$
 
-2. Define the attacker’s cost to manipulate the Chainlink oracle, given:
+2. Determine the best-response strategy for an individual validator given the parameters above.
 
-   * Total number of independent data sources $N$
-   * Fraction $f$ of sources required to be compromised or bribed
-   * Per-source manipulation cost
+3. Analyze the Nash equilibrium among $N$ validators under different values of $p$ and $S$.
 
-3. Calculate the maximum borrowable amount under manipulated prices, based on the protocol’s loan-to-value ratio $\theta$, the attacker’s collateral deposit $A_{\text{collateral}}$, and the final manipulated price $P_{\text{manipulated}}$.
+4. Explore how protocol-level changes to detection mechanisms or penalty sizes shift the equilibrium toward greater or lesser collusion risk.
 
-4. Compute the net profit:
+## Optional Tasks (You must choose one)
 
-   $$
-   \Pi = B_{\text{borrow}} - C_{\text{manipulation}} - A_{\text{collateral}} \times P_{\text{initial}}
-   $$
-
-   where $B_{\text{borrow}}$ is the borrowed amount, $C_{\text{manipulation}}$ is the total cost of manipulation, and $P_{\text{initial}}$ is the initial price of the collateral.
-
-5. Analyze under which combinations of liquidity, oracle parameters, and time windows the attack becomes profitable.
-
-6. Propose protocol-side mitigations and evaluate their potential effectiveness in reducing the feasibility of the attack.
-
-## MEV Sandwich Attack on DEX Users
+### Option A: MEV Sandwich Attack on DEX Users
 
 Model the incentives of a MEV searcher performing a sandwich attack against a large DEX trade.
 
@@ -64,30 +52,28 @@ Model the incentives of a MEV searcher performing a sandwich attack against a la
 
 4. Evaluate the competitive equilibrium among multiple MEV searchers, considering the diminishing returns from overlapping attacks.
 
-## Validator Collusion and Slashing Risk
+### Option B: Governance Attack on DAO
 
-Analyze the strategic behavior of validators in a staking network where validators can either follow the protocol honestly or attempt collusion for additional rewards.
+**Governance Attack** 
 
-1. Define the following parameters:
+Evaluate the feasibility of a governance attack under the DAO’s current quorum conditions, and identify the risks and implications that could arise from a potential reduction in quorum requirements. The analysis should propose a conceptual framework that enables the DAO to systematically assess the risk of governance attacks, taking into account:
 
-    - Reward $R$ for honest participation
-    - Additional gain $G$ from successful collusion
-    - Probability $p$ of detection and slashing
-    - Slashing penalty $S$
+- The feasibility of a governance attack under the DAO’s current quorum rules.
+- The risks and trade-offs associated with potentially lowering the quorum threshold.
+- The impact of upcoming token unlocks on the distribution of voting power.
+- The overall security of the governance system.
+- The potential return on investment (ROI) for a malicious actor attempting to carry out a successful attack.
+- Other relevant factors such as token concentration, historical participation, and existing defense mechanisms.
 
-2. Determine the best-response strategy for an individual validator given the parameters above.
-
-3. Analyze the Nash equilibrium among $N$ validators under different values of $p$ and $S$.
-
-4. Explore how protocol-level changes to detection mechanisms or penalty sizes shift the equilibrium toward greater or lesser collusion risk.
+You may choose any DAO with active governance such as Optimism, Arbitrum, zkSync, or Uniswap to contextualize and apply your analysis.
 
 ## Deliverables
 
 For each part of the challenge, you must provide:
 
-    - Formal models: Include all mathematical expressions, payoff functions, and equilibrium characterizations.
-    - Diagrams: Provide clear visualizations such as attack decision trees, cost-benefit plots, or equilibrium maps.
-    - Final writeup: Deliver a formal summary explaining your models, outlining key insights, and assessing the effectiveness of different defensive strategies.
+* Formal models: Include all mathematical expressions, payoff functions, and equilibrium characterizations.
+* Diagrams: Provide clear visualizations such as attack decision trees, cost-benefit plots, or equilibrium maps.
+* Final writeup: Deliver a formal summary explaining your models, outlining key insights, and assessing the effectiveness of different defensive strategies.
 
 ## Purpose and Learning Outcomes
 
