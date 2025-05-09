@@ -43,4 +43,10 @@ After completing the breakdown, answer the following questions with supporting e
 - Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
+## Helpful Resources 🎓
+
+A quick knowledge boost before you dive in:
+1. Why do we need tokenomics?: https://jbba.scholasticahq.com/article/3636-why-do-we-need-tokenomics
+2. Curve Finance and veCRV Tokenomics: https://research.nansen.ai/articles/curve-finance-and-vecrv-tokenomics
+
 # 🍀 Good luck!
