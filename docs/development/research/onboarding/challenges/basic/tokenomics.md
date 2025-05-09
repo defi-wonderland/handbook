@@ -32,7 +32,7 @@ After completing the breakdown, answer the following questions with supporting e
 
 - Which peg incentives and arbitrage loops kept UST at its target value?
 - Who controls the UST oracle?
-- Opinion: In your view, why did the Terra blockchain fail?
+- Opinion: In your view, why did the UST/LUNA system fail?
 
 ### **How to Submit Your Work**
 
