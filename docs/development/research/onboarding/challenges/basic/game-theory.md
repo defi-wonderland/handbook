@@ -16,9 +16,9 @@ All work must be submitted to the GitHub repository assigned to you during onboa
 
 - **Validator Collusion and Slashing Risk** (MANDATORY) 
 
-Analyze the strategic behavior of validators in a staking network where validators can either follow the protocol honestly or attempt collusion for additional rewards.
+Analyze the strategic behavior of validators in a Cosmos-based staking network where validators can either follow the protocol honestly or attempt collusion for additional rewards. In Tendermint, if ≥ 1⁄3 of power is Byzantine, the chain can halt; if > 2⁄3, the coalition can finalize an arbitrary block. 
 
-1. Define the following parameters:
+1. According to the Tendermint model, define the following parameters:
 
     * Reward $R$ for honest participation
     * Additional gain $G$ from successful collusion
@@ -52,20 +52,17 @@ Model the incentives of a MEV searcher performing a sandwich attack against a la
 
 4. Evaluate the competitive equilibrium among multiple MEV searchers, considering the diminishing returns from overlapping attacks.
 
-### Option B: Governance Attack on DAO
+### Option B: Attacks on Governance
 
 **Governance Attack** 
 
-Evaluate the feasibility of a governance attack under the DAO’s current quorum conditions, and identify the risks and implications that could arise from a potential reduction in quorum requirements. The analysis should propose a conceptual framework that enables the DAO to systematically assess the risk of governance attacks, taking into account:
+Evaluate the feasibility of a governance attack under the Terra Blockchain governance, and identify the risks and implications that could arise given different situations. The analysis should propose a conceptual framework that enables the governance to systematically assess the risk of governance attacks, assuming that Quorum Q = 40 %, Approval T = 50 %, Veto V = 33.4 %, respond:
 
-- The feasibility of a governance attack under the DAO’s current quorum rules.
+- The feasibility of a governance attack under the current quorum rules.
 - The risks and trade-offs associated with potentially lowering the quorum threshold.
-- The impact of upcoming token unlocks on the distribution of voting power.
-- The overall security of the governance system.
+- The impact of the current LUNA tokenomics on the potential distribution of voting power.
 - The potential return on investment (ROI) for a malicious actor attempting to carry out a successful attack.
-- Other relevant factors such as token concentration, historical participation, and existing defense mechanisms.
-
-You may choose any DAO with active governance such as Optimism, Arbitrum, zkSync, or Uniswap to contextualize and apply your analysis.
+- Relevant factors such as token concentration, historical participation, and existing defense mechanisms.
 
 ## Deliverables
 
@@ -90,5 +87,13 @@ This challenge is intended to cultivate your ability to:
 - No need to delve extremely deep into the underlying systems—focus on tokenomics, and wisely manage your time.
 - Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
+
+## Helpful Resources 🎓
+
+A quick knowledge boost before you dive in:
+
+1. [Byzantine Consensus Algorithm in Tendermint](https://github.com/tendermint/tendermint/blob/main/spec/consensus/consensus.md).
+2. [MEV and me](https://www.paradigm.xyz/2021/02/mev-and-me).
+3. [Cosmos Governance Module](https://github.com/cosmos/governance/blob/master/overview.md).
 
 # 🍀 Good luck!
