@@ -521,12 +521,14 @@ By modeling the problem mathematically, the analysis reveals actionable insights
 
 ## Resources
 
-**https://oyc.yale.edu/economics/econ-159 —** Recommended if interested! Most of these notes are taken from this course.
+**https://oyc.yale.edu/economics/econ-159** — Recommended if interested! Most of these notes are taken from this course.
 
-https://www.youtube.com/watch?v=PsLaI4jDftA&pp=ygUSR2FtZSB0aGVvcnkgY291cnNl
+https://www.youtube.com/watch?v=PsLaI4jDftA.
 
-A. Dixit and B. Nalebuff. *Thinking Strategically*, Norton 1991
+A. Dixit and B. Nalebuff. *Thinking Strategically*. Norton, 1991.
 
-[J. Watson. *Strategy: An Introduction to Game Theory*, Norton 2002](https://archive.org/details/strategyintroduc0000wats)
+[J. Watson. *Strategy: An Introduction to Game Theory*, Norton, 2002](https://archive.org/details/strategyintroduc0000wats).
 
-P.K. Dutta. *Strategies and Games: Theory And Practice*, MIT 1999
+P.K. Dutta. *Strategies and Games: Theory And Practice*. MIT, 1999.
+
+[Bryan Ford and Rainer Böhme. *Rationality is Self-Defeating in Permissionless Systems∗*. ArXiv, 2019](https://arxiv.org/pdf/1910.08820)  — Recommended reading afterward to transition into the design of permissionless systems.
