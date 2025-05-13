@@ -36,13 +36,23 @@ The *Fundamentals* section is organized into four parts: **Basics**, **Intermedi
 
 ## 🛰️ Comms
 
-- All the questions regarding the challenge or anything should go in the `#new-team-member-onboarding-channel` within the onboarding section in Wonderland’s discord server.
-- Anyone who is available will answer your questions : )
+- For any questions related to the challenge or other topics, please post them in the `#new-team-member-onboarding-channel` within the onboarding section of Wonderland’s Discord server. Lumi or any available team member will respond to your inquiries.
+- Daily check-ins will be conducted to ensure you are on track and to address any immediate concerns.
+- Weekly virtual coffee sessions will be held to foster team bonding and provide a relaxed environment for open discussions.
+- Kickoff meetings will be scheduled at the beginning of the onboarding process to outline expectations and goals.
 
 ## 🕰️ Estimated Time
+The onboarding is designed to take four weeks if done full-time. Here's the breakdown:
 
-- The onboarding is designed to take around three weeks if done full-time. It can take approximately one month if done part-time (5 hours per day).
+| Week | Focus | Challenges |
+|------|-------|------------|
+| 1 | Basics | Game Theory, Tokenomics |
+| 2 | Intermediate | Solidity, Cryptography |
+| 3 | DeFi | Protocol Dynamics |
+| 4 | Core | Oracles, Bridges or Rollups|
+
+If done part-time (5 hours per day), it may take approximately 6-8 weeks to complete all sections. 
 
 ## 📎 Tracking
 
-Your onboarding progress will be tracked through **Linear** issues assigned to you at the start of the process. Each section will have its own set of challenges to track your learning and application. 
+Your onboarding progress will be tracked through **Linear** issues assigned to you at the start of the process. Each section will have its own set of challenges to track your learning and application. Additionally, each challenge will have an assigned person in Linear to review your work and provide feedback.
