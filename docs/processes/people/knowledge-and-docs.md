@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Knowledge & Docs
 
-These tools help us share information, document our work, and stay coordinated across teams. Most of what you’ll need is already written down — and if it’s not, you can help make it clearer for everyone else.
+These tools help us share information, document our work, and stay coordinated across teams. Most of what you’ll need is already written down, and if it’s not, you can help make it clearer for everyone else.
 
 ## Notion: the knowledge hub
 
