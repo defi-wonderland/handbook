@@ -27,6 +27,18 @@ const sidebars: SidebarsConfig = {
         'processes/project-lifecycle',
         {
           type: 'category',
+          label: 'People',
+          items: [
+            'processes/people/overview',
+            'processes/people/core-tools',
+            'processes/people/knowledge-and-docs',
+            'processes/people/communication',
+            'processes/people/engineering',
+            'processes/people/payments',
+          ],
+        },
+        {
+          type: 'category',
           label: 'GitHub',
           items: [
             'processes/github/overview',
