@@ -16,7 +16,7 @@ Firstly, our Partner Lead and Architect will create a diagram showing the overal
 
 Before proceeding, both parties must review and approve the Idea Draft. This document serves as our north star, ensuring alignment on objectives and expectations throughout the project's lifecycle.
 
-Find the template: [Idea Draft](https://www.notion.so/Idea-Draft-1859a4c092c780ae8453f83898fa03b6?pvs=21)
+Find the template: [Idea Draft](https://defi-wonderland.notion.site/idea-draft-template?pvs=4)
 
 ## Tech Design 📐 
 
@@ -26,7 +26,7 @@ While the project is still being defined and refined, we begin preparing advance
 
 Before moving forward, the Tech Design must be signed by both parties. A Tech Design is valid when it considers all the new, modified or removed functionality in an easily understandable way. This document will explain and justify any added complexity to the system. Moreover, all partner comments will be adequately addressed and marked as resolved.
 
-Find the template here: [Tech Design](https://www.notion.so/Tech-Design-1859a4c092c780e08b2ddf022ab3e228?pvs=21)
+Find the template here: [Tech Design](https://defi-wonderland.notion.site/tech-design-template?pvs=4)
 
 ## Development 👩‍💻 
 
