@@ -27,12 +27,7 @@ When you join:
 
 ## Slack: partner comms
 
-We use Slack to communicate with partners who prefer it. It’s the external-facing equivalent of Discord.
-
-You’ll only be added to:
-- Channels that relate to the partners or teams you’re working with
-
-This keeps the noise down and helps you focus.
+We use Slack to communicate with partners who prefer it. It’s the external-facing equivalent of Discord. You’ll only be added to channels that relate to the partners or teams you’re working with. This keeps the noise down and helps you focus.
 
 ## Communication guidelines
 
