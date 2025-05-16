@@ -37,6 +37,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-lunr-search',
+    'vercel-analytics',
     llmsTxtPlugin,
   ],
 
