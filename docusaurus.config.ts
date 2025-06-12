@@ -83,10 +83,15 @@ const config: Config = {
         alt: 'Wonderland Handbook',
         src: 'img/logo.svg',
         style: { height: '100%', width: 'auto' },
-        className: 'navbar-logo-center',
       },
       style: 'dark',
-      items: [],
+      items: [
+        {
+          to: 'https://wonderland.xyz',
+          position: 'right',
+          label: 'Wonderland.xyz',
+        },
+      ],
     },
     footer: {
       style: 'dark',

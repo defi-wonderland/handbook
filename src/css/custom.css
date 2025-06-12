@@ -4,6 +4,7 @@
  * work well for content-centric websites.
  */
 
+
 /* You can override the default Infima variables here. */
 :root, html[data-theme='dark'] {
   /* Brand Colors */
@@ -15,26 +16,69 @@
   --wonderland-yellow: #FECC40;
   --wonderland-lila: #a371ce;
 
+  /* Wonderland Blue */
+  --wonderland-blue-50: #F5F7FF;
+  --wonderland-blue-100: #D0DAFB;
+  --wonderland-blue-200: #ABBCF4;
+  --wonderland-blue-300: #859EED;
+  --wonderland-blue-400: #6782DB;
+  --wonderland-blue-500: #516DC9;
+  --wonderland-blue-600: #4359A1;
+  --wonderland-blue-700: #283C7D;
+  --wonderland-blue-800: #162042;
+  --wonderland-blue-900: #0E152C;
+  --wonderland-blue-950: #0E1124;
+
+  /* Gray Cool */
+  --wonderland-gray-25: #FCFCFD;
+  --wonderland-gray-50: #F9F9FB;
+  --wonderland-gray-100: #EFF1F5;
+  --wonderland-gray-200: #DCDFEA;
+  --wonderland-gray-300: #B9C0D4;
+  --wonderland-gray-400: #7D89B0;
+  --wonderland-gray-500: #5D6B98;
+  --wonderland-gray-600: #4A5578;
+  --wonderland-gray-700: #404968;
+  --wonderland-gray-800: #30374F;
+  --wonderland-gray-900: #111322;
+  --wonderland-gray-950: #0E101B;
+  
+
   /* Theme Colors */
-  --ifm-color-primary: var(--wonderland-lila);
-  --ifm-color-primary-dark: #8c5ab8;
-  --ifm-color-primary-darker: #7d4aad;
-  --ifm-color-primary-darkest: #6b3a97;
-  --ifm-color-primary-light: #ad7ed5;
-  --ifm-color-primary-lighter: #bc90dc;
-  --ifm-color-primary-lightest: #cba2e3;
+  --ifm-color-emphasis-0: var(--wonderland-gray-950);
+  --ifm-color-emphasis-100: var(--wonderland-gray-900);
+  --ifm-color-emphasis-200: var(--wonderland-gray-800);
+  --ifm-color-emphasis-300: var(--wonderland-gray-700);
+  --ifm-color-emphasis-400: var(--wonderland-gray-600);
+  --ifm-color-emphasis-500: var(--wonderland-gray-500);
+  --ifm-color-emphasis-600: var(--wonderland-gray-400);
+  --ifm-color-emphasis-700: var(--wonderland-gray-300);
+  --ifm-color-emphasis-800: var(--wonderland-gray-200);
+  --ifm-color-emphasis-900: var(--wonderland-gray-100);
+  --ifm-color-emphasis-1000: var(--wonderland-gray-50);
+
+  --ifm-color-primary: var(--wonderland-blue-500);
+  --ifm-color-primary-dark: var(--wonderland-blue-600);
+  --ifm-color-primary-darker: var(--wonderland-blue-700);
+  --ifm-color-primary-darkest: var(--wonderland-blue-800);
+  --ifm-color-primary-light: var(--wonderland-blue-400);
+  --ifm-color-primary-lighter: var(--wonderland-blue-300);
+  --ifm-color-primary-lightest: var(--wonderland-blue-200);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-background-color: var(--wonderland-dark);
-  --ifm-background-surface-color: var(--wonderland-dark);
-  --ifm-navbar-background-color: rgba(14, 21, 44, 0.95);
-  --ifm-footer-background-color: rgba(14, 21, 44, 0.95);
-  --ifm-dropdown-background-color: var(--wonderland-dark);
-  --ifm-card-background-color: var(--wonderland-dark);
-  --ifm-blockquote-border-color: var(--wonderland-lila);
-  --ifm-breadcrumb-item-background-active: var(--wonderland-light);
-  --ifm-navbar-search-input-icon: url("data:image/svg+xml;utf8,<svg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='16px' width='16px'><path d='M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z' /></svg>");
-  --ifm-navbar-search-input-background-color: var(--wonderland-light);
+  --ifm-background-color: var(--wonderland-blue-900);
+  --ifm-background-surface-color: var(--wonderland-blue-900);
+  --ifm-navbar-background-color: var(--wonderland-blue-900);
+  --ifm-footer-background-color: var(--wonderland-blue-900);
+  --ifm-dropdown-background-color: var(--wonderland-blue-900);
+  --ifm-card-background-color: var(--wonderland-blue-900);
+  --ifm-blockquote-border-color: var(--wonderland-blue-500);
+  --ifm-breadcrumb-item-background-active: var(--wonderland-blue-700);
+  --ifm-navbar-search-input-icon: url("data:image/svg+xml;utf8,<svg fill='%237D89B0' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' height='18px' width='18px'><path d='M14.833 8.583a6.25 6.25 0 1 0-1.918 4.503.861.861 0 0 1 .17-.171 6.227 6.227 0 0 0 1.748-4.332Zm1.667 0c0 1.886-.66 3.617-1.762 4.977l2.35 2.351.058.063a.833.833 0 0 1-1.172 1.172l-.063-.057-2.351-2.35a7.917 7.917 0 1 1 2.94-6.155Z'/></svg>");
+  --ifm-navbar-search-input-background-color: var(--wonderland-blue-950);
+  --ifm-navbar-search-input-color: var(--wonderland-gray-400);
+  --ifm-navbar-height: 5rem;
+  --ifm-navbar-item-padding-horizontal: 1.5rem;
 }
 
 /* Sharp Grotesk Font Faces */
@@ -98,8 +142,8 @@ body {
 }
 
 ::selection {
-  background: var(--wonderland-lila);
-  color: var(--wonderland-dark);
+  background: var(--wonderland-blue-500);
+  color: var(--wonderland-blue-900);
 }
 
 /* Main content background */
@@ -226,27 +270,13 @@ article {
 
 /* Navbar styling */
 .navbar {
-  background: rgba(14, 21, 44, 0.95) !important;
+  background: rgba(14, 21, 44, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  height: auto;
-}
-
-/* Center logo */
-.navbar__inner {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--wonderland-blue-800);
+  padding: 1.25rem 2rem;
 }
 
 .navbar__brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  font-style: italic;
   padding: 0.5rem 0;
 }
 
@@ -261,14 +291,19 @@ article {
 
 .navbar__items--right {
   justify-content: flex-end;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.navbar__items--right > :last-child {
+  padding: 0;
 }
 
 .navbar__link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--wonderland-gray-200);
 }
 
 .navbar__link:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 @media (max-width: 1024px) {
@@ -294,16 +329,31 @@ article {
 
 /* Search input */
 .navbar__search-input {
-  outline-color: white;
+  outline-color: var(--wonderland-gray-100);
+  border: 1px solid var(--wonderland-gray-800);
+  height: 2.5rem;
+  border-radius: 0.5rem;
 }
 
+.navbar__search-input::placeholder {
+  color: var(--wonderland-gray-400);
+  font-size: 1rem;
+}
+
+
 .navbar.navbar--dark {
-  --ifm-navbar-search-input-background-color: var(--wonderland-light);
+  --ifm-navbar-search-input-background-color: var(--wonderland-blue-950);
+  --ifm-navbar-search-input-color: var(--wonderland-gray-400);
+}
+
+.navbar.navbar--dark .navbar__search-input:focus {
+  border-color: var(--wonderland-gray-100);
+  outline-color: var(--wonderland-gray-100);
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid var(--wonderland-blue-800);
 }
 
 .navbar__search  {
@@ -311,12 +361,12 @@ article {
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu:before {
-  background: white;
-  border-color: white;
+  background: var(--wonderland-gray-100);
+  border-color: var(--wonderland-gray-100);
 }
 
 .navbar__search .algolia-autocomplete {
-  --ifm-background-color: var(--wonderland-light);
+  --ifm-background-color: var(--wonderland-blue-950);
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion {
@@ -340,16 +390,16 @@ article {
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-  background: var(--wonderland-lila);
-  color: var(--wonderland-dark);
+  background: var(--wonderland-blue-500);
+  color: var(--wonderland-blue-900);
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-  box-shadow: inset 0 -2px 0 0 var(--wonderland-lila);
+  box-shadow: inset 0 -2px 0 0 var(--wonderland-blue-500);
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
-  background: var(--wonderland-light);
+  background: var(--wonderland-blue-950);
   padding-top: 2rem;
 }
 
@@ -382,21 +432,21 @@ article {
 
 /* Footer styling */
 .footer {
-  background: var(--wonderland-dark);
+  background: var(--wonderland-blue-900);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--wonderland-blue-800);
 }
 
 .footer__link-item {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--wonderland-gray-200);
 }
 
 .footer__link-item:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 .footer__copyright {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--wonderland-gray-200);
 }
 
 @media (max-width: 600px) {
@@ -433,19 +483,19 @@ a:hover {
 
 /* Sidebar styling */
 .theme-doc-sidebar-container {
-  background: rgba(14, 21, 44, 0.95) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--wonderland-blue-950) !important;
+  border-right: 1px solid var(--wonderland-blue-800);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
 .menu {
-  background: var(--wonderland-dark) !important;
+  background: var(--wonderland-blue-950) !important;
 }
 
 /* Make all menu links consistent */
 .menu__link {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--wonderland-gray-200);
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
@@ -458,7 +508,7 @@ a:hover {
 
 .menu__list .menu__link:hover {
   background: unset;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--wonderland-gray-100);
   transform: scale(1.025);
   transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
 }
@@ -471,7 +521,7 @@ a:hover {
 .menu__link--active {
   border-radius: 0;
   font-weight: 300;
-  color: rgba(255, 255, 255, 1);
+  color: var(--wonderland-gray-100);
 }
 
 .menu__link--active:not(.menu__link--sublist) {
@@ -578,25 +628,25 @@ a:hover {
   font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid var(--wonderland-blue-800);
 }
 
 .table-of-contents__link {
   display: block;
   padding: 0.4rem 0;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--wonderland-gray-200);
   font-size: 0.9rem;
   transition: all 0.2s ease;
 }
 
 .table-of-contents__link:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
   text-decoration: none;
   transform: translateX(4px);
 }
 
 .table-of-contents__link--active {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 /* Make TOC sticky on desktop */
@@ -618,58 +668,58 @@ a:hover {
 
 /* Breadcrumbs */
 .breadcrumbs__link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--wonderland-gray-200);
   letter-spacing: 0.04em;
 }
 
 .breadcrumbs__link:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 .breadcrumbs__item--active .breadcrumbs__link {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
   font-weight: 300;
-  background: var(--wonderland-light);
+  background: var(--wonderland-blue-800);
 }
 
 /* Tabs */
 .tabs__item {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--wonderland-gray-200);
 }
 
 .tabs__item:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 .tabs__item--active {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
+  color: var(--wonderland-gray-100);
+  border-bottom-color: var(--wonderland-gray-100);
   font-weight: 400;
 }
 
 /* Cards and Admonitions */
 .card {
-  background: var(--wonderland-dark);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--wonderland-blue-950);
+  border: 1px solid var(--wonderland-blue-800);
 }
 
 .alert {
-  background: var(--wonderland-dark);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--wonderland-blue-950);
+  border: 1px solid var(--wonderland-blue-800);
 }
 
 .alert--info {
-  --ifm-alert-background-color: var(--wonderland-dark);
+  --ifm-alert-background-color: var(--wonderland-blue-950);
   --ifm-alert-border-color: var(--wonderland-blue);
 }
 
 .alert--warning {
-  --ifm-alert-background-color: var(--wonderland-dark);
+  --ifm-alert-background-color: var(--wonderland-blue-950);
   --ifm-alert-border-color: var(--wonderland-yellow);
 }
 
 .alert--danger {
-  --ifm-alert-background-color: var(--wonderland-dark);
+  --ifm-alert-background-color: var(--wonderland-blue-950);
   --ifm-alert-border-color: var(--wonderland-pink);
 }
 
@@ -678,8 +728,8 @@ a:hover {
 }
 
 code {
-  color: var(--wonderland-lila);
-  background: var(--wonderland-light);
+  color: var(--wonderland-blue-500);
+  background: var(--wonderland-blue-950);
   padding: 0.2rem 0.4rem;
 }
 
@@ -692,7 +742,7 @@ div[class^='codeBlockContent'],
 pre[class*='language-'],
 code[class*='language-'],
 .code-block-container {
-  background-color: var(--wonderland-dark) !important;
+  background-color: var(--wonderland-blue-950) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
@@ -715,7 +765,7 @@ code[class*='language-'],
 
 /* Code block specific styling */
 .theme-code-block {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--wonderland-blue-800);
   border-radius: 8px;
   overflow: hidden;
   margin: 1rem 0;
@@ -730,7 +780,7 @@ code[class*='language-'],
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--wonderland-dark);
+  background: var(--wonderland-blue-950);
   z-index: -1;
 }
 
@@ -738,9 +788,9 @@ code[class*='language-'],
 .theme-code-block__title,
 div[class*='codeBlockTitle'],
 [class*='playgroundHeader'] {
-  background: var(--wonderland-dark) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: var(--wonderland-blue-950) !important;
+  border-bottom: 1px solid var(--wonderland-blue-800);
+  color: var(--wonderland-gray-200);
 }
 
 .theme-code-block .prism-code + div >button {
@@ -752,24 +802,24 @@ div[class*='codeBlockTitle'],
 .token-line,
 .token span,
 [class*='codeLine'] {
-  background: var(--wonderland-dark) !important;
+  background: var(--wonderland-blue-950) !important;
 }
 
 /* Copy button and other controls */
 div[class*='copyButtonCopyCode'],
 [class*='playgroundPreview'] {
-  background: var(--wonderland-dark) !important;
+  background: var(--wonderland-blue-950) !important;
 }
 
 div[class*='buttonGroup'] button {
   border-radius: 8px;
-  background: var(--wonderland-dark);
+  background: var(--wonderland-blue-950);
 }
 
 /* Links in markdown content */
 .markdown a:not(.card),
 .theme-doc-markdown a:not(.card) {
-  color: var(--wonderland-lila);
+  color: var(--wonderland-blue-500);
   background: linear-gradient(currentColor 0 0) 
     bottom left/
     var(--underline-width, 0%) 1px
@@ -780,7 +830,7 @@ div[class*='buttonGroup'] button {
 
 .markdown a:hover,
 .theme-doc-markdown a:hover {
-  color: var(--wonderland-lila);
+  color: var(--wonderland-blue-500);
   --underline-width: 100%;
   transition: color 0.2s ease, background-size 0.2s ease-in;
 }
@@ -801,7 +851,7 @@ div[class*='buttonGroup'] button {
 }
 
 .pagination-nav__link:hover {
-  border: 1px solid var(--wonderland-lila);
+  border: 1px solid var(--wonderland-blue-500);
 }
 
 .pagination-nav__sublabel {
@@ -842,7 +892,7 @@ div[class*='buttonGroup'] button {
     left: 0;
     height: 100vh;
     width: 80vw;
-    background: rgba(14, 21, 44, 0.95) !important;
+    background: var(--wonderland-blue-950) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
@@ -870,10 +920,10 @@ div[class*='buttonGroup'] button {
   height: 3rem;
   margin: 0;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(14, 21, 44, 0.95);
+  border-top: 1px solid var(--wonderland-blue-800);
+  background: var(--wonderland-blue-950);
   backdrop-filter: blur(10px);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--wonderland-gray-200);
   font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -881,7 +931,7 @@ div[class*='buttonGroup'] button {
 }
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
 }
 
 .theme-doc-sidebar-container button[class*='collapseSidebarButton'] svg {
@@ -901,8 +951,8 @@ div[class*='buttonGroup'] button {
 
 /* Magical card hover effects */
 .docCard {
-  background: rgba(14, 21, 44, 0.6) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: var(--wonderland-blue-950) !important;
+  border: 1px solid var(--wonderland-blue-800) !important;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
@@ -960,13 +1010,13 @@ div[class*='buttonGroup'] button {
   font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
   transition: all 0.3s ease;
   position: relative;
 }
 
 .docCard:hover h2 {
-  background: linear-gradient(90deg, #E95B9B, #FECC40);
+  background: linear-gradient(90deg, var(--wonderland-pink), var(--wonderland-yellow));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -996,8 +1046,8 @@ div[class*='buttonGroup'] button {
 /* Rabbit hole button styling */
 .rabbit-hole-button {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--wonderland-blue-800);
+  color: var(--wonderland-gray-200);
   padding: 1rem 2rem;
   font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
   font-size: 1rem;
@@ -1011,7 +1061,7 @@ div[class*='buttonGroup'] button {
 }
 
 .rabbit-hole-button:hover {
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 
     0 0 20px rgba(31, 85, 213, 0.2),
