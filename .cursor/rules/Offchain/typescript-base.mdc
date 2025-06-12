@@ -1,0 +1,28 @@
+---
+description: Base TypeScript development guidelines
+globs: **/*.ts
+version: 1.0.0
+---
+
+# TypeScript Development Guidelines
+
+## Code Organization
+- Avoid over-abstraction and prioritize composition over inheritance
+- Use dependency injection and follow SOLID principles
+- Prevent circular dependencies using the internal module pattern
+- Libraries should have an `external.ts` file for public exports
+
+## Type Safety
+- Avoid `any`; use `unknown` when type is uncertain
+- Use runtime type-checking (Zod) for environment variables
+- Maintain `bigint` types from external APIs
+
+## Documentation
+- Use JSDoc for all code elements
+- Document public APIs thoroughly
+- Include examples for complex functionality
+
+## Best Practices
+- Implement static async factory functions for constructors
+- Follow established naming conventions
+- Keep functions focused and single-purpose

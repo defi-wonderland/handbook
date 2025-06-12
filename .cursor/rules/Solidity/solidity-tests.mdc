@@ -1,0 +1,20 @@
+---
+description: Solidity test file guidelines
+globs: **/t.sol
+version: 1.0.0
+---
+
+# Solidity Test Guidelines
+
+## Unit Tests
+- Use vm.bound for multiple fuzz case exclusions
+- Use vm.assume only for single case exclusions
+- Use vm.skip(true) for unimplemented tests
+- Never comment out tests or leave empty bodies
+
+## Integration Tests
+- Fork relevant networks for external contract interactions
+- Use createSelectFork with appropriate parameters:
+  - `string calldata urlOrAlias, uint256 block`
+  - `string calldata urlOrAlias, bytes32 transaction`
+- Test against real contract interactions
