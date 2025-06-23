@@ -3,6 +3,31 @@
  * and scoped locally.
  */
 
+/* Main container */
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0;
+  padding-top: 0;
+}
+
+/* Center content wrapper */
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90%;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 4rem;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -20,34 +45,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Main container */
-.main {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 2rem 0;
-  background: url('/img/handbook-2.png') center top/cover no-repeat;
-  background-attachment: fixed;
-}
-
-/* Center content wrapper */
-.centerContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  max-width: 90%;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding-bottom: 4rem;
 }
 
 /* Hero Title */
@@ -186,25 +183,23 @@
 }
 
 .categoryCards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: 100%;
   margin-top: 1.5rem;
   padding: 0 2rem;
   margin-bottom: 2rem;
+  margin-bottom: 100vh;
 }
 
 .categoryCard {
-  background: rgba(14, 21, 44, 0.6);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 2rem 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem 2.75rem;
   display: flex;
-  flex: 0 0 270px;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
@@ -246,7 +241,6 @@
 .categoryIcon {
   width: 40px;
   height: 40px;
-  filter: brightness(0) invert(1);
   transition: transform 0.3s ease;
   position: relative;
   z-index: 1;
@@ -259,12 +253,11 @@
 
 .categoryTitle {
   font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 2.5rem;
+  font-weight: 500;
+  font-size: 1rem;
   line-height: 0.7;
   padding-top: 0.15em;
-  color: #ffffff;
+  color: var(--wonderland-gray-100);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -341,4 +334,74 @@
   .description {
     max-width: 100%;
   }
+}
+
+.triangleBackground {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.triangleBackgroundSvg {
+  filter: blur(7vw);
+}
+
+.footerBackground {
+  filter: blur(7vw);
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.footerBackgroundSvg {
+  transform: translateY(20vw) scale(0.75);
+  width: 100%;
+}
+
+.noiseTexture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  opacity: 25%;
+  z-index: -1;
+}
+
+.noiseTexture svg {
+  width: 100%;
+  height: 100%;
+}
+
+.coneIllustration {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 15rem;
+  height: auto;
+  z-index: -1;
+}
+
+.sphereIllustration {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  width: 4.5rem;
+  height: auto;
+  z-index: 1;
+}
+
+.ringIllustration {
+  position: absolute;
+  top: 400px;
+  right: 50px;
+  width: 15rem;
+  height: auto;
+  z-index: 1;
 }

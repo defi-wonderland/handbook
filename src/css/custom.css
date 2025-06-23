@@ -112,11 +112,7 @@
 html {
   height: 100%;
   background-color: var(--wonderland-dark);
-  background-image: url('/img/handbook-3.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -139,6 +135,7 @@ body {
   font-weight: 300;
   min-height: 100vh;
   background: transparent;
+  overflow-y: auto !important;
 }
 
 ::selection {
@@ -270,19 +267,32 @@ article {
 
 /* Navbar styling */
 .navbar {
-  background: rgba(14, 21, 44, 0.95);
+  background: rgba(14, 21, 44, 0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--wonderland-blue-800);
   padding: 1.25rem 2rem;
 }
 
+nav.navbar.navbar--fixed-top {
+  position: fixed;
+  width: 100%;
+}
+
+nav.navbar.navbar--fixed-top + .main-wrapper  {
+  padding-top: 5rem;
+}
+
 .navbar__brand {
-  padding: 0.5rem 0;
+  padding: 0;
+}
+
+.navbar__logo {
+  height: 2.5rem;
 }
 
 .navbar__items {
   flex: 1;
-  padding: 0.5rem 0;
+  padding: 0;
 }
 
 .navbar__items--left {
@@ -432,21 +442,50 @@ article {
 
 /* Footer styling */
 .footer {
-  background: var(--wonderland-blue-900);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--wonderland-blue-800);
+  background: transparent;
+  height: 4.5rem;
+  padding: 1.5rem 2rem;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.footer__links {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: max-content;
 }
 
 .footer__link-item {
   color: var(--wonderland-gray-200);
+  line-height: 1;
+}
+
+.footer__link-item svg {
+  opacity: 0.4;
 }
 
 .footer__link-item:hover {
   color: var(--wonderland-gray-100);
 }
 
+.footer__link-separator {
+  display: none;
+}
+
 .footer__copyright {
   color: var(--wonderland-gray-200);
+  font-size: 0.75rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  opacity: 0.4;
 }
 
 @media (max-width: 600px) {
@@ -567,12 +606,12 @@ a:hover {
 
 /* Process category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
-  background-image: url('/img/processes.svg');
+  background-image: url('/img/puzzle-piece.svg');
 }
 
 /* Development category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
-  background-image: url('/img/key-hole.svg');
+  background-image: url('/img/code-bracket-square.svg');
 }
 
 /* Security category icon */
@@ -582,7 +621,7 @@ a:hover {
 
 /* Testing category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
-  background-image: url('/img/bug.svg');
+  background-image: url('/img/bug-ant.svg');
 }
 
 .menu__list-item-collapsible .menu__link:hover::before {
@@ -652,10 +691,18 @@ a:hover {
 /* Make TOC sticky on desktop */
 @media (min-width: 997px) {
   .theme-doc-toc {
-    position: sticky;
+    position: fixed;
     top: calc(var(--ifm-navbar-height) + 1rem);
     max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
     overflow-y: auto;
+  }
+
+  aside > div {
+    top: var(--ifm-navbar-height) !important;
+  }
+
+  aside.theme-doc-sidebar-container > div > div {
+    padding-top: 0;
   }
 }
 
