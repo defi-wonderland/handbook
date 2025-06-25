@@ -25,6 +25,7 @@
     "clsx": "2.0.0",
     "docusaurus-lunr-search": "^3.6.0",
     "katex": "0.16.21",
+    "lunr": "2.3.9",
     "prism-react-renderer": "2.3.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",

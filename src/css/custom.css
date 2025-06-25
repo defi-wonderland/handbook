@@ -4,45 +4,44 @@
  * work well for content-centric websites.
  */
 
-
 /* You can override the default Infima variables here. */
-:root, html[data-theme='dark'] {
+:root,
+html[data-theme="dark"] {
   /* Brand Colors */
-  --wonderland-dark: #0E152C;
+  --wonderland-dark: #0e152c;
   --wonderland-light: #1c1f37;
-  --wonderland-purple: #3C2A86;
-  --wonderland-blue: #1F55D5;
-  --wonderland-pink: #E95B9B;
-  --wonderland-yellow: #FECC40;
+  --wonderland-purple: #3c2a86;
+  --wonderland-blue: #1f55d5;
+  --wonderland-pink: #e95b9b;
+  --wonderland-yellow: #fecc40;
   --wonderland-lila: #a371ce;
 
   /* Wonderland Blue */
-  --wonderland-blue-50: #F5F7FF;
-  --wonderland-blue-100: #D0DAFB;
-  --wonderland-blue-200: #ABBCF4;
-  --wonderland-blue-300: #859EED;
-  --wonderland-blue-400: #6782DB;
-  --wonderland-blue-500: #516DC9;
-  --wonderland-blue-600: #4359A1;
-  --wonderland-blue-700: #283C7D;
+  --wonderland-blue-50: #f5f7ff;
+  --wonderland-blue-100: #d0dafb;
+  --wonderland-blue-200: #abbcf4;
+  --wonderland-blue-300: #859eed;
+  --wonderland-blue-400: #6782db;
+  --wonderland-blue-500: #516dc9;
+  --wonderland-blue-600: #4359a1;
+  --wonderland-blue-700: #283c7d;
   --wonderland-blue-800: #162042;
-  --wonderland-blue-900: #0E152C;
-  --wonderland-blue-950: #0E1124;
+  --wonderland-blue-900: #0e152c;
+  --wonderland-blue-950: #0e1124;
 
   /* Gray Cool */
-  --wonderland-gray-25: #FCFCFD;
-  --wonderland-gray-50: #F9F9FB;
-  --wonderland-gray-100: #EFF1F5;
-  --wonderland-gray-200: #DCDFEA;
-  --wonderland-gray-300: #B9C0D4;
-  --wonderland-gray-400: #7D89B0;
-  --wonderland-gray-500: #5D6B98;
-  --wonderland-gray-600: #4A5578;
+  --wonderland-gray-25: #fcfcfd;
+  --wonderland-gray-50: #f9f9fb;
+  --wonderland-gray-100: #eff1f5;
+  --wonderland-gray-200: #dcdfea;
+  --wonderland-gray-300: #b9c0d4;
+  --wonderland-gray-400: #7d89b0;
+  --wonderland-gray-500: #5d6b98;
+  --wonderland-gray-600: #4a5578;
   --wonderland-gray-700: #404968;
-  --wonderland-gray-800: #30374F;
+  --wonderland-gray-800: #30374f;
   --wonderland-gray-900: #111322;
-  --wonderland-gray-950: #0E101B;
-  
+  --wonderland-gray-950: #0e101b;
 
   /* Theme Colors */
   --ifm-color-emphasis-0: var(--wonderland-gray-950);
@@ -83,30 +82,30 @@
 
 /* Sharp Grotesk Font Faces */
 @font-face {
-  font-family: 'Sharp Grotesk';
-  src: url('/fonts/SharpGrotesk-Light15.otf') format('opentype');
+  font-family: "Sharp Grotesk";
+  src: url("/fonts/SharpGrotesk-Light15.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Sharp Grotesk';
-  src: url('/fonts/SharpGrotesk-LightItalic10.otf') format('opentype');
+  font-family: "Sharp Grotesk";
+  src: url("/fonts/SharpGrotesk-LightItalic10.otf") format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Sharp Grotesk';
-  src: url('/fonts/SharpGrotesk-Medium25.otf') format('opentype');
+  font-family: "Sharp Grotesk";
+  src: url("/fonts/SharpGrotesk-Medium25.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
 
 /* Global styles */
 html {
@@ -130,7 +129,7 @@ html {
 }
 
 body {
-  font-family: 'Sharp Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: "Sharp Grotesk", "Inter", system-ui, -apple-system, sans-serif;
   color: #ffffff;
   font-weight: 300;
   min-height: 100vh;
@@ -151,7 +150,7 @@ body {
 
 /* Typography */
 h1 {
-  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
+  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
   color: #ffffff;
@@ -161,8 +160,12 @@ h1 {
   letter-spacing: 0.04em;
 }
 
-h2, h3, h4, h5, h6 {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0.3rem;
@@ -210,7 +213,7 @@ h2, h3, h4, h5, h6 {
 p,
 .theme-doc-markdown,
 .markdown {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
   font-weight: 300;
   line-height: 1.6;
   margin-bottom: 0.3rem;
@@ -255,9 +258,9 @@ article {
 }
 
 /* Override any white backgrounds */
-[class*='docMainContainer'],
-[class*='docItemContainer'],
-[class*='docSidebarContainer'],
+[class*="docMainContainer"],
+[class*="docItemContainer"],
+[class*="docSidebarContainer"],
 .theme-doc-markdown,
 .theme-doc-toc-desktop,
 .tabs-container,
@@ -278,7 +281,7 @@ nav.navbar.navbar--fixed-top {
   width: 100%;
 }
 
-nav.navbar.navbar--fixed-top + .main-wrapper  {
+nav.navbar.navbar--fixed-top + .main-wrapper {
   padding-top: 5rem;
 }
 
@@ -301,7 +304,7 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
 
 .navbar__items--right {
   justify-content: flex-end;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 .navbar__items--right > :last-child {
@@ -350,7 +353,6 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
   font-size: 1rem;
 }
 
-
 .navbar.navbar--dark {
   --ifm-navbar-search-input-background-color: var(--wonderland-blue-950);
   --ifm-navbar-search-input-color: var(--wonderland-gray-400);
@@ -361,13 +363,13 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
   outline-color: var(--wonderland-gray-100);
 }
 
-.navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+.navbar__search .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
   background: transparent;
   border: 1px solid var(--wonderland-blue-800);
 }
 
-.navbar__search  {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif
+.navbar__search {
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu:before {
@@ -383,7 +385,9 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
   z-index: 1000;
 }
 
-.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+.navbar__search
+  .algolia-autocomplete
+  .algolia-docsearch-suggestion--category-header {
   padding: 0.5rem 1rem 0.25rem;
 }
 
@@ -391,7 +395,9 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
   padding: 0.25rem 1rem 0.5rem;
 }
 
-.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column-text {
+.navbar__search
+  .algolia-autocomplete
+  .algolia-docsearch-suggestion--subcategory-column-text {
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -404,21 +410,29 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
   color: var(--wonderland-blue-900);
 }
 
-.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+.navbar__search
+  .algolia-autocomplete
+  .algolia-docsearch-suggestion--text
+  .algolia-docsearch-suggestion--highlight {
   box-shadow: inset 0 -2px 0 0 var(--wonderland-blue-500);
 }
 
-.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+.navbar__search
+  .algolia-autocomplete
+  .algolia-docsearch-suggestion--no-results {
   background: var(--wonderland-blue-950);
   padding-top: 2rem;
 }
 
 @media (max-width: 600px) {
-  .navbar__search .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+  .navbar__search
+    .algolia-autocomplete
+    .ds-dropdown-menu
+    [class^="ds-dataset-"] {
     max-height: 80vh;
   }
 
-  .navbar [class^=navbarSearchContainer] {
+  .navbar [class^="navbarSearchContainer"] {
     position: relative;
     right: unset;
   }
@@ -484,7 +498,7 @@ nav.navbar.navbar--fixed-top + .main-wrapper  {
 .footer__copyright {
   color: var(--wonderland-gray-200);
   font-size: 0.75rem;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   opacity: 0.4;
 }
 
@@ -539,7 +553,8 @@ a:hover {
   font-size: 1rem !important;
   font-style: italic;
   will-change: color, transform;
-  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
+  transition: color var(--ifm-transition-fast) ease,
+    transform var(--ifm-transition-slow) ease;
   position: relative;
   padding-left: 1.5rem;
   border-radius: 0;
@@ -549,7 +564,8 @@ a:hover {
   background: unset;
   color: var(--wonderland-gray-100);
   transform: scale(1.025);
-  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-slow) ease;
+  transition: color var(--ifm-transition-fast) ease,
+    transform var(--ifm-transition-slow) ease;
 }
 
 .menu__list .menu__link:active,
@@ -592,7 +608,7 @@ a:hover {
 }
 
 .menu__list-item-collapsible .menu__link::before {
-  content: '';
+  content: "";
   width: 14px;
   height: 14px;
   display: inline-block;
@@ -606,30 +622,28 @@ a:hover {
 
 /* Process category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
-  background-image: url('/img/puzzle-piece.svg');
+  background-image: url("/img/puzzle-piece.svg");
 }
 
 /* Development category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
-  background-image: url('/img/code-bracket-square.svg');
+  background-image: url("/img/code-bracket-square.svg");
 }
 
 /* Security category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
-  background-image: url('/img/key.svg');
+  background-image: url("/img/key.svg");
 }
 
 /* Testing category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
-  background-image: url('/img/bug-ant.svg');
+  background-image: url("/img/bug-ant.svg");
 }
 
 .menu__list-item-collapsible .menu__link:hover::before {
   opacity: 1;
-  filter: brightness(1.2) 
-    drop-shadow(0 0 8px var(--wonderland-blue))
-    drop-shadow(0 0 12px var(--wonderland-pink))
-    drop-shadow(0 0 3px #fff);
+  filter: brightness(1.2) drop-shadow(0 0 8px var(--wonderland-blue))
+    drop-shadow(0 0 12px var(--wonderland-pink)) drop-shadow(0 0 3px #fff);
   transform: scale(1.15);
 }
 
@@ -652,19 +666,19 @@ a:hover {
 
 /* Sidebar titles */
 .menu__link {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
 /* Sidebar category titles */
 .menu__list-item-collapsible .menu__link {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 600;
 }
 
 /* Table of contents */
 .table-of-contents {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
   border-left: 1px solid var(--wonderland-blue-800);
@@ -782,12 +796,12 @@ code {
 
 /* Code blocks - ensure solid background */
 .theme-code-block,
-div[class^='codeBlock'],
-div[class^='codeBlockContainer'],
-div[class^='codeBlockContent'],
+div[class^="codeBlock"],
+div[class^="codeBlockContainer"],
+div[class^="codeBlockContent"],
 .prism-code,
-pre[class*='language-'],
-code[class*='language-'],
+pre[class*="language-"],
+code[class*="language-"],
 .code-block-container {
   background-color: var(--wonderland-blue-950) !important;
   backdrop-filter: none !important;
@@ -797,7 +811,12 @@ code[class*='language-'],
 /* Ensure code content has solid background */
 .prism-code {
   --wonderland-pink-rgb: 233, 91, 155;
-  background-image: linear-gradient(30deg, rgba(var(--wonderland-pink-rgb), 0) 70%, rgba(var(--wonderland-pink-rgb), 0.05) 95%, rgba(var(--wonderland-pink-rgb), 0.1) 100%);
+  background-image: linear-gradient(
+    30deg,
+    rgba(var(--wonderland-pink-rgb), 0) 70%,
+    rgba(var(--wonderland-pink-rgb), 0.05) 95%,
+    rgba(var(--wonderland-pink-rgb), 0.1) 100%
+  );
   background-size: 100% 40rem;
   background-repeat: no-repeat;
   backdrop-filter: none;
@@ -821,7 +840,7 @@ code[class*='language-'],
 }
 
 .theme-code-block::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -833,14 +852,14 @@ code[class*='language-'],
 
 /* Code block headers/titles */
 .theme-code-block__title,
-div[class*='codeBlockTitle'],
-[class*='playgroundHeader'] {
+div[class*="codeBlockTitle"],
+[class*="playgroundHeader"] {
   background: var(--wonderland-blue-950) !important;
   border-bottom: 1px solid var(--wonderland-blue-800);
   color: var(--wonderland-gray-200);
 }
 
-.theme-code-block .prism-code + div >button {
+.theme-code-block .prism-code + div > button {
   opacity: 0.4;
 }
 
@@ -848,17 +867,17 @@ div[class*='codeBlockTitle'],
 .token,
 .token-line,
 .token span,
-[class*='codeLine'] {
+[class*="codeLine"] {
   background: var(--wonderland-blue-950) !important;
 }
 
 /* Copy button and other controls */
-div[class*='copyButtonCopyCode'],
-[class*='playgroundPreview'] {
+div[class*="copyButtonCopyCode"],
+[class*="playgroundPreview"] {
   background: var(--wonderland-blue-950) !important;
 }
 
-div[class*='buttonGroup'] button {
+div[class*="buttonGroup"] button {
   border-radius: 8px;
   background: var(--wonderland-blue-950);
 }
@@ -867,10 +886,8 @@ div[class*='buttonGroup'] button {
 .markdown a:not(.card),
 .theme-doc-markdown a:not(.card) {
   color: var(--wonderland-blue-500);
-  background: linear-gradient(currentColor 0 0) 
-    bottom left/
-    var(--underline-width, 0%) 1px
-    no-repeat;
+  background: linear-gradient(currentColor 0 0) bottom left/
+    var(--underline-width, 0%) 1px no-repeat;
   will-change: color, background-size;
   transition: color 0.2s ease, background-size 0.3s ease-in-out;
 }
@@ -893,7 +910,7 @@ div[class*='buttonGroup'] button {
 
 /* Button styling in documentation */
 .pagination-nav__link {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
@@ -902,12 +919,12 @@ div[class*='buttonGroup'] button {
 }
 
 .pagination-nav__sublabel {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 400;
 }
 
 .pagination-nav__label {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
@@ -920,20 +937,18 @@ div[class*='buttonGroup'] button {
 
 /* All buttons in documentation */
 .button {
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif !important;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
   font-weight: 500;
 }
 
-
 @media (max-width: 996px) {
-
   .navbar {
     padding: 0 16px;
     min-height: 62px;
   }
 
   .navbar-sidebar {
-    z-index: 9999 !important; 
+    z-index: 9999 !important;
     position: fixed !important;
     top: 0;
     left: 0;
@@ -946,20 +961,20 @@ div[class*='buttonGroup'] button {
   }
 
   .navbar-sidebar__backdrop {
-    z-index: 9998 !important; 
+    z-index: 9998 !important;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
   }
 
-  .main-wrapper,
+  /* .main-wrapper,
   #__docusaurus {
     position: relative;
     z-index: 0 !important;
-  }
+  } */
 }
 
 /* Sidebar collapse button styling */
-.theme-doc-sidebar-container button[class*='collapseSidebarButton'] {
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -971,28 +986,28 @@ div[class*='buttonGroup'] button {
   background: var(--wonderland-blue-950);
   backdrop-filter: blur(10px);
   color: var(--wonderland-gray-200);
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover {
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"]:hover {
   color: var(--wonderland-gray-100);
 }
 
-.theme-doc-sidebar-container button[class*='collapseSidebarButton'] svg {
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"] svg {
   width: 1.2rem;
   height: 1.2rem;
   margin-right: 0.5rem;
   transition: transform 0.3s ease;
 }
 
-.theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover svg {
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"]:hover svg {
   transform: scale(1.1);
 }
 
-.theme-doc-sidebar-container div[class*='expandButton'] {
+.theme-doc-sidebar-container div[class*="expandButton"] {
   background: unset;
 }
 
@@ -1008,7 +1023,7 @@ div[class*='buttonGroup'] button {
 }
 
 .docCard::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -1021,7 +1036,7 @@ div[class*='buttonGroup'] button {
 }
 
 .docCard::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -1036,10 +1051,8 @@ div[class*='buttonGroup'] button {
 .docCard:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 
-    0 4px 30px rgba(31, 85, 213, 0.2),
-    0 0 20px rgba(233, 91, 155, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .docCard:hover::before,
@@ -1054,7 +1067,7 @@ div[class*='buttonGroup'] button {
 }
 
 .docCard h2 {
-  font-family: 'Sharp Grotesk', system-ui, -apple-system, sans-serif;
+  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
   font-weight: 300;
   font-style: italic;
   color: var(--wonderland-gray-100);
@@ -1063,7 +1076,11 @@ div[class*='buttonGroup'] button {
 }
 
 .docCard:hover h2 {
-  background: linear-gradient(90deg, var(--wonderland-pink), var(--wonderland-yellow));
+  background: linear-gradient(
+    90deg,
+    var(--wonderland-pink),
+    var(--wonderland-yellow)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1096,7 +1113,7 @@ div[class*='buttonGroup'] button {
   border: 1px solid var(--wonderland-blue-800);
   color: var(--wonderland-gray-200);
   padding: 1rem 2rem;
-  font-family: 'Pathway Extreme', system-ui, -apple-system, sans-serif;
+  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -1110,15 +1127,13 @@ div[class*='buttonGroup'] button {
 .rabbit-hole-button:hover {
   color: var(--wonderland-gray-100);
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 
-    0 0 20px rgba(31, 85, 213, 0.2),
-    0 0 30px rgba(233, 91, 155, 0.2),
+  box-shadow: 0 0 20px rgba(31, 85, 213, 0.2), 0 0 30px rgba(233, 91, 155, 0.2),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 .rabbit-hole-button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -1133,4 +1148,3 @@ div[class*='buttonGroup'] button {
 .rabbit-hole-button:hover::before {
   opacity: 1;
 }
-

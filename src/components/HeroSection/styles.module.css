@@ -1,0 +1,102 @@
+/* Hero Title */
+.heroTitle {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroTitle {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    max-width: 400px;
+  }
+}
+
+.description {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  opacity: 0.9;
+  max-width: 41rem;
+}
+
+@media (max-width: 1024px) {
+  .description {
+    font-size: 1rem;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .description {
+    max-width: 100%;
+  }
+}
+
+/* Button styling */
+.buttonContainer {
+  margin: 1rem 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+  position: relative;
+}
+
+.buttonLink {
+  display: block;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.buttonLink:hover {
+  filter: drop-shadow(0 0 20px rgba(31, 85, 213, 0.3))
+    drop-shadow(0 0 15px rgba(233, 91, 155, 0.3));
+}
+
+.buttonImage {
+  height: auto;
+  max-width: 300px;
+  width: 100%;
+  transition: all 0.4s ease;
+}
+
+.buttonLink:hover .buttonImage {
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+@media (max-width: 480px) {
+  .buttonImage {
+    max-width: 280px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
