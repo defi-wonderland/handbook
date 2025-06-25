@@ -11,6 +11,7 @@ const handbooks = [
     title: "Aztec handbook",
     image: "/img/aztec-handbook.svg",
     href: "https://docs.aztec.network/aztec-handbook/overview",
+    color: "#625CBFD1",
   },
 ];
 
@@ -42,6 +43,12 @@ export default function HandbookSection(): ReactNode {
               target="_blank"
               className={styles.handbooksCard}
             >
+              {handbook.color && (
+                <div
+                  className={styles.colorOverlay}
+                  style={{ backgroundColor: handbook.color }}
+                ></div>
+              )}
               <img
                 src={handbook.image}
                 alt={`${handbook.title} ICON`}
