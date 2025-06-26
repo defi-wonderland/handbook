@@ -41,6 +41,8 @@ const config: Config = {
     llmsTxtPlugin,
   ],
 
+  clientModules: ['./src/js/acknowledgement.js'],
+
   presets: [
     [
       'classic',
