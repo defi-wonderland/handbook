@@ -50,33 +50,7 @@ The static site will be generated in the `sites/[name]/build` directory.
 
 ## 🛠️ Creating a New Site
 
-To create a new Docusaurus site in this monorepo:
-
-1. **Create folder**: `sites/my-new-site`
-
-2. **Add required files**:
-
-   - `docusaurus.config.ts` → extend from `@common-config/preset/commonConfig`
-   - `sidebars.ts` → even if minimal, must exist
-   - `src/css/custom.css` → required by commonConfig, can be empty
-   - `static/` → for site-specific assets (e.g. logos, images)
-   - `.gitignore` → add `static/fonts/` and `static/img/` to avoid committing shared assets
-
-3. **Install dependencies** (if needed):
-
-   ```bash
-   pnpm install
-   ```
-
-4. **Update workspace scripts**:
-   Add a new entry in `sites/my-new-site/package.json`:
-   ```json
-   {
-     "scripts": {
-       "copy-static": "node ../../packages/common-config/dist/scripts/copyStaticTo.js static"
-     }
-   }
-   ```
+TBD (CHA-330)
 
 ## Contributing
 
