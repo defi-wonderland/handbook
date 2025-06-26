@@ -1,0 +1,11 @@
+.triangleBackground {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.triangleBackgroundSvg {
+  filter: blur(7vw);
+}

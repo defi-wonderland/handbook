@@ -1,0 +1,24 @@
+---
+description: React component development guidelines
+globs: **/*.tsx
+version: 1.0.0
+---
+
+# React Component Guidelines
+
+## Component Structure
+- Abstract complex logic from render functions
+- Keep render methods simple and declarative
+- Split complex components into smaller ones
+- Use hooks for side effects and state management
+
+## Import Order
+1. React imports
+2. Third-party libraries
+3. Internal files
+
+## Best Practices
+- Use logical AND (`&&`) over ternary conditionals for clarity
+- Keep components focused and reusable
+- Follow React hooks best practices
+- Avoid inline styles

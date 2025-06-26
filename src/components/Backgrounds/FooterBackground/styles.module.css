@@ -1,0 +1,14 @@
+.footerBackground {
+  filter: blur(7vw);
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.footerBackgroundSvg {
+  transform: translateY(20vw) scale(0.75);
+  width: 100%;
+}

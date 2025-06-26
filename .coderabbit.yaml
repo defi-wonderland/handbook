@@ -1,0 +1,226 @@
+# AI Rules configuration file - version 1.0.0
+
+# Configuration file version.
+version: 1.0.0
+# Language for reviews using ISO language code
+language: en-US
+# Custom instructions for review tone (max 250 chars)
+tone_instructions: ""
+# Enable early-access features
+early_access: false
+# Enable features for users not on paid plans
+enable_free_tier: false
+# Review settings
+reviews:
+  # Review profile - assertive yields more detailed feedback
+  profile: chill
+  # Approve review once comments are resolved
+  request_changes_workflow: false
+  # Generate PR/MR description summary
+  high_level_summary: true
+  # Placeholder text for high level summary
+  high_level_summary_placeholder: "@coderabbitai summary"
+  # Include summary in walkthrough comment
+  high_level_summary_in_walkthrough: false
+  # Keyword for auto-generating PR title
+  auto_title_placeholder: "@coderabbitai"
+  # Custom instructions for auto-generating PR title
+  auto_title_instructions: ""
+  # Post review details and skip status
+  review_status: false
+  # Set commit status during review process
+  commit_status: false
+  # Set failure status when review not possible
+  fail_commit_status: false
+  # Use collapsible section for walkthrough
+  collapse_walkthrough: true
+  # Include file changes summary
+  changed_files_summary: false
+  # Generate sequence diagrams in walkthrough
+  sequence_diagrams: false
+  # Analyze linked issue coverage
+  assess_linked_issues: true
+  # Show related issues
+  related_issues: true
+  # Show related pull requests
+  related_prs: true
+  # Suggest labels based on changes
+  suggested_labels: false
+  # Auto-apply suggested labels
+  auto_apply_labels: false
+  # Suggest reviewers based on changes
+  suggested_reviewers: false
+  # Generate review poem
+  poem: false
+  # Custom label suggestion rules
+  labeling_instructions: []
+  # File patterns to include/exclude (glob) for reviews
+  path_filters: []
+  # Path-specific review guidelines
+  path_instructions: []
+  # Stop review if PR closed/merged
+  abort_on_close: true
+  # Auto-review configuration
+  auto_review:
+    # Enable automatic code review
+    enabled: true
+    # Review on each push
+    auto_incremental_review: true
+    # Skip review for titles with these words
+    ignore_title_keywords: []
+    # Only review PRs with these labels
+    labels: []
+    # Review draft PRs
+    drafts: true
+    # Additional base branches to review
+    base_branches: []
+  # Additional review features
+  finishing_touches:
+    # Docstring generation settings
+    docstrings:
+      # Enable docstring generation suggestions
+      enabled: true
+  # Static analysis tools configuration
+  tools:
+    # Shellcheck tool configuration
+    shellcheck:
+      # Enable shellcheck tool
+      enabled: true
+    # Ruff tool configuration
+    ruff:
+      # Enable ruff tool
+      enabled: false
+    # Markdownlint tool configuration
+    markdownlint:
+      # Enable markdownlint tool
+      enabled: true
+    # GitHub checks integration configuration
+    github-checks:
+      # Enable GitHub checks integration
+      enabled: true
+      # Timeout in milliseconds for GitHub checks
+      timeout_ms: 300000
+    # LanguageTool configuration
+    languagetool:
+      # Enable LanguageTool
+      enabled: true
+      # Enable only specified rules for LanguageTool
+      enabled_only: false
+      # LanguageTool sensitivity level
+      level: default
+    # Biome tool configuration
+    biome:
+      # Enable Biome tool
+      enabled: true
+    # Hadolint tool configuration
+    hadolint:
+      # Enable Hadolint tool for Dockerfile linting
+      enabled: true
+    # SwiftLint tool configuration
+    swiftlint:
+      # Enable SwiftLint tool
+      enabled: false
+    # PHPStan tool configuration
+    phpstan:
+      # Enable PHPStan tool
+      enabled: false
+      # PHPStan analysis level
+      level: default
+    # golangci-lint tool configuration
+    golangci-lint:
+      # Enable golangci-lint tool
+      enabled: false
+    # yamllint tool configuration
+    yamllint:
+      # Enable yamllint tool
+      enabled: true
+    # Gitleaks tool configuration
+    gitleaks:
+      # Enable Gitleaks tool for secret detection
+      enabled: true
+    # Checkov tool configuration
+    checkov:
+      # Enable Checkov tool for IaC scanning
+      enabled: true
+    # Detekt tool configuration
+    detekt:
+      # Enable Detekt tool for Kotlin static analysis
+      enabled: false
+    # ESLint tool configuration
+    eslint:
+      # Enable ESLint tool
+      enabled: false
+    # RuboCop tool configuration
+    rubocop:
+      # Enable RuboCop tool for Ruby static analysis
+      enabled: false
+    # Buf tool configuration
+    buf:
+      # Enable Buf tool for Protobuf linting
+      enabled: false
+    # Regal tool configuration
+    regal:
+      # Enable Regal tool for Rego linting
+      enabled: false
+    # actionlint tool configuration
+    actionlint:
+      # Enable actionlint tool for GitHub Actions linting
+      enabled: true
+    # PMD tool configuration
+    pmd:
+      # Enable PMD tool for Java static analysis
+      enabled: false
+    # Cppcheck tool configuration
+    cppcheck:
+      # Enable Cppcheck tool for C/C++ static analysis
+      enabled: false
+    # Semgrep tool configuration
+    semgrep:
+      # Enable Semgrep tool for static analysis
+      enabled: false
+    # CircleCI validation tool configuration
+    circleci:
+      # Enable CircleCI configuration validation
+      enabled: false
+# Project manager configuration
+chat:
+  # Enable automatic bot replies in chat
+  auto_reply: true
+  # Project manager integration settings
+  integrations:
+    # Jira integration settings
+    jira:
+      # Jira integration settings
+      usage: disabled
+    # Linear integration settings
+    linear:
+      # Linear integration settings
+      usage: enabled
+# Knowledge base settings
+knowledge_base:
+  # Opt out of data retention features for knowledge base
+  opt_out: false
+  # Learning scope configuration
+  learnings:
+    # Learning scope for knowledge base
+    scope: auto
+  # Issue tracking configuration
+  issues:
+    # Issue tracking scope for knowledge base
+    scope: auto
+  # Jira knowledge base integration
+  jira:
+    # Jira usage for knowledge base
+    usage: disabled
+    # Jira project keys for knowledge base
+    project_keys: []
+  # Linear knowledge base integration
+  linear:
+    # Linear usage for knowledge base
+    usage: enabled
+    # Linear team keys for knowledge base
+    team_keys: []
+  # Pull request knowledge base settings
+  pull_requests:
+    # Pull request scope for knowledge base
+    scope: auto
