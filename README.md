@@ -20,7 +20,7 @@ From the root of the monorepo:
 ```bash
 pnpm install                                   # Install all dependencies across packages/sites
 pnpm --filter [name]-handbook build:assets     # Build common files, and copy them into the specific site
-pnpm --filter [name]-handbook dev              # Start the site locally
+pnpm --filter [name]-handbook start              # Start the site locally
 ```
 
 **Example with the Wonderland handbook:**
@@ -28,7 +28,7 @@ pnpm --filter [name]-handbook dev              # Start the site locally
 ```bash
 pnpm install
 pnpm --filter wonderland-handbook build:assets
-pnpm --filter wonderland-handbook dev
+pnpm --filter wonderland-handbook start
 ```
 
 ### Prerequisites
