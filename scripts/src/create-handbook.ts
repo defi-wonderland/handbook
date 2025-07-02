@@ -37,10 +37,11 @@ try {
   // 1. Copy template to new site
   fs.copySync(TEMPLATE_DIR, targetDir);
 
-  // 2. Update package.json with the new site name
+  // 2. Update package.json with the new site name and correct copy-static script
   const packageJsonPath = path.join(targetDir, "package.json");
   const packageJson = fs.readJsonSync(packageJsonPath);
   packageJson.name = `${siteName}`;
+  packageJson.scripts["copy-static"] = `pnpm --filter scripts copy-static sites/${siteName}/static/common`;
   fs.writeJsonSync(packageJsonPath, packageJson, { spaces: 2 });
 
   console.log(`✅ Created new handbook site: ${siteName}`);
