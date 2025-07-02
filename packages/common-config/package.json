@@ -10,8 +10,7 @@
   ],
   "exports": {
     "./styles/global.css": "./static/common/styles/global.css",
-    "./preset": "./dist/preset/index.js",
-    "./copy-static": "./dist/scripts/copyStaticTo.js"
+    "./preset": "./dist/preset/index.js"
   },
   "scripts": {
     "build": "tsc"
