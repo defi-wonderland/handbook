@@ -1,0 +1,61 @@
+{
+  "name": "wonderland-handbook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "tsc",
+    "copy-static": "node ../../packages/common-config/dist/scripts/copyStaticTo.js static/common",
+    "build:assets": "pnpm --filter @common-config build && pnpm copy-static",
+    "build": "pnpm build:assets && docusaurus build --out-dir build"
+  },
+  "dependencies": {
+    "@common-config": "workspace:*",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/plugin-vercel-analytics": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/theme-mermaid": "3.7.0",
+    "@mdx-js/loader": "3.1.0",
+    "@mdx-js/react": "3.1.0",
+    "acorn": "8.14.1",
+    "clsx": "2.0.0",
+    "webpack-merge": "6.0.1",
+    "docusaurus-lunr-search": "3.6.0",
+    "katex": "0.16.21",
+    "lunr": "2.3.9",
+    "prism-react-renderer": "2.3.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "rehype-katex": "7.0.1",
+    "remark-math": "6.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.7.0",
+    "@docusaurus/tsconfig": "3.7.0",
+    "@docusaurus/types": "3.7.0",
+    "docusaurus": "1.14.7",
+    "typescript": "~5.6.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

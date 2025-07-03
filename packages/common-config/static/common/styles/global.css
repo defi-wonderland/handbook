@@ -89,7 +89,7 @@ html[data-theme="dark"] {
 /* Sharp Grotesk Font Faces */
 @font-face {
   font-family: "Sharp Grotesk";
-  src: url("/fonts/SharpGrotesk-Light15.otf") format("opentype");
+  src: url("/static/common/fonts/SharpGrotesk-Light15.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -97,7 +97,7 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Sharp Grotesk";
-  src: url("/fonts/SharpGrotesk-LightItalic10.otf") format("opentype");
+  src: url("/static/common/fonts/SharpGrotesk-LightItalic10.otf") format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -105,7 +105,7 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Sharp Grotesk";
-  src: url("/fonts/SharpGrotesk-Medium25.otf") format("opentype");
+  src: url("/static/common/fonts/SharpGrotesk-Medium25.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -741,6 +741,7 @@ a:hover {
   gap: 0.5rem;
 }
 
+/* TODO: MERGE */
 /* Process category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
   background-image: url("/img/icons/map.svg");
