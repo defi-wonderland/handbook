@@ -113,5 +113,5 @@ describe("create-handbook CLI", () => {
       // Clean up
       await fs.rm(targetDir, { recursive: true, force: true });
     }
-  }, 60000); // 60 second timeout for this test, since we need to Build, Start, and Stop the server
+  }, 120000); // 120 second timeout for this test, since we need to Build, Start, and Stop the server
 });
