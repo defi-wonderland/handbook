@@ -1,8 +1,9 @@
-import fs from "fs-extra";
+import fs from "fs/promises";
 import path from "path";
 import { execFileSync } from "child_process";
 import { setupTestFiles } from "./setupTestUtils";
 import { describe, it, expect, beforeEach } from "@jest/globals";
+import { pathExists } from "./setupTestUtils";
 
 const SCRIPT_PATH = path.join(__dirname, "../src/copyStaticTo.ts");
 const REPO_ROOT = path.resolve(__dirname, "../..");
@@ -27,14 +28,14 @@ describe("copyStaticTo CLI", () => {
       });
 
       // Assert: the target directory was created
-      const targetExists = await fs.pathExists(target);
+      const targetExists = await pathExists(target);
       expect(targetExists).toBe(true);
     });
 
     it("uses the existing target directory if it already exists", async () => {
       // Create the target directory
       const target = path.resolve(testDir, "existing-target");
-      await fs.ensureDir(target);
+      await fs.mkdir(target, { recursive: true });
 
       // Run the script as a CLI from the repo root, passing the target dir
       execFileSync("npx", ["ts-node", SCRIPT_PATH, target], {
@@ -43,7 +44,7 @@ describe("copyStaticTo CLI", () => {
       });
 
       // Assert: the target directory still exists
-      const targetExists = await fs.pathExists(target);
+      const targetExists = await pathExists(target);
       expect(targetExists).toBe(true);
     });
   });

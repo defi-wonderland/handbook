@@ -1,10 +1,17 @@
 import { describe, it, expect } from "@jest/globals";
-import fs from "fs-extra";
+import fs from "fs/promises";
 import path from "path";
 import { execFileSync, spawn, execSync } from "child_process";
+import { pathExists } from "./setupTestUtils";
 
 const SCRIPT_PATH = path.join(__dirname, "../src/create-handbook.ts");
 const REPO_ROOT = path.resolve(__dirname, "../..");
+
+// Helper function to read and parse JSON file
+async function readJson(filePath: string): Promise<any> {
+  const content = await fs.readFile(filePath, "utf8");
+  return JSON.parse(content);
+}
 
 // Helper function to check if a port is in use using lsof
 function isPortInUse(port: number): boolean {
@@ -50,17 +57,17 @@ describe("create-handbook CLI", () => {
       });
 
       // Verify the site directory was created
-      expect(await fs.pathExists(targetDir)).toBe(true);
+      expect(await pathExists(targetDir)).toBe(true);
 
       // Verify package.json exists and was updated with correct name
       const packageJsonPath = path.join(targetDir, "package.json");
-      expect(await fs.pathExists(packageJsonPath)).toBe(true);
+      expect(await pathExists(packageJsonPath)).toBe(true);
 
-      const packageJson = await fs.readJson(packageJsonPath);
+      const packageJson = await readJson(packageJsonPath);
       expect(packageJson.name).toBe(`${siteName}`);
     } finally {
       // Clean up
-      await fs.remove(targetDir);
+      await fs.rm(targetDir, { recursive: true, force: true });
     }
   });
 
@@ -76,7 +83,7 @@ describe("create-handbook CLI", () => {
       });
 
       // Verify the site was created
-      expect(await fs.pathExists(targetDir)).toBe(true);
+      expect(await pathExists(targetDir)).toBe(true);
 
       // Change to the site directory
       const siteCwd = path.join(REPO_ROOT, "sites", siteName);
@@ -89,7 +96,7 @@ describe("create-handbook CLI", () => {
 
       // Verify static assets were copied
       const staticDir = path.join(siteCwd, "static", "common");
-      expect(await fs.pathExists(staticDir)).toBe(true);
+      expect(await pathExists(staticDir)).toBe(true);
 
       // Test build command
       execFileSync("pnpm", ["build"], {
@@ -99,7 +106,7 @@ describe("create-handbook CLI", () => {
 
       // Verify build output exists
       const buildDir = path.join(siteCwd, "build");
-      expect(await fs.pathExists(buildDir)).toBe(true);
+      expect(await pathExists(buildDir)).toBe(true);
 
       // Test start command by actually starting the server and checking if it's listening on port 3000
       const startProcess = spawn("pnpm", ["start"], {
@@ -116,7 +123,7 @@ describe("create-handbook CLI", () => {
       await new Promise((resolve) => startProcess.on("exit", resolve));
     } finally {
       // Clean up
-      await fs.remove(targetDir);
+      await fs.rm(targetDir, { recursive: true, force: true });
     }
   }, 60000); // 60 second timeout for this test, since we need to Build, Start, and Stop the server
 });
