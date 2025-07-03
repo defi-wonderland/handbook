@@ -84,9 +84,6 @@ importers:
 
   sites/template:
     dependencies:
-      '@common-config':
-        specifier: workspace:*
-        version: link:../../packages/common-config
       '@docusaurus/core':
         specifier: 3.7.0
         version: 3.7.0(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
@@ -99,6 +96,9 @@ importers:
       '@docusaurus/theme-mermaid':
         specifier: 3.7.0
         version: 3.7.0(@docusaurus/plugin-content-docs@3.7.0(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2))(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
+      '@handbook/common-config':
+        specifier: workspace:*
+        version: link:../../packages/common-config
       '@mdx-js/loader':
         specifier: 3.1.0
         version: 3.1.0(acorn@8.14.1)(webpack@5.99.9)
@@ -157,9 +157,6 @@ importers:
 
   sites/wonderland:
     dependencies:
-      '@common-config':
-        specifier: workspace:*
-        version: link:../../packages/common-config
       '@docusaurus/core':
         specifier: 3.7.0
         version: 3.7.0(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
@@ -172,6 +169,9 @@ importers:
       '@docusaurus/theme-mermaid':
         specifier: 3.7.0
         version: 3.7.0(@docusaurus/plugin-content-docs@3.7.0(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2))(@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
+      '@handbook/common-config':
+        specifier: workspace:*
+        version: link:../../packages/common-config
       '@mdx-js/loader':
         specifier: 3.1.0
         version: 3.1.0(acorn@8.14.1)(webpack@5.99.9)

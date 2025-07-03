@@ -41,7 +41,7 @@ try {
   const packageJsonPath = path.join(targetDir, "package.json");
   const packageJson = fs.readJsonSync(packageJsonPath);
   packageJson.name = `${siteName}`;
-  packageJson.scripts["copy-static"] = `pnpm --filter scripts copy-static sites/${siteName}/static/common`;
+  packageJson.scripts["copy-static"] = `pnpm --filter @handbook/scripts copy-static sites/${siteName}/static/common`;
   fs.writeJsonSync(packageJsonPath, packageJson, { spaces: 2 });
 
   console.log(`✅ Created new handbook site: ${siteName}`);
