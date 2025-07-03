@@ -9,7 +9,7 @@
     "copy-static": "ts-node src/copyStaticTo.ts"
   },
   "devDependencies": {
-    "@jest/globals": "30.0.3",
+    "@jest/globals": "29.7.0",
     "@types/fs-extra": "11.0.4",
     "@types/jest": "29.5.12",
     "fs-extra": "11.2.0",
