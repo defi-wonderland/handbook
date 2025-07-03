@@ -16,6 +16,27 @@ function isPortInUse(port: number): boolean {
   }
 }
 
+// Helper function to wait for server to be ready with retry mechanism
+async function waitForServerReady(options: {
+  port: number;
+  timeoutMs?: number;
+  retryIntervalMs?: number;
+}): Promise<boolean> {
+  const { port, timeoutMs = 30000, retryIntervalMs = 1000 } = options;
+  const startTime = Date.now();
+
+  while (Date.now() - startTime < timeoutMs) {
+    if (isPortInUse(port)) {
+      return true; // Server is ready
+    }
+
+    // Wait before next retry
+    await new Promise((resolve) => setTimeout(resolve, retryIntervalMs));
+  }
+
+  return false; // Timeout reached, server not ready
+}
+
 describe("create-handbook CLI", () => {
   it("creates a new site with valid name", async () => {
     const siteName = "test-handbook";
@@ -86,14 +107,13 @@ describe("create-handbook CLI", () => {
         stdio: "pipe",
       });
 
-      // Wait a bit for the server to start
-      await new Promise((resolve) => setTimeout(resolve, 10000));
+      // Wait for server to be ready with retry mechanism
+      const serverReady = await waitForServerReady({ port: 3000 });
+      expect(serverReady).toBe(true);
 
-      // Check if port 3000 is now in use
-      expect(isPortInUse(3000)).toBe(true);
-
-      // Send Ctrl+C (SIGINT) to the process
+      // Send Ctrl+C (SIGINT) to the process and wait for it to exit
       startProcess.kill("SIGINT");
+      await new Promise((resolve) => startProcess.on("exit", resolve));
     } finally {
       // Clean up
       await fs.remove(targetDir);
