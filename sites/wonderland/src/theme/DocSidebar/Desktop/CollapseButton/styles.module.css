@@ -1,0 +1,52 @@
+:root {
+  --docusaurus-collapse-button-bg: transparent;
+  --docusaurus-collapse-button-bg-hover: rgb(0 0 0 / 10%);
+}
+
+[data-theme="dark"]:root {
+  --docusaurus-collapse-button-bg: rgb(255 255 255 / 5%);
+  --docusaurus-collapse-button-bg-hover: rgb(255 255 255 / 10%);
+}
+
+@media (min-width: 997px) {
+  .collapseSidebarButton {
+    display: block !important;
+    background-color: var(--docusaurus-collapse-button-bg);
+    height: 40px;
+    position: sticky;
+    bottom: 0;
+    border-radius: 0;
+    border: 1px solid var(--ifm-toc-border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .collapseSidebarButtonIcon {
+    transform: rotate(180deg);
+    margin-top: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--wonderland-gray-400, #7d89b0);
+  }
+
+  [dir="rtl"] .collapseSidebarButtonIcon {
+    transform: rotate(0);
+  }
+
+  .collapseSidebarButton:hover,
+  .collapseSidebarButton:focus {
+    background-color: var(--docusaurus-collapse-button-bg-hover);
+  }
+
+  .collapseSidebarButton:hover .collapseSidebarButtonIcon {
+    transform: rotate(180deg) scale(1.1);
+    color: var(--wonderland-gray-100, #eff1f5);
+  }
+
+  [dir="rtl"] .collapseSidebarButton:hover .collapseSidebarButtonIcon {
+    transform: rotate(0) scale(1.1);
+  }
+}
+
+.collapseSidebarButton {
+  display: none;
+  margin: 0;
+}
