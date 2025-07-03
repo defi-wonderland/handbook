@@ -1,9 +1,11 @@
 name: Test Scripts
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize]
     branches:
-      - '**'
+      - dev
+      - main
 
 jobs:
   test:
