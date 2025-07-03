@@ -97,7 +97,8 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Sharp Grotesk";
-  src: url("/static/common/fonts/SharpGrotesk-LightItalic10.otf") format("opentype");
+  src: url("/static/common/fonts/SharpGrotesk-LightItalic10.otf")
+    format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -114,7 +115,7 @@ html[data-theme="dark"] {
 /* Inter Font Faces */
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter.ttf") format("truetype");
+  src: url("/static/common/fonts/Inter.ttf") format("truetype");
   font-weight: 100 900; /* Variable font supports range */
   font-style: normal;
   font-display: swap;
@@ -122,7 +123,7 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Italic.woff2") format("woff2");
+  src: url("/static/common/fonts/Inter-Italic.woff2") format("woff2");
   font-weight: 100 900; /* Variable font supports range */
   font-style: italic;
   font-display: swap;
@@ -169,7 +170,12 @@ html::before {
 }
 
 body {
-  font-family: "Sharp Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: #ffffff;
   font-weight: 300;
   min-height: 100vh;
@@ -190,7 +196,11 @@ body {
 
 /* Typography */
 h1 {
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 500;
   font-style: normal !important;
   color: #ffffff;
@@ -206,7 +216,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 500;
   font-style: normal !important;
   font-size: 1.5rem !important;
@@ -256,7 +270,11 @@ h6 {
 p,
 .theme-doc-markdown,
 .markdown {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 400;
   line-height: 150%;
   color: var(--wonderland-gray-300);
@@ -351,7 +369,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 .navbar__items--right {
   justify-content: flex-end;
   width: 100%;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .navbar__items--right .dropdown a {
@@ -400,7 +422,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
   border: 1px solid var(--wonderland-gray-800);
   height: 2.5rem;
   border-radius: 0.5rem;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .navbar__search-input::placeholder {
@@ -424,7 +450,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 }
 
 .navbar__search {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu:before {
@@ -553,7 +583,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 .footer__copyright {
   color: var(--wonderland-gray-200);
   font-size: 0.75rem;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   opacity: 0.4;
 }
 
@@ -641,7 +675,8 @@ a:hover {
   font-size: 1rem !important;
   font-style: italic;
   will-change: color, transform;
-  transition: color var(--ifm-transition-fast) ease,
+  transition:
+    color var(--ifm-transition-fast) ease,
     transform var(--ifm-transition-slow) ease;
   position: relative;
   border-radius: 0;
@@ -657,7 +692,8 @@ a:hover {
   background: var(--wonderland-blue-900);
   color: var(--wonderland-gray-100);
   transform: scale(1.025);
-  transition: color var(--ifm-transition-fast) ease,
+  transition:
+    color var(--ifm-transition-fast) ease,
     transform var(--ifm-transition-slow) ease;
 }
 
@@ -729,7 +765,11 @@ a:hover {
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/testing"] {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 700 !important;
   line-height: 1 !important;
   letter-spacing: 0.03em;
@@ -785,25 +825,41 @@ a:hover {
 
 /* Sidebar titles */
 .menu__link {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
 /* Sidebar category titles */
 .menu__list-item-collapsible .menu__link {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
 /* Override for the specific category titles to maintain our custom styling */
 .theme-doc-sidebar-item-category .menu__list-item-collapsible .menu__link {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500 !important;
 }
 
 /* Table of contents */
 .table-of-contents {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 400 !important;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
@@ -1018,14 +1074,18 @@ div[class*="buttonGroup"] button {
   background: linear-gradient(currentColor 0 0) bottom left/
     var(--underline-width, 0%) 1px no-repeat;
   will-change: color, background-size;
-  transition: color 0.2s ease, background-size 0.3s ease-in-out;
+  transition:
+    color 0.2s ease,
+    background-size 0.3s ease-in-out;
 }
 
 .markdown a:hover,
 .theme-doc-markdown a:hover {
   color: var(--wonderland-blue-400);
   --underline-width: 100%;
-  transition: color 0.2s ease, background-size 0.2s ease-in;
+  transition:
+    color 0.2s ease,
+    background-size 0.2s ease-in;
 }
 
 /* Custom sidebar styling */
@@ -1039,7 +1099,11 @@ div[class*="buttonGroup"] button {
 
 /* Button styling in documentation */
 .pagination-nav__link {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
@@ -1048,7 +1112,11 @@ div[class*="buttonGroup"] button {
 }
 
 .pagination-nav__sublabel {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 400;
   font-size: 0.8rem;
   color: var(--wonderland-gray-500);
@@ -1059,7 +1127,11 @@ div[class*="buttonGroup"] button {
 }
 
 .pagination-nav__label {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
   color: var(--wonderland-gray-300);
 }
@@ -1077,7 +1149,11 @@ div[class*="buttonGroup"] button {
 
 /* All buttons in documentation */
 .button {
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
@@ -1126,7 +1202,11 @@ div[class*="buttonGroup"] button {
   background: var(--wonderland-blue-950);
   backdrop-filter: blur(10px);
   color: var(--wonderland-gray-200);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -1191,8 +1271,10 @@ div[class*="buttonGroup"] button {
 .docCard:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 30px rgba(31, 85, 213, 0.2),
-    0 0 20px rgba(233, 91, 155, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .docCard:hover::before,
@@ -1207,7 +1289,11 @@ div[class*="buttonGroup"] button {
 }
 
 .docCard h2 {
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 300;
   font-style: italic;
   color: var(--wonderland-gray-100);
@@ -1253,7 +1339,11 @@ div[class*="buttonGroup"] button {
   border: 1px solid var(--wonderland-blue-800);
   color: var(--wonderland-gray-200);
   padding: 1rem 2rem;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -1267,7 +1357,9 @@ div[class*="buttonGroup"] button {
 .rabbit-hole-button:hover {
   color: var(--wonderland-gray-100);
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(31, 85, 213, 0.2), 0 0 30px rgba(233, 91, 155, 0.2),
+  box-shadow:
+    0 0 20px rgba(31, 85, 213, 0.2),
+    0 0 30px rgba(233, 91, 155, 0.2),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
@@ -1305,7 +1397,11 @@ div[class*="buttonGroup"] button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
   color: var(--wonderland-gray-200);
   font-size: 1rem;
