@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 import { execFileSync } from "child_process";
-import { setupTestFiles } from "../test-utils/setupTestUtils";
+import { setupTestFiles } from "./setupTestUtils";
 import { describe, it, expect, beforeEach } from "@jest/globals";
 
 const SCRIPT_PATH = path.join(__dirname, "../src/copyStaticTo.ts");

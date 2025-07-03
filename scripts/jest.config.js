@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'node',
   roots: ['<rootDir>'],
   testMatch: [
-    '**/__tests__/**/*.ts',
+    '**/__tests__/**/*.test.ts',
     '**/?(*.)+(spec|test).ts'
   ],
   transform: {
@@ -17,7 +17,7 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
-  setupFilesAfterEnv: ['<rootDir>/test-utils/setupTestUtils.ts'],
+  setupFilesAfterEnv: ['<rootDir>/__tests__/setupTestUtils.ts'],
   testTimeout: 10000,
   moduleDirectories: ['node_modules', '<rootDir>'],
   modulePaths: ['<rootDir>'],
