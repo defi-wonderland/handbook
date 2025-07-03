@@ -3,7 +3,7 @@
 // Docusaurus only serves static assets from each site's own /static directory,
 // so shared fonts/images must be copied explicitly into each site.
 
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 
 // Simple path resolution: scripts/src -> repo root -> packages/common-config/static/common
@@ -28,10 +28,10 @@ if (!fs.existsSync(from)) {
 }
 
 // Ensure the target directory exists (create it if it doesn't)
-fs.ensureDirSync(toPath);
+fs.mkdirSync(toPath, { recursive: true });
 
 try {
-  fs.copySync(from, toPath, { overwrite: true });
+  fs.cpSync(from, toPath, { recursive: true, force: true });
   console.log(`✅ Copied static assets to ${toPath}`);
 } catch (error) {
   console.error(`❌ Failed to copy static assets: ${error}`);

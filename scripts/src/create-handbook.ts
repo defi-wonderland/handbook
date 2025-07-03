@@ -3,7 +3,7 @@
  * Usage: ts-node scripts/create-handbook.ts <site-name>
  */
 
-import fs from "fs-extra";
+import fs from "fs";
 import path from "path";
 
 // Simple path resolution: scripts/src -> repo root -> sites
@@ -35,14 +35,14 @@ if (fs.existsSync(targetDir)) {
 
 try {
   // 1. Copy template to new site
-  fs.copySync(TEMPLATE_DIR, targetDir);
+  fs.cpSync(TEMPLATE_DIR, targetDir, { recursive: true });
 
   // 2. Update package.json with the new site name and correct copy-static script
   const packageJsonPath = path.join(targetDir, "package.json");
-  const packageJson = fs.readJsonSync(packageJsonPath);
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
   packageJson.name = `${siteName}`;
   packageJson.scripts["copy-static"] = `pnpm --filter @handbook/scripts copy-static sites/${siteName}/static/common`;
-  fs.writeJsonSync(packageJsonPath, packageJson, { spaces: 2 });
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
   console.log(`✅ Created new handbook site: ${siteName}`);
   console.log(`📁 Location: ${targetDir}`);
