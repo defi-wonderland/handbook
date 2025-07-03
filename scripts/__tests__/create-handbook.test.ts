@@ -93,7 +93,7 @@ describe("create-handbook CLI", () => {
         stdio: "pipe",
       });
 
-      // Wait for server to be ready with retry mechanism
+      // Wait for server to be ready with retries
       let serverReady = false;
       let attempts = 0;
       const maxAttempts = 30; // 30 seconds total
@@ -108,10 +108,9 @@ describe("create-handbook CLI", () => {
 
       // Send Ctrl+C (SIGINT) to the process and wait for it to exit
       startProcess.kill("SIGINT");
-      await new Promise((resolve) => startProcess.on("exit", resolve));
     } finally {
       // Clean up
       await fs.rm(targetDir, { recursive: true, force: true });
     }
-  }, 120000); // 120 second timeout for this test, since we need to Build, Start, and Stop the server
+  }, 60000); // 60 second timeout for this test, since we need to Build, Start, and Stop the server
 });
