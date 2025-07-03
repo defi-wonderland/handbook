@@ -13,20 +13,22 @@ This repository contains the Wonderland Handbook, a documentation site built wit
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- Yarn package manager
+- Node.js (v18 or higher)
+- pnpm package manager
 
 ### Local Development
 
+From the monorepo root:
+
 1. Install dependencies:
 ```bash
-cd handbook
-npm i
+pnpm install
 ```
 
-2. Start the development server:
+2. Build assets and start the development server:
 ```bash
-npm run start
+pnpm --filter wonderland-handbook build:assets
+pnpm --filter wonderland-handbook start
 ```
 
 This will start a local development server and open your browser. Changes are reflected in real-time.
@@ -36,11 +38,10 @@ This will start a local development server and open your browser. Changes are re
 To create a production build:
 
 ```bash
-cd handbook
-npm run build
+pnpm --filter wonderland-handbook build
 ```
 
-The static site will be generated in the `handbook/build` directory.
+The static site will be generated in the `sites/wonderland/build` directory.
 
 ### Deployment
 
@@ -49,11 +50,11 @@ The handbook is automatically deployed to Vercel when changes are pushed to the 
 ## Contributing
 
 1. Create a new branch for your changes
-2. Make your changes in the `handbook/docs` directory
+2. Make your changes in the `docs/` directory
 3. If you add new folders or files, you must also update `sidebars.ts`:
   - This file defines the sidebar navigation using [Docusaurus sidebar configuration](https://docusaurus.io/docs/sidebar).
   - Add your new documents to the appropriate category, or create a new one as needed.
-4. Test locally using `npm run start`
+4. Test locally using `pnpm --filter wonderland-handbook start`
 5. Submit a pull request
 
 If you have any ideas for improving the handbook, feel free to open an issue (check the templates!) to start a discussion! 

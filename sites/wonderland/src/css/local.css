@@ -1,1 +1,22 @@
-/* Specific styles for this site */
+/* Custom styles for your documentation site */
+
+/* Wonderland-specific menu icons */
+/* Process category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
+  background-image: url("/img/puzzle-piece.svg");
+}
+
+/* Development category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
+  background-image: url("/img/code-bracket-square.svg");
+}
+
+/* Security category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
+  background-image: url("/img/key.svg");
+}
+
+/* Testing category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
+  background-image: url("/img/bug-ant.svg");
+}
