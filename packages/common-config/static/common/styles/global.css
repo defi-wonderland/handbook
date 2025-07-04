@@ -16,6 +16,9 @@ html[data-theme="dark"] {
   --wonderland-yellow: #fecc40;
   --wonderland-lila: #a371ce;
 
+  /* Shape, Icons, etc customization */
+  --wonderland-accent: #978cfb;
+
   /* Wonderland Blue */
   --wonderland-blue-50: #f5f7ff;
   --wonderland-blue-100: #d0dafb;
@@ -71,13 +74,16 @@ html[data-theme="dark"] {
   --ifm-footer-background-color: var(--wonderland-blue-900);
   --ifm-dropdown-background-color: var(--wonderland-blue-900);
   --ifm-card-background-color: var(--wonderland-blue-900);
-  --ifm-blockquote-border-color: var(--wonderland-blue-500);
+  --ifm-blockquote-border-color: var(--wonderland-accent);
   --ifm-breadcrumb-item-background-active: var(--wonderland-blue-700);
   --ifm-navbar-search-input-icon: url("data:image/svg+xml;utf8,<svg fill='%237D89B0' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' height='18px' width='18px'><path d='M14.833 8.583a6.25 6.25 0 1 0-1.918 4.503.861.861 0 0 1 .17-.171 6.227 6.227 0 0 0 1.748-4.332Zm1.667 0c0 1.886-.66 3.617-1.762 4.977l2.35 2.351.058.063a.833.833 0 0 1-1.172 1.172l-.063-.057-2.351-2.35a7.917 7.917 0 1 1 2.94-6.155Z'/></svg>");
   --ifm-navbar-search-input-background-color: var(--wonderland-blue-950);
   --ifm-navbar-search-input-color: var(--wonderland-gray-400);
   --ifm-navbar-height: 5rem;
   --ifm-navbar-item-padding-horizontal: 1.5rem;
+
+  /* Sidebar width customization */
+  --doc-sidebar-hidden-width: 3.5rem;
 }
 
 /* Sharp Grotesk Font Faces */
@@ -91,7 +97,8 @@ html[data-theme="dark"] {
 
 @font-face {
   font-family: "Sharp Grotesk";
-  src: url("/static/common/fonts/SharpGrotesk-LightItalic10.otf") format("opentype");
+  src: url("/static/common/fonts/SharpGrotesk-LightItalic10.otf")
+    format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -105,13 +112,47 @@ html[data-theme="dark"] {
   font-display: swap;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+/* Inter Font Faces */
+@font-face {
+  font-family: "Inter";
+  src: url("/static/common/fonts/Inter.ttf") format("truetype");
+  font-weight: 100 900; /* Variable font supports range */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/static/common/fonts/Inter-Italic.woff2") format("woff2");
+  font-weight: 100 900; /* Variable font supports range */
+  font-style: italic;
+  font-display: swap;
+}
 
 /* Global styles */
 html {
   height: 100%;
-  background-color: var(--wonderland-dark);
+  background: var(--wonderland-dark);
   overflow: hidden;
+  position: relative;
+}
+
+html::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--wonderland-accent);
+  mask: url("/img/elipse_background.svg") no-repeat;
+  -webkit-mask: url("/img/elipse_background.svg") no-repeat;
+  mask-position: right 65%;
+  -webkit-mask-position: right 65%;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  pointer-events: none;
+  z-index: -1;
 }
 
 @media (max-width: 1024px) {
@@ -129,7 +170,12 @@ html {
 }
 
 body {
-  font-family: "Sharp Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: #ffffff;
   font-weight: 300;
   min-height: 100vh;
@@ -150,10 +196,15 @@ body {
 
 /* Typography */
 h1 {
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
-  font-weight: 300;
-  font-style: italic;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 500;
+  font-style: normal !important;
   color: #ffffff;
+  font-size: 2rem !important;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
@@ -165,9 +216,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  font-style: normal !important;
+  font-size: 1.5rem !important;
+  color: var(--wonderland-gray-100);
   margin-bottom: 0.3rem;
   margin-top: 0.6rem;
   margin-bottom: 0.3rem;
@@ -213,11 +270,14 @@ h6 {
 p,
 .theme-doc-markdown,
 .markdown {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 0.3rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--wonderland-gray-300);
 }
 
 /* Add minimal space between sections */
@@ -268,6 +328,10 @@ article {
   background: transparent !important;
 }
 
+[class*="docItemContainer"] {
+  min-height: 90vh !important;
+}
+
 /* Navbar styling */
 .navbar {
   background: rgba(14, 21, 44, 0.75);
@@ -304,7 +368,19 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 
 .navbar__items--right {
   justify-content: flex-end;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  width: 100%;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.navbar__items--right .dropdown a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navbar__items--right > :last-child {
@@ -346,6 +422,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
   border: 1px solid var(--wonderland-gray-800);
   height: 2.5rem;
   border-radius: 0.5rem;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .navbar__search-input::placeholder {
@@ -369,7 +450,11 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 }
 
 .navbar__search {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu:before {
@@ -498,13 +583,33 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 .footer__copyright {
   color: var(--wonderland-gray-200);
   font-size: 0.75rem;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   opacity: 0.4;
 }
 
 @media (max-width: 600px) {
   .footer {
     padding: 0.5rem 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0;
+  }
+  .footer .container > :first-child {
+    order: 2;
+  }
+  .footer .container > :nth-child(2) {
+    order: 1;
   }
 }
 
@@ -540,31 +645,55 @@ a:hover {
   border-right: 1px solid var(--wonderland-blue-800);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  max-width: 18.25rem;
+  height: calc(100vh - var(--ifm-navbar-height));
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky;
+  top: var(--ifm-navbar-height);
 }
 
-.menu {
-  background: var(--wonderland-blue-950) !important;
+@media (min-width: 996px) {
+  .menu {
+    background: var(--wonderland-blue-950) !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 1rem;
+    margin-right: 0.5rem;
+    flex: 1;
+    padding-bottom: 4rem; /* Space for collapse button */
+    height: 100%;
+  }
 }
 
 /* Make all menu links consistent */
 .menu__link {
-  color: var(--wonderland-gray-200);
+  color: var(--wonderland-gray-400);
   font-weight: 300;
   font-size: 1rem !important;
   font-style: italic;
   will-change: color, transform;
-  transition: color var(--ifm-transition-fast) ease,
+  transition:
+    color var(--ifm-transition-fast) ease,
     transform var(--ifm-transition-slow) ease;
   position: relative;
-  padding-left: 1.5rem;
   border-radius: 0;
+  padding-left: 1rem !important;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-right: 0.2rem;
 }
 
 .menu__list .menu__link:hover {
-  background: unset;
+  background: var(--wonderland-blue-900);
   color: var(--wonderland-gray-100);
   transform: scale(1.025);
-  transition: color var(--ifm-transition-fast) ease,
+  transition:
+    color var(--ifm-transition-fast) ease,
     transform var(--ifm-transition-slow) ease;
 }
 
@@ -574,13 +703,13 @@ a:hover {
 }
 
 .menu__link--active {
-  border-radius: 0;
+  border-radius: 0.5rem;
   font-weight: 300;
   color: var(--wonderland-gray-100);
 }
 
 .menu__link--active:not(.menu__link--sublist) {
-  background: unset;
+  background: var(--wonderland-blue-800);
 }
 
 .menu__list-item-collapsible:hover {
@@ -601,32 +730,59 @@ a:hover {
   display: flex;
   align-items: center;
 }
+.menu__list-item-collapsible .menu__link--sublist {
+  padding-left: 0rem !important;
+}
 
-/* Regular menu items (non-collapsible) should align with nested items */
-.menu__list .menu__link:not(.menu__list-item-collapsible .menu__link) {
-  padding-left: 3.5rem;
+.menu__list .menu__list-item {
+  margin-left: 0.2rem;
 }
 
 .menu__list-item-collapsible .menu__link::before {
   content: "";
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   display: inline-block;
   opacity: 0.8;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-right: 0.5rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
-
+/* Font for category titles */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/processes"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/development"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/security"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/testing"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--wonderland-accent);
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 .menu__list-item-collapsible .menu__link:hover::before {
   opacity: 1;
-  filter: brightness(1.2) drop-shadow(0 0 8px var(--wonderland-blue))
-    drop-shadow(0 0 12px var(--wonderland-pink)) drop-shadow(0 0 3px #fff);
-  transform: scale(1.15);
 }
 
 .menu__list-item-collapsible .menu__link--active::before {
@@ -648,19 +804,42 @@ a:hover {
 
 /* Sidebar titles */
 .menu__link {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
 /* Sidebar category titles */
 .menu__list-item-collapsible .menu__link {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
-  font-weight: 600;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 500;
+}
+
+/* Override for the specific category titles to maintain our custom styling */
+.theme-doc-sidebar-item-category .menu__list-item-collapsible .menu__link {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 500 !important;
 }
 
 /* Table of contents */
 .table-of-contents {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 400 !important;
   padding: 0.5rem 0 0.5rem 1rem;
   margin-left: 1rem;
   border-left: 1px solid var(--wonderland-blue-800);
@@ -669,19 +848,21 @@ a:hover {
 .table-of-contents__link {
   display: block;
   padding: 0.4rem 0;
-  color: var(--wonderland-gray-200);
+  color: var(--wonderland-gray-500);
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  font-weight: 400;
 }
 
 .table-of-contents__link:hover {
-  color: var(--wonderland-gray-100);
+  color: var(--wonderland-gray-200);
   text-decoration: none;
   transform: translateX(4px);
 }
 
 .table-of-contents__link--active {
-  color: var(--wonderland-gray-100);
+  color: var(--wonderland-gray-200);
+  font-weight: 400;
 }
 
 /* Make TOC sticky on desktop */
@@ -771,7 +952,7 @@ a:hover {
 }
 
 code {
-  color: var(--wonderland-blue-500);
+  color: var(--wonderland-accent);
   background: var(--wonderland-blue-950);
   padding: 0.2rem 0.4rem;
 }
@@ -813,7 +994,7 @@ code[class*="language-"],
 
 /* Code block specific styling */
 .theme-code-block {
-  border: 1px solid var(--wonderland-blue-800);
+  border: 1px solid var(--wonderland-accent);
   border-radius: 8px;
   overflow: hidden;
   margin: 1rem 0;
@@ -867,18 +1048,23 @@ div[class*="buttonGroup"] button {
 /* Links in markdown content */
 .markdown a:not(.card),
 .theme-doc-markdown a:not(.card) {
-  color: var(--wonderland-blue-500);
+  font-weight: 500;
+  color: var(--wonderland-accent);
   background: linear-gradient(currentColor 0 0) bottom left/
     var(--underline-width, 0%) 1px no-repeat;
   will-change: color, background-size;
-  transition: color 0.2s ease, background-size 0.3s ease-in-out;
+  transition:
+    color 0.2s ease,
+    background-size 0.3s ease-in-out;
 }
 
 .markdown a:hover,
 .theme-doc-markdown a:hover {
-  color: var(--wonderland-blue-500);
+  color: var(--wonderland-blue-400);
   --underline-width: 100%;
-  transition: color 0.2s ease, background-size 0.2s ease-in;
+  transition:
+    color 0.2s ease,
+    background-size 0.2s ease-in;
 }
 
 /* Custom sidebar styling */
@@ -892,22 +1078,45 @@ div[class*="buttonGroup"] button {
 
 /* Button styling in documentation */
 .pagination-nav__link {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
 .pagination-nav__link:hover {
-  border: 1px solid var(--wonderland-blue-500);
+  border: 1px solid var(--wonderland-gray-400);
 }
 
 .pagination-nav__sublabel {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--wonderland-gray-500);
+}
+
+.pagination-nav__link:hover .pagination-nav__sublabel {
+  color: var(--wonderland-gray-100);
 }
 
 .pagination-nav__label {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
+  color: var(--wonderland-gray-300);
+}
+
+.pagination-nav__link:hover .pagination-nav__label {
+  color: var(--wonderland-gray-100);
 }
 
 @media (max-width: 480px) {
@@ -919,7 +1128,11 @@ div[class*="buttonGroup"] button {
 
 /* All buttons in documentation */
 .button {
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif !important;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
   font-weight: 500;
 }
 
@@ -968,7 +1181,11 @@ div[class*="buttonGroup"] button {
   background: var(--wonderland-blue-950);
   backdrop-filter: blur(10px);
   color: var(--wonderland-gray-200);
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -1033,8 +1250,10 @@ div[class*="buttonGroup"] button {
 .docCard:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 30px rgba(31, 85, 213, 0.2),
-    0 0 20px rgba(233, 91, 155, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .docCard:hover::before,
@@ -1049,7 +1268,11 @@ div[class*="buttonGroup"] button {
 }
 
 .docCard h2 {
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 300;
   font-style: italic;
   color: var(--wonderland-gray-100);
@@ -1095,7 +1318,11 @@ div[class*="buttonGroup"] button {
   border: 1px solid var(--wonderland-blue-800);
   color: var(--wonderland-gray-200);
   padding: 1rem 2rem;
-  font-family: "Pathway Extreme", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -1109,7 +1336,9 @@ div[class*="buttonGroup"] button {
 .rabbit-hole-button:hover {
   color: var(--wonderland-gray-100);
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(31, 85, 213, 0.2), 0 0 30px rgba(233, 91, 155, 0.2),
+  box-shadow:
+    0 0 20px rgba(31, 85, 213, 0.2),
+    0 0 30px rgba(233, 91, 155, 0.2),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
@@ -1129,4 +1358,186 @@ div[class*="buttonGroup"] button {
 
 .rabbit-hole-button:hover::before {
   opacity: 1;
+}
+
+/* Dropdown menu */
+
+.dropdown__menu {
+  background: var(--wonderland-blue-950) !important;
+  border: 1px solid var(--wonderland-blue-800) !important;
+  border-radius: 0.5rem;
+  width: 12.5rem;
+}
+
+.dropdown__link {
+  height: 40px;
+  width: 100%;
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 500;
+  color: var(--wonderland-gray-200);
+  font-size: 1rem;
+  position: relative;
+}
+
+/* Wonderland logo */
+.dropdown__menu li:nth-child(1) .dropdown__link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("/img/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+/* Optimism logo */
+.dropdown__menu li:nth-child(2) .dropdown__link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("/img/OPlogo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+/* Aztec logo */
+.dropdown__menu li:nth-child(3) .dropdown__link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("/img/azteclogo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.dropdown__link:hover {
+  background: var(--wonderland-blue-900) !important;
+  color: var(--wonderland-gray-200) !important;
+}
+
+.dropdown__link:hover::before {
+  opacity: 1;
+}
+
+.dropdown__link--active {
+  background: transparent;
+  color: var(--wonderland-gray-200);
+}
+
+.dropdown__link--active::before {
+  opacity: 1;
+}
+
+/* Navbar dropdown arrow */
+.navbar__item.dropdown .navbar__link::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("/img/icons/chevron-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 0.5rem;
+  /* Hide original Docusaurus arrow completely */
+  border: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(0deg);
+  display: inline-block;
+}
+
+/* Hover state - rotate the icon when hovering over dropdown */
+.navbar__item.dropdown:hover .navbar__link::after {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Ensure no other arrow elements appear */
+.navbar__item.dropdown .navbar__link {
+  position: relative;
+}
+
+/* Sidebar collapse arrow customization */
+.menu__link--sublist::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("/img/icons/chevron-down.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  margin-left: auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(
+    0deg
+  ) !important; /* Estado colapsado: apunta a la derecha */
+  color: var(--wonderland-gray-500) !important;
+  opacity: 0.8;
+}
+
+.menu__link--sublist[aria-expanded="true"]::after {
+  transform: rotate(
+    180deg
+  ) !important; /* Estado expandido: apunta hacia arriba */
+  color: var(--wonderland-gray-100) !important;
+  opacity: 1;
+}
+
+/* Hover effect */
+.menu__link--sublist:hover::after {
+  opacity: 1;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wonderland-blue-950);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wonderland-gray-800);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wonderland-gray-800);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--wonderland-gray-800) var(--wonderland-blue-950);
 }

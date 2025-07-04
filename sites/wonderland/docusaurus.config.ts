@@ -56,13 +56,7 @@ const localConfig: Config = {
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
-      items: [
-        {
-          to: "https://wonderland.xyz",
-          position: "right",
-          label: "Wonderland.xyz",
-        },
-      ],
+      items: [],
     },
   } satisfies Preset.ThemeConfig,
 };

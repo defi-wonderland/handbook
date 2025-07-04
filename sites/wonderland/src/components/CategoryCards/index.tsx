@@ -26,6 +26,21 @@ const categories = [
 ];
 
 export default function CategoryCards(): ReactNode {
+  const handleCardClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+
+    // Scroll to top
+    window.scrollTo({ top: 0 });
+
+    // Navigate after scroll
+    setTimeout(() => {
+      window.location.href = href;
+    }, 10);
+  };
+
   return (
     <div className={styles.categoryCards}>
       {categories.map((category) => (
@@ -33,6 +48,7 @@ export default function CategoryCards(): ReactNode {
           key={category.title}
           to={category.href}
           className={styles.categoryCard}
+          onClick={(e) => handleCardClick(e, category.href)}
         >
           <img
             src={category.icon}

@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -14,154 +14,131 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
-    'intro/welcome',
+    "intro/welcome",
     {
-      type: 'category',
-      label: 'Processes',
+      type: "category",
+      label: "Processes",
+      collapsible: false,
+      collapsed: false,
       link: {
-        type: 'doc',
-        id: 'processes/overview'
+        type: "doc",
+        id: "processes/overview",
       },
       items: [
-        'processes/overview',
-        'processes/project-lifecycle',
+        "processes/overview",
+        "processes/project-lifecycle",
         {
-          type: 'category',
-          label: 'GitHub',
+          type: "category",
+          label: "GitHub",
           items: [
-            'processes/github/overview',
-            'processes/github/git-environment', 
-            'processes/github/git-practices',
-            'processes/github/pr-guidelines/pr-guidelines',
-            'processes/github/repo-readiness',
-            'processes/github/ssh-setup',
+            "processes/github/overview",
+            "processes/github/git-environment",
+            "processes/github/git-practices",
+            "processes/github/pr-guidelines/pr-guidelines",
+            "processes/github/repo-readiness",
+            "processes/github/ssh-setup",
           ],
         },
       ],
     },
     {
-      type: 'category',
-      label: 'Development',
+      type: "category",
+      label: "Development",
+      collapsible: false,
+      collapsed: false,
       link: {
-        type: 'doc',
-        id: 'development/overview',
+        type: "doc",
+        id: "development/overview",
       },
       items: [
-        'development/overview',
+        "development/overview",
         {
-          type: 'category',
-          label: 'Research',
+          type: "category",
+          label: "Research",
           items: [
-            'development/research/research-overview',
-            'development/research/technical-writing',
+            "development/research/research-overview",
+            "development/research/technical-writing",
             {
-              type: 'category',
-              label: 'Onboarding',
+              type: "category",
+              label: "Onboarding",
               items: [
-                'development/research/onboarding/overview',
+                "development/research/onboarding/overview",
                 {
-                  type: 'category',
-                  label: 'Knowledge Base',
+                  type: "category",
+                  label: "Knowledge Base",
                   items: [
-                    'development/research/onboarding/knowledge-base/overview',
+                    "development/research/onboarding/knowledge-base/overview",
                     {
-                      type: 'category',
-                      label: 'Basics',
+                      type: "category",
+                      label: "Basics",
                       items: [
-                        'development/research/onboarding/knowledge-base/basics/tokenomics',
-                        'development/research/onboarding/knowledge-base/basics/game-theory'
-                      ]
+                        "development/research/onboarding/knowledge-base/basics/tokenomics",
+                        "development/research/onboarding/knowledge-base/basics/game-theory",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'Intermediate',
+                      type: "category",
+                      label: "Intermediate",
                       items: [
-                        'development/research/onboarding/knowledge-base/intermediate/solidity',
-                        'development/research/onboarding/knowledge-base/intermediate/cryptography'
-                      ]
+                        "development/research/onboarding/knowledge-base/intermediate/solidity",
+                        "development/research/onboarding/knowledge-base/intermediate/cryptography",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'DeFi',
+                      type: "category",
+                      label: "DeFi",
                       items: [
-                        'development/research/onboarding/knowledge-base/defi/limit-order',
-                        'development/research/onboarding/knowledge-base/defi/amm',
-                        'development/research/onboarding/knowledge-base/defi/lending-protocol'
-                      ]
+                        "development/research/onboarding/knowledge-base/defi/limit-order",
+                        "development/research/onboarding/knowledge-base/defi/amm",
+                        "development/research/onboarding/knowledge-base/defi/lending-protocol",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'Core',
+                      type: "category",
+                      label: "Core",
                       items: [
-                        'development/research/onboarding/knowledge-base/core/evm',
-                        'development/research/onboarding/knowledge-base/core/oracles',
-                        'development/research/onboarding/knowledge-base/core/bridges',
-                        'development/research/onboarding/knowledge-base/core/layer_2'
-                      ]
-                    }
+                        "development/research/onboarding/knowledge-base/core/evm",
+                        "development/research/onboarding/knowledge-base/core/oracles",
+                        "development/research/onboarding/knowledge-base/core/bridges",
+                        "development/research/onboarding/knowledge-base/core/layer_2",
+                      ],
+                    },
                   ],
                 },
                 {
-                  type: 'category',
-                  label: 'Challenges',
+                  type: "category",
+                  label: "Challenges",
                   items: [
                     {
-                      type: 'category',
-                      label: 'Basic',
+                      type: "category",
+                      label: "Basic",
                       items: [
-                        'development/research/onboarding/challenges/basic/game-theory',
-                        'development/research/onboarding/challenges/basic/tokenomics'
-                      ]
+                        "development/research/onboarding/challenges/basic/game-theory",
+                        "development/research/onboarding/challenges/basic/tokenomics",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'Intermediate',
+                      type: "category",
+                      label: "Intermediate",
                       items: [
-                        'development/research/onboarding/challenges/intermediate/cryptography',
-                        'development/research/onboarding/challenges/intermediate/solidity'
-                      ]
+                        "development/research/onboarding/challenges/intermediate/cryptography",
+                        "development/research/onboarding/challenges/intermediate/solidity",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'DeFi',
+                      type: "category",
+                      label: "DeFi",
                       items: [
-                        'development/research/onboarding/challenges/defi/defi'
-                      ]
+                        "development/research/onboarding/challenges/defi/defi",
+                      ],
                     },
                     {
-                      type: 'category',
-                      label: 'Core',
+                      type: "category",
+                      label: "Core",
                       items: [
-                        'development/research/onboarding/challenges/core/core'
-                      ]
-                    }
-                  ]
-                }
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Solidity',
-          items: [
-            'development/solidity/coding-style',
-            'development/solidity/natspec',
-            {
-              type: 'category',
-              label: 'Onboarding',
-              items: [
-                'development/solidity/onboarding/getting-started',
-                'development/solidity/onboarding/knowledge-base',
-                {
-                  type: 'category',
-                  label: 'Challenges',
-                  items: [
-                    'development/solidity/onboarding/challenges/overview',
-                    'development/solidity/onboarding/challenges/swapper',
-                    'development/solidity/onboarding/challenges/oracle-relayer',
-                    'development/solidity/onboarding/challenges/flashloan',
-                    'development/solidity/onboarding/challenges/security-challenges',
+                        "development/research/onboarding/challenges/core/core",
+                      ],
+                    },
                   ],
                 },
               ],
@@ -169,34 +146,61 @@ const sidebars: SidebarsConfig = {
           ],
         },
         {
-          type: 'category',
-          label: 'Offchain',
+          type: "category",
+          label: "Solidity",
           items: [
-            'development/offchain/best-practices',
-            'development/offchain/rpc-request',
+            "development/solidity/coding-style",
+            "development/solidity/natspec",
             {
-              type: 'category',
-              label: 'Onboarding',
+              type: "category",
+              label: "Onboarding",
               items: [
-                'development/offchain/onboarding/overview',
-                'development/offchain/onboarding/knowledge-base',
-                'development/offchain/onboarding/challenge',
+                "development/solidity/onboarding/getting-started",
+                "development/solidity/onboarding/knowledge-base",
+                {
+                  type: "category",
+                  label: "Challenges",
+                  items: [
+                    "development/solidity/onboarding/challenges/overview",
+                    "development/solidity/onboarding/challenges/swapper",
+                    "development/solidity/onboarding/challenges/oracle-relayer",
+                    "development/solidity/onboarding/challenges/flashloan",
+                    "development/solidity/onboarding/challenges/security-challenges",
+                  ],
+                },
               ],
             },
           ],
         },
         {
-          type: 'category',
-          label: 'Frontend',
+          type: "category",
+          label: "Offchain",
           items: [
-            'development/frontend/best-practices',
+            "development/offchain/best-practices",
+            "development/offchain/rpc-request",
             {
-              type: 'category',
-              label: 'Onboarding',
+              type: "category",
+              label: "Onboarding",
               items: [
-                'development/frontend/onboarding/overview',
-                'development/frontend/onboarding/front-knowledge-base',
-                'development/frontend/onboarding/frontend-dev-challenge',
+                "development/offchain/onboarding/overview",
+                "development/offchain/onboarding/knowledge-base",
+                "development/offchain/onboarding/challenge",
+              ],
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Frontend",
+          items: [
+            "development/frontend/best-practices",
+            {
+              type: "category",
+              label: "Onboarding",
+              items: [
+                "development/frontend/onboarding/overview",
+                "development/frontend/onboarding/front-knowledge-base",
+                "development/frontend/onboarding/frontend-dev-challenge",
               ],
             },
           ],
@@ -204,49 +208,53 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: 'category',
-      label: 'Security',
+      type: "category",
+      label: "Security",
+      collapsible: false,
+      collapsed: false,
       link: {
-        type: 'doc',
-        id: 'security/overview'
+        type: "doc",
+        id: "security/overview",
       },
       items: [
-        'security/internal-reviews',
+        "security/internal-reviews",
         {
-          type: 'category',
-          label: 'Multisig',
+          type: "category",
+          label: "Multisig",
           items: [
-            'security/multisig/hardware-requirements',
-            'security/multisig/safe-config',
-            'security/multisig/wallet-config',
+            "security/multisig/hardware-requirements",
+            "security/multisig/safe-config",
+            "security/multisig/wallet-config",
           ],
         },
       ],
     },
     {
-      type: 'category',
-      label: 'Testing',
+      type: "category",
+      label: "Testing",
+      collapsible: false,
+      collapsed: false,
       link: {
-        type: 'doc',
-        id: 'testing/overview'
+        type: "doc",
+        id: "testing/overview",
       },
       items: [
-        'testing/unit-integration',
-        'testing/mutation-testing',
+        "testing/unit-integration",
+        "testing/mutation-testing",
         {
-          type: 'category',
-          label: 'Advanced Testing',
+          type: "category",
+          label: "Advanced Testing",
           items: [
-            'testing/advanced-testing/overview',
-            'testing/advanced-testing/property-based-fuzzing',
-            'testing/advanced-testing/formal-verification',
-            'testing/advanced-testing/invariants-writing',
-          ]
+            "testing/advanced-testing/overview",
+            "testing/advanced-testing/property-based-fuzzing",
+            "testing/advanced-testing/formal-verification",
+            "testing/advanced-testing/invariants-writing",
+          ],
         },
-        'testing/campaign-processes',
+        "testing/campaign-processes",
       ],
     },
-    'outro/contribute',
+    "outro/contribute",
   ],
 };
 
