@@ -1,10 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import DocSidebar from "@theme-original/DocSidebar";
-import type DocSidebarType from "@theme/DocSidebar";
-import type { WrapperProps } from "@docusaurus/types";
 import { createPortal } from "react-dom";
-
-type Props = WrapperProps<typeof DocSidebarType>;
 
 interface SimpleModalProps {
   isOpen: boolean;
@@ -65,7 +60,7 @@ function SimpleModal({ isOpen, onClose, children }: SimpleModalProps) {
   );
 }
 
-export default function DocSidebarWrapper(props: Props) {
+export default function Root({ children }: { children: React.ReactNode }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = useCallback(() => setShowModal(false), []);
@@ -92,9 +87,7 @@ export default function DocSidebarWrapper(props: Props) {
 
   return (
     <>
-      {/* Render DocSidebar without any modifications */}
-      <DocSidebar {...props} />
-
+      {children}
       <SimpleModal isOpen={showModal} onClose={handleCloseModal}>
         <h2>Disclaimer</h2>
         <p>
