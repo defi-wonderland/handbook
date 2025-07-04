@@ -3,7 +3,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { merge } from "webpack-merge";
-import commonConfig from "@common-config/preset/commonDocusaurusConfig";
+import commonConfig from "@handbook/common-config/preset/commonDocusaurusConfig";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -67,4 +67,4 @@ const localConfig: Config = {
   } satisfies Preset.ThemeConfig,
 };
 
-export default merge(commonConfig, localConfig) as Config;
+export default merge(commonConfig, localConfig);

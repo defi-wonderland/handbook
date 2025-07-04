@@ -12,12 +12,12 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "copy-static": "node ../../packages/common-config/dist/scripts/copyStaticTo.js static/common",
-    "build:assets": "pnpm --filter @common-config build && pnpm copy-static",
+    "copy-static": "pnpm --filter @handbook/scripts copy-static sites/wonderland/static/common",
+    "build:assets": "pnpm --filter @handbook/common-config build && pnpm copy-static",
     "build": "pnpm build:assets && docusaurus build --out-dir build"
   },
   "dependencies": {
-    "@common-config": "workspace:*",
+    "@handbook/common-config": "workspace:*",
     "@docusaurus/core": "3.7.0",
     "@docusaurus/plugin-vercel-analytics": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",

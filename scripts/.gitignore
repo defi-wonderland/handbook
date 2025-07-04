@@ -1,0 +1,5 @@
+# Ignore test temp directories
+/.tmp/
+/temp-test-files
+/temp-test-sites
+/temp-static-test 

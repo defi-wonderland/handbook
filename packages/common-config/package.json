@@ -1,5 +1,5 @@
 {
-  "name": "@common-config",
+  "name": "@handbook/common-config",
   "version": "1.0.0",
   "private": true,
   "main": "src/index.ts",
@@ -11,7 +11,10 @@
   "exports": {
     "./styles/global.css": "./static/common/styles/global.css",
     "./preset": "./dist/preset/index.js",
-    "./copy-static": "./dist/scripts/copyStaticTo.js"
+    "./preset/commonDocusaurusConfig": {
+      "types": "./preset/commonDocusaurusConfig.ts",
+      "default": "./dist/preset/commonDocusaurusConfig.js"
+    }
   },
   "scripts": {
     "build": "tsc"
