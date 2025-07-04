@@ -781,27 +781,6 @@ a:hover {
   gap: 0.5rem;
 }
 
-/* TODO: MERGE */
-/* Process category icon */
-.menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
-  background-image: url("/img/icons/map.svg");
-}
-
-/* Development category icon */
-.menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
-  background-image: url("/img/icons/code-bracket-square.svg");
-}
-
-/* Security category icon */
-.menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
-  background-image: url("/img/icons/key.svg");
-}
-
-/* Testing category icon */
-.menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
-  background-image: url("/img/icons/bug-ant.svg");
-}
-
 .menu__list-item-collapsible .menu__link:hover::before {
   opacity: 1;
 }
