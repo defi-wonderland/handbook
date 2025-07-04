@@ -50,7 +50,30 @@ The static site will be generated in the `sites/[name]/build` directory.
 
 ## 🛠️ Creating a New Site
 
-TBD (CHA-330)
+To create a new handbook site from the template:
+
+```bash
+pnpm create-handbook <site-name>
+```
+
+This will:
+1. Create a new site in `sites/<site-name>` based on the template
+2. Update the package.json with the correct site name
+3. Set up all necessary configurations
+
+**Example:**
+```bash
+pnpm create-handbook my-new-handbook
+```
+
+After creation, you can build and start the new site:
+```bash
+cd sites/my-new-handbook
+pnpm build:assets
+pnpm start
+```
+
+**Note:** Site names can only contain letters, numbers, hyphens, and underscores.
 
 ## Contributing
 
