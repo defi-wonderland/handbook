@@ -155,6 +155,7 @@ html::before {
   z-index: -1;
 }
 
+/* Responsive background - Common responsive properties */
 @media (max-width: 1024px) {
   html {
     background-size: 110%;
@@ -166,9 +167,9 @@ html::before {
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 150vw;
     height: 150vh;
-    transform: translate(-50%, -50%);
     mask-position: 60% 50%;
     -webkit-mask-position: 60% 50%;
     mask-size: 80%;
@@ -180,20 +181,26 @@ html::before {
   html {
     background-size: 45rem;
     background-position: 100% 59%;
-    overflow: visible;
   }
 
   html::before {
-    position: fixed;
-    top: 50%;
-    left: 50%;
     width: 200vw;
     height: 200vh;
-    transform: translate(-50%, -50%);
     mask-position: 40% 50%;
     -webkit-mask-position: 40% 50%;
     mask-size: 100%;
     -webkit-mask-size: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  html::before {
+    width: 250vw;
+    height: 250vh;
+    mask-position: 30% 50%;
+    -webkit-mask-position: 30% 50%;
+    mask-size: 120%;
+    -webkit-mask-size: 120%;
   }
 }
 
