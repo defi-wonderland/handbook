@@ -11,6 +11,9 @@
 .docusaurus
 .cache-loader
 
+# Test temporary files
+.tmp/
+
 # Misc
 .DS_Store
 .env
