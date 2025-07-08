@@ -23,11 +23,7 @@ const handbooks: {
 export default function HandbookSection(): ReactNode {
   return (
     <section className={styles.handbooksSection}>
-      <img
-        src="/img/star-icon.svg"
-        alt="Star illustration"
-        className={styles.starMobile}
-      />
+      <img src="/img/star-icon.svg" alt="" className={styles.starMobile} />
       <div className={styles.handbooksSeparator}>
         <span className={`${styles.line} ${styles.mainLine}`}></span>
         <p>PARTNER HANDBOOKS</p>
@@ -57,7 +53,7 @@ export default function HandbookSection(): ReactNode {
               )}
               <img
                 src={handbooks[0].image}
-                alt={`${handbooks[0].title} ICON`}
+                alt=""
                 className={styles.handbooksCardIcon}
               />
             </a>
@@ -66,7 +62,7 @@ export default function HandbookSection(): ReactNode {
             <div className={styles.handbooksCardDefault}>
               <img
                 src="/img/default-handbook.svg"
-                alt="Default handbook ICON"
+                alt=""
                 className={styles.handbooksCardIcon}
               />
             </div>
@@ -88,7 +84,7 @@ export default function HandbookSection(): ReactNode {
                 )}
                 <img
                   src={handbook.image}
-                  alt={`${handbook.title} ICON`}
+                  alt=""
                   className={styles.handbooksCardIcon}
                 />
               </a>
@@ -98,7 +94,7 @@ export default function HandbookSection(): ReactNode {
       </div>
       <div className={styles.handbooksSeparator}>
         <span className={styles.line}></span>
-        <img src="/img/star-icon.svg" alt="Star illustration" />
+        <img src="/img/star-icon.svg" alt="" />
         <span className={styles.line}></span>
       </div>
     </section>
