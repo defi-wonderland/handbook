@@ -406,13 +406,18 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
 
   .navbar__logo {
     margin: 0;
-    height: 40px;
+    height: 32px;
+    transition: height 0.3s ease;
   }
 }
 
 @media (max-width: 600px) {
   .navbar__inner {
     padding: 0;
+  }
+
+  .navbar__logo {
+    height: 28px;
   }
 }
 
@@ -1106,6 +1111,9 @@ div[class*="buttonGroup"] button {
 }
 
 .pagination-nav__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   font-family:
     "Inter",
     system-ui,
@@ -1113,6 +1121,19 @@ div[class*="buttonGroup"] button {
     sans-serif !important;
   font-weight: 500;
   color: var(--wonderland-gray-300);
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .pagination-nav__label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .pagination-nav__label {
+    font-size: 0.9rem;
+  }
 }
 
 .pagination-nav__link:hover .pagination-nav__label {
@@ -1140,6 +1161,14 @@ div[class*="buttonGroup"] button {
   .navbar {
     padding: 0 16px;
     min-height: 62px;
+  }
+
+  /* Center the logo on mobile */
+  .navbar__brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
 
   .navbar-sidebar {

@@ -36,12 +36,12 @@ const commonDocusaurusConfig: Partial<Config> = {
       },
       style: "dark",
       items: [
-        {
-          type: "html",
-          position: "right",
-          value:
-            '<style>#disclaimer-btn::before { content: ""; width: 16px; height: 16px; background-image: url("/img/icons/information-circle.svg"); background-size: contain; background-repeat: no-repeat; margin-right: 8px; } #disclaimer-btn:hover { color: #d1d5db; } @media (max-width: 996px) { #disclaimer-btn { display: none !important; } }</style><button id="disclaimer-btn" style="background: none; border: none; color: #5D6B98; cursor: pointer; margin-left: 8px; display: flex; align-items: center; font-size: 14px; font-family: inherit; transition: color 0.2s ease;">Disclaimer</button>',
-        },
+        // {
+        //   type: "html",
+        //   position: "right",
+        //   value:
+        //     '<style>#disclaimer-btn::before { content: ""; width: 16px; height: 16px; background-image: url("/img/icons/information-circle.svg"); background-size: contain; background-repeat: no-repeat; margin-right: 8px; } #disclaimer-btn:hover { color: #d1d5db; } @media (max-width: 996px) { #disclaimer-btn { display: none !important; } }</style><button id="disclaimer-btn" style="background: none; border: none; color: #5D6B98; cursor: pointer; margin-left: 8px; display: flex; align-items: center; font-size: 14px; font-family: inherit; transition: color 0.2s ease;">Disclaimer</button>',
+        // },
         {
           type: "dropdown",
           label: "Handbooks",
@@ -57,12 +57,12 @@ const commonDocusaurusConfig: Partial<Config> = {
               target: "_blank",
               rel: "noopener noreferrer",
             },
-            {
-              label: "Aztec",
-              to: "https://aztec-handbook.example.com",
-              target: "_blank",
-              rel: "noopener noreferrer",
-            },
+            // {
+            //   label: "Aztec",
+            //   to: "https://aztec-handbook.example.com",
+            //   target: "_blank",
+            //   rel: "noopener noreferrer",
+            // },
           ],
         },
         {
@@ -84,12 +84,12 @@ const commonDocusaurusConfig: Partial<Config> = {
       ],
       copyright: `© ${new Date().getFullYear()}. Wonder LTD. All Rights Reserved`,
     },
-prism: {
-  theme: prismThemes.dracula,
-  darkTheme: prismThemes.dracula,
-  // Available languages: https://github.com/PrismJS/prism/tree/master/components
-  // Default list: languagesToBundle - https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L26
-  additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
+    prism: {
+      theme: prismThemes.dracula,
+      darkTheme: prismThemes.dracula,
+      // Available languages: https://github.com/PrismJS/prism/tree/master/components
+      // Default list: languagesToBundle - https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L26
+      additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
     },
     docs: {
       sidebar: {
