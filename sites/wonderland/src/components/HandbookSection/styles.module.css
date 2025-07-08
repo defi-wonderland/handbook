@@ -31,7 +31,11 @@
   font-weight: 600;
   color: var(--wonderland-gray-100);
   text-transform: uppercase;
-  font-family: "Sharp Grotesk", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
   padding-left: 2rem;
   padding-right: 2rem;
   text-align: center;
@@ -50,7 +54,11 @@
   font-weight: 400;
   color: var(--wonderland-gray-200);
   line-height: 150%;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   letter-spacing: -0.02em;
   text-align: center;
   padding-right: 1rem;
@@ -93,10 +101,30 @@
   overflow: hidden;
 }
 
+.handbooksCardDefault {
+  width: 100%;
+  min-height: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #ffffff4d;
+  border-radius: 11.61px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+}
+
 a.handbooksCard:hover {
   cursor: pointer;
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 4px 30px rgba(31, 85, 213, 0.2),
+  box-shadow:
+    0 4px 30px rgba(31, 85, 213, 0.2),
     0 0 20px rgba(233, 91, 155, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
 }

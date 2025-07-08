@@ -1,28 +1,29 @@
 import styles from "./styles.module.css";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
-const handbooks = [
+const handbooks: {
+  title: string;
+  image: string;
+  href: string;
+  color?: string;
+}[] = [
   {
     title: "Optimism handbook",
     image: "/img/optimism-handbook.svg",
     href: "/docs/handbook/overview",
   },
-  {
-    title: "Aztec handbook",
-    image: "/img/aztec-handbook.svg",
-    href: "https://docs.aztec.network/aztec-handbook/overview",
-    color: "#625CBFD1",
-  },
+  // {
+  //   title: "Aztec handbook",
+  //   image: "/img/aztec-handbook.svg",
+  //   href: "https://docs.aztec.network/aztec-handbook/overview",
+  //   color: "#625CBFD1",
+  // },
 ];
 
 export default function HandbookSection(): ReactNode {
   return (
     <section className={styles.handbooksSection}>
-      <img
-        src="/img/star-icon.svg"
-        alt="Star illustration"
-        className={styles.starMobile}
-      />
+      <img src="/img/star-icon.svg" alt="" className={styles.starMobile} />
       <div className={styles.handbooksSeparator}>
         <span className={`${styles.line} ${styles.mainLine}`}></span>
         <p>PARTNER HANDBOOKS</p>
@@ -35,32 +36,65 @@ export default function HandbookSection(): ReactNode {
         to others.
       </p>
       <div className={styles.handbooksCards}>
-        {handbooks.map((handbook) => {
-          return (
+        {handbooks.length === 1 ? (
+          <>
+            {/* First handbook card */}
             <a
-              key={handbook.title}
-              href={handbook.href}
+              key={handbooks[0].title}
+              href={handbooks[0].href}
               target="_blank"
               className={styles.handbooksCard}
             >
-              {handbook.color && (
+              {handbooks[0].color && (
                 <div
                   className={styles.colorOverlay}
-                  style={{ backgroundColor: handbook.color }}
+                  style={{ backgroundColor: handbooks[0].color }}
                 ></div>
               )}
               <img
-                src={handbook.image}
-                alt={`${handbook.title} ICON`}
+                src={handbooks[0].image}
+                alt=""
                 className={styles.handbooksCardIcon}
               />
             </a>
-          );
-        })}
+
+            {/* Default handbook card (not a link) */}
+            <div className={styles.handbooksCardDefault}>
+              <img
+                src="/img/default-handbook.svg"
+                alt=""
+                className={styles.handbooksCardIcon}
+              />
+            </div>
+          </>
+        ) : (
+          handbooks.map((handbook) => {
+            return (
+              <a
+                key={handbook.title}
+                href={handbook.href}
+                target="_blank"
+                className={styles.handbooksCard}
+              >
+                {handbook.color && (
+                  <div
+                    className={styles.colorOverlay}
+                    style={{ backgroundColor: handbook.color }}
+                  ></div>
+                )}
+                <img
+                  src={handbook.image}
+                  alt=""
+                  className={styles.handbooksCardIcon}
+                />
+              </a>
+            );
+          })
+        )}
       </div>
       <div className={styles.handbooksSeparator}>
         <span className={styles.line}></span>
-        <img src="/img/star-icon.svg" alt="Star illustration" />
+        <img src="/img/star-icon.svg" alt="" />
         <span className={styles.line}></span>
       </div>
     </section>
