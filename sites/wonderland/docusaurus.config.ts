@@ -39,8 +39,8 @@ const localConfig: Config = {
         blog: false,
         theme: {
           customCss: [
-            "./static/common/styles/global.css",
             "./src/css/local.css",
+            "./static/common/styles/global.css",
           ],
         },
       } satisfies Preset.Options,

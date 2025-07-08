@@ -36,12 +36,6 @@ const commonDocusaurusConfig: Partial<Config> = {
       },
       style: "dark",
       items: [
-        // {
-        //   type: "html",
-        //   position: "right",
-        //   value:
-        //     '<style>#disclaimer-btn::before { content: ""; width: 16px; height: 16px; background-image: url("/img/icons/information-circle.svg"); background-size: contain; background-repeat: no-repeat; margin-right: 8px; } #disclaimer-btn:hover { color: #d1d5db; } @media (max-width: 996px) { #disclaimer-btn { display: none !important; } }</style><button id="disclaimer-btn" style="background: none; border: none; color: #5D6B98; cursor: pointer; margin-left: 8px; display: flex; align-items: center; font-size: 14px; font-family: inherit; transition: color 0.2s ease;">Disclaimer</button>',
-        // },
         {
           type: "dropdown",
           label: "Handbooks",
@@ -53,13 +47,15 @@ const commonDocusaurusConfig: Partial<Config> = {
             },
             {
               label: "Optimism",
-              to: "https://optimism-handbook.example.com",
+              to: "https://handbook.wonderland.xyz/optimism",
               target: "_blank",
               rel: "noopener noreferrer",
             },
+            // // TODO: Enable when Aztec handbook is ready
+            // // TODO: Remember to add the rewrite in vercel.json!
             // {
             //   label: "Aztec",
-            //   to: "https://aztec-handbook.example.com",
+            //   to: "https://handbook.wonderland.xyz/aztec",
             //   target: "_blank",
             //   rel: "noopener noreferrer",
             // },

@@ -16,6 +16,15 @@ html[data-theme="dark"] {
   --wonderland-yellow: #fecc40;
   --wonderland-lila: #a371ce;
 
+  /* Optimism Brand Colors */
+  --op-red: #FF0420;
+  --op-red-dark: #e6001c;
+  --op-red-darker: #d9001a;
+  --op-red-darkest: #b30016;
+  --op-red-light: #ff1a34;
+  --op-red-lighter: #ff263f;
+  --op-red-lightest: #ff475d;
+
   /* Shape, Icons, etc customization */
   --wonderland-accent: #978cfb;
 
@@ -136,44 +145,11 @@ html {
   overflow: hidden;
   position: relative;
 }
-
-html::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--wonderland-accent);
-  mask: url("/img/elipse_background.svg") no-repeat;
-  -webkit-mask: url("/img/elipse_background.svg") no-repeat;
-  mask-position: right 65%;
-  -webkit-mask-position: right 65%;
-  mask-size: contain;
-  -webkit-mask-size: contain;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Responsive background - Common responsive properties */
 @media (max-width: 1024px) {
   html {
     background-size: 110%;
     background-position: right center;
     overflow: visible;
-  }
-
-  html::before {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150vw;
-    height: 150vh;
-    mask-position: 60% 50%;
-    -webkit-mask-position: 60% 50%;
-    mask-size: 80%;
-    -webkit-mask-size: 80%;
   }
 }
 
@@ -181,26 +157,6 @@ html::before {
   html {
     background-size: 45rem;
     background-position: 100% 59%;
-  }
-
-  html::before {
-    width: 200vw;
-    height: 200vh;
-    mask-position: 40% 50%;
-    -webkit-mask-position: 40% 50%;
-    mask-size: 100%;
-    -webkit-mask-size: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  html::before {
-    width: 250vw;
-    height: 250vh;
-    mask-position: 30% 50%;
-    -webkit-mask-position: 30% 50%;
-    mask-size: 120%;
-    -webkit-mask-size: 120%;
   }
 }
 
@@ -1478,7 +1434,7 @@ div[class*="buttonGroup"] button {
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url("/img/OPlogo.svg");
+  background-image: url("/common/img/OPlogo.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1493,7 +1449,7 @@ div[class*="buttonGroup"] button {
   content: "";
   width: 24px;
   height: 24px;
-  background-image: url("/img/azteclogo.svg");
+  background-image: url("/common/img/azteclogo.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1526,7 +1482,7 @@ div[class*="buttonGroup"] button {
   content: "";
   width: 16px;
   height: 16px;
-  background-image: url("/img/icons/chevron-down.svg");
+  background-image: url("/common/img/icons/chevron-down.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1559,7 +1515,7 @@ div[class*="buttonGroup"] button {
   content: "";
   width: 16px;
   height: 16px;
-  background-image: url("/img/icons/chevron-down.svg");
+  background-image: url("/common/img/icons/chevron-down.svg");
   background-size: 16px 16px;
   background-repeat: no-repeat;
   background-position: center;
