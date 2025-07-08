@@ -1,17 +1,72 @@
 import styles from "./styles.module.css";
 import React, { ReactNode } from "react";
 
+type WonderlandBgTypeHandbook = {
+  bgType: "wonderland";
+  color: string;
+};
+
+type OtherBgTypeHandbook = {
+  bgType: "other";
+  bgImage: string;
+};
+
+type HandbookBackground = WonderlandBgTypeHandbook | OtherBgTypeHandbook;
+
 export interface Handbook {
   title: string;
   image: string;
   href: string;
-  bgImage: string;
+  background: HandbookBackground;
 }
 
 export interface HandbookSectionProps {
   handbooks: Handbook[];
   title: string;
   description: string;
+}
+
+interface HandbookCardProps {
+  handbook: Handbook;
+  isDefault?: boolean;
+}
+
+function HandbookCard({ handbook, isDefault = false }: HandbookCardProps) {
+  if (isDefault) {
+    return (
+      <div className={styles.handbooksCardDefault}>
+        <img
+          src="/img/default-handbook.svg"
+          alt=""
+          className={styles.handbooksCardIcon}
+        />
+      </div>
+    );
+  }
+
+  let cardStyle: React.CSSProperties = {};
+  if (handbook.background.bgType === "wonderland") {
+    cardStyle.backgroundImage = "url(/common/img/red-card-bg.png)";
+  } else if (handbook.background.bgType === "other") {
+    cardStyle.backgroundImage = `url(${handbook.background.bgImage})`;
+  }
+
+  return (
+    <a
+      href={handbook.href}
+      style={cardStyle}
+      target="_blank"
+      className={styles.handbooksCard}
+    >
+      {handbook.background.bgType === "wonderland" && (
+        <div
+          className={styles.colorOverlay}
+          style={{ backgroundColor: handbook.background.color }}
+        ></div>
+      )}
+      <img src={handbook.image} alt="" className={styles.handbooksCardIcon} />
+    </a>
+  );
 }
 
 export default function HandbookSection({
@@ -23,7 +78,7 @@ export default function HandbookSection({
     <section className={styles.handbooksSection}>
       <img
         src="/common/img/star-icon.svg"
-        alt="Star illustration"
+        alt=""
         className={styles.starMobile}
       />
       <div className={styles.handbooksSeparator}>
@@ -35,48 +90,15 @@ export default function HandbookSection({
       <div className={styles.handbooksCards}>
         {handbooks.length === 1 ? (
           <>
-            {/* First handbook card */}
-            <a
-              key={handbooks[0].title}
-              href={handbooks[0].href}
-              style={{ backgroundImage: `url(${handbooks[0].bgImage})` }}
-              target="_blank"
-              className={styles.handbooksCard}
-            >
-              <img
-                src={handbooks[0].image}
-                alt=""
-                className={styles.handbooksCardIcon}
-              />
-            </a>
-
+            {/* First handbook card  */}
+            <HandbookCard handbook={handbooks[0]} />
             {/* Default handbook card (not a link) */}
-            <div className={styles.handbooksCardDefault}>
-              <img
-                src="/img/default-handbook.svg"
-                alt=""
-                className={styles.handbooksCardIcon}
-              />
-            </div>
+            <HandbookCard handbook={handbooks[0]} isDefault />
           </>
         ) : (
-          handbooks.map((handbook) => {
-            return (
-              <a
-                key={handbook.title}
-                href={handbook.href}
-                style={{ backgroundImage: `url(${handbook.bgImage})` }}
-                target="_blank"
-                className={styles.handbooksCard}
-              >
-                <img
-                  src={handbook.image}
-                  alt=""
-                  className={styles.handbooksCardIcon}
-                />
-              </a>
-            );
-          })
+          handbooks.map((handbook) => (
+            <HandbookCard key={handbook.title} handbook={handbook} />
+          ))
         )}
       </div>
       <div className={styles.handbooksSeparator}>
