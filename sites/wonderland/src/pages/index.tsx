@@ -56,12 +56,12 @@ const wonderlandHandbooks: Handbook[] = [
     href: "/docs/handbook/overview",
     bgImage: "/common/img/red-card-bg.png",
   },
-  {
-    title: "Aztec handbook",
-    image: "/img/aztec-handbook.svg",
-    href: "https://docs.aztec.network/aztec-handbook/overview",
-    bgImage: "/common/img/violet-card-bg.png",
-  },
+  // {
+  //   title: "Aztec handbook",
+  //   image: "/img/aztec-handbook.svg",
+  //   href: "https://docs.aztec.network/aztec-handbook/overview",
+  //   bgImage: "/common/img/violet-card-bg.png",
+  // },
 ];
 
 const wonderlandHandbookProps: HandbookSectionProps = {

@@ -81,7 +81,7 @@ export default function HandbookSection({
       </div>
       <div className={styles.handbooksSeparator}>
         <span className={styles.line}></span>
-        <img src="/common/img/star-icon.svg" alt="Star illustration" />
+        <img src="/common/img/star-icon.svg" alt="" />
         <span className={styles.line}></span>
       </div>
     </section>
