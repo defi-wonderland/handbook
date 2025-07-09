@@ -2,7 +2,8 @@
 title: Project Lifecycle
 sidebar_position: 1
 ---
-# *Immutable code means we have one chance to get it right.*
+
+# _Immutable code means we have one chance to get it right._
 
 Our project lifecycle systematically eliminates vulnerabilities at every stage. Each phase, from initial design to final deployment, adds a validation layer. **No assumption goes unverified, no edge case is unexplored.**
 
@@ -10,9 +11,9 @@ Users trust their assets to our code, and we take quality seriously. **Quality i
 
 ## Idea Draft 🎨 
 
-The foundation of every successful project lies in its initial conception. During this phase, we work closely with partners to understand the project's scope, requirements, and potential challenges. 
+The foundation of every successful project lies in its initial conception. During this phase, we work closely with partners to understand the project's scope, requirements, and potential challenges.
 
-Firstly, our Partner Lead and Architect will create a diagram showing the overall project architecture and will estimate the needed time for completion, an estimation that will be further reviewed and specified during the Tech Design phase. By doing this, we can set the project up for success and ensure a smooth and efficient journey towards achieving our shared goals. 
+Firstly, our Partner Lead and Architect will create a diagram showing the overall project architecture and will estimate the needed time for completion, an estimation that will be further reviewed and specified during the Tech Design phase. By doing this, we can set the project up for success and ensure a smooth and efficient journey towards achieving our shared goals.
 
 Before proceeding, both parties must review and approve the Idea Draft. This document serves as our north star, ensuring alignment on objectives and expectations throughout the project's lifecycle.
 
@@ -44,32 +45,30 @@ We strive to follow strict [code quality and style guidelines](/development/sol
 
 **Completion requirements: Before moving forward, the latest revision of the code must be approved by our partner.**
 
-
 ## Advanced Testing Campaign 🧪 
 
 As mentioned before, we take our work seriously. Testing at Wonderland is a continuous process that begins before the first line of code is written and extends throughout the entire development lifecycle. Our testing framework reflects years of experience in securing infrastructure.
 
-During development, each Solidity developer is responsible for writing unit and integration tests. These tests aim to cover all major branches and paths of the logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on network forks to replicate real-world behavior. This *QA phase* ensures continuous monitoring and improvement of the protocol as it evolves.
+During development, each Solidity developer is responsible for writing unit and integration tests. These tests aim to cover all major branches and paths of the logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on network forks to replicate real-world behavior. This _QA phase_ ensures continuous monitoring and improvement of the protocol as it evolves.
 
 Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios—finalizing the testing process before the protocol moves into production.
 For further reading on how we do testing, see [Testing Campaign Processes](/testing/campaign-processes.md) and [Unit and Integration Testing](/testing/unit-integration.md).
 
 ## Internal Reviews 🔍 
 
-Millions of dollars rely on the security of on-chain code, and history proves even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritize security by having developers adopt a “break it” mentality in internal reviews, so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps *lazy* code or testing from slipping through.
+Millions of dollars rely on the security of on-chain code, and history proves even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritize security by having developers adopt a “break it” mentality in internal reviews, so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps _lazy_ code or testing from slipping through.
 
-Our internal review process kicks in once development is finished and the code is *frozen.* A specialized Security Team (or developers who switch to an attacking mindset) meticulously examines the code for bugs, logic flaws, and opportunities to improve best practices and security. If critical issues are found, we conduct internal post-mortems to learn how they went unnoticed, then immediately fix and recheck before delivering the revised code to external auditors. This multi-layered approach—coupled with thoughtful fix management, code-based complexity estimates, and thorough post-review analysis—helps us produce robust and resilient protocols.
+Our internal review process kicks in once development is finished and the code is _frozen._ A specialized Security Team (or developers who switch to an attacking mindset) meticulously examines the code for bugs, logic flaws, and opportunities to improve best practices and security. If critical issues are found, we conduct internal post-mortems to learn how they went unnoticed, then immediately fix and recheck before delivering the revised code to external auditors. This multi-layered approach—coupled with thoughtful fix management, code-based complexity estimates, and thorough post-review analysis—helps us produce robust and resilient protocols.
 
 For complete details, refer to [Internal Reviews](/security/internal-reviews.md).
 
 Every fix is checked by the testing and security team.
 
-
 ## QA 👀 
 
 Quality is a shared responsibility among all team members, but we have a dedicated QA team because testing independence is important to ensure an unbiased evaluation of the software to be delivered.
 
-Our test planning approach is flexible, depending on the context and on the specific project needs, aiming to make the test execution fast while having good coverage and traceability between requirements and detected bugs. 
+Our test planning approach is flexible, depending on the context and on the specific project needs, aiming to make the test execution fast while having good coverage and traceability between requirements and detected bugs.
 
 Manual testing is performed according to pre-defined processes and documentation, including test planning, analysis, design, execution, and reporting, ensuring thorough validation and verification against the requirements. QA is also supported by automated e2e tests to increase speed and reliability in regression testing.
 
@@ -93,5 +92,5 @@ Once the War Room is set up, a checklist ensures every critical step is covered:
 Parallel actions—web changes, external communication, and protocol fixes—run alongside each other, tracked in the war room. Afterward, teams document all findings, transactions, timelines, attacker data, to wrap up the incident, create necessary post-mortem reports, and plan any future improvements.
 
 <div style={{textAlign: "center"}}>
-  <img src="/img/project-lifecycle-meme.png" alt="project-lifecycle" width={600} />
+  <img src="/img/project-lifecycle-meme.jpg" alt="project-lifecycle" width={600} />
 </div>

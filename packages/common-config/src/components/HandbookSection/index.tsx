@@ -46,7 +46,7 @@ function HandbookCard({ handbook, isDefault = false }: HandbookCardProps) {
 
   let cardStyle: React.CSSProperties = {};
   if (handbook.background.bgType === "wonderland") {
-    cardStyle.backgroundImage = "url(/common/img/red-card-bg.png)";
+    cardStyle.backgroundImage = "url(/common/img/background-handbook-card.jpg)";
   } else if (handbook.background.bgType === "other") {
     cardStyle.backgroundImage = `url(${handbook.background.bgImage})`;
   }

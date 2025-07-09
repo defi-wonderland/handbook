@@ -2,9 +2,10 @@
 title: Best Practices
 sidebar_position: 1
 ---
+
 # Tech Writing Best Practices
 
-![image.png](/img/meme-tech.png)
+![image.png](/img/meme-tech.jpg)
 
 Documenting the code, protocols and models we work with is a key part of a project's succeed. Any stray confusion, or misused phrase, might send people down the wrong path. If you’ve worked in software, you know how quickly a tiny misunderstanding can balloon into a huge chaos. That’s where technical writing comes in. It’s this practice of wrangling complexity into clarity —distilling volumes of detail into instructions even a newcomer can follow. **We care about ensuring that what we build can be used without confusion.**
 
@@ -16,15 +17,15 @@ Who’s reading this? Researchers? Developers? Each group has different backgrou
 
 ## Use active voice
 
-Prefer *“The user does the transaction”* to *“The transaction is done by the user.”* Active voice shows **who** is doing **what**, cutting clutter and building clarity—perfect for any instructions.
+Prefer _“The user does the transaction”_ to _“The transaction is done by the user.”_ Active voice shows **who** is doing **what**, cutting clutter and building clarity—perfect for any instructions.
 
 ## No fluff
 
-Avoid empty words like *“It is important to note...”* or *“opens up possibilities.”* If it’s truly important, your specifics will prove that without padding. Let your writing echo what’s at stake rather than bury it. If a word is ambiguous, replace it. No room here for “maybe” or “sort of.”
+Avoid empty words like _“It is important to note...”_ or _“opens up possibilities.”_ If it’s truly important, your specifics will prove that without padding. Let your writing echo what’s at stake rather than bury it. If a word is ambiguous, replace it. No room here for “maybe” or “sort of.”
 
 ## Structure for readability
 
-Use **headers**, **bullet points**, and **short paragraphs**. Readers can skim key steps without feeling they’re rummaging through a labyrinth. 
+Use **headers**, **bullet points**, and **short paragraphs**. Readers can skim key steps without feeling they’re rummaging through a labyrinth.
 
 ## Step-by-Step, not an avalanche
 
@@ -36,7 +37,7 @@ Code runs in a logical sequence—your writing should, too. Keep the order clear
 
 ## Stay consistent with terms
 
-Don’t rename something halfway through—people will wonder if it’s a different concept altogether. Once you call it *“Optimism Rollup Cluster”,* don’t suddenly switch to “*Superchain”*. Consistency is the difference between smooth comprehension and user confusion.
+Don’t rename something halfway through—people will wonder if it’s a different concept altogether. Once you call it _“Optimism Rollup Cluster”,_ don’t suddenly switch to “_Superchain”_. Consistency is the difference between smooth comprehension and user confusion.
 
 ## Use acronyms properly
 
@@ -44,16 +45,16 @@ On the first mention, **bold** the full term and put the acronym in parentheses�
 
 ## Recognize ambiguous pronouns
 
-Pronouns (like *it*, *they*, *this*) can be as slippery as eels. If there’s any risk that *it* could mean more than one thing, restate your noun. Consider reading your doc from the perspective of a brand-new user. **If you can’t pinpoint the pronoun’s reference in a second or two, rephrase.**
+Pronouns (like _it_, _they_, _this_) can be as slippery as eels. If there’s any risk that _it_ could mean more than one thing, restate your noun. Consider reading your doc from the perspective of a brand-new user. **If you can’t pinpoint the pronoun’s reference in a second or two, rephrase.**
 
 ## Choose strong verbs
 
-Words like *is*, *are*, *occur*, and *happen* are often placeholders. Try dynamic verbs that paint a clear action:
+Words like _is_, _are_, _occur_, and _happen_ are often placeholders. Try dynamic verbs that paint a clear action:
 
 - **Weak**: “A runtime error occurs when we pass invalid data.”
 - **Strong**: “Invalid data **triggers** a runtime error.”
 
-## Avoid *There Is / There Are*
+## Avoid _There Is / There Are_
 
 Remove those beginnings to make sentences more direct. Compare:
 
@@ -80,7 +81,7 @@ Reference relevant materials—whether they’re academic papers, blog posts, or
 
 A picture is worth a thousand words. Utilize the resources available to you. Most text editors let you add pictures, tables, code snippets, and diagrams — the use of Figma, Excalidraw or Mermaid is allowed!
 
-![image.png](/img/tech-writing-meme-2.png)
+![image.png](/img/tech-writing-meme-2.jpg)
 
 Before shipping an article, ask yourself: have I included enough memes, diagrams, and references? Then you are ready to send it.
 
