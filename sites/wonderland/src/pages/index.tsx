@@ -56,7 +56,7 @@ const wonderlandHandbooks: Handbook[] = [
     href: "/optimism",
     background: {
       bgType: "other",
-      bgImage: "/common/img/red-card-bg.png",
+      bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
   // {

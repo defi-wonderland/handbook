@@ -9,13 +9,13 @@ We add more formalized testing suite following 2 different approaches:
 
 To guide our testing, we use the properties written during the design phase, updated with any change which might have happened during the implementation.
 
-Having these 2 extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in *every possible* case (usually statelessly).
+Having these 2 extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in _every possible_ case (usually statelessly).
 
 # Properties & Invariants
 
 During the design phase of a new project, we start collecting the protocol properties and invariants (either from the new design or pre-existing specification/requirements). At this stage of the development, this means having a bullet point list describing what and how the project will behave. It includes invariants, that are always true, or some more specific scenarios, called properties (the distinction being pedantic only, both terms are used interchangeably).
 
-In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details. 
+In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details.
 
 For a more detailed approach on our way of finding and writing invariants, check the [Invariants writing strategy](./invariants-writing.md).
 
@@ -71,7 +71,7 @@ function mul(uint256 a, uint256 b) external returns(uint256) {
 
 ## General tricks
 
-Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps *a lot*. Here are some take-aways from previous project, which *might* help:
+Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps _a lot_. Here are some take-aways from previous project, which _might_ help:
 
 - Start by reviewing the properties and invariants. See the doc above on how to find them, keeping in mind that **"having only a few selected critical (and well tested) invariants is therefore better than a list of 50 highly complex, tightly coupled to the implementation, ones"**.
 - Setup for fuzzing or formal verification can be taken from the integration tests - rather as a template than blindly pasting them, as to avoid inheriting any complexity debt coming from setting up a fork for instance.
@@ -84,22 +84,21 @@ function testOne() public {
   vm.warp(123);
   address caller = address(123);
   deal(caller, 1 ether);
-  
+
   vm.prank(caller);
-  
+
   // Action
   target.deposit{value: 1 ether}();
-  
+
   // Post-condition
   assert(target.balance(caller), 1 ether);
 }
 ```
 
 - Assessing a test function has 3 steps, once the test passes:
-    - Check the coverage to see if the test itself is not (silently) reverting and if the target code is actually covered
-    - Make sure both sides of a revert are covered with try - assert - catch - assert.
-    - Mutate the property itself or the target code. See [Mutation testing](../mutation-testing.md) for more details
-    
+  - Check the coverage to see if the test itself is not (silently) reverting and if the target code is actually covered
+  - Make sure both sides of a revert are covered with try - assert - catch - assert.
+  - Mutate the property itself or the target code. See [Mutation testing](../mutation-testing.md) for more details
     <aside>
     ⚠️
     
@@ -116,16 +115,14 @@ function testOne() public {
     ```
     
     </aside>
-    
+
 - Any state which can be accessed or reconstructed from the target should be (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
 - Always start with validating the initial setup and sanity checks as “property-0”. For instance, address of the deployed contract ≠ 0, calling some constant variables, etc.
-    
-    ![Fuzzing sanity check](/img/fuzz-sanity-check.png)
-    
+  ![Fuzzing sanity check](/img/fuzz-sanity-check.jpg)
 - Function names:
-    - `setup_*` functions shouldn’t have assertion, they’re used to set some stuff up, in Medusa, with fuzzed args as constructor cannot have args, same for handlers.
-    - `property_*` functions are targets in assert mode
-    - `prove_*` is the default prefix for Kontrol, `check_*` is the equivalent for Halmos
+  - `setup_*` functions shouldn’t have assertion, they’re used to set some stuff up, in Medusa, with fuzzed args as constructor cannot have args, same for handlers.
+  - `property_*` functions are targets in assert mode
+  - `prove_*` is the default prefix for Kontrol, `check_*` is the equivalent for Halmos
 
 ## Reporting found issues
 
@@ -146,10 +143,8 @@ If the issue won’t be fixed, we still need a way to reproduce it. To simplify 
 - If it doesn’t exist yet, create a `PropertiesFailing` contract and inherit it in `PropertiesParent`
 - In the failing properties contract, add a test for the found issue. Make sure to specify the issue ID in the natspec.
 - Append the test name to the `excludeFunctionSignatures` property of the Medusa config. Note that the signature should start with the fuzz contract name:
-    
-    ```
-    "excludeFunctionSignatures": [
-      "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
-    ]
-    ```
-  
+  ```
+  "excludeFunctionSignatures": [
+    "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
+  ]
+  ```

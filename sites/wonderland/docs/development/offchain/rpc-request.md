@@ -1,6 +1,7 @@
 ---
 title: RPC Request Batching
 ---
+
 # RPC Request Batching: Easily 10x your requests performance
 
 Making individual HTTP requests sucks, that's why since Web2 we have been using bundles, image sprite sheets, and so on…
@@ -32,7 +33,7 @@ Since the calls are made during the `constructor` runtime, all sub-calls to othe
 To illustrate this approach, two simple solidity contracts are created. The source code can be downloaded from https://github.com/defi-wonderland/rpc-batching-sample:
 
 1. **PoolManager**: This contract simulates a pool manager containing a function capable of querying a single pool at a time.
-2. **BatchPoolManagerData**: This contract implements where magic happens. It will perform the necessary calls, store them in an array, and then return all the data. By doing this, RPCs can simulate the deployment of this contract and get the data in a single call instead of having to call `PoolManager`'s querying method multiple times. 
+2. **BatchPoolManagerData**: This contract implements where magic happens. It will perform the necessary calls, store them in an array, and then return all the data. By doing this, RPCs can simulate the deployment of this contract and get the data in a single call instead of having to call `PoolManager`'s querying method multiple times.
 
 First, let's examine the `PoolManager` contract:
 
@@ -60,7 +61,7 @@ contract PoolManager is IPoolManager {
 
 The `queryPool` method of the `PoolManager` contract receives an id and returns fake pool liquidity for the purposes of the example. Querying data for many pools would require querying the RPC node successively by calling the `queryPool` method with different ids. It will do a request per query, which can reduce our speed and stress the node.
 
-![request.png](/img/rpc-batching-1.png)
+![request.png](/img/rpc-batching-1.jpg)
 
 It would look like this if we were to call all the pools:
 
@@ -156,12 +157,12 @@ catch (err) {
 
 Graphically the batched RPC request would look like this: only one call to get `n` pools instead of `1 + n` calls (`numPools` + n `queryPool`).
 
-![rpc-2.png](/img/rpc-batching-2.png)
+![rpc-2.png](/img/rpc-batching-2.jpg)
 
 And that's all. The data is now available to be requested by the client with only one call to the RPC.
 
 :::tip
-A sample working version of this method can be found at  https://github.com/defi-wonderland/rpc-batching-sample
+A sample working version of this method can be found at https://github.com/defi-wonderland/rpc-batching-sample
 :::
 
 ## RPC Support

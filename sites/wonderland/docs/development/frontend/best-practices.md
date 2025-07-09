@@ -3,7 +3,7 @@
 This guide outlines our frontend development best practices. It covers code quality standards, GitHub workflows, and security measures to help us build robust, maintainable, and secure frontend applications.
 
 <div align="center">
-  <img src="/img/frontend-meme.png" width="900" alt="A panda developer frustrated with code, then realizing the importance of following best practices" />
+  <img src="/img/frontend-meme.jpg" width="900" alt="A panda developer frustrated with code, then realizing the importance of following best practices" />
 </div>
 
 We've all been there: staring at confusing code and wondering "why?". That's exactly why we maintain these best practices. They help turn those "why???" moments into "aha!" moments by providing clear, consistent patterns and guidelines for our codebase.
@@ -21,19 +21,20 @@ Complex logic should be abstracted into functions or methods declared before the
 ```jsx
 return (
   <div>
-    <button onClick={() => {
-      const value = someFunction();
-      if (value === 'a') {
-        doSomething();
-      } else {
-        doSomethingElse();
-      }
-    }}>
+    <button
+      onClick={() => {
+        const value = someFunction();
+        if (value === "a") {
+          doSomething();
+        } else {
+          doSomethingElse();
+        }
+      }}
+    >
       Click Me
     </button>
   </div>
 );
-
 ```
 
 **Good:**
@@ -41,7 +42,7 @@ return (
 ```jsx
 const handleButtonClick = () => {
   const value = someFunction();
-  if (value === 'a') {
+  if (value === "a") {
     doSomething();
   } else {
     doSomethingElse();
@@ -50,12 +51,9 @@ const handleButtonClick = () => {
 
 return (
   <div>
-    <button onClick={handleButtonClick}>
-      Click Me
-    </button>
+    <button onClick={handleButtonClick}>Click Me</button>
   </div>
 );
-
 ```
 
 ### Structured Import Order
@@ -69,23 +67,21 @@ return (
 **Bad:**
 
 ```jsx
-import Button from '@mui/material/Button';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import SearchBar from '../components/SearchBar';
-import React from 'react';
-
+import Button from "@mui/material/Button";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import SearchBar from "../components/SearchBar";
+import React from "react";
 ```
 
 **Good:**
 
 ```jsx
-import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Button from '@mui/material/Button';
-import SearchBar from '../components/SearchBar';
-
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Button from "@mui/material/Button";
+import SearchBar from "../components/SearchBar";
 ```
 
 ### Avoid Ternary Conditionals in React Components
@@ -106,7 +102,6 @@ return (
     )}
   </div>
 );
-
 ```
 
 **Good:**
@@ -118,7 +113,6 @@ return (
     {!isLoggedIn && <button onClick={login}>Login</button>}
   </div>
 );
-
 ```
 
 ### Avoid Inline Styles in React Components
@@ -132,12 +126,13 @@ Define styles separately using external stylesheets or CSS-in-JS libraries for b
 ```jsx
 return (
   <div>
-    <button style={{ backgroundColor: 'blue', color: 'white', borderRadius: '5px' }}>
+    <button
+      style={{ backgroundColor: "blue", color: "white", borderRadius: "5px" }}
+    >
       Click Me
     </button>
   </div>
 );
-
 ```
 
 **Good:**
@@ -169,10 +164,10 @@ const Button = () => {
 export default Button;
 ```
 
-Or using [**``styled()](https://mui.com/system/styled/?srsltid=AfmBOoq0FmJ0KjHaNEZYbCgi1CbkOamY-AwtPiSm0tDtQ9Bdp7GIY3sd)``** utility from MUI: 
+Or using [\*\*``styled()](https://mui.com/system/styled/?srsltid=AfmBOoq0FmJ0KjHaNEZYbCgi1CbkOamY-AwtPiSm0tDtQ9Bdp7GIY3sd)``\*\* utility from MUI:
 
 ```jsx
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 const Button = () => {
   return (
@@ -182,10 +177,10 @@ const Button = () => {
   );
 };
 
-const StyledButton = styled('button')({
-  backgroundColor: 'blue',
-  color: 'white',
-  borderRadius: '5px',
+const StyledButton = styled("button")({
+  backgroundColor: "blue",
+  color: "white",
+  borderRadius: "5px",
 });
 
 export default Button;
@@ -194,12 +189,12 @@ export default Button;
 Alternatively, if you only need a button:
 
 ```jsx
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-const Button = styled('button')({
-  backgroundColor: 'blue',
-  color: 'white',
-  borderRadius: '5px',
+const Button = styled("button")({
+  backgroundColor: "blue",
+  color: "white",
+  borderRadius: "5px",
 });
 
 export default Button;
@@ -209,24 +204,25 @@ export default Button;
 Depending on the chosen component (in this case, a button), it will function the same as using a button with all the properties it can inherit.
 :::
 
-### Use [**``theme``**](https://mui.com/system/experimental-api/css-theme-variables/#usage) property and dark/light mode from the MUI context
+### Use [**`theme`**](https://mui.com/system/experimental-api/css-theme-variables/#usage) property and dark/light mode from the MUI context
 
-When implementing colors from a theme, it's important to use the defined theme variables rather than hardcoding color values in HEX or RGB. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette. 
+When implementing colors from a theme, it's important to use the defined theme variables rather than hardcoding color values in HEX or RGB. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette.
 
 This promotes greater consistency across the project.
 
 Here's an example to illustrate this concept:
 
 **Bad:**
+
 ```jsx
 import { styled } from "@mui/material/styles";
 
 const BadButton = styled("button")({
-	backgroundColor: "#ff5733", // BAD: Hardcoded HEX color
-	color: "#fff",
-	padding: "0.5rem 1rem",
-	border: "none",
-	borderRadius: "4px",
+  backgroundColor: "#ff5733", // BAD: Hardcoded HEX color
+  color: "#fff",
+  padding: "0.5rem 1rem",
+  border: "none",
+  borderRadius: "4px",
 });
 ```
 
@@ -238,11 +234,11 @@ In this example, the button's background color is set using a theme variable, al
 import { styled } from "@mui/material/styles";
 
 const GoodButton = styled("button")(({ theme }) => ({
-	backgroundColor: theme.palette.secondaryBackground.default, // GOOD: Uses theme variable
-	color: theme.palette.text.primary,
-	padding: "0.5rem 1rem",
-	border: "none",
-	borderRadius: "4px",
+  backgroundColor: theme.palette.secondaryBackground.default, // GOOD: Uses theme variable
+  color: theme.palette.text.primary,
+  padding: "0.5rem 1rem",
+  border: "none",
+  borderRadius: "4px",
 }));
 ```
 
@@ -259,7 +255,7 @@ Incorporating strategic break lines in React components enhances readability, es
 ```jsx
 return (
   <div>
-    <SomeComponent/>
+    <SomeComponent />
     <table>
       <thead>
         <tr>
@@ -278,10 +274,9 @@ return (
         ))}
       </tbody>
     </table>
-    <AnotherComponent/>
+    <AnotherComponent />
   </div>
 );
-
 ```
 
 **Good:**
@@ -289,7 +284,7 @@ return (
 ```jsx
 return (
   <div>
-    <SomeComponent/>
+    <SomeComponent />
 
     <table>
       <thead>
@@ -311,10 +306,9 @@ return (
       </tbody>
     </table>
 
-    <AnotherComponent/>
+    <AnotherComponent />
   </div>
 );
-
 ```
 
 ### Lock Dependencies and Remove Carets in package.json
@@ -342,12 +336,12 @@ Optimize images to keep them under 250kB for faster website performance.
 We've established specific requirements for PR reviews:
 
 1. **Merge to Dev:**
-    - **Approval Requirement:** 2
-    - **Merge Method:** Squash and merge.
-    - **Comments Resolution:** Resolve all comments or conversations before merging.
+   - **Approval Requirement:** 2
+   - **Merge Method:** Squash and merge.
+   - **Comments Resolution:** Resolve all comments or conversations before merging.
 2. **Merge to Main:**
-    - **Approval Requirement:** 2
-    - **Merge Method:** Merge and commit.
+   - **Approval Requirement:** 2
+   - **Merge Method:** Merge and commit.
 
 > 💡 To request a review, tag @UI Devs in the UI Discord channel along with the PR link and a brief description.
 
@@ -399,4 +393,3 @@ Mark all environment variables as sensitive in deployment platforms to prevent e
 Configure Vercel authentication settings to allow specific team members access to preview deployments when needed.
 
 **Why it's Important:** Balancing security with collaboration needs ensures team members can access previews for testing while maintaining appropriate access controls.
-

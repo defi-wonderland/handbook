@@ -1,7 +1,8 @@
 # Repo Readiness
+
 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'start'}}>
   <div>
-    <img src="/img/repo-readiness.png" alt="Repository setup process illustration" width="80%" style={{marginBottom: 0}} />
+    <img src="/img/repo-readiness.jpg" alt="Repository setup process illustration" width="80%" style={{marginBottom: 0}} />
   </div>
   <div>
     This document provides a guide for setting up GitHub repositories according to our best practices. Following these guidelines ensures consistent repository configuration, proper documentation, and security measures across all projects.
@@ -16,6 +17,7 @@
      - [ ]   Add a LICENSE file
         - [MIT](https://github.com/defi-wonderland/xERC20/blob/main/LICENSE)
         - [AGPL-3](https://github.com/defi-wonderland/xkeeper-core/blob/ab0984f1e8bbc542d387c84c0f36c144cbb36050/LICENSE)
+
   </div>
 </div>
 - [ ]  Add a README

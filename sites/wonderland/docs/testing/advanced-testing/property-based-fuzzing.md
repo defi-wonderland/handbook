@@ -28,7 +28,7 @@ We follow an inheritance pattern to standardize the creation of a new medusa tes
 FuzzTest is PropertiesParent {}
 
 // ./test/invariant/fuzz/properties/PropertiesParent.sol
-PropertiesParent is PropertiesA, PropertiesB, etc 
+PropertiesParent is PropertiesA, PropertiesB, etc
 
 // ./test/invariant/fuzz/properties/PropertiesA.sol
 PropertiesA is HandlersParent {}
@@ -49,11 +49,11 @@ Setup is Test, Utils {}
 
 Here is the visual representation of the structure above. Note that in a real project, handlers and properties will have different names, e.g. `HandlerStaking` and `PropertiesStaking` for a contract named `Staking`.
 
-![Medusa tests inheritance](/img/fuzz-inheritance.png)
+![Medusa tests inheritance](/img/fuzz-inheritance.jpg)
 
 ## Contracts and functions
 
-Property functions should start with the prefix `property_`, while handler function should start with `handler_`. Properties are made to make an assumption, while handlers allows to expose some functions from the contract under test (with optional constraints or ghost variables, which should start with `ghost_`). `setup_` functions can be used for one-off 
+Property functions should start with the prefix `property_`, while handler function should start with `handler_`. Properties are made to make an assumption, while handlers allows to expose some functions from the contract under test (with optional constraints or ghost variables, which should start with `ghost_`). `setup_` functions can be used for one-off
 
 Do not forget to mark ghost or otherwise internal helper as `internal`, as it would be called by the fuzzer if public. Additionally, function selectors can be white- or black-listed in the medusa toml.
 
@@ -76,7 +76,7 @@ contract PropertiesParent is HandlersParent {
 
 contract HandlersParent is Setup {
 	uint256 internal ghost_counter;
-	
+
 	function handler_increment(uint256 howMuch) public {
 		counter.increment(howMuch);
 		ghost_counter += howMuch;
@@ -85,7 +85,7 @@ contract HandlersParent is Setup {
 
 contract Setup {
 	Counter counter;
-	
+
 	constructor() {
 		counter = new Counter();
 	}
@@ -97,9 +97,10 @@ contract Setup {
 Based on the failing sequence, we include a test function to easily recreate (and fix) the issue (either in the test -often- or the underlying implementation -less often)
 
 > [Call Sequence]
+
 1. FuzzTest.property_IHaveFailed(string,uint256)(’arg’, 0x00…012) (block=123, time=9999, gas=1, gasprice=1, value=0, sender=0x0000…000123)
 2. FuzzTest.property_IHaveFailedToo(string,uint256)(1, 1) (block=456, time=123456, gas=1, gasprice=1, value=0, sender=0x0000…00b33f)
-> 
+   >
 
 ```solidity
 contract Reproducer is FuzzTest {
@@ -108,7 +109,7 @@ contract Reproducer is FuzzTest {
 		vm.warp(9999);
 		vm.prank(address(123));
 		this.property_IHaveFailed('arg', address(12));
-		
+
 		vm.roll(456);
 		vm.warp(123456);
 		vm.prank(address(b33f));
@@ -153,12 +154,11 @@ In the `try` block, we’re asserting the properties the test is supposed to cov
 
 - When reviewing a PR for a fuzzing campaign, it’s crucial to run the fuzzer for a few minutes and check for coverage gaps in the assertion tests. It’s otherwise too easy to have tests silently skip most of the interesting stuff due to early reverts.
 - As some of our projects are relying on crosschain messaging, we use a mock bridge. The main idea is to use the single chain provided by Medusa/Echidna (or even Halmos), and use a contract acting as a bridge (in summary, a queue containing all the crosschain message + a handler to “flush”/relay all message to their targets - avoiding atomic bridging, which isn’t realistic).
-Further logic can be included for, eg, have a non-fifo ordering (lifo, random, etc), rely on additional relayers/hyperlane/etc.
+  Further logic can be included for, eg, have a non-fifo ordering (lifo, random, etc), rely on additional relayers/hyperlane/etc.
 
 ## Beyond writing tests
 
-Having a good *and tidy* properties and invariant test suite is nice, but would be useless if it wasn’t being actively used. As the space the fuzzer has to explore grows (in the worst case scenario) exponentially, running fuzzing campaign for a decent amount of time is mandatory.
-
+Having a good _and tidy_ properties and invariant test suite is nice, but would be useless if it wasn’t being actively used. As the space the fuzzer has to explore grows (in the worst case scenario) exponentially, running fuzzing campaign for a decent amount of time is mandatory.
 
 ## Additional Resources
 
