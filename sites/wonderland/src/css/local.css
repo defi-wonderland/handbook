@@ -1,8 +1,11 @@
 /* Custom styles for your documentation site */
 
+/* Shape, Icons, etc customization */
+:root {
+  --wonderland-accent: #978cfb;
+}
+
 /* Wonderland-specific menu icons */
-/* Process category icon */
-/* Process category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
   background-image: url("/img/icons/map.svg");
 }
