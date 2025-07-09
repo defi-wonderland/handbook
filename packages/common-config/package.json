@@ -11,6 +11,7 @@
   "exports": {
     "./styles/global.css": "./static/common/styles/global.css",
     "./components": "./src/components/index.ts",
+    "./theme": "./src/components/theme/index.ts",
     "./preset": "./dist/preset/index.js",
     "./preset/commonDocusaurusConfig": {
       "types": "./preset/commonDocusaurusConfig.ts",
@@ -23,6 +24,8 @@
   "dependencies": {
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/types": "3.7.0",
+    "@docusaurus/core": "3.7.0",
+    "clsx": "2.0.0",
     "prism-react-renderer": "2.3.0",
     "remark-math": "6.0.0",
     "rehype-katex": "7.0.1",
