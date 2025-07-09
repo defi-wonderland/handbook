@@ -1,8 +1,10 @@
+// Types
 import type { Category, CategoryCardsTheme } from "./CategoryCards";
 import type { HeroSectionProps } from "./HeroSection";
 import type { Handbook, HandbookSectionProps } from "./HandbookSection";
 import type { IlustrationsContainerProps } from "./IlustrationsContainer";
 
+// Components
 import HeroSection from "./HeroSection";
 import CategoryCards from "./CategoryCards";
 import IlustrationsContainer from "./IlustrationsContainer";
@@ -14,6 +16,12 @@ import {
   TriangleBackground,
 } from "./Backgrounds";
 
+// Theme Components
+import Root from "./theme/Root";
+import DocRootLayoutSidebarExpandButton from "./theme/DocRoot/Layout/Sidebar/ExpandButton";
+import DocSidebarDesktopCollapseButton from "./theme/DocSidebar/Desktop/CollapseButton";
+
+// Export Types
 export type {
   Category,
   CategoryCardsTheme,
@@ -24,6 +32,7 @@ export type {
 };
 
 export {
+  // Custom Components
   HeroSection,
   CategoryCards,
   IlustrationsContainer,
@@ -32,4 +41,8 @@ export {
   TriangleBackground,
   StarsBackground,
   HandbookSection,
+  // Swizzled Theme Components
+  Root,
+  DocRootLayoutSidebarExpandButton,
+  DocSidebarDesktopCollapseButton,
 };

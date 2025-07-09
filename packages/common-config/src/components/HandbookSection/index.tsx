@@ -36,7 +36,7 @@ function HandbookCard({ handbook, isDefault = false }: HandbookCardProps) {
     return (
       <div className={styles.handbooksCardDefault}>
         <img
-          src="/img/default-handbook.svg"
+          src="/common/img/default-handbook.svg"
           alt=""
           className={styles.handbooksCardIcon}
         />
