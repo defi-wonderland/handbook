@@ -1,6 +1,6 @@
 import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
-import llmsTxtPlugin from "../plugins/llmsTxtPlugin";
+import { llmsTxtPlugin, acknowledgementPlugin } from "../plugins";
 
 const commonDocusaurusConfig: Partial<Config> = {
   // Even if you don't use internationalization, you can use this field to set
@@ -21,7 +21,7 @@ const commonDocusaurusConfig: Partial<Config> = {
       crossorigin: "anonymous",
     },
   ],
-  plugins: ["docusaurus-lunr-search", "vercel-analytics", llmsTxtPlugin],
+  plugins: ["docusaurus-lunr-search", "vercel-analytics", llmsTxtPlugin, acknowledgementPlugin],
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
