@@ -51,7 +51,7 @@ const optimismHandbooks: Handbook[] = [
     href: "https://handbook.wonderland.xyz",
     background: {
       bgType: "other",
-      bgImage: "/common/img/wonderland-button-bg.png",
+      bgImage: "/common/img/wonderland-button-bg.jpg",
     },
   },
 ];
