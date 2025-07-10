@@ -38,7 +38,7 @@ const optimismHeroProps: HeroSectionProps = {
   title: "OP Handbook",
   titleImage: "/img/op-handbook-social.svg",
   description:
-    "At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository: a curated guide to our best practices, processes, and technical insights.",
+    "New to Optimism? This handbook is your guide through all the things you need to know before you get started. Cheers!",
   buttonText: "Enter the Rabbit Hole",
   buttonImage: "/common/img/enter-button.svg",
   buttonLink: "/docs/welcome",

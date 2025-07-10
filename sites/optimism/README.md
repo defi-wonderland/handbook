@@ -4,32 +4,35 @@ This repository contains the Onboarding to Optimism by Wonderland, a documentati
 
 ## Structure
 
-- `handbook/` - Contains the Docusaurus website source code
-  - `docs/` - Documentation content in Markdown format
-  - `src/` - Custom React components and styles
-  - `docusaurus.config.js` - Main Docusaurus configuration
-  - `sidebar.ts` - Indexer for the docs
+- `docs/` - Documentation content in Markdown format
+- `src/` - Custom React components and styles
+- `static/` - Static assets (images, fonts, etc.)
+  - `common/` - Shared assets from the monorepo (gitignored)
+- `docusaurus.config.ts` - Main Docusaurus configuration
+- `sidebars.ts` - Indexer for the docs
 
 ## Development
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- Yarn package manager
+- Node.js (v18 or higher)
+- pnpm package manager
 
 ### Local Development
+
+From the root of the monorepo:
 
 1. Install dependencies:
 
 ```bash
-cd op-handbook
-npm i
+pnpm install
 ```
 
-2. Start the development server:
+2. Build common assets and start the development server:
 
 ```bash
-npm run start
+pnpm --filter optimism-handbook build:assets
+pnpm --filter optimism-handbook start
 ```
 
 This will start a local development server and open your browser. Changes are reflected in real-time.
@@ -39,11 +42,10 @@ This will start a local development server and open your browser. Changes are re
 To create a production build:
 
 ```bash
-cd op-handbook
-npm run build
+pnpm --filter optimism-handbook build
 ```
 
-The static site will be generated in the `op-handbook/build` directory.
+The static site will be generated in the `sites/optimism/build` directory.
 
 ### Deployment
 
@@ -52,8 +54,13 @@ The handbook is automatically deployed to Vercel when changes are pushed to the 
 ## Contributing
 
 1. Create a new branch for your changes
-2. Make your changes in the `op-handbook/docs` directory
-3. Test locally using `npm run start`
-4. Submit a pull request
+2. Make your changes in the `sites/optimism/docs` directory
+3. If you add new folders or files, you must also update `sidebars.ts`:
+
+- This file defines the sidebar navigation using [Docusaurus sidebar configuration](https://docusaurus.io/docs/sidebar).
+- Add your new documents to the appropriate category, or create a new one as needed.
+
+4. Test locally using `pnpm --filter optimism-handbook start`
+5. Submit a pull request
 
 If you have any ideas for improving the handbook, feel free to open an issue (check the templates!) to start a discussion!
