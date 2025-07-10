@@ -22,6 +22,7 @@ const commonDocusaurusConfig: Partial<Config> = {
     },
   ],
   plugins: ["docusaurus-lunr-search", "vercel-analytics", llmsTxtPlugin],
+  clientModules: ["../../packages/common-config/src/js/acknowledgement.js"],
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
