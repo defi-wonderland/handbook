@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/optimism(/.*)?",
-      "destination": "https://optimism.handbook.wonderland.xyz$1"
+      "destination": "https://op-handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app$1"
     }
   ]
 }

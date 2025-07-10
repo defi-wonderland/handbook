@@ -43,12 +43,12 @@ const commonDocusaurusConfig: Partial<Config> = {
           items: [
             {
               label: "Wonderland",
-              to: "https://handbook.wonderland.xyz",
+              to: "https://handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app/",
               target: "_self",
             },
             {
               label: "Optimism",
-              to: "https://handbook.wonderland.xyz/optimism",
+              to: "https://handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app/optimism",
               target: "_self",
             },
             // // TODO: Enable when Aztec handbook is ready

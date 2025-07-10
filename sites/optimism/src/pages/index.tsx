@@ -48,7 +48,7 @@ const optimismHandbooks: Handbook[] = [
   {
     title: "Wonderland Handbook",
     image: "/common/img/wonderland-button-image.png",
-    href: "https://handbook.wonderland.xyz",
+    href: "https://handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app",
     background: {
       bgType: "other",
       bgImage: "/common/img/wonderland-button-bg.jpg",
