@@ -15,8 +15,9 @@ const localConfig: Config = {
 
   // Set the production url of your site here
   url: "https://your-domain.com/",
-  // IMPORTANT: Change this to your project name, and add the vercel rewrite in /wonderland/vercel.json
-  baseUrl: "/your-project/",
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -31,7 +32,7 @@ const localConfig: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the 'edit this page' links.
-          editUrl: "https://github.com/your-organization/your-project/tree/main/",
+          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },

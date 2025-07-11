@@ -11,10 +11,10 @@ const localConfig: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://op-handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app",
+  url: "https://optimism.handbook.wonderland.xyz",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/optimism/",
+  baseUrl: "/",
   organizationName: "defi-wonderland",
   projectName: "op-handbook",
 
