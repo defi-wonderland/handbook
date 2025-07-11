@@ -15,9 +15,8 @@ const localConfig: Config = {
 
   // Set the production url of your site here
   url: "https://your-domain.com/",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  // IMPORTANT: Change this to your project name, and add the vercel rewrite in /wonderland/vercel.json
+  baseUrl: "/your-project/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

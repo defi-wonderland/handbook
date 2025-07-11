@@ -14,7 +14,7 @@ const localConfig: Config = {
   url: "https://op-handbook-git-feat-vercel-rewrites-defi-wonderland.vercel.app",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: "/optimism/",
   organizationName: "defi-wonderland",
   projectName: "op-handbook",
 
