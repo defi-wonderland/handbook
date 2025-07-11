@@ -53,7 +53,7 @@ const wonderlandHandbooks: Handbook[] = [
   {
     title: "Optimism handbook",
     image: "/img/optimism-handbook.svg",
-    href: "/optimism",
+    href: "https://optimism.handbook.wonderland.xyz",
     background: {
       bgType: "other",
       bgImage: "/common/img/background-handbook-card.jpg",

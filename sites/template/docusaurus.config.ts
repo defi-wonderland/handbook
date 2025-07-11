@@ -32,7 +32,7 @@ const localConfig: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the 'edit this page' links.
-          editUrl: "https://github.com/your-organization/your-project/tree/main/",
+          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },

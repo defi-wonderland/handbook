@@ -43,13 +43,13 @@ const commonDocusaurusConfig: Partial<Config> = {
           items: [
             {
               label: "Wonderland",
-              to: "/",
+              to: "https://handbook.wonderland.xyz",
+              target: "_self",
             },
             {
               label: "Optimism",
-              to: "https://handbook.wonderland.xyz/optimism",
-              target: "_blank",
-              rel: "noopener noreferrer",
+              to: "https://optimism.handbook.wonderland.xyz",
+              target: "_self",
             },
             // // TODO: Enable when Aztec handbook is ready
             // // TODO: Remember to add the rewrite in vercel.json!

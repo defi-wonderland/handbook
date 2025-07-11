@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/optimism(/.*)?",
-      "destination": "https://optimism.handbook.defi.sucks$1"
-    }
-  ]
-}
