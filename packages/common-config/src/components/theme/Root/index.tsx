@@ -60,6 +60,161 @@ function SimpleModal({ isOpen, onClose, children }: SimpleModalProps) {
   );
 }
 
+/**
+ * Manages the disclaimer button event listener setup and cleanup
+ * This function is extracted to prevent multiple event listener attachments
+ * during Docusaurus navigation
+ */
+function createDisclaimerButtonManager(onDisclaimerClick: () => void) {
+  let isListenerAttached = false;
+  let pollInterval: NodeJS.Timeout | undefined;
+  let currentButton: HTMLElement | null = null;
+  let mutationObserver: MutationObserver | null = null;
+
+  const attachListener = () => {
+    const disclaimerBtn = document.getElementById("disclaimer-btn");
+
+    // Check if this is a different button or if we need to reattach
+    if (
+      disclaimerBtn &&
+      (disclaimerBtn !== currentButton || !isListenerAttached)
+    ) {
+      // Remove listener from old button if it exists
+      if (currentButton && isListenerAttached) {
+        currentButton.removeEventListener("click", onDisclaimerClick);
+      }
+
+      disclaimerBtn.addEventListener("click", onDisclaimerClick);
+      currentButton = disclaimerBtn;
+      isListenerAttached = true;
+
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = undefined;
+      }
+      return true;
+    }
+    return false;
+  };
+
+  const resetAndReattach = () => {
+    isListenerAttached = false;
+    currentButton = null;
+
+    // Try to attach immediately
+    if (!attachListener()) {
+      // If button not found, start polling
+      if (!pollInterval) {
+        pollInterval = setInterval(() => {
+          attachListener();
+        }, 100);
+      }
+    }
+  };
+
+  const setup = () => {
+    if (typeof window === "undefined") return () => {};
+
+    // Try to attach immediately
+    resetAndReattach();
+
+    // Set up MutationObserver to watch for DOM changes
+    mutationObserver = new MutationObserver((mutations) => {
+      let shouldReattach = false;
+
+      mutations.forEach((mutation) => {
+        // Check if nodes were added or removed
+        if (mutation.type === "childList") {
+          // Check if our current button is still in the DOM
+          if (currentButton && !document.contains(currentButton)) {
+            shouldReattach = true;
+          }
+          // Check if a new disclaimer button was added
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              const element = node as Element;
+              if (
+                element.id === "disclaimer-btn" ||
+                element.querySelector("#disclaimer-btn")
+              ) {
+                shouldReattach = true;
+              }
+            }
+          });
+        }
+      });
+
+      if (shouldReattach) {
+        resetAndReattach();
+      }
+    });
+
+    // Start observing the navbar area specifically
+    const navbar = document.querySelector(
+      "[role='banner'], .navbar, .navbar__inner"
+    );
+    if (navbar) {
+      mutationObserver.observe(navbar, {
+        childList: true,
+        subtree: true,
+      });
+    } else {
+      // Fallback to observing the entire body
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    // Also listen for route change events specific to Docusaurus
+    const handleDocusaurusRouteChange = () => {
+      setTimeout(resetAndReattach, 100);
+    };
+
+    // Listen for various navigation events
+    window.addEventListener("popstate", handleDocusaurusRouteChange);
+    window.addEventListener("routeUpdate", handleDocusaurusRouteChange);
+
+    // Intercept history methods for programmatic navigation
+    const originalPushState = history.pushState;
+    const originalReplaceState = history.replaceState;
+
+    history.pushState = function (...args) {
+      originalPushState.apply(history, args);
+      handleDocusaurusRouteChange();
+    };
+
+    history.replaceState = function (...args) {
+      originalReplaceState.apply(history, args);
+      handleDocusaurusRouteChange();
+    };
+
+    // Return cleanup function
+    return () => {
+      if (pollInterval) {
+        clearInterval(pollInterval);
+      }
+
+      if (currentButton && isListenerAttached) {
+        currentButton.removeEventListener("click", onDisclaimerClick);
+      }
+
+      if (mutationObserver) {
+        mutationObserver.disconnect();
+      }
+
+      window.removeEventListener("popstate", handleDocusaurusRouteChange);
+      window.removeEventListener("routeUpdate", handleDocusaurusRouteChange);
+
+      // Restore original methods
+      history.pushState = originalPushState;
+      history.replaceState = originalReplaceState;
+    };
+  };
+
+  return { setup };
+}
+
 interface RootProps {
   children: React.ReactNode;
   disclaimerContent?: React.ReactNode | string;
@@ -74,28 +229,18 @@ export default function Root({
   const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = useCallback(() => setShowModal(false), []);
+  const handleDisclaimerClick = useCallback(() => setShowModal(true), []);
 
   useEffect(() => {
     if (!showDisclaimer) return;
 
-    const handleNavbarClick = () => {
-      setShowModal(true);
-    };
+    const disclaimerManager = createDisclaimerButtonManager(
+      handleDisclaimerClick
+    );
+    const cleanup = disclaimerManager.setup();
 
-    // Add listener when component mounts
-    const disclaimerBtn = document.getElementById("disclaimer-btn");
-    if (disclaimerBtn) {
-      disclaimerBtn.addEventListener("click", handleNavbarClick);
-    }
-
-    // Cleanup listener when component unmounts
-    return () => {
-      const disclaimerBtn = document.getElementById("disclaimer-btn");
-      if (disclaimerBtn) {
-        disclaimerBtn.removeEventListener("click", handleNavbarClick);
-      }
-    };
-  }, [showDisclaimer]);
+    return cleanup;
+  }, [showDisclaimer, handleDisclaimerClick]);
 
   return (
     <>

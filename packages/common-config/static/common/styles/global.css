@@ -739,6 +739,7 @@ a:hover {
   text-align: center;
   border-radius: 0.5rem;
   margin-right: 0.2rem;
+  text-align: start;
 }
 
 .menu__list .menu__link:hover {
@@ -1588,4 +1589,8 @@ div[class*="buttonGroup"] button {
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--wonderland-gray-800) var(--wonderland-blue-950);
+}
+
+.theme-last-updated {
+  font-size: 1.3rem;
 }

@@ -99,22 +99,22 @@ function testOne() public {
   - Check the coverage to see if the test itself is not (silently) reverting and if the target code is actually covered
   - Make sure both sides of a revert are covered with try - assert - catch - assert.
   - Mutate the property itself or the target code. See [Mutation testing](../mutation-testing.md) for more details
-    <aside>
-    ⚠️
-    
-    Unlike what you could be used to in regular unit or integration tests, only assert with a condition equals to false will make a test revert - without the previous checks, it is therefore easy to take a passing test for granted, especially as most contracts are using require and revert (in other words, if one doesn’t pay attention, one can easily end up testing nothing). 
-    
-    ```solidity
-    function testOne() public {
-      require(false);
-    }
-    
-    function testTwo public {
-      assert(false);
-    }
-    ```
-    
-    </aside>
+
+:::warning
+
+Unlike what you could be used to in regular unit or integration tests, only assert with a condition equals to false will make a test revert - without the previous checks, it is therefore easy to take a passing test for granted, especially as most contracts are using require and revert (in other words, if one doesn't pay attention, one can easily end up testing nothing).
+
+```solidity
+function testOne() public {
+  require(false);
+}
+
+function testTwo public {
+  assert(false);
+}
+```
+
+:::
 
 - Any state which can be accessed or reconstructed from the target should be (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
 - Always start with validating the initial setup and sanity checks as “property-0”. For instance, address of the deployed contract ≠ 0, calling some constant variables, etc.
