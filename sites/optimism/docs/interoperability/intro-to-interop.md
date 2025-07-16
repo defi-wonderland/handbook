@@ -3,9 +3,10 @@ id: intro-to-interop
 title: Mental model
 sidebar_label: Mental model
 ---
-This section explains the foundational mental model of OP Stack interoperability, from how messages are emitted and consumed to the validation logic that makes them safe. 
 
-When we say *interoperability*, we are talking about the ability of one chain to read and act on messages from another chain.
+This section explains the foundational mental model of OP Stack interoperability, from how messages are emitted and consumed to the validation logic that makes them safe.
+
+When we say _interoperability_, we are talking about the ability of one chain to read and act on messages from another chain.
 
 In the OP stack, interop is built into the protocol. Chains should be able to emit logs, call initiating messages, and other chains should be able to consume them as inputs to their own transactions. **This does not require routing through Ethereum L1.**
 
@@ -22,6 +23,7 @@ Native interop solves this by allowing chains to read logs from each other witho
 Interop is based on events. One chain emits an event. Another chain sees it and takes action.
 
 Each cross-chain message has two parts:
+
 - **Initiating message**: A log emitted on the source chain.
 - **Executing message**: A log emitted on the destination chain, pointing to the initiating message.
 
@@ -36,17 +38,19 @@ struct Identifier {
   uint256 chainid;
 }
 ```
+
 This identifier is used to prove that the message exists and that it has not expired.
 
 ### Validity
 
 A message can only be consumed if it is valid. There are three invariants:
+
 - **Timestamp**: The initiating message must have a timestamp less than or equal to the executing message.
 - **Chain ID**: The source chain must be in the destination chain’s dependency set.
 - **Expiry**: The message must be consumed within a fixed time window after it is created. This window is currently set to 180 days.
 
-:::info 
-If this time window elapses, the message can be re-sent on origin to make it available using `L2ToL2CrossDomainMessenger#resendMessage`. 
+:::info
+If this time window elapses, the message can be re-sent on origin to make it available using `L2ToL2CrossDomainMessenger#resendMessage`.
 :::
 
 If any of these invariants fail, the executing message is invalid. Any block that includes it will be reorged.
@@ -65,12 +69,12 @@ This configuration tells the node **which chains to watch**, **which logs to ind
 
 :::info Can I just depend on OP Mainnet?
 
-No. Each chain’s dependency set must explicitly include the chains it wants to receive messages from. Depending only on OP Mainnet does *not* automatically grant interoperability with every other OP Chain.
+No. Each chain’s dependency set must explicitly include the chains it wants to receive messages from. Depending only on OP Mainnet does _not_ automatically grant interoperability with every other OP Chain.
 
 To enable seamless interop, chains should include all intended counterparties in their dependency set. This is why Superchain clusters aim to configure **fully connected meshes**, where every chain includes all others.
 :::
 
-### Who *enforces* interop?
+### Who enforces interop?
 
 Most of the interop logic is enforced by the **consensus node software**, not by contracts.
 
