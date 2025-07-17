@@ -12,7 +12,7 @@ A "unit" is defined as the smallest piece of logic in a system. In a protocol bu
 
 Mocking is the process of creating and returning an arbitrary value when an external dependency is used. As we use Forge, we have a cheat code that makes this process pretty straightforward: `vm.mockCall(target address, calldata, returned value)`.
 
-The target address is the address where the mocked contract lives. This is usually an arbitrary address where nothing is deployed, calldata is the selector + data used to call this address (we strongly recommend using `abi.encodeCall` instead of `encodeWithSelector` or `encodeWithSignature`, as it greatly reduces the risk of errors in the type of the arguments or in the function name), and the returned value is the value the mock is going to return to the unit we're testing.
+The target address is the address where the mocked contract lives. This is usually an arbitrary address where nothing is deployed, calldata is the selector + data used to call this address (we strongly recommend using `abi.encodeCall` instead of `encodeWithSelector` or `encodeWithSignature`, as it greatly reduces the risk of errors in the type of the arguments or the function name), and the returned value is the value the mock is going to return to the unit we're testing.
 
 Since a call to an external contract is a part of the expected behaviour of the unit, we usually pair the `mockCall` cheat code with `vm.expectCall(target address, call data)`. This will make the test fail if no call with the specified data is made to the mock address.
 
@@ -21,7 +21,7 @@ Using cheat codes, we avoid having `MockContract`, which introduces foreign logi
 <aside>
 💡
 
-Not all logic can be mocked. One notorious exception is multiple calls to the same function, which should return different values - for example `balanceOf` calls sandwiching a transfer. Using a mock contract, with as little logic as possible, is then necessary.
+Not all logic can be mocked. One notorious exception is multiple calls to the same function, which should return different values - for example, `balanceOf` calls sandwiching a transfer. Using a mock contract, with as little logic as possible, is then necessary.
 
 </aside>
 
@@ -61,14 +61,14 @@ function foo(uint256 input) external {
     vm.mockCall(address(vault), abi.encodeCall(vault.bonus, (2)), '')
     ```
     
-    The expectCall are identical, without the returned values:
+    The expectCall is identical, without the returned values:
     
     ```solidity
     vm.expectCall(address(token), abi.encodeCall(token.balanceOf, (address(this))))
     vm.expectCall(address(vault), abi.encodeCall(vault.bonus, (2)))
     ```
     
-    Here is how a test function would look like (see the Bulloak section for the function skeleton generation).
+    Here is how a test function would look (see the Bulloak section for the function skeleton generation).
     
     ```solidity
     function test_ifTokenBalanceIsGreaterThanTen() external {
@@ -85,7 +85,7 @@ function foo(uint256 input) external {
     ```
 </details>
 
-Another similar cheat code we use in our unit tests to check if an address has emitted a specific event is `vm.expectEmit(address)`. We tend to avoid using `vm.expectEmit(bool,bool,bool,bool)` or `vm.expectEmit(bool,bool,bool,bool,address)` that specifically matches topics, for better future-proofing (if an event signature changes and adds/removes some indexed parameters for instance, it might break the test).
+Another similar cheat code we use in our unit tests to check if an address has emitted a specific event is `vm.expectEmit(address)`. We tend to avoid using `vm.expectEmit(bool, bool,bool,bool)` or `vm.expectEmit(bool,bool,bool,bool,address)` that specifically matches topics, for better future-proofing (if an event signature changes and adds/removes some indexed parameters, for instance, it might break the test).
 
 In practice, to avoid redundant mock/expectCall, we either use internal helpers for smaller mocks, or our dedicated mocking tool for more advanced functionalities: [Smock-foundry](https://github.com/defi-wonderland/smock-foundry).
 
@@ -162,7 +162,7 @@ function foo(bool x, bool y) returns (bool) {
 
 ```
 
-and its control flow chart:
+And its control flow chart:
 
 ```mermaid
 flowchart TD
@@ -197,7 +197,7 @@ flowchart TD
 
 ```
 
-Covering every possible path ensures no stone is left unturned, but, as a direct consequence, can dramatically increase the number of tests. Furthermore, if the unit has various independent conditions, this will lead to different paths which are not providing any new information when tested
+Covering every possible path ensures no stone is left unturned, but, as a direct consequence, can dramatically increase the number of tests. Furthermore, if the unit has various independent conditions, this will lead to different paths which do not provide any new information when tested.
 
 ```solidity
 function foo(bool x, bool y) returns (bool) {
