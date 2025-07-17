@@ -49,5 +49,5 @@ Before submitting PRs, run the following commands:
 - Schedule sync review calls with Optimism to:
   - Present code changes
   - Provide implementation overview
-  - Facilitate async review process
+  - Facilitate the async review process
 - Maintain clear communication channels for questions and feedback

@@ -11,7 +11,7 @@ sidebar_label: Coding
 - Clone Wonderland repo: https://github.com/defi-wonderland/optimism/
 - Install mise and dependencies from `mise.toml`
 - Contracts are under [`packages/contracts-bedrock`](https://github.com/defi-wonderland/optimism/tree/develop/packages/contracts-bedrock)
-- Read the contributing guide (not need to build the entire monorepo): https://github.com/ethereum-optimism/optimism/blob/develop/CONTRIBUTING.md
+- Read the contributing guide (no need to build the entire monorepo): https://github.com/ethereum-optimism/optimism/blob/develop/CONTRIBUTING.md
 
 ## Coding Style
 
@@ -19,7 +19,7 @@ sidebar_label: Coding
 
 ## Contracts Insight
 
-These are the contracts to pay special attention and get deep understanding of them:
+These are the contracts to pay special attention to and get a deep understanding of them:
 
 ### L1 Contracts
 

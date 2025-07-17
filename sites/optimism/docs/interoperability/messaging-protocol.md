@@ -5,7 +5,7 @@ sidebar_label: Messaging
 ---
 
 :::info reference
-This is a high level summary of how messaging works. We recommend you to read it, and after it go to the [OP Stack Specs about Messaging](https://specs.optimism.io/interop/messaging.html).
+This is a high level summary of how messaging works. We recommend that you read it, and after that, go to the [OP Stack Specs about Messaging](https://specs.optimism.io/interop/messaging.html).
 :::
 
 Cross-chain messaging enables OP Chains to communicate directly, without routing messages through Ethereum. This low-latency communication is the foundation of Superchain interop. It powers cross-chain contract composition, token transfers, and native ETH bridging.
@@ -40,7 +40,7 @@ If validation passes, the destination contract is called with the message payloa
 ## Messaging Invariants
 
 The protocol enforces the following rules:
-- **Chain ID Invariant**: The chainid in the Identifier must belong to the destination chain’s dependency set.
+- **Chain ID Invariant**: The chain in the Identifier must belong to the destination chain’s dependency set.
 - **Timestamp Invariant**: The initiating message’s timestamp must be less than or equal to the executing message’s timestamp. It must also be greater than the Interop upgrade timestamp.
 - **Expiry Invariant**: The executing message must be submitted within 180 days of the initiating message’s timestamp.
 
@@ -70,7 +70,7 @@ When a message is emitted on a source chain:
 
 This means message passing in the Superchain is node-mediated. The EVM only enforces **local validation**, but the cross-chain part is coordinated by the **consensus node software**.
 
-Interop only works if the node is configured to watch other chains, and knows how to validate their logs.
+Interop only works if the node is configured to watch other chains and knows how to validate their logs.
 The Identifier.timestamp is compared to the destination block’s timestamp during execution to ensure ordering is preserved. This prevents messages from being predeclared for future blocks or replayed in unintended contexts.
 
 ## Relayers
@@ -82,9 +82,9 @@ Relayers are offchain agents that facilitate message execution across chains. Af
 3. Builds a tx to `relayMessage()` on the destination chain, including the required access list.
 4. Pays gas on the destination to trigger execution.
 
-Relayers are permissionless, anyone can submit the executing message. In production, teams often run their own relayers or rely on shared infra like `autorelayer`. Relayer logic may be bundled into the same process as the sequencer.
+Relayers are permissionless; anyone can submit the executing message. In production, teams often run their relayers or rely on shared infra like `autorelayer`. Relayer logic may be bundled into the same process as the sequencer.
 
-The protocol treats relayers as untrusted helpers, the message must still pass all invariant checks on-chain.
+The protocol treats relayers as untrusted helpers; the message must still pass all invariant checks on-chain.
 
 ### Who pays for gas?
 
@@ -93,7 +93,7 @@ Cross-chain message execution happens in two phases. The sender pays gas to emit
 This means:
 - The source tx does **not** include gas for the destination.
 - If the destination chain is congested, it’s up to the relayer (or node operator) to decide when or whether to relay the message.
-- In production, relayers may be incentivized or subsidized. Protocols can also run their own relayers to guarantee liveness.
+- In production, relayers may be incentivized or subsidised. Protocols can also run their relayers to guarantee liveness.
 
 Users should be aware that the relay may be delayed or dropped if destination gas costs are abnormally high.
 
@@ -155,12 +155,12 @@ This serialized payload is passed through `keccak256` and matched during executi
 
 Interop supports both messaging models:
 - **Push**: The source contract emits a message. A relayer submits it on the destination chain. Used by `L2ToL2CrossDomainMessenger`.
-- **Pull**: An event is emitted on origin chain, and on destination, `validateMessage()` on `CrossL2Inbox` is called to verify and process it.
+- **Pull**: An event is emitted on the origin chain, and destination, `validateMessage()` on `CrossL2Inbox` is called to verify and process it.
 
 Use push messaging to trigger cross-chain contract execution. Use pull messaging to verify attestations or read logs emitted by other chains.
 
 :::warning L1 is not part of native interop
-The OP Stack’s native interop protocol (using access lists and `CrossL2Inbox`) only works between OP Chains (L2 ↔ L2). It cannot be used for L1 ↔ L2 messaging, since Ethereum does not support access list validation at consensus level. L1 messaging continues to use classic bridge contracts with Merkle proofs.
+The OP Stack’s native interop protocol (using access lists and `CrossL2Inbox`) only works between OP Chains (L2 ↔ L2). It cannot be used for L1 ↔ L2 messaging, since Ethereum does not support access list validation at the consensus level. L1 messaging continues to use classic bridge contracts with Merkle proofs.
 :::
 
 ## Safety and the Message Graph

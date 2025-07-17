@@ -37,16 +37,16 @@ if (id.timestamp != block.timestamp) {
 ## Safety Levels
 
 Messages and blocks exist on a spectrum of safety:
-- unsafe: Minimal guarantees. Built by a sequencer and can be reorged.
+- unsafe: Minimal guarantees. Built by a sequencer and can be reorganised.
 - cross-unsafe: All cross-chain messages are valid, but the data may not be fully published.
-- safe: All data is available. Block can still be reorged.
+- safe: All data is available. The block can still be reorganised.
 - finalized: Economic finality is guaranteed. Reorging would slash Ethereum validators.
 
 To promote a block from unsafe to safe, the initiating messages of all executing messages must be resolved as safe.
 
 ## Sequencer Policy and Flexibility
 
-The OP Stack uses sequencer policy to reduce synchrony requirements. A sequencer can lag behind other chains without halting block production. However, any executing message from a remote chain must still be validated, either:
+The OP Stack uses a sequencer policy to reduce synchrony requirements. A sequencer can lag behind other chains without halting block production. However, any executing message from a remote chain must still be validated, either:
 - As safe (preferred),
 - Or as unsafe (higher latency risk, may cause reorgs).
 
@@ -74,9 +74,9 @@ This helps block builders ensure they only include valid executing messages.
 
 ## Shared Sequencing
 
-Shared sequencing is possible when one block builder controls multiple chains. In this case, cross-chain composability can be synchronous: messages can be sent and executed in the same timestamp. This is critical for atomic actions across OP Chains.
+Shared sequencing is possible when one block builder controls multiple chains. In this case, cross-chain composability can be synchronous: messages can be sent and executed at the same timestamp. This is critical for atomic actions across OP Chains.
 
 Some security considerations are: 
 - Including unsafe messages allows faster bridging but risks reorgs.
-- Sequencers relying on preconfirmation messages can have those reorged away by remote sequencers.
+- Sequencers relying on preconfirmation messages can have those reorganised away by remote sequencers.
 - Advanced builders may include intra-block messages if they verify them carefully.
