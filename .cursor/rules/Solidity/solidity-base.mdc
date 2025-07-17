@@ -1,0 +1,19 @@
+---
+description: Solidity guidelines
+globs: **/*.sol
+version: 1.0.0
+---
+
+# Solidity Base Guidelines
+
+## Code Structure
+- Order imports: External Libraries → Internal Libraries → Local Interfaces → Local Contracts
+- Define events, errors, and structs in interfaces
+- Order functions by visibility: external → public → internal → private
+- Order state variables: constants → immutable → storage
+
+## Naming Conventions
+- Prefix interfaces with "I"
+- Capitalize constants and immutable variables
+- Prefix internal storage variables with underscore
+- Use descriptive, unambiguous names

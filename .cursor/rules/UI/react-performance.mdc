@@ -1,0 +1,19 @@
+---
+description: React performance optimization guidelines
+globs: **/*.tsx
+version: 1.0.0
+---
+
+# React Performance Guidelines
+
+## Optimization
+- Implement proper memoization (useMemo, useCallback)
+- Optimize re-renders
+- Lazy load components when appropriate
+- Optimize images to be under 250kB
+
+## State Management
+- Use appropriate state management solutions
+- Avoid unnecessary state
+- Keep state as local as possible
+- Use context API appropriately

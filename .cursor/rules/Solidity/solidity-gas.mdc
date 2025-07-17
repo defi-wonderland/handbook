@@ -1,0 +1,21 @@
+---
+description: Solidity gas optimization guidelines
+globs: **/*.sol
+version: 1.0.0
+---
+
+# Gas Optimization Guidelines
+
+## Storage Optimization
+- Cache storage variables in memory
+- Pack storage variables into single slots
+- Keep strings under 32 bytes
+- Use appropriate variable sizes (uint48 for timestamps)
+- Use mappings instead of arrays when possible
+
+## Computation Optimization
+- Use unchecked blocks for safe arithmetic
+- Avoid unnecessary storage reads/writes
+- Use calldata for function parameters
+- Cache repeated calculations
+- Use events instead of storage when possible

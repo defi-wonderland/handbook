@@ -1,0 +1,42 @@
+{
+  "name": "@handbook/common-config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "files": [
+    "src",
+    "static",
+    "dist"
+  ],
+  "exports": {
+    "./styles/global.css": "./static/common/styles/global.css",
+    "./components": "./src/components/index.ts",
+    "./theme": "./src/components/theme/index.ts",
+    "./preset": "./dist/preset/index.js",
+    "./preset/commonDocusaurusConfig": {
+      "types": "./preset/commonDocusaurusConfig.ts",
+      "default": "./dist/preset/commonDocusaurusConfig.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/types": "3.7.0",
+    "@docusaurus/core": "3.7.0",
+    "clsx": "2.0.0",
+    "prism-react-renderer": "2.3.0",
+    "remark-math": "6.0.0",
+    "rehype-katex": "7.0.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "fs-extra": "11.2.0",
+    "@types/fs-extra": "11.0.4",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "typescript": "5.6.2"
+  }
+}

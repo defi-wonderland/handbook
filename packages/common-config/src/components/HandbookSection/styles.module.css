@@ -1,0 +1,195 @@
+.handbooksSection {
+  width: 100%;
+  min-height: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  max-width: 66rem;
+}
+
+.handbooksSeparator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--wonderland-gray-300);
+}
+
+.handbooksSeparator p {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--wonderland-gray-100);
+  text-transform: uppercase;
+  font-family:
+    "Sharp Grotesk",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.handbooksSeparator img {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.handbooksDescription {
+  width: 100%;
+  max-width: 51.625rem;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--wonderland-gray-200);
+  line-height: 150%;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  letter-spacing: -0.02em;
+  text-align: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.handbooksCards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.handbooksCard {
+  width: 100%;
+  min-height: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #ffffff4d;
+  border-radius: 11.61px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  z-index: 100;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.handbooksCardDefault {
+  width: 100%;
+  min-height: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #ffffff4d;
+  border-radius: 11.61px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+}
+
+a.handbooksCard:hover {
+  cursor: pointer;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 4px 30px rgba(31, 85, 213, 0.2),
+    0 0 20px rgba(233, 91, 155, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.handbooksCardIcon {
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  z-index: 1;
+  position: relative;
+}
+
+.colorOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: hue;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .handbooksSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .handbooksCards {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainLine {
+    display: none;
+  }
+}
+
+.starMobile {
+  margin-top: -8rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .starMobile {
+    display: block;
+    margin-top: -13rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .starMobile {
+    display: block;
+    margin-top: -14rem;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .starMobile {
+    display: block;
+    margin-top: -12rem;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,40 @@
+@media (min-width: 997px) {
+  .expandButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--docusaurus-collapse-button-bg);
+    cursor: pointer;
+    padding-bottom: 1rem;
+  }
+
+  .expandButton:hover,
+  .expandButton:focus {
+    background-color: var(--docusaurus-collapse-button-bg-hover);
+  }
+
+  .expandButtonIcon {
+    transform: rotate(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--wonderland-gray-400, #7d89b0);
+  }
+
+  [dir="rtl"] .expandButtonIcon {
+    transform: rotate(180deg);
+  }
+
+  .expandButton:hover .expandButtonIcon {
+    transform: rotate(0) scale(1.1);
+    color: var(--wonderland-gray-100, #eff1f5);
+  }
+
+  [dir="rtl"] .expandButton:hover .expandButtonIcon {
+    transform: rotate(180deg) scale(1.1);
+  }
+}

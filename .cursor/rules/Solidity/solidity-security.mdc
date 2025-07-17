@@ -1,0 +1,20 @@
+---
+description: Solidity security guidelines
+globs: **/*.sol
+version: 1.0.0
+---
+
+# Solidity Security Guidelines
+
+## Security Patterns
+- Use CEI pattern (Checks-Effects-Interactions)
+- Prefer custom errors over require statements
+- Include comprehensive NatSpec documentation
+- Emit events for storage changes
+- Inherit interfaces last to avoid linearization issues
+
+## Best Practices
+- Use SafeMath or unchecked blocks appropriately
+- Validate all inputs
+- Handle edge cases explicitly
+- Follow security best practices

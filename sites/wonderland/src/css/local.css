@@ -1,0 +1,55 @@
+/* Custom styles for your documentation site */
+
+/* Shape, Icons, etc customization */
+:root {
+  --wonderland-accent: #978cfb;
+}
+
+/* Wonderland-specific menu icons */
+.menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
+  background-image: url("/img/icons/map.svg");
+}
+
+/* Development category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
+  background-image: url("/img/icons/code-bracket-square.svg");
+}
+
+/* Security category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
+  background-image: url("/img/icons/key.svg");
+}
+
+/* Testing category icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
+  background-image: url("/img/icons/bug-ant.svg");
+}
+
+/* Font for category titles */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/processes"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/development"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/security"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/testing"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--wonderland-accent);
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

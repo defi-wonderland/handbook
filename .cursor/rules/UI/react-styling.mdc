@@ -1,0 +1,19 @@
+---
+description: React styling guidelines
+globs: **/*.tsx
+version: 1.0.0
+---
+
+# React Styling Guidelines
+
+## Style Organization
+- Use CSS-in-JS or external stylesheets
+- Follow team styling conventions
+- Maintain consistent spacing and formatting
+- Use design system tokens when available
+
+## Best Practices
+- Implement responsive design patterns
+- Use CSS modules or styled-components
+- Follow BEM or similar naming conventions
+- Keep styles modular and reusable
