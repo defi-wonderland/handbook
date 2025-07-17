@@ -31,13 +31,13 @@ For example:
 
 ### **Supply Distribution & Token Allocation**
 
-Beyond total supply, it is crucial to evaluate **how tokens are distributed**. High concentration in the hands of early investors or developers can introduce sell pressure when unlock periods end.
+Beyond total supply, it is crucial to evaluate **how tokens are distributed**. High concentration in the hands of early investors or developers can introduce selling pressure when the unlock periods end.
 
 Consider:
 
 - **Vesting Schedules**: Are team tokens locked for an extended period?
 - **Investor Holdings**: Do a few wallets control a disproportionate share?
-- **Community Allocation**: Does the project prioritize decentralization?
+- **Community Allocation**: Does the project prioritise decentralisation?
 
 Example: If a protocol allocates 25% of tokens to venture capitalists with a short unlock period, expect downward price pressure as those tokens enter circulation.
 
@@ -73,7 +73,7 @@ Bitcoin’s long-term success is largely built on the **narrative of financial s
 
 Tokenomics often employs **game-theoretic mechanisms** to drive behavior. The most common strategies include:
 
-- **Locking Mechanisms**: Curve Finance (CRV) rewards users for locking tokens longer, reducing circulating supply.
+- **Locking Mechanisms**: Curve Finance (CRV) rewards users for locking tokens longer, reducing the circulating supply.
 - **Bribing Systems**: Votium allows users to earn “bribes” by directing governance votes, increasing demand for governance tokens.
 - **Liquidity Incentives**: Platforms reward users who provide liquidity, ensuring deep market depth.
 
@@ -108,7 +108,7 @@ Tokens enter circulation through emissions, which must be **sustainable** to avo
 
 ### **Example: JPEG’d Token Emissions**
 
-JPEG’d structured emissions so that **only 30% of tokens were unlocked at launch**, with gradual releases over 18 months. This prevents rapid inflation while ensuring early participants remain incentivized
+JPEG’d structured emissions so that **only 30% of tokens were unlocked at launch**, with gradual releases over 18 months. This prevents rapid inflation while ensuring early participants remain incentivized.
 
 # Resources
 
