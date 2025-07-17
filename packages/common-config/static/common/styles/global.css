@@ -473,6 +473,7 @@ nav.navbar.navbar--fixed-top + .main-wrapper {
     system-ui,
     -apple-system,
     sans-serif;
+  z-index: 1000;
 }
 
 .navbar__search-input::placeholder {
