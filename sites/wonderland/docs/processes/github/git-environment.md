@@ -1,10 +1,10 @@
 # Git Enviroment
 
 :::tip
-The most secure approach is to create a separate user account on your computer for your anonymous profile, completely isolating it from your personal one. **This provides the strongest separation of concerns and security.**
+The most secure approach is to create a separate user account on your computer for your anonymous profile, completely isolating it from your one. **This provides the strongest separation of concerns and security.**
 :::
 
-The following guide describes how to configure both profiles under a single user account if you choose not to create a separate user. However, be aware this is less secure than full user isolation.
+The following guide describes how to configure both profiles under a single user account if you choose not to create a separate user. However, be aware that this is less secure than full user isolation.
 
 This guide walks you through setting up dual Git environments on WSL2 - one for personal use and another for anonymous DeFi use. You'll learn how to:
 
@@ -16,7 +16,7 @@ This guide walks you through setting up dual Git environments on WSL2 - one for 
 ## Prerequisites
 
 - Windows with WSL2 installed and Ubuntu terminal
-- Git installed on WSL2
+- Git is installed on WSL2
 - GnuPG installed (`sudo apt-get install gnupg`)
 
 ## Directory Structure Setup
@@ -30,7 +30,7 @@ mkdir ~/defi
 
 ## Git Profile Configuration
 
-We’re going to mention your anon and personal email in the guide below, but keep in mind that Github creates a [private email](https://github.com/settings/emails) for you that can shield you from unwanted inquires.
+We’re going to mention your anonymous and personal email in the guide below, but keep in mind that GitHub creates a [private email](https://github.com/settings/emails) for you that can shield you from unwanted inquiries.
 
 ### Create Personal Profile
 
@@ -107,14 +107,14 @@ cat ~/.ssh/personal/id_ed25519.pub
 cat ~/.ssh/defi/id_ed25519.pub
 ```
 
-Add each public key to the corresponding GitHub account under Settings → SSH Keys
+Add each public key to the corresponding GitHub account under Settings → SSH Keys.
 
 ## GPG Key Setup
 
 ### Generate GPG key:
 
 ```bash
-gpg --full-generate-key
+gpg-- full-generate-key
 ```
 
 Select:
@@ -138,7 +138,7 @@ Note the key ID after `sec rsa3072/`
 gpg --armor --export YOUR_KEY_ID
 ```
 
-Add the output to GitHub under Settings → GPG Keys
+Add the output to GitHub under Settings → GPG Keys.
 
 ### Update your Git configs with the GPG key ID:
 
@@ -241,7 +241,7 @@ git config --global commit.gpgsign true
 git config --global --list | grep gpg
 ```
 
-2. Ensure GPG agent is running:
+2. Ensure the GPG agent is running:
 
 ```bash
 gpg-agent --daemon
@@ -255,7 +255,7 @@ echo "test" | gpg --clearsign
 
 ### SSH authentication fails
 
-1. check SSH agent:
+1. Check SSH agent:
 
 ```bash
 eval $(ssh-agent -s)

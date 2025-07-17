@@ -5,7 +5,7 @@ pagination_next: processes/project-lifecycle
 ---
 # Great software is forged through process.
 
-At Wonderland, we treat process as product. The way we plan, the way we review, the way we commit. All of it shapes what we ship. And in a world where small oversights can have massive consequences, we don't leave this part of the system to chance.
+At Wonderland, we treat the process as a product. The way we plan, the way we review, the way we commit. All of it shapes what we ship. And in a world where small oversights can have massive consequences, we don't leave this part of the system to chance.
 
 This section outlines the core workflows that make our projects safer, more reliable, and easier to maintain.
 

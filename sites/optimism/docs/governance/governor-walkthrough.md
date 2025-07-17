@@ -30,7 +30,7 @@ While proposals today are signaling-only for most types (i.e., they do not trigg
 
 - **`admin`**: Owns the proxy and controls upgrades. Does not vote or propose.
 - **`manager`**: Can create proposals, execute them, or update system parameters.
-- **`voters`**: Any address with delegated OP — either directly or through Alligator.
+- **`voters`**: Any address with delegated OP, either directly or through Alligator.
 
 ## Inheritance
 

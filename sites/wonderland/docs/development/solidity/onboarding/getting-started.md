@@ -13,7 +13,7 @@ The onboarding is divided into two key sections:
 
 ## 🛰️ Comms
 
-- All the questions regarding the challenge or anything should go in the `#new-team-member-onboarding-channel` within the onboarding section in Wonderland's discord server.
+- All the questions regarding the challenge or anything should go in the `#new-team-member-onboarding-channel` within the onboarding section in Wonderland's Discord server.
 - Anyone who is available will answer your questions.
 
 ## 📎 Tracking
