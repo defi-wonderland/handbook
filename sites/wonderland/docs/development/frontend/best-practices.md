@@ -1,9 +1,9 @@
 # Best Practices
 
-This guide outlines our frontend development best practices. It covers code quality standards, GitHub workflows, and security measures to help us build robust, maintainable, and secure frontend applications.
+This guide outlines our best practices for frontend development. It covers code quality standards, GitHub workflows, and security measures to help us build robust, maintainable, and secure frontend applications.
 
 <div align="center">
-  <img src="/img/frontend-meme.jpg" width="900" alt="A panda developer frustrated with code, then realizing the importance of following best practices" />
+  <img src="/img/frontend-meme.jpg" width="900" alt="A panda developer frustrated with code, then realising the importance of following best practices" />
 </div>
 
 We've all been there: staring at confusing code and wondering "why?". That's exactly why we maintain these best practices. They help turn those "why???" moments into "aha!" moments by providing clear, consistent patterns and guidelines for our codebase.
@@ -62,7 +62,7 @@ return (
 2. Library imports follow, encompassing third-party dependencies.
 3. Internal component or file imports are placed last.
 
-**Why it's Important:** Maintaining a consistent imports order enhances code readability and organization. It establishes a clear hierarchy, facilitating easier navigation and identification of dependencies for developers.
+**Why it's Important:** Maintaining a consistent import order enhances code readability and organization. It establishes a clear hierarchy, facilitating easier navigation and identification of dependencies for developers.
 
 **Bad:**
 
@@ -127,7 +127,7 @@ Define styles separately using external stylesheets or CSS-in-JS libraries for b
 return (
   <div>
     <button
-      style={{ backgroundColor: "blue", color: "white", borderRadius: "5px" }}
+      style={{ backgroundColor: "blue", colour: "white", borderRadius: "5px" }}
     >
       Click Me
     </button>
@@ -201,12 +201,12 @@ export default Button;
 ```
 
 :::tip
-Depending on the chosen component (in this case, a button), it will function the same as using a button with all the properties it can inherit.
+Depending on the chosen component (in this case, a button), it will function similarly to using a button, inheriting all its properties.
 :::
 
 ### Use [**`theme`**](https://mui.com/system/experimental-api/css-theme-variables/#usage) property and dark/light mode from the MUI context
 
-When implementing colors from a theme, it's important to use the defined theme variables rather than hardcoding color values in HEX or RGB. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette.
+When implementing colors from a theme, it's essential to use the defined theme variables rather than hard-coding colour values in hexadecimal (hex) or RGB format. This approach ensures that your components automatically adapt to theme changes, such as switching between light and dark modes, by relying on the project's color palette.
 
 This promotes greater consistency across the project.
 
@@ -246,9 +246,9 @@ Thanks to this approach, when you apply **dark or light mode**, your components 
 
 ### Use Appropriate Break Lines in React Components
 
-Incorporating strategic break lines in React components enhances readability, especially for complex structures.
+Incorporating strategic line breaks in React components enhances readability, especially for complex structures.
 
-**Why it's Important:** Clear and organized code boosts developer productivity and reduces error rates. Break lines provide visual cues, aiding developers in understanding the component's structure and flow.
+**Why it's Important:** Clear and organized code boosts developer productivity and reduces error rates. Line breaks provide visual cues, aiding developers in understanding the component's structure and flow.
 
 **Bad:**
 
@@ -372,7 +372,7 @@ Pull requests should be kept concise to facilitate efficient code review. Focus 
 
 ### Private Key Protection
 
-integrate private key checkers to ensure sensitive information such as API keys remains secure and confidential. Check: https://github.com/defi-wonderland/crypto-husky-checks
+Integrate private key checkers to ensure sensitive information such as API keys remains secure and confidential. Check: https://github.com/defi-wonderland/crypto-husky-checks
 
 **Why it's Important:** Private key checkers safeguard against potential security breaches by preventing inadvertent exposure of sensitive data.
 

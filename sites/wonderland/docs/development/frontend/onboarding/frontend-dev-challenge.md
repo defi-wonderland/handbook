@@ -1,8 +1,8 @@
 # Coding Challenge
 
-This challenge is designed to immerse you in Wonderland's development culture. You'll be working on tasks similar to your take-home assignment, but now adapted to align with our team's standards and best practices. 
+This challenge is designed to immerse you in Wonderland's development culture. You will work on tasks similar to your take-home assignment, but adapted to our team's standards and best practices.
 
-As you navigate our workflows, we welcome your critical perspective—suggest improvements and alternatives when you identify better solutions. Success in this challenge means not just completing the technical tasks, but also demonstrating your ability to integrate into our collaborative environment and contribute to our continuous improvement.
+As you navigate our workflows, we welcome your critical perspective. Feel free to suggest improvements and alternatives when you identify better solutions. Success in this challenge is not just about completing the technical tasks, but also demonstrating your ability to integrate into our collaborative environment and contribute to its continuous improvement.
 
 ## Project Setup
 
@@ -22,7 +22,7 @@ Use the following contract addresses for your implementation:
 
 ## Implementation Requirements
 
-Your challenge should include the following components:
+Your submission should include the following components:
 
 - Custom UI/UX design implementation using Material-UI
 - Efficient data fetching with Multicall for balances and allowances:
