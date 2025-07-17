@@ -4,15 +4,15 @@ sidebar_position: 1
 pagination_next: development/research/research-overview
 ---
 
-# Welcome to the Development Section 👩‍💻 
+# Welcome to the Development Section 👩‍💻
 
 We live in a space where code is law, and law is fragile.
 
-In Wonderland we care about crafting systems that lasts. Every line we write carries consequences, sometimes financial, sometimes reputational, sometimes ethical. 
+At Wonderland we care about crafting systems that last. Every line we write carries consequences, sometimes financial, sometimes reputational, sometimes ethical.
 
-> We believe great engineering happens at the intersection of curiosity and discipline. 
+> We believe great engineering happens at the intersection of curiosity and discipline.
 
-That means saying *no* to shortcuts. That means understanding why code patterns matter, why onboarding isn't a formality, and why tests are not an afterthought. We do not separate writing from thinking — or thinking from responsibility.
+That means saying _no_ to shortcuts. That means understanding why code patterns matter, why onboarding isn't a formality, and why tests are not an afterthought. We do not separate writing from thinking, or thinking from responsibility.
 
 Here, you'll find the foundations of how we build:
 
@@ -22,4 +22,4 @@ Here, you'll find the foundations of how we build:
 
 Each of these domains is a lens through which we can strengthen the system. And when in doubt, we come back to the one principle that matters most:
 
-**Build like it will be attacked.** 
+**Build like it will be attacked.**

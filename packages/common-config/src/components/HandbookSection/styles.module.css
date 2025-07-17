@@ -11,6 +11,30 @@
   max-width: 66rem;
 }
 
+@media (max-width: 1200px) {
+  .handbooksSectionWonderland {
+    padding-top: 0.3rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .handbooksSectionWonderland {
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .handbooksSectionWonderland {
+    padding-top: 2.5rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .handbooksSectionWonderland {
+    padding-top: 3rem;
+  }
+}
+
 .handbooksSeparator {
   display: flex;
   align-items: center;

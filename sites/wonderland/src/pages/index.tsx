@@ -75,6 +75,7 @@ const wonderlandHandbookProps: HandbookSectionProps = {
   title: "PARTNER HANDBOOKS",
   description:
     "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+  className: "handbooksSectionWonderland",
 };
 
 const wonderlandIllustrationsProps: IlustrationsContainerProps = {
