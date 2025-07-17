@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![image.png](/img/meme-tech.jpg)
 
-Documenting the code, protocols and models we work with is a key part of a project's succeed. Any stray confusion, or misused phrase, might send people down the wrong path. If you’ve worked in software, you know how quickly a tiny misunderstanding can balloon into a huge chaos. That’s where technical writing comes in. It’s this practice of wrangling complexity into clarity —distilling volumes of detail into instructions even a newcomer can follow. **We care about ensuring that what we build can be used without confusion.**
+Documenting the code, protocols and models we work with is a key part of a project's success. Any stray confusion, or misused phrase, might send people down the wrong path. If you’ve worked in software, you know how quickly a tiny misunderstanding can balloon into a huge chaos. That’s where technical writing comes in. It’s this practice of wrangling complexity into clarity —distilling volumes of detail into instructions even a newcomer can follow. **We care about ensuring that what we build can be used without confusion.**
 
 # Core Principles
 

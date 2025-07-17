@@ -78,7 +78,7 @@ export default function HandbookSection({
 }: HandbookSectionProps): ReactNode {
   return (
     <section
-      className={`${styles.handbooksSection} ${styles[className || ""]}`}
+      className={`${styles.handbooksSection} ${className ? styles[className] || "" : ""}`}
     >
       <img
         src="/common/img/star-icon.svg"
