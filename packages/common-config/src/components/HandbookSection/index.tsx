@@ -24,6 +24,7 @@ export interface HandbookSectionProps {
   handbooks: Handbook[];
   title: string;
   description: string;
+  className?: string;
 }
 
 interface HandbookCardProps {
@@ -73,9 +74,12 @@ export default function HandbookSection({
   handbooks,
   title,
   description,
+  className,
 }: HandbookSectionProps): ReactNode {
   return (
-    <section className={styles.handbooksSection}>
+    <section
+      className={`${styles.handbooksSection} ${styles[className || ""]}`}
+    >
       <img
         src="/common/img/star-icon.svg"
         alt=""
