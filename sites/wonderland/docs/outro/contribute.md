@@ -14,11 +14,13 @@ This is our shared craft. We're constantly refining how we build, test, and coor
 We welcome contributions from everyone! Here's how you can help improve the handbook:
 
 1. **Open an Issue**
+
    - Found a bug? Have a suggestion? Open an issue on our GitHub repository
    - Clearly describe what could be improved and why
    - Tag the issue appropriately (documentation, enhancement, bug, etc.)
 
 2. **Submit a Pull Request**
+
    - Fork the repository
    - Create a new branch for your changes
    - Make your updates following our [documentation style guide](/docs/development/research/technical-writing)
@@ -26,6 +28,7 @@ We welcome contributions from everyone! Here's how you can help improve the hand
    - Link any related issues
 
 3. **Review Process**
+
    - All PRs will be reviewed by the team
    - Address any requested changes
    - Once approved, your contribution will be merged
@@ -38,10 +41,9 @@ We welcome contributions from everyone! Here's how you can help improve the hand
 
 Remember: The best handbooks grow with the team. Your insights and experience make this resource better for everyone.
 
-
 # Join the Team
 
-Want to build with us? Visit [apply.defi.sucks](https://apply.defi.sucks) to explore open roles ✨
+Want to build with us? Visit [apply.wonderland.xyz](https://apply.wonderland.xyz) to explore open roles ✨
 
 Stay safe. Build with care.  
 🌌 — Wonderland

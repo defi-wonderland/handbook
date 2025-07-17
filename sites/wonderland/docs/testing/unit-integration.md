@@ -6,7 +6,7 @@ Testing is everyone's responsibility at Wonderland. We do not merge pull request
 
 ## Unit test
 
-A "unit" is defined as the smallest piece of logic in a system. In a protocol built from smart contracts, we define functions as units. A unit test's purpose is to test the behaviour of this unit in every possible scenario. To do so, we isolate the unit by *mocking* any external dependencies (solitary testing), then study and test every *branch*. The number of branches tested is expressed as the test *coverage*. We'll explain these concepts and how we approach them at Wonderland.
+A "unit" is defined as the smallest piece of logic in a system. In a protocol built from smart contracts, we define functions as units. A unit test's purpose is to test the behaviour of this unit in every possible scenario. To do so, we isolate the unit by _mocking_ any external dependencies (solitary testing), then study and test every _branch_. The number of branches tested is expressed as the test _coverage_. We'll explain these concepts and how we approach them at Wonderland.
 
 ### Mocking
 
@@ -177,12 +177,12 @@ Coverage is a metric showing how much of our unit is actually "touched" by our t
 Every possible way to reach an end state is called a path. For our example, there are 4 paths with only 2 end states, which are the expression of the truth table of a^b (a AND b):
 
 ```markdown
-| A | B | A and B |
-|---|---|---------|
-| 0 | 0 |    0    |
-| 0 | 1 |    0    |
-| 1 | 0 |    0    |
-| 1 | 1 |    1    |
+| A   | B   | A and B |
+| --- | --- | ------- |
+| 0   | 0   | 0       |
+| 0   | 1   | 0       |
+| 1   | 0   | 0       |
+| 1   | 1   | 1       |
 ```
 
 ```mermaid
@@ -338,7 +338,7 @@ The coverage measures 'something' being touched by our tests. This something can
 
 We use `forge coverage` to measure coverage. It run the tests and returns 4 measures:
 
-- `% Lines`: the portion of line from the source file which have been seen by the tests, i.e. the number of lines seen in X.sol divided by total number of lines in X.sol * 100.
+- `% Lines`: the portion of line from the source file which have been seen by the tests, i.e. the number of lines seen in X.sol divided by total number of lines in X.sol \* 100.
 - `% Statements`: the portion of statements seen
 - `% Branches`: the portion of branches seen
 - `% Funcs`: the portion of function seen
@@ -350,9 +350,9 @@ To efficiently spot where the holes in our coverage are, we can use the [Coverag
 We use the branches coverage as a guiding tool, as it carries the most information possible. We want to hit 100% of branches coverage by the end of the development phase, taking into account 2 factors:
 
 - in rare cases, some branches are considered as unreachable
-- getting to 100% can be sometimes tedious or pointless. During active development, the main objective is therefore to aim for *meaningful* unit tests instead. Coverage might be, temporarily, non maximal, but both expected behaviour and edge cases are tested, allowing further iteration around the unit.
+- getting to 100% can be sometimes tedious or pointless. During active development, the main objective is therefore to aim for _meaningful_ unit tests instead. Coverage might be, temporarily, non maximal, but both expected behaviour and edge cases are tested, allowing further iteration around the unit.
 
-In Summary, we use coverage as a *discovery tool* instead of a *performance indicator*, a non-maximal coverage should always be investigated (while a 100% on all metric is not carrying much information).
+In Summary, we use coverage as a _discovery tool_ instead of a _performance indicator_, a non-maximal coverage should always be investigated (while a 100% on all metric is not carrying much information).
 
 ## Bulloak
 
@@ -439,19 +439,19 @@ Alternatively, running Bulloak without `-w` will output the scaffolded test in t
 
 ### TDD in a BTT-lead test suite
 
-The tree can be seen as a concise but exhaustive design document. It, therefore, makes sense to use it as such and adopt a TDD approach to the development and test.  The "3 Laws of TDD" ("You are not allowed to write any production code unless it is to make a failing unit test pass - You are not allowed to write any more of a unit test than is sufficient to fail, and compilation failures are failures - You are not allowed to write any more production code than is sufficient to pass the one failing unit test." - Clean Code, R. Martin) are the used, which leads to the following steps of short-lived repeated iterations:
+The tree can be seen as a concise but exhaustive design document. It, therefore, makes sense to use it as such and adopt a TDD approach to the development and test. The "3 Laws of TDD" ("You are not allowed to write any production code unless it is to make a failing unit test pass - You are not allowed to write any more of a unit test than is sufficient to fail, and compilation failures are failures - You are not allowed to write any more production code than is sufficient to pass the one failing unit test." - Clean Code, R. Martin) are the used, which leads to the following steps of short-lived repeated iterations:
 
 1. Start by writing the tree of the unit
 2. Pick one of the tree branches
-3. Write a single test that fails, based on that branch (compilation error counts as failing) 
-4. Write the code that makes that test pass, *and nothing more*
+3. Write a single test that fails, based on that branch (compilation error counts as failing)
+4. Write the code that makes that test pass, _and nothing more_
 5. If not covering every branch, go to 2.
 
 ### Internal functions
 
 Internal function testing might not be as straightforward as their external counterpart, as they're, well, internal to the contract. Even though internal and private functions are rather considered as implementation details in the software industry and not tested in isolation, we test them via a dedicated contract. This comes with an testing overhead when refactoring an unit, as there is a tighter coupling between the code and the test suite, which then needs refactoring too, but ease writing the initial unit tests.
 
-See the [Foundry's book related chapter](https://book.getfoundry.sh/tutorials/best-practices#internal-functions) for more tips and tricks.
+<!-- See the [Foundry's book related chapter](https://book.getfoundry.sh/tutorials/best-practices#internal-functions) for more tips and tricks. -->
 
 ### Fixtures
 
@@ -459,7 +459,7 @@ There is now [a foundry book part](https://book.getfoundry.sh/forge/fuzz-testing
 
 ## Integration tests
 
-While unit tests are studying the behaviour of an unit in *solitary* testing, unforeseen bugs might arise from interaction between multiple well-tested units. This is why we include integration tests in our development phase.
+While unit tests are studying the behaviour of an unit in _solitary_ testing, unforeseen bugs might arise from interaction between multiple well-tested units. This is why we include integration tests in our development phase.
 
 Integration tests are focused on studying how our units interact with each other or with external dependencies and protocols. They, therefore, don't focus on having every branches of every unit covered, because unit tests are already providing this information, and use another approach: happy and sad paths.
 
@@ -493,7 +493,7 @@ In this example, the happy path would be the sequence `baz()` `bar()` while a sa
 
 ## Fuzzed variables
 
-We use fuzzed variables in our tests, to cover a range of value corresponding *to a single branch or path* in an unit or integration tests.
+We use fuzzed variables in our tests, to cover a range of value corresponding _to a single branch or path_ in an unit or integration tests.
 
 What is fuzzing and how does it work? When adding a fuzzed variable to a test, there is no magic value used while writing it. Instead, forge will execute the same test an arbitrary number of times (256 by default) with a different value for this variable on each pass. One of these test iteration is called a "run". The underlying process is handled by a runner, which is outside the scope of this guide, see the amazing [Fuzzing Book](https://www.fuzzingbook.org/) for more general consideration on fuzzed tests.
 
