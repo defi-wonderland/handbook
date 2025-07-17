@@ -14,3 +14,5 @@ In this section of the onboarding, our goal is to familiarize you with the most 
 6. [Ludopathy](https://github.com/defi-wonderland/security-onboarding/tree/dev/solidity/challenges/medium/Ludopathy)
 7. [GeistHeist](https://github.com/defi-wonderland/security-onboarding/tree/dev/solidity/challenges/medium/GeistHeist)
 8. [Arcanery](https://github.com/defi-wonderland/security-onboarding/tree/dev/solidity/challenges/medium/Arcanery)
+
+> ⚠️ **Note:** These challenges are private for now; [follow us](https://x.com/DeFi_Wonderland) to stay updated on the handbook's evolution

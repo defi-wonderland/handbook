@@ -57,7 +57,7 @@ While many DeFi users trust solutions like Chainlink or Maker or rely on a Unisw
 The overarching moral is that conventional solutions work fine day to day but can run into serious issues during black swan events—those rare but cataclysmic moments of extreme volatility or abrupt market shifts. Oracles must be resilient enough to withstand those events if they are truly to be considered trust-minimized.
 
 :::info
-See https://defi.sucks/insights/rip-oracles
+See https://mirror.xyz/mirror.wonderland.xyz/7e4aTSNvhzEAYz_ZzRELz8ZV6iL1eqfOKSFUGoX-neo
 :::
 
 ## Price

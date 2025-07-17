@@ -38,7 +38,7 @@ Create the challenge repo using the [Wonder's Repo Creator](https://github.com/d
   - Utilize monorepo template
 - Pricing Module:
   - Fetch prices from Coingecko and DeFiLlama
-  - Implement [factory pattern](https://refactoring.guru/design-patterns/singleton) for provider selection
+  - Implement [factory pattern](https://refactoring.guru/design-patterns/factory-method) for provider selection
   - Add caching with 60-second TTL
 - Logger:
   - Implement using [singleton pattern](https://refactoring.guru/design-patterns/singleton)

@@ -74,6 +74,7 @@ Test your connection:
 - **Windows (WSL)**
   No action required.
   (Optional) If you have multiple SSH keys within 1Password vaults you can edit its priority order by editing the `agent.toml` file located at `C:\Users\Mati\AppData\Local\1Password\config\ssh\agent.toml`
+
   ```bash
   # Wonderland Anon Github Token
   [[ssh-keys]]
@@ -87,8 +88,7 @@ Test your connection:
   vault = "Personal"
   account = "<THE_1PASSWORD_ACCOUNT_WHERE_YOU_HAVE_YOUR_PERSONAL_SSH>"
   ```
-  **Warning**: This doesn't allow you to use multiple keys for different host as mentioned in [https://www.notion.so/defi-wonderland/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=4#14c0bf386ef74c09b889b7cc85823af9](https://www.notion.so/Git-and-SSH-Setup-with-1Password-22cf4135c7074898b95a4e88ac3e05c4?pvs=21)
-  In this case, it is only useful for specifying the default ssh keys that 1Password will use.
+
 - **Mac / Linux**
   File: `~/.config/1Password/ssh/agent.toml`
   File: `~/.ssh/pub/personal_git.pub`
