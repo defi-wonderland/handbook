@@ -40,7 +40,7 @@ const localConfig: Config = {
   ],
 
   themeConfig: {
-    image: "img/op-handbook-social.svg",
+    image: "img/op-social-card.png",
     navbar: {
       title: "",
       logo: {
