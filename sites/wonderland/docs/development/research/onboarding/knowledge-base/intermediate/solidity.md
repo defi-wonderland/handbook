@@ -47,9 +47,9 @@ If you are more about reading, we recommend you:
 - [Ethereum for Web Developers by Santiago Palladino](https://link.springer.com/book/10.1007/978-1-4842-5278-9)
 - [RareSkills learn Solidity](https://www.rareskills.io/learn-solidity)
   
-[Solidity Coding Style](/docs/development/solidity/coding-style.md) : The handbook include a detailed section on Solidity, read it!
+[Solidity Coding Style](/docs/development/solidity/coding-style.md) : The handbook includes a detailed section on Solidity, read it!
 
-https://www.alchemy.com/university/courses/ethereum: pretty cool introduction in general. It include challenges, cryptography content and more.
+https://www.alchemy.com/university/courses/ethereum: pretty cool introduction in general. It includes challenges, cryptography content and more.
 
 :::tip Note
 If you think we’re missing an important resource, feel free to let us know!
