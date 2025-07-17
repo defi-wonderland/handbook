@@ -51,37 +51,37 @@ By adhering to these guidelines, we ensure robust and modular development, foste
 ### **4. Type Safety**
 
 - Avoid the use of `any`; prefer `unknown` and use type narrowing to ensure safety.
-- Leverage Branded types pattern for adding clarity, safety and correctness to our code:
+- Leverage the Branded types pattern for adding clarity, safety and correctness to our code:
   https://egghead.io/blog/using-branded-types-in-typescript
 
 ## Naming conventions
 
 ### Classes
 
-A `Service` typically encapsulates a broader business logic or workflow. It might orchestrate various components or interact with multiple data sources or APIs to fulfill a specific domain-related task.
-A `Provider` usually focuses on supplying a specific type of data or resource. It’s often more narrowly scoped, providing access to a particular piece of data, a configuration, or a service needed by other parts of the application.
+A `Service` typically encapsulates broader business logic or workflow. It might orchestrate various components or interact with multiple data sources or APIs to fulfill a specific domain-related task.
+A `Provider` usually focuses on supplying a specific type of data or resource. It's often more narrowly scoped, providing access to a particular piece of data, a configuration, or a service needed by other parts of the application.
 
 Ex:
 
-- Classes that interacts with a metadata source like `Github` ,`JsonFile` &`Ipfs` should implement the interface `IMetadataProvider` and should be called `GithubProvider,JsonFileProvider` &`IpfsProvider`.
-- A class that aggregates multiple sources like `Metadata` ,`Pricing` &`BlockchainEvents` , should be called, for example, `AgreggatorService` the word aggregator might change, based on the bussiness logic. Could be, for example, `MetricsService` .
+- Classes that interact with a metadata source like `Github`, `JsonFile` & `Ipfs` should implement the interface `IMetadataProvider` and should be called `GithubProvider`, `JsonFileProvider` & `IpfsProvider`.
+- A class that aggregates multiple sources like `Metadata`, `Pricing` & `BlockchainEvents`, should be called, for example, `AggregatorService`; the word aggregator might change, based on the business logic. It could be, for example, `MetricsService`.
 
-If we look at it from composability a `Service` can be made up of `Providers` and the service works on applying the business and orchestration logic
+If we look at it from a composability perspective, a `Service` can be made up of `Providers` and the service works on applying the business and orchestration logic.
 
 ## Errors
 
 - Enable the `useUnknownInCatchVariables` flag in your `tsconfig.json`
 - Enable the `noUncheckedIndexedAccess` flag for safe object access
-- Avoid throwing literals like, enforce it with an ESLint rule https://eslint.org/docs/latest/rules/no-throw-literal
+- Avoid throwing literals; enforce it with an ESLint rule https://eslint.org/docs/latest/rules/no-throw-literal
 - Write custom error classes
   - Use declarative and descriptive names
-  - Avoid the usage of suffixes like `Exception` or `Error` :
-    - Ex: Don’t write `EmptyArrayException`, write `EmptyArray`
+  - Avoid the usage of suffixes like `Exception` or `Error`:
+    - Ex: Don't write `EmptyArrayException`; write `EmptyArray`
 
 ## **Testing**
 
 - Avoid usage of `should` each time you are writing an `it` statement.
-  - Ex: Don’t write `it('should run successfully'`), write `it('runs successfully')`.
+  - Ex: Don't write `it('should run successfully')`, write `it('runs successfully')`.
 
 ### **Key points:**
 
@@ -109,7 +109,7 @@ If we look at it from composability a `Service` can be made up of `Providers` an
 
 ### **Package Management**
 
-- Do not use carets (`^`) for dependency versions to prevent unintended updates. Use `E` to enforce exact versions (this is pre-configured in the project template).
+- Do not use carets (`^`) for dependency versions to prevent unintended updates. Use `-E` to enforce exact versions (this is pre-configured in the project template).
 
 ## **Documentation**
 
@@ -118,4 +118,4 @@ If we look at it from composability a `Service` can be made up of `Providers` an
 
 ## **Discord**
 
-- We use Discord for communication—whenever you have a PR ready for review make sure to drop it in the pr-reviews channel!
+- We use Discord for communication, whenever you have a PR ready for review, make sure to drop it in the pr-reviews channel!
