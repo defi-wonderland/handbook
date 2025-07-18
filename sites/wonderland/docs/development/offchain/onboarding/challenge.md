@@ -18,7 +18,7 @@ Develop a system to aggregate and report Total Value Locked (TVL) from UniswapV2
 
 ## Starting point: Tech design
 
-Given the starter UML diagram provided, work on a brief tech-design for the challenge
+Given the starter UML diagram provided, work on a brief tech design for the challenge.
 
 Tech design must address:
 
@@ -55,13 +55,13 @@ Create the challenge repo using the [Wonder's Repo Creator](https://github.com/d
   - Implement [proxy pattern](https://refactoring.guru/design-patterns/proxy) for caching (`TVLProviderWithCache`)
 - API:
   - Create a single GET endpoint: `/tvl`
-  - Implement controller and services with dependency injection
-  - Return TVL for specified chains based on request body
+  - Implement the controller and services with dependency injection
+  - Return TVL for specified chains based on the request body
   - Implement environment variable validation for all apps
   - Swagger docs
 - Testing (this should be done along the way):
   - Use `Vitest` for testing framework
-  - Achieve minimum 90% code coverage
+  - Achieve a minimum 90% code coverage
 - Deployment:
   - Provide Dockerfile for local API deployment
 
@@ -71,9 +71,9 @@ Create the challenge repo using the [Wonder's Repo Creator](https://github.com/d
 - Tests, tests and tests!
 - Proper building process
 - Consider error handling
-- Documentation, how can i use each library?
+- Documentation, how can I use each library?
 - Clean project structure and DRY
 
 ## Next steps
 
-Write some notes with your experience working on the challenge. All feedback is really welcomed and appreciated, as it help us on improving the challenge for the future
+Write some notes on your experience working on the challenge. All feedback is welcome and appreciated, as it helps us improve the challenge for the future.

@@ -20,7 +20,7 @@ Summarize the problem statement and proposed solution approach.
 
 ### [Project Name]: Design Doc
 
-The title and metadata fields (Author, Created at, Reviewers, Approval Needed, Status) to track ownership and workflow.
+The title and metadata fields (Author, Created at, Reviewers, Approval Needed, Status) are used to track ownership and workflow.
 
 ### Purpose
 

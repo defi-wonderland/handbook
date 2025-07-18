@@ -6,7 +6,7 @@ This challenge consists of three stages, each focused on a key area of DeFi: int
 
 ## Stage 1: Interest Rate Analysis in Aave
 
-As we discussed in knowledge base, lending protocols use dynamic interest rates to balance supply and demand for liquidity. In this stage, your task is to analyze how changing interest rate parameters affects the system. The key parameters of this model include:
+As we discussed in the knowledge base, lending protocols use dynamic interest rates to balance supply and demand for liquidity. In this stage, your task is to analyze how changing interest rate parameters affect the system. The key parameters of this model include:
 
 - **Base Variable Borrow Rate**: The minimum borrowing rate when utilization is low.
 - **`Slope1`**: The rate of increase in borrowing costs as utilization approaches the optimal usage ratio.
@@ -22,7 +22,7 @@ Using the provided Aave interest rate contract, analyze how changes to interest 
 **Parameter Adjustments:**
 
 - Scenario 1: Increase the `baseVariableBorrowRate` by 1%.
-  - What happens to borrowing costs for low-utilization levels?
+  - What happens to borrowing costs for low-utilisation levels?
 - Scenario 2: Double the `variableRateSlope2`.
   - How does this impact borrowers and lenders when utilization exceeds the `optimalUsageRatio`?
 
@@ -53,7 +53,7 @@ Using the provided Aave interest rate contract, analyze how changes to interest 
 
 ## Stage 2: Comparing AMMs — Uniswap V2 vs. Curve StableSwap
 
-We already learned in [How an AMM works](https://handbook.wonderland.xyz/docs/development/research/onboarding/knowledge-base/defi/amm) that AMMs use different curve designs to optimize for specific use cases. The challenge in this stage is to compare the efficiency and behaviour of Uniswap V2 and curve StableSwap for a stable pair (e.g USDC/DAI) by answering:
+We already learned in [How an AMM works](https://handbook.wonderland.xyz/docs/development/research/onboarding/knowledge-base/defi/amm) that AMMs use different curve designs to optimize for specific use cases. The challenge in this stage is to compare the efficiency and behaviour of Uniswap V2 and Curve StableSwap for a stable pair (e.g USDC/DAI) by answering:
 
 1. Swap cost comparison:
    1. Calculate the cost of swapping:
@@ -87,7 +87,7 @@ The main improvement within UniswapV3 is that of higher capital efficiency via c
 
 - **Understanding the Uniswap V3 Bonding Curve:**
   - The mathematical structure behind liquidity concentration.
-  - How price moves along the curve when liquidity is highly concentrated.
+  - How does price move along the curve when liquidity is highly concentrated?
 - **Examples of LP Positions:**
   - Single-range position: An LP providing liquidity in a tight price range.
   - Multi-range position: LPs splitting capital across multiple price bands.
@@ -129,7 +129,7 @@ The main improvement within UniswapV3 is that of higher capital efficiency via c
 ### **How to Submit Your Work**
 
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
-- Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
+- Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
 ### **Next Steps**

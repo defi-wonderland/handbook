@@ -67,7 +67,7 @@ Messages from unsafe blocks might later be invalidated during reorgs. Including 
 <summary>Why is ETH never minted directly in the Superchain?</summary>
 
 
-All ETH originates from L1 and must be conserved. ETH is “burned” on the source chain via `ETHLiquidity.burn()` and “minted” on the destination chain via mint(), but this is really just moving pre-allocated liquidity.
+All ETH originates from L1 and must be conserved. ETH is “burned” on the source chain via `ETHLiquidity.burn()` and “minted” on the destination chain via mint(), but this is just moving pre-allocated liquidity.
 
 </details>
 
@@ -76,7 +76,7 @@ All ETH originates from L1 and must be conserved. ETH is “burned” on the sou
 <summary>What does it mean for a block to be 'cross-unsafe'?</summary>
 
 
-A cross-unsafe block has valid cross-chain messages, but the block itself or some dependencies are still unsafe. It’s part of the transition to ‘safe’, but not yet finalized.
+A cross-unsafe block has valid cross-chain messages, but the block itself or some dependencies are still unsafe. It’s part of the transition to ‘safe’, but not yet finalised.
 
 </details>
 

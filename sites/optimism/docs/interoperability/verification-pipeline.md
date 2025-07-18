@@ -8,7 +8,7 @@ sidebar_label: Verification
 This is a high-level overview of the verification process. After reading it, refer to [this section](https://specs.optimism.io/interop/verifier.html) of the OP Specs for more depth.
 :::
 
-The verifier is the final line of defense for cross-chain correctness. It validates that each L2 block in the cluster upholds the messaging invariants and promotes it to a higher level of safety if it does.
+The verifier is the final line of defence for cross-chain correctness. It validates that each L2 block in the cluster upholds the messaging invariants and promotes it to a higher level of safety if it does.
 
 The verifier operates by inspecting both the data availability of a block and the correctness of its cross-chain dependencies. This validation process ensures that a block can only be considered safe if all executing messages it includes point to initiating messages that have been resolved as safe.
 
@@ -20,14 +20,14 @@ Every L2 block falls somewhere on a spectrum of safety:
 |--------------|-------------|
 | `unsafe`     | Unverified block from the sequencer. No cross-chain messages are validated. |
 | `cross-unsafe` | Cross-chain messages have been verified, but the block has not yet been fully published to data availability. |
-| `safe`       | The block has been fully published and all dependencies resolved. May still be reorganized. |
+| `safe`       | The block has been fully published and all dependencies resolved. It may still be reorganised. |
 | `finalized`  | Irreversible. Guaranteed by Ethereum's proof-of-stake consensus. |
 
 Each level builds on the previous one, and a block can only be promoted if it satisfies a strict set of conditions.
 
 ## Verifier Logic
 
-The verifier receives a stream of blocks from the sequencer and attempts to promote them by applying the following logic:
+The verifier receives a stream of blocks from the sequencer and attempts to validate them by applying the following logic:
 
 ### 1. Promote to `cross-unsafe`
 
@@ -85,7 +85,7 @@ While the verifier and sequencer both run the same block derivation and executio
 | **Reorg handling**         | May follow reorgs, no rollback enforcement                   | Filters out reorged, invalid, or unsafe-dependent blocks       |
 | **Trust model**            | Relies on sequencer key + user optimism                      | Enforces deterministic validity checks                        |
 
-The verifier plays a critical role in the safety pipeline, because it’s what promotes blocks from `unsafe` to `safe` or `finalized` status, by re-validating them against strict protocol invariants.
+The verifier plays a critical role in the safety pipeline because it’s what promotes blocks from `unsafe` to `safe` or `finalized` status, by re-validating them against strict protocol invariants.
 
 ## Recap
 

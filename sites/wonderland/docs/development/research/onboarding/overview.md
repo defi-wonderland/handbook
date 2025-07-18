@@ -6,7 +6,7 @@ title: Overview
 
 ## What do we do at the research team?
 
-As you’ve probably seen in the [Project Lifecycle](/docs/processes/project-lifecycle.md), Wonderland usually reaches out to certain protocols with new ideas and ways we believe they can be improved. In general, the entire process starts with us—the research team.
+As you’ve probably seen in the [Project Lifecycle](/docs/processes/project-lifecycle.md), Wonderland usually reaches out to certain protocols with new ideas and ways we believe they can be improved. In general, the entire process starts with us, the research team.
 
 One of our key responsibilities is keeping the team updated on the latest developments in the ecosystem. This could be a new ERC standard, an updated version of Uniswap, or the emergence of an entirely new protocol. At a high level, our goal is to stay at the forefront.
 
@@ -18,13 +18,13 @@ It’s probably one of the most exciting jobs out there.
 
 ## Hands on!
 
-This onboarding is designed to give you a solid foundation in the key areas of our work. During this time, you’ll gain hands-on experience with critical topics, connect with the team, and contribute by solving challenges that reflects your learning.
+This onboarding is designed to give you a solid foundation in the key areas of our work. During this time, you’ll gain hands-on experience with critical topics, connect with the team, and contribute by solving challenges that reflect your learning.
 
 The idea is for it to be more than just absorbing information—it’s about applying what you learn, asking questions, and starting to create value from day one. Here's what you should expect:
 
 - **Interactive Learning**: little challenges to deepen your understanding of key topics.
-- **Guided Support**: the team will be available to answer your questions and review your work.
-- **Focused Contributions**: you’ll work on assigments that ties directly to the challenges we’re addressing.
+- **Guided Support**: The team will be available to answer your questions and review your work.
+- **Focused Contributions**: You’ll work on assignments that tie directly to the challenges we’re addressing.
 
 We will cover several sections during the onboarding. In the first part, you will:
 

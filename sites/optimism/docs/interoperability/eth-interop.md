@@ -45,8 +45,8 @@ The `SuperchainETHBridge` contract is the main interface for cross-chain ETH tra
     - Emits `RelayETH(from, to, amount, source)`
 
 We have a few security invariants that are:
-- Only authorized messenger can call relayETH
-- ETH must be burned on source before being minted on destination
+- Only authorized messengers can call relayETH
+- ETH must be burned on the source before being minted on the destination
 - ETH cannot be sent to the zero address
 
 ## ETHLiquidity
@@ -81,7 +81,7 @@ This model avoids inflation and maintains total supply consistency across L1 and
 
 These events provide a verifiable record of the ETH bridging lifecycle and occur in the following order:
 
-1. **`SendETH`** — emitted on the source chain when a user initiates the bridge by calling `sendETH`. This includes the destination chain and amount to be transferred.
+1. **`SendETH`** — emitted on the source chain when a user initiates the bridge by calling `sendETH`. This includes the destination chain and the amount to be transferred.
 2. **`LiquidityBurned`** — emitted immediately after, when ETH is burned using `ETHLiquidity.burn()` on the source chain.
 3. **`RelayETH`** — emitted on the destination chain when the relayer successfully submits the executing message and `relayETH` is called.
 4. **`LiquidityMinted`** — emitted when ETH is minted and sent to the recipient using `ETHLiquidity.mint()` and `SafeSend`.

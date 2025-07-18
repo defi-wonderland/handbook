@@ -1,6 +1,6 @@
 # Overview
 
-For us Github is the space where we structure our projects and the way we manage these things directly affects the security, clarity, and resilience of our systems.
+For us, GitHub is the space where we structure our projects, and the way we manage these things directly affects the security, clarity, and resilience of our systems.
 
 This section documents how we collaborate safely and intentionally across teams, repos, and projects.
 

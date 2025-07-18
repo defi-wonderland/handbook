@@ -2,13 +2,13 @@
 title: RPC Request Batching
 ---
 
-# RPC Request Batching: Easily 10x your requests performance
+# RPC Request Batching: Easily 10x your request performance
 
 Making individual HTTP requests sucks, that's why since Web2 we have been using bundles, image sprite sheets, and so on…
 
-Same happens in Web3, and that's why `Multicall` exists, but we can do better!
+The same happens in Web3, and that's why `Multicall` exists, but we can do better!
 
-At Wonderland, we have developed a different approach to batch requests, which is infinite times more flexible: **Constructor Batching Method**.
+At Wonderland, we have developed a different approach to batch requests, which is infinitely times more flexible: **Constructor Batching Method**.
 
 ## The benefits
 
@@ -18,14 +18,14 @@ At Wonderland, we have developed a different approach to batch requests, which i
 
 ## But how????
 
-Solidity constructors are a thing of beauty which runs in the node's memory before contract deployment, we are going to take advantage of that 😈.
+Solidity constructors are a thing of beauty, which runs in the node's memory before contract deployment, we are going to take advantage of that 😈.
 
 The goal of the Constructor Batching Method is to force the RPC to process Solidity code in memory and return the execution result. Since Solidity doesn't support returning arguments in the `constructor` logic, assembly is used to force returning data.
 
 The magic of forcing the constructor to return data is that we save ourselves the step of deploying a contract and then calling the batching function. With this in mind, we can simulate the deployment, execute the constructor's logic, include arbitrary calls to external contracts, and return the data we need. All in one step. All in one request.
 
 :::tip
-Since the calls are made during the `constructor` runtime, all sub-calls to other contracts will be called with a `msg.sender` being the address where the virtual contract would be deployed. The contract cannot implement any external methods, as they will be inexistent during the creation time.
+Since the calls are made during the `constructor` runtime, all sub-calls to other contracts will be called with a `msg.sender` being the address where the virtual contract would be deployed. The contract cannot implement any external methods, as they will be nonexistent during the creation time.
 :::
 
 ## Step by step
@@ -33,7 +33,7 @@ Since the calls are made during the `constructor` runtime, all sub-calls to othe
 To illustrate this approach, two simple solidity contracts are created. The source code can be downloaded from https://github.com/defi-wonderland/rpc-batching-sample:
 
 1. **PoolManager**: This contract simulates a pool manager containing a function capable of querying a single pool at a time.
-2. **BatchPoolManagerData**: This contract implements where magic happens. It will perform the necessary calls, store them in an array, and then return all the data. By doing this, RPCs can simulate the deployment of this contract and get the data in a single call instead of having to call `PoolManager`'s querying method multiple times.
+2. **BatchPoolManagerData**: This contract is where magic happens. It will perform the necessary calls, store them in an array, and then return all the data. By doing this, RPCs can simulate the deployment of this contract and get the data in a single call instead of having to call `PoolManager`'s querying method multiple times.
 
 First, let's examine the `PoolManager` contract:
 
@@ -59,7 +59,7 @@ contract PoolManager is IPoolManager {
 }
 ```
 
-The `queryPool` method of the `PoolManager` contract receives an id and returns fake pool liquidity for the purposes of the example. Querying data for many pools would require querying the RPC node successively by calling the `queryPool` method with different ids. It will do a request per query, which can reduce our speed and stress the node.
+The `queryPool` method of the `PoolManager` contract receives an ID and returns fake pool liquidity for the example. Querying data for many pools would require querying the RPC node successively by calling the `queryPool` method with different IDs. It will do a request per query, which can reduce our speed and stress the node.
 
 ![request.png](/img/rpc-batching-1.jpg)
 
@@ -84,7 +84,7 @@ pragma solidity ^0.8.13;
 
 import {IPoolManager, Data} from '../interfaces/IPoolManager.sol';
 
-// this contract is used to fetch multiple pools from the PoolManager contract
+//This contract is used to fetch multiple pools from the PoolManager contract
 contract BatchPoolManagerData {
 
 	// definition of the batching input data
@@ -103,14 +103,14 @@ contract BatchPoolManagerData {
     // encode the return data
     bytes memory _data = abi.encode(_returnData);
 
-    // force constructor to return data via assembly
+    // force the constructor to return data via assembly
     assembly {
-			// abi.encode adds an additional offset (32 bytes) that we need to skip
+			// abi.encode adds offset (32 bytes) that we need to skip
       let _dataStart := add(_data, 32)
 			// msize() gets the size of active memory in bytes.
       // if we subtract msize() from _dataStart, the output will be
-      // the amount of bytes from _dataStart to the end of memory
-      // which due to how the data has been laid out in memory, will coincide with
+      // the number of bytes from _dataStart to the end of memory
+      // which, due to how the data has been laid out in memory, will coincide with
       // where our desired data ends.
 			let _dataEnd := sub(msize(), _dataStart)
 			// starting from _dataStart, get all the data in memory.
@@ -146,7 +146,7 @@ try {
 	decoded = ethers.utils.defaultAbiCoder.decode(['tuple(uint256,uint256)[]'], returnedData);
 }
 catch (err) {
-	// decode error if constructor reverted the tx
+	// decode error if the constructor reverted the tx
 	if (returnedData.slice(2, 10) == "08c379a0") {
 		throw new Error(ethers.utils.toUtf8String('0x' + returnedData.slice(10)));
 	}
@@ -155,14 +155,14 @@ catch (err) {
 
 ```
 
-Graphically the batched RPC request would look like this: only one call to get `n` pools instead of `1 + n` calls (`numPools` + n `queryPool`).
+Graphically, the batched RPC request would look like this: only one call to get `n` pools instead of `1 + n` calls (`numPools` + n `queryPool`).
 
 ![rpc-2.png](/img/rpc-batching-2.jpg)
 
 And that's all. The data is now available to be requested by the client with only one call to the RPC.
 
 :::tip
-A sample working version of this method can be found at https://github.com/defi-wonderland/rpc-batching-sample
+A sample working version of this method can be found at https://github.com/defi-wonderland/rpc-batching-sample.
 :::
 
 ## RPC Support

@@ -6,9 +6,9 @@ sidebar_label: Governor Walkthrough
 
 # The Optimism Governor Walkthrough
 
-The Optimism Governor is based on the OpenZeppelin’s Governor, customized to support Optimism’s governance needs: signaling proposals, customizable voting rules, subdelegations, and so on.
+The Optimism Governor is based on OpenZeppelin’s Governor, customized to support Optimism’s governance needs: signalling proposals, customizable voting rules, subdelegations, and so on.
 
-In the long run anyone should be able to propose changes, but safeguards like delegate approvals, quorum thresholds, and timelocks are required to ensure quality and protect against manipulation.
+In the long run, anyone should be able to propose changes, but safeguards like delegate approvals, quorum thresholds, and timelocks are required to ensure quality and protect against manipulation.
 
 Some useful resources: 
 
@@ -30,7 +30,7 @@ While proposals today are signaling-only for most types (i.e., they do not trigg
 
 - **`admin`**: Owns the proxy and controls upgrades. Does not vote or propose.
 - **`manager`**: Can create proposals, execute them, or update system parameters.
-- **`voters`**: Any address with delegated OP — either directly or through Alligator.
+- **`voters`**: Any address with delegated OP, either directly or through Alligator.
 
 ## Inheritance
 
@@ -64,7 +64,7 @@ propose(...):               // Standard proposal
 proposeWithModule(...):     // Proposal with custom voting module
 ```
 
-Only the `manager` or `timelock()` can call propose. Each proposal is assigned a `proposalType`, which maps to specific quorum/approval thresholds in the `ProposalTypesConfigurator`.
+Only the `manager` or `timelock()` can propose. Each proposal is assigned a `proposalType`, which maps to specific quorum/approval thresholds in the `ProposalTypesConfigurator`.
 
 Voting is handled via:
 - `castVote()`: standard token-based voting
@@ -77,7 +77,7 @@ Proposals are executed via the Timelock contract, using `execute()` or `executeW
 
 ### Alligator - Subdelegations
 
-The Alligator enables partial delegation, a user can split their voting power across multiple delegates using absolute or relative rules. These delegations can be chained (A → B → C) and validated onchain using authority[] arrays.
+The Alligator enables partial delegation; a user can split their voting power across multiple delegates using absolute or relative rules. These delegations can be chained (A → B → C) and validated onchain using authority[] arrays.
 
 The key structures are:
 - `subdelegations[from][to]`: maps delegations
@@ -102,9 +102,9 @@ Proposal thresholds are stored with 1e4 scaling (10000 = 100%). The Governor cal
 
 ## Votable Supply Oracle
 
-Instead of total token supply, quorum is based on votable supply — the total OP that has been delegated. This is retrieved at proposal creation block and used to calculate thresholds dynamically.
+Instead of the total token supply, quorum is based on votable supply — the total OP that has been delegated. This is retrieved at the proposal creation block and used to calculate thresholds dynamically.
 
-- **Fallback**: if `votableSupply()` returns zero, the Governor falls back to total token supply.
+- **Fallback**: if `votableSupply()` returns zero, the Governor falls back to the total token supply.
 
 ## Functions Summary
 
@@ -125,4 +125,4 @@ Instead of total token supply, quorum is based on votable supply — the total O
 
 ## Future Extensions
 
-We are working on an upgrade that is evolving toward permissionless proposals, enforced via `DelegatesProposalValidator` contract, it gates access to `propose()` based on delegate approvals and submission windows, allowing any qualifying participant to propose, while still preserving cycle alignment.
+We are working on an upgrade that is evolving toward permissionless proposals, enforced via `DelegatesProposalValidator` contract, which gates access to `propose()` based on delegate approvals and submission windows, allowing any qualifying participant to propose, while still preserving cycle alignment.

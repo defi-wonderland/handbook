@@ -9,7 +9,7 @@ sidebar_label: Limit Order Books
 
 Limit order books serve as the foundation of modern financial markets, enabling buyers and sellers to interact in a structured manner. While financial professionals may find the concept intuitive, many people, including retail investors, lack a clear understanding of how order books facilitate trading.
 
-The aim of this article is to provide an overview of limit order books, from basic concepts to advanced mechanics. It also introduces some key terminology and market behaviours. Apart from that, we encourage you to read the resources at the end of the article.
+This article aims to provide an overview of limit order books, from basic concepts to advanced mechanics. It also introduces some key terminology and market behaviours. Apart from that, we encourage you to read the resources at the end of the article.
 
 ## The Role of Markets
 
@@ -47,8 +47,8 @@ A limit order book compiles all buy and sell orders for a given security. Each o
 
 Orders are categorized into two groups:
 
-- **Bid Orders (Buy Side):** Represent buyers and are sorted from the highest to lowest price.
-- **Ask Orders (Sell Side):** Represent sellers and are sorted from the lowest to highest price.
+- **Bid Orders (Buy Side):** Represent buyers and are sorted from the highest to the lowest price.
+- **Ask Orders (Sell Side):** Represent sellers and are sorted from the lowest to the highest price.
 
 A market participant placing a **buy limit order at \$150 for 1,000 shares** will wait until a seller is willing to trade at that price. Meanwhile, a seller placing a **sell limit order at \$152 for 2,000 shares** will wait for a buyer at that price.
 
@@ -97,7 +97,7 @@ Order A has higher priority over Order B because it was placed earlier.
 
 ### **Types of Orders**
 
-We will find different types of orders such us:
+We will find different types of orders, such as:
 
 1. **Limit Orders:**
     - Define a maximum (buy) or minimum (sell) price.
@@ -120,7 +120,7 @@ Consider an order book with the following levels:
 
 If a **market buy order** for 2000 shares is placed:
 
-- 1500 shares execute at 151 USD
+- 1500 shares executed at 151 USD
 - 500 shares execute at 152 USD —next available price
 - The average execution price (VWAP) is:
 

@@ -35,7 +35,7 @@ This contract wraps the proposal submission functions (`propose()` and `proposeW
 
 Its responsibilities include:
 
-- **Delegate approvals**: Verifies that the proposal has received enough sign-offs from top 100 delegates. Both the number of signers and their minimum voting power are configurable.
+- **Delegate approvals**: Verifies that the proposal has received enough sign-offs from the top 100 delegates. Both the number of signers and their minimum voting power are configurable.
 - **Window enforcement**: Ensures proposals are submitted within a designated submission window relative to the current voting cycle.
 - **GovernanceType validation**: Each proposal is tagged with a `GovernanceType`, which defines its eligibility rules, proposer constraints, and thresholds. There is no 1:1 mapping between GovernanceType and UI-facing proposal categories—one category (e.g., Protocol Upgrade) may have multiple GovernanceTypes depending on proposer roles and validation logic.
 - **Distribution limit**: Applies to funding proposals—checks that the requested OP does not exceed a configured limit for the cycle.
@@ -64,7 +64,7 @@ Its responsibilities include:
 ## Risks and Uncertainties
 
 - **GovernanceType complexity**: GovernanceTypes may proliferate as the system expands, especially since different proposers (e.g., Foundation vs. delegates) may have different rules for similar proposal categories. Care must be taken to manage and communicate this complexity to avoid confusion.
-- **Subdelegation ambiguity**: The system currently does not account for Alligator-style subdelegation. A delegate may appear in the top 100 due to delegated voting power, which may already be partially committed elsewhere—leading to unclear eligibility.
+- **Subdelegation ambiguity**: The system currently does not account for Alligator-style subdelegation. A delegate may appear in the top 100 due to delegated voting power, which may already be partially committed elsewhere, leading to unclear eligibility.
 - **Centralized configuration authority (MVP)**: Governance parameters are currently set by a single role. Long-term decentralization remains a critical roadmap goal.
 
 :::info reference

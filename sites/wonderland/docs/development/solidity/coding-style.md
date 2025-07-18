@@ -37,7 +37,7 @@ Always separate interfaces from contracts.
 
 ### **Import Syntax**:
 
-Always use named imports, to avoid inadvertedly bringing into scope all names defined in a package :
+Always use named imports to avoid inadvertently bringing into scope all names defined in a package :
 
 ✅ Do:
 

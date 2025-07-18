@@ -17,7 +17,7 @@ During this part of the onboarding, we are going to dive deep into Game Theory. 
 Most importantly, you will learn that **life is a game**, and having the tools to cope with that is amazing.
 
 :::info
-If this is your first time hearing about Game Theory, we recommend you to see https://oyc.yale.edu/economics/econ-159/lecture-1
+If this is your first time hearing about Game Theory, we recommend that you see https://oyc.yale.edu/economics/econ-159/lecture-1
 :::
 
 ## What is a game, _exactly?_
@@ -36,7 +36,7 @@ In short, games are formal descriptions of strategic settings. So, game theory i
 An **extensive‐form game** is essentially a **game tree** that shows players' moves step by step, in the order they're made, including what each player knows when making a decision. We will have:
 
 - **Nodes** – These are "decision points" in the game. You start with an **initial node** (the first decision in the game) and move along branches as players take actions.
-- **Branches (Actions)** – From each node, the possible moves are shown as branches. In the example below, the node labeled with "K," for instance, means it's Katzenberg's turn; each outgoing branch from that node is one of his possible actions.
+- **Branches (Actions)** – From each node, the possible moves are shown as branches. In the example below, the node labelled with "K," for instance, means it's Katzenberg's turn; each outgoing branch from that node is one of his possible actions.
 
 <div style={{textAlign: "center"}}>
 ![image.png](/img/game-theory-2.png)
@@ -44,11 +44,11 @@ An **extensive‐form game** is essentially a **game tree** that shows players' 
 
 - **Terminal Nodes** – When no further choices remain, you arrive at terminal nodes, each corresponding to an outcome with specific payoffs (or "utilities") for each player. These payoffs represent each player's preference ranking over outcomes.
 
-- **Information Sets** – If a player doesn't know exactly which node they're at (because they don't see the other player's choice yet), then these nodes are grouped together by a dashed line (an "information set"). This indicates **imperfect information**—the player makes the same decision at any node in that information set.
+- **Information Sets** – If a player doesn't know exactly which node they're at (because they don't see the other player's choice yet), then these nodes are grouped by a dashed line (an "information set"). This indicates **imperfect information**—the player makes the same decision at any node in that information set.
 
 An **extensive‐form game** is essentially a **game tree** that shows players' moves step by step, in the order they're made, including what each player knows when making a decision. We will have:
 
-Let's think the following example: two players, **Katzenberg** (DreamWorks) and **Eisner** (Disney), are deciding whether to produce the bug‐themed animated films (Antz vs. A Bug's Life). Initially, Katzenberg can either **stay** at Disney or **leave** to form DreamWorks. That choice kicks off the game.
+Let's think of the following example: two players, **Katzenberg** (DreamWorks) and **Eisner** (Disney), are deciding whether to produce the bug‐themed animated films (Antz vs. A Bug's Life). Initially, Katzenberg can either **stay** at Disney or **leave** to form DreamWorks. That choice kicks off the game.
 ![Game tree example](/img/full-tree.jpg)
 
 [J. Watson. _Strategy: An Introduction to Game Theory_, Norton 2002](https://archive.org/details/strategyintroduc0000wats)
@@ -63,9 +63,9 @@ A **strategy** is a _complete contingent plan_ for a player in the game — a fu
 
 A **normal‐form** (or "strategic‐form") game is just a more compact way of describing all the players' moves and payoffs—**without** drawing the tree. Here, we will have:
 
-1. **Complete Contingent Plans:** each player's strategy must specify what they'll do at every decision point or information set they control (even if that point might never be reached). For example. given three possible decisions in a extensive form, the normal-form strategy has to say: "_If I'm at node $a$, I do $X$; If I'm at $c$ or $d$, I do $Y$; and if I'm at $e$, I do $Z.$"_
+1. **Complete Contingent Plans:** Each player's strategy must specify what they'll do at every decision point or information set they control (even if that point might never be reached). For example. Given three possible decisions in an extensive form, the normal-form strategy has to say: "_If I'm at node $a$, I do $X$; If I'm at $c$ or $d$, I do $Y$; and if I'm at $e$, I do $Z.$"_
 2. **Strategy Sets**: For each player $i$, we list all possible strategies (i.e. all possible ways they could behave across every decision point). We label this set as $S_i$.
-3. **Strategy Profiles and Payoffs:** A strategy profile is one specific choice of strategy for each player $(s_1, s_2, \dots, s_n)$. Once everyone's strategies are fixed, we know exactly which outcome —terminal node— is reached. That outcome determines the players' payoffs. Formally, each player $i$ has a payoff function $u_i : S \rightarrow \R$, where $S = S_1 \times S_2 \times \dots S_n = \prod_{i=1}^{n} S_i$. This means that for any strategy profile $s \in S$, $u_i(s)$ gives player $i$'s payoff.
+3. **Strategy Profiles and Payoffs:** A strategy profile is one specific choice of strategy for each player $(s_1, s_2, \dots, s_n)$. Once everyone's strategies are fixed, we know exactly which outcome, terminal node, is reached. That outcome determines the players' payoffs. Formally, each player $i$ has a payoff function $u_i : S \rightarrow \R$, where $S = S_1 \times S_2 \times \dots S_n = \prod_{i=1}^{n} S_i$. This means that for any strategy profile $s \in S$, $u_i(s)$ gives player $i$'s payoff.
 4. **Matrix Representation (Two-Player Case):** When both players have a finite set of strategies, we can draw a matrix:
    - Rows = strategies of player 1,
    - Columns = strategies of player 2,
@@ -73,7 +73,7 @@ A **normal‐form** (or "strategic‐form") game is just a more compact way of d
 
 Essentially, the **normal form** is a big list (or matrix) of _complete plans_ for every player, along with the payoff outcomes for each combination of those plans. It's the same information as the extensive form, just boiled down to strategies and payoffs.
 
-Here there is an example:
+Here is an example:
 
 <div style={{textAlign: "center"}}>
 ![Game theory normal form example](/img/game-theory-3.png)
@@ -89,7 +89,7 @@ Two prisoners are arrested and interrogated separately. Each must choose to **Co
 
 - If they both cooperate, they both get a moderate penalty.
 - If one defects while the other cooperates, the defector goes free and the cooperator gets the worst outcome.
-- If both defect, each gets a lesser sentence than if only one had squealed, but worse than if both had cooperate.
+- If both defect, each gets a lesser sentence than if only one had squealed, but worse than if both had cooperated.
 
 <div style={{textAlign: "center"}}>
 ![Game theory prisoner's dilemma example](/img/game-theory-4.png)
@@ -97,10 +97,10 @@ Two prisoners are arrested and interrogated separately. Each must choose to **Co
 
 ### Battle of the Sexes
 
-Two friends want to meet up but must each independently choose between two events: **Opera (O)** or **Movie (M)**. Both prefer being together over being apart, but they differ on which event they like more: Player 1 prefers Opera, Player 2 prefers Movie.
+Two friends want to meet up but must each independently choose between two events: **Opera (O)** or **Movie (M)**. Both prefer being together over being apart, but they differ on which event they like more: Player 1 prefers Opera, and Player 2 prefers the Movie.
 
 - If they pick different events, they get nothing (they're alone).
-- If they pick the same event, they meet, and each is happier if it's the event they personally like more.
+- If they pick the same event, they meet, and each is happier if it's the event they like more.
 
 <div style={{textAlign: "center"}}>
 ![Game theory battle of sexes example](/img/battle-of-sex.jpg)
@@ -122,12 +122,12 @@ Two drivers speed toward each other. Each must choose either to **Hold course (H
 
 When looking at a game in normal form, it's often helpful to check if any player has a **dominant** strategy, or if any strategy is **dominated**:
 
-- A **strictly dominant strategy** is one that yields a _strictly higher_ payoff than any other choice _no matter_ what the opponent does. If you find one, it's automatically your best move—no guesswork needed.
+- A **strictly dominant strategy** yields a _strictly higher_ payoff than any other choice _no matter_ what the opponent does. If you find one, it's automatically your best move—no guesswork needed.
 - A **strictly dominated strategy** is one that always gives a _strictly lower_ payoff than some other strategy, again regardless of the opponent's action. You can safely discard any strictly dominated strategy, because there's always a strictly better choice available.
 
 Sometimes we look at **weakly** dominant/dominated strategies, meaning the payoff is _at least as good_ in all cases and strictly better in at least one. These are less forceful than "strictly," but still guide player choices.
 
-As we seen before, in the Prisoner's Dilemma, each prisoner must either **Cooperate (C)** or **Defect (D)**. Here, **D** is a **strictly dominant strategy** for each player:
+As we saw before, in the Prisoner's Dilemma, each prisoner must either **Cooperate (C)** or **Defect (D)**. Here, **D** is a **strictly dominant strategy** for each player:
 
 - If your partner chooses C, choosing D gets you 3 instead of 2.
 - If your partner chooses D, choosing D gets you 1 instead of 0.

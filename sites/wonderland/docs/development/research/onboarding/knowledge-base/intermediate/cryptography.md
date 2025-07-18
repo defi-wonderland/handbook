@@ -2,13 +2,13 @@
 
 If you don't have a background in math, we strongly recommend starting with [this gentle introduction to number theory](https://explained-from-first-principles.com/number-theory/#exhaustive-search) before diving into cryptography.
 
-> *"At the outbreak of the Second World War, possibly no shortage was more acute — or less publicized — than that of qualified cryptographers." — Laurence D. Smith, Cryptography: The Science of Secret Writing.*
+> *"At the outbreak of the Second World War, possibly no shortage was more acute, or less publicized, than that of qualified cryptographers." — Laurence D. Smith, Cryptography: The Science of Secret Writing.*
 
-Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cipher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
+Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cypher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
 
-By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs — such as the deciphering of German Enigma or Japanese naval codes — had direct strategic consequences. A careless transmission, especially one sent both in cipher and plain text, could reveal entire encryption systems and undermine months of planning.
+By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs — such as the deciphering of German Enigma or Japanese naval codes — had direct strategic consequences. A careless transmission, especially one sent both in cypher and plain text, could reveal entire encryption systems and undermine months of planning.
 
-Today, the battlefield has shifted to digital networks and cryptography secures everything from bank transfers to blockchain protocols. But the lessons endure: robust encryption and careful key management remain foundational to privacy and security.
+Today, the battlefield has shifted to digital networks, and cryptography secures everything from bank transfers to blockchain protocols. But the lessons endure: robust encryption and careful key management remain foundational to privacy and security.
 
 Against this historical backdrop, the sections that follow trace the evolution of cryptography. We begin with the three major types of cryptographic primitives, then talk about the pivotal problem of **key distribution**, the **Diffie-Hellman** solution, and the advent of **RSA**. We continue with **elliptic curves**, including **ECDH**, **ECDSA**, and **pairing-based protocols**.
 
@@ -38,7 +38,7 @@ Hashes underpin digital signatures, Merkle trees, password security, and zero-kn
 
 ## The Problem of Key Distribution
 
-Symmetric systems once required **physical key exchange**. This worked for spies, but not for global internet systems. Even the strongest ciphers are useless if the keys are compromised.
+Symmetric systems once required **physical key exchange**. This worked for spies, but not for global internet systems. Even the strongest cyphers are useless if the keys are compromised.
 
 In the 1970s, public-key cryptography changed everything. Anyone can encrypt with Bob's public key, but only Bob can decrypt it with his private key. Today, hybrid systems like TLS combine asymmetric key exchange (RSA or Diffie-Hellman) with symmetric session keys (AES) for performance.
 
@@ -53,7 +53,7 @@ The **Diffie-Hellman (DH)** protocol allows two parties to generate a shared sec
 
 The **discrete logarithm problem** protects the exchange: it is hard to derive $a$ or $b$ from $g^a$ or $g^b$.
 
-## RSA: Public-Key Encryption Built on Factorization
+## RSA: Public-Key Encryption Built on Factorisation
 
 **RSA** (1977) was the first practical public-key system. Its security depends on the hardness of factoring large integers.
 

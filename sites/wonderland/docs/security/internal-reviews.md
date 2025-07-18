@@ -4,17 +4,17 @@
 
 Millions upon millions of dollars flow across the code we write. Millions upon millions may sit in the code we write. In other words, **millions upon millions are entrusted to our code**. 
 
-In the tumultuous chasm of the day to day this aspect may be lost, or it may fade into the back of the mind where it can shrink and disperse and lose its weight. In fact, stowing it away in a nook where it can be forgotten is enough to become lazy. After all, what harm can a lazy pull request review do? What harm can a lazy test do? What harm can implementing something I’m too lazy to understand in-depth do?
+In the tumultuous chasm of the day to day, this aspect may be lost, or it may fade into the back of the mind where it can shrink and disperse and lose its weight. In fact, stowing it away in a nook where it can be forgotten is enough to become lazy. After all, what harm can a lazy pull request review do? What harm can a lazy test do? What harm can implementing something I’m too lazy to understand in-depth do?
 
 In the end, auditors will catch it if there’s any issue, right?
 
 Right?
 
-If you are reading this, you are probably a part of the ecosystem, and you are well aware of how devastating a single bug can be, and how easily it can slip by multiple sets of eyes. Even skilled eyes. Immunefi exists for a reason and complex systems can lead to extremely complex bugs.
+If you are reading this, you are probably a part of the ecosystem, and you are well aware of how devastating a single bug can be, and how easily it can slip by multiple sets of eyes. Even skilled eyes. Immunefi exists for a reason, and complex systems can lead to extremely complex bugs.
 
-But if you happen to be reading while being new to the ecosystem know that [billions have been stolen](https://hacked.slowmist.io/). Billions. Let that sink in.
+But if you happen to be reading while being new to the ecosystem, know that [billions have been stolen](https://hacked.slowmist.io/). Billions. Let that sink in.
 
-If you allow us to make one last point before getting to the point, we want to emphasize the open source aspect of the code we write. Everyone can see the logic of our code and anyone can spot a bug if it’s present. Bad actors are aplenty. Some, state-sponsored. There’s no room for error. There’s no room to be lazy.
+If you allow us to make one last point before getting to the point, we want to emphasize the open source aspect of the code we write. Everyone can see the logic of our code, and anyone can spot a bug if it’s present. Bad actors are aplenty. Some state-sponsored. There’s no room for error. There’s no room to be lazy.
 
 Critical code should be treated with as much care and thought as possible.
 
@@ -31,23 +31,23 @@ This last statement is why we are writing this, and why you are reading it. If w
 
 If you go back and reassess how you are currently tackling your projects, at which of those phases would you say security is a core feature?
 
-Most will answer development and external audit. Some will add technical design to the answer. Of course external audit is a given. That’s fine, but the reality is that most projects partially care about security during the development and rarely do during the tech design. We say partially because pull request reviews rarely are as thorough as they should be, development is conditioned by deadlines and only a handful of developers are security freaks.
+Most will answer development and external audit. Some will add technical design to the answer. Of course external audit is a given. That’s fine, but the reality is that most projects partially care about security during the development and rarely do during the tech design. We say partially because pull request reviews rarely are as thorough as they should be, development is conditioned by deadlines, and only a handful of developers are security freaks.
 
-This is far from perfect, it’s even far from great. This puts an insane amount of responsibility on the external audit because the code delivered to them is not as good as it could be. Suddenly you are relying the success of your protocol, which took many months to build, to two or three people reading through it for two to three weeks without any context, and because the code presented was written to meet a deadline, the auditors find critical issues, and all of a sudden your developers have a lot of fixes to think through and implement.
+This is far from perfect; it’s even far from great. This puts an insane amount of responsibility on the external audit because the code delivered to them is not as good as it could be. Suddenly you are relying the success of your protocol, which took many months to build, to two or three people reading through it for two to three weeks without any context, and because the code presented was written to meet a deadline, the auditors find critical issues, and all of a sudden your developers have a lot of fixes to think through and implement.
 
 So, how do you improve this?
 
 Apart from the obvious answer of promoting and ensuring a security-first mindset at all stages of the creation of a project, the other answer is to add layers of protection. One of these layers can be to perform internal reviews. 
 
-The idea is that after the development is done and before delivering the code to external auditors your developers—if you don’t have internal security members—perform a review of the code with the idea of breaking it. This is effective because the attacking mindset tends to be different from the building mindset. This also allows the reviewers to see the whole picture of the protocol, and not only the sections they worked on. This tends to lead to a code of a higher quality, with less bugs, and lower probability of being successfully attacked.
+The idea is that after the development is done and before delivering the code to external auditors, your developers—if you don’t have internal security members—perform a review of the code with the idea of breaking it. This is effective because the attacking mindset tends to be different from the building mindset. This also allows the reviewers to see the whole picture of the protocol, and not only the sections they worked on. This tends to lead to a code of higher quality, with fewer bugs, and a lower probability of being successfully attacked.
 
 Not only that, but it eliminates a lot of issues auditors would have had to waste time finding and writing down in their reports, which can lead to them having more time to find more intricate bugs.
 
-To close this section we want to focus on the economical value of this.
+To close this section, we want to focus on the economic value of this.
 
 Deadlines exist. Money is not infinite. The perfect processes are common sense, but the reality of things is that perfect processes tend to take more time than protocols tend to have. However, when it comes to security, in this ecosystem, the potential cost of not caring about it is too large. 
 
-Audits are expensive. If an audit returns critical findings that break the protocol, it may entail having to pay for a subsequent audit. Here you lost both time and money. **Moreover, if you deploy the protocol and someone exploits it, the cost is absolute**. The reputation of the protocol is ruined. Well the protocol itself is ruined, which means people will become unemployed and probably have a stain in their resume. But most importantly, the users lost their money.
+Audits are expensive. If an audit returns critical findings that break the protocol, it may entail having to pay for a subsequent audit. Here you lost both time and money. **Moreover, if you deploy the protocol and someone exploits it, the cost is absolute.**. The reputation of the protocol is ruined. Well, the protocol itself is ruined, which means people will become unemployed and probably have a stain on their resume. But most importantly, the users lost their money.
 
 We will close with a question:
 
@@ -59,33 +59,33 @@ I hope you answered yes.
 
 Before diving into Wonderland’s internal review process, we want to make a point to emphasize how serious it is for us to have as many ramparts as possible in order to avoid producing exploitable code.
 
-Our internal reviews are treated as if the code we are reviewing is the code we are going to launch. When we do them, it doesn’t matter if an external audit is scheduled, we will review it and try to break it as if no external audit or extra layer of security existed. It’s of utmost importance for us that this process is not done lazily. It must be done with the intention to shred the protocol to pieces and shed light to as many issues as possible.
+Our internal reviews are treated as if the code we are reviewing is the code we are going to launch. When we do them, it doesn’t matter if an external audit is scheduled; we will review it and try to break it as if no external audit or extra layer of security existed. It’s of utmost importance for us that this process is not done lazily. It must be done with the intention to shred the protocol to pieces and shed light on as many issues as possible.
 
 Moreover, if the external audit finds a critical issue, we write internal post-mortems for them as if the protocol we built was hacked. This allows us to reflect on why that bug made it into our code, which often reveals issues in our processes, and spotting flaws leads to improvements. 
 
-Critical bugs are severe, even if they are caught before making it into production, and they should be treated with the utmost importance and never be ignored. 
+Critical bugs are severe, even if they are caught before making it into production, and they should be treated with the utmost importance and never ignored. 
 
-If you are not learning from mistakes of this caliber, you are wasting an enormous opportunity to grow and improve.
+If you are not learning from mistakes of this calibre, you are wasting an enormous opportunity to grow and improve.
 
 With that being said, we now dive into our internal review process, first with a summary, and then we go in-depth.   
 
-The process is as follows: after the code of a project developed by Wonderland is frozen, it enters the Internal Review phase. In this phase, it undergoes a thorough review by two or more members from Wonderland's Security Team. The people assigned will, for a variable period of time, try to find as many bugs and issues as they can, as well as point out improvements to the code, places where best practices were not followed, and so on. They will then pour everything that was found into a report for the team of Developers to assess and fix. After every fix is implemented, a new review round is completed by the Security Team to confirm the fixes. This continues until the code is deemed correct and no fixes / changes are necessary.
+The process is as follows: after the code of a project developed by Wonderland is frozen, it enters the Internal Review phase. In this phase, it undergoes a thorough review by two or more members from Wonderland's Security Team. The people assigned will, for a variable period of time, try to find as many bugs and issues as they can, as well as point out improvements to the code, places where best practices were not followed, and so on. They will then pour everything that was found into a report for the team of Developers to assess and fix. After every fix is implemented, a new review round is completed by the Security Team to confirm the fixes. This continues until the code is deemed correct and no fixes/changes are necessary.
 
 After this stage, the revised code is given to external auditors.
 
-This ensures we produce the best quality code we can before we provide it to the external auditors. Polished code tends to be easier to audit, and with bugs stripped out, we remove low-hanging fruits that can waste external auditors’ time. This leads to a heavily reviewed and high quality final product.
+This ensures we produce the best quality code we can before we provide it to the external auditors. Polished code tends to be easier to audit, and with bugs stripped out, we remove low-hanging fruit that can waste external auditors’ time. This leads to a heavily reviewed and high quality final product.
 
 ### Effectiveness
 
-The vast majority of our Internal Reviews have found multiple bugs of different severity. They have proven to be fantastic to improve the quality and safety of the products we deliver. If you are in doubt as to whether this is a good process to add to your company, try it. If you don’t have people focused exclusively in security, it can work as well since the security mindset is different from the development mindset. This means that the same people that built the protocol can still find issues in it if they switch to an attacking mindset.
+The vast majority of our Internal Reviews have found multiple bugs of different severity. They have proven to be fantastic in improving the quality and safety of the products we deliver. If you are in doubt as to whether this is a good process to add to your company, try it. If you don’t have people focused exclusively on security, it can work as well since the security mindset is different from the development mindset. This means that the same people who built the protocol can still find issues in it if they switch to an attacking mindset.
 
 ### In-depth
 
-Wonderland's Security Team is comprised of people who have been developing in the ecosystem for years, have completed our Internal Security Onboarding, and have shown interest and skill in securing code. However, because we always strive to have two or more people performing the internal reviews, and we build a multitude of projects at the same time, Internal Reviews can overlap and availability can be scarce.
+Wonderland's Security Team is comprised of people who have been developing in the ecosystem for years, have completed our Internal Security Onboarding, and have shown interest and skill in securing code. However, because we always strive to have two or more people performing the internal reviews, and we build a multitude of projects at the same time, Internal Reviews can overlap, and availability can be scarce.
 
-For this reason, early coordination is crucial. As soon as the Tech Design for a given project is finished the Developer leading that project communicates with the Security Lead to provide rough estimations on the amount of code that will be produced, and when it will be frozen. An important note is that no code is written before the Tech Design is approved.
+For this reason, early coordination is crucial. As soon as the Tech Design for a given project is finished, the Developer leading that project communicates with the Security Lead to provide rough estimations on the amount of code that will be produced, and when it will be frozen. An important note is that no code is written before the Tech Design is approved.
 
-The Security Lead will then calculate how many days of review are required based on the estimated amount of code and its complexity, and reserve a tentative slot of time for that project's Internal Review. This is then added to the Tech Design after the end of the Development Phase in two new sections: Internal Review, and Review Fixes. This is important as it will help the Partner define when to book the external audit appointment.
+The Security Lead will then calculate how many days of review are required based on the estimated amount of code and its complexity, and reserve a tentative slot of time for that project's Internal Review. This is then added to the Tech Design after the end of the Development Phase in two new sections: Internal Review and Review Fixes. This is important as it will help the Partner define when to book the external audit appointment.
 
 Moreover, the Security Lead will inform the COO about the new Internal Review, and, at times, ask for certain members of the Security Team to join the review as they may have experience with similar protocols.
 

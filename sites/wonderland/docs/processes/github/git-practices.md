@@ -32,10 +32,10 @@ Here we'll explore our approach to code management and development workflows. Th
 
 The most common and simple architecture is to have a production branch (`main`) and a development branch (`dev`).
 
-When working on a new feature we will create a new branch (`feat/my-feature`) using `dev` as base branch. Now at this point we need to think about the size of the new feature:
+When working on a new feature, we will create a new branch (`feat/my-feature`) using `dev` as the base branch. Now, at this point, we need to think about the size of the new feature:
 
 - If it's a small feature, we should be fine working and pushing the commits to this new branch directly (`feat/my-feature`)
-- If it's a big feature, we should think about splitting the task in different sub-branches. This way we can have smaller PRs from `sub-branches` to `feat/my-feature` at different stages of the development. So instead of having people reviewing one massive PR, we will provide smaller PRs. This is also beneficiary for the developers since the chances of catching an early error are higher with this approach.
+- If it's a big feature, we should think about splitting the task into different sub-branches. This way we can have smaller PRs from `sub-branches` to `feat/my-feature` at different stages of the development. So instead of having people reviewing one massive PR, we will provide smaller PRs. This is also beneficiary for the developers since the chances of catching an early error are higher with this approach.
 
 Let’s admit it: Reviewing 50 files changed in a PR **WILL NOT BE A GOOD REVIEW.**
 
@@ -43,7 +43,7 @@ Let’s admit it: Reviewing 50 files changed in a PR **WILL NOT BE A GOOD REVIEW
   <img src="/img/pr-meme.jpg" width="900" />
 </div>
 
-Once the feature is finished, it will be merged to `dev` (base branch) and the project’s workflow will continue. Different projects will have different workflows.
+Once the feature is finished, it will be merged to `dev` (base branch), and the project’s workflow will continue. Different projects will have different workflows.
 
 <div align="center">
   <img src="/img/flow-pr.png" alt="git-flow" />
@@ -51,20 +51,20 @@ Once the feature is finished, it will be merged to `dev` (base branch) and the p
 
 ## Branches and commits naming
 
-For branches the idea is to have explicit branch names so we will follow this structure: `<type>/<description>`.
+For branches, the idea is to have explicit branch names, so we will follow this structure: `<type>/<description>`.
 
-Having an explicit commit history is also desirable. To achieve that the `commits` should be structured as: `<type>: <description>`
+Having an explicit commit history is also desirable. To achieve that, the `commits` should be structured as: `<type>: <description>`
 
 The available `types` are the following (taken from [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification)):
 
 - **feat**: A new feature
 - **fix**: A bug fix
 - **docs**: Documentation only changes
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- **refactor**: A code change that neither fixes a bug or adds a feature
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semicolons, etc.)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
 - **perf**: A code change that improves performance
 - **test**: Adding missing tests
-- **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
+- **chore**: Changes to the build process or auxiliary tools and libraries, such as documentation generation
 
 ### Example branch names
 
@@ -76,7 +76,7 @@ The available `types` are the following (taken from [Conventional Commits](https
 
 ### Example commit messages
 
-`fix: user cant be undefined anymore`
+`fix: user can't be undefined anymore`
 
 `docs: correct spelling of CHANGELOG`
 

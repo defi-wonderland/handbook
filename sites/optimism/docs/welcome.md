@@ -1,12 +1,12 @@
 ---
 id: welcome
-title: Welcome to OP Handbook
+title: Welcome to the OP Handbook
 sidebar_label: Welcome
 ---
 
-# Welcome to the Wonderland's OP Handbook ✨
+# Welcome to Wonderland's OP Handbook ✨
 
-Whether you’re here to ship a feature, reason through protocol design, or audit smart contracts that power interop across L2s, this guide is for you. It distills core knowledge about the OP Stack, technical architecture, governance models, and the shared practices that shape how we work together.
+Whether you’re here to ship a feature, reason through protocol design, or audit smart contracts that power interop across L2S, this guide is for you. It distils core knowledge about the OP Stack, technical architecture, governance models, and the shared practices that shape how we work together.
 
 OP is a protocol for scaling Ethereum and expanding what’s possible. That mission demands thoughtful engineering, good security hygiene, clear specs, and fearless curiosity. This handbook helps you get there 🪄
 

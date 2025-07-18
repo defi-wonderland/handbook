@@ -24,7 +24,7 @@ const localConfig: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/",
+          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/sites/optimism",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -40,7 +40,7 @@ const localConfig: Config = {
   ],
 
   themeConfig: {
-    image: "img/op-handbook-social.svg",
+    image: "img/op-social-card.jpg",
     navbar: {
       title: "",
       logo: {
