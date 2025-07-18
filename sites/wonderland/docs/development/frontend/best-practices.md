@@ -127,7 +127,7 @@ Define styles separately using external stylesheets or CSS-in-JS libraries for b
 return (
   <div>
     <button
-      style={{ backgroundColor: "blue", colour: "white", borderRadius: "5px" }}
+      style={{ backgroundColor: "blue", color: "white", borderRadius: "5px" }}
     >
       Click Me
     </button>
