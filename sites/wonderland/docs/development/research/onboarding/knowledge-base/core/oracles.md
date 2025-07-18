@@ -12,7 +12,7 @@ As a result, oracles must feed external data into smart contracts, but then thes
 
 ## Common Oracle Design Patterns
 
-Oracles usually follow one of three major design patterns: **immediate-read**, **publish–subscribe**, or **request–response**. I**mmediate-read oracles** function like static reference contracts, storing data that changes infrequently or can be hashed (e.g., membership credentials or official documents). Other contracts can look up this on-chain reference at any time, making it useful for verifying an ID or membership status.
+Oracles usually follow one of three major design patterns: **immediate-read**, **publish–subscribe**, or **request–response**. **Immediate-read oracles** function like static reference contracts, storing data that changes infrequently or can be hashed (e.g., membership credentials or official documents). Other contracts can look up this on-chain reference at any time, making it useful for verifying an ID or membership status.
 
 ![Immediate-Read Oracle Pattern](/img/oracles-1.jpg)
 
