@@ -108,8 +108,7 @@ At its heart, Ethereum is a **transaction-based state machine**. Each transactio
 
 **State Evolves Block by Block:** Each block includes a set of valid transactions, and the network collectively "_"executes_" these on top of the previous state to arrive at a new state. [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf) (Ch. 4 & 5) and the [Ethereum Gitbook](https://cypherpunks-core.github.io/ethereumbook/02intro.html) detail how balances, contract storage, and code get updated deterministically.
 
-**Block Structure: a b**locks contains:
-
+**Block Structure:** A block contains:
 - A **header** (metadata like parent block hash, timestamp, base fee).
 - A **list of transactions**.
 - (Post-merge) A set of **withdrawals** for PoS validators.
