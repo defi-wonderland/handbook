@@ -5,7 +5,7 @@ For us, GitHub is the space where we structure our projects, and the way we mana
 This section documents how we collaborate safely and intentionally across teams, repos, and projects.
 
 You’ll find:
-- **Environment setup** — including anon Git an SSH config
+- **Environment setup** — including anon Git and SSH config
 - **PR etiquette** — how to open, structure, and review pull requests
 - **Repo hygiene** — readiness checklists, branching, and release flows
 - **Commit discipline** — how small changes shape big systems
