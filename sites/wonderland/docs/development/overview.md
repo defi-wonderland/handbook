@@ -8,7 +8,7 @@ pagination_next: development/research/research-overview
 
 We live in a space where code is law, and law is fragile.
 
-At Wonderland we care about crafting systems that last. Every line we write carries consequences, sometimes financial, sometimes reputational, sometimes ethical.
+At Wonderland, we care about crafting systems that last. Every line we write carries consequences, sometimes financial, sometimes reputational, sometimes ethical.
 
 > We believe great engineering happens at the intersection of curiosity and discipline.
 
@@ -16,9 +16,9 @@ That means saying _no_ to shortcuts. That means understanding why code patterns 
 
 Here, you'll find the foundations of how we build:
 
-- How we onboard people across roles
+- How do we onboard people across roles
 - What we expect in Solidity, frontend, and offchain code
-- How we write and share research with clarity and care
+- How do we write and share research with clarity and care
 
 Each of these domains is a lens through which we can strengthen the system. And when in doubt, we come back to the one principle that matters most:
 

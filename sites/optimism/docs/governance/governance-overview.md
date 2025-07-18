@@ -22,7 +22,7 @@ By the end of this section, you should be able to answer:
 - What’s the difference between an approval and a vote on Optimism?
 - Who can propose? Who can vote? What powers are delegated?
 - How do proposals move through states like Pending → Active → Executed?
-- How is quorum calculated, and what makes a proposal “pass”?
+- How is quorum calculated, and what constitutes “pass”?
 - What is Alligator, and why is delegation logic so complicated?
 - What happens if a delegate tries to push a proposal that violates cycle rules?
 - What is permissionless governance, and what tradeoffs does it introduce?

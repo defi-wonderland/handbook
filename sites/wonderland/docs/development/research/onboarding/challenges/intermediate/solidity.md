@@ -16,7 +16,7 @@ Given the following smart contract, analyze how the reward calculation problem i
 
 1. Explain the role of the key variables and functions in the contract.
 2. Identify how the contract ensures accurate reward distribution over time, taking into account changes in staked amounts.
-3. Discuss any edge case or potential risks you find in the implementation.
+3. Discuss any edge cases or potential risks you find in the implementation.
 
 Here is the contract:
 
@@ -158,7 +158,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     function setRewardsDuration(uint256 _rewardsDuration) external onlyOwner {
         require(
             block.timestamp > periodFinish,
-            "Previous rewards period must be complete before changing the duration for the new period"
+            "The previous rewards period must be complete before changing the duration for the new period"
         );
         rewardsDuration = _rewardsDuration;
         emit RewardsDurationUpdated(rewardsDuration);
@@ -195,7 +195,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
 ### **How to Submit Your Work**
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
-- Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
+- Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
 ## 🍀 Good luck!

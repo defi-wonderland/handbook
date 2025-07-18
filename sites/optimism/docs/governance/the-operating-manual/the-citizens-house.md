@@ -23,7 +23,7 @@ Its core responsibility is managing the Retro Funding, and, increasingly, partic
 Citizens are individuals who hold an attestation of citizenship, managed via Ethereum Attestation Service (EAS). Citizenship is currently:
 - Temporary, and may evolve through experimental iterations
 - Granted experimentally, often through guest voter rounds
-- Revocable, if criteria are no longer met or based on conduct
+- Revocable, if the criteria are no longer met or based on conduct
 
 🔗 View the current [Citizen Schema on EAS](https://optimism.easscan.org/schema/view/0xc35634c4ca8a54dce0a2af61a9a9a5a3067398cb3916b133238c4f6ba721bc8a)
 
@@ -48,7 +48,7 @@ The Citizens’ House governs primarily through two processes:
     - Missions follow clear stages: scoping → applications → review → voting → disbursement → compliance
     - Voting takes place on [Snapshot](https://snapshot.org/#/citizenshouse.eth) with EAS-verified Citizen identities
 
-2. Veto Powers: Citizens have the ability to veto certain governance proposals approved by the Token House.
+2. Veto Powers: Citizens can veto certain governance proposals approved by the Token House.
 
     | Proposal Type | Veto Threshold | Notes |
     |--------------|----------------|--------|
@@ -65,7 +65,7 @@ Guest voters are temporary Citizens selected for experimental rounds of Retro Fu
 - Enable reversibility in experiments
 
 Inputs and outputs are measured via:
-- Surveys to voters and applicants
+- Surveys of voters and applicants
 - Voting behavior analysis
 - Social graph analysis
 - Reputation signals (contributions, usage, etc.)

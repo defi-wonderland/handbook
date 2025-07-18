@@ -19,7 +19,7 @@ Document the technical implementation details, including invariants, ABI specifi
 
 ### Invariants
 
-Properties that must always hold true in the system, covering state consistency, protocol rules, and security guarantees.
+Properties that must always hold in the system, covering state consistency, protocol rules, and security guarantees.
 
 ### Interfaces
 

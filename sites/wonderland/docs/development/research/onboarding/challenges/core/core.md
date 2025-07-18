@@ -19,7 +19,7 @@ When you applied to Wonderland, you selected one of the following topics for you
 ## **How to Submit Your Work**
 
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
-- Structure your commits clearly, with meaningful messages that outline the progress of your work, see [Git Practices](/docs/processes/github/git-practices.md) for reference.
+- Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
 ## **Next Steps**

@@ -2,21 +2,21 @@
 
 This section is an introduction to how AMMs work. It is important to read the resources and links, as the most valuable information is there.
 
-AMMs are protocols that do away with traditional limit-order books by letting users trade against a shared pool of deposited assets, using various formula-based approaches to determine prices rather than matching discrete orders. By learning how these formulas work, we can understand the core mechanics of an AMM, including how liquidity is added or removed, how prices move when trades occur, and why LPs —liquidity providers— face potential gains and risks such as impermanent loss. 
+AMMs are protocols that do away with traditional limit-order books by letting users trade against a shared pool of deposited assets, using various formula-based approaches to determine prices rather than matching discrete orders. By learning how these formulas work, we can understand the core mechanics of an AMM, including how liquidity is added or removed, how prices move when trades occur, and why LPs, liquidity providers, face potential gains and risks such as impermanent loss. 
 
 A common starting point is the constant product model:
 
 $x \cdot y = k$
 
-where $x$ and $y$ are on-chain balances of two distinct assets, and $k$ is a fixed constant (at least before factoring in fees). When a user swaps one asset for the other, the pool's new balances $x'$ and $y'$ still need to satisfy $x' \cdot y' \geq k$. The difference arises from the trading fee and the fact that $k$ can effectively increase over time as more liquidity or fees are added. From this product formula emerges the important concept of **price impact.**
+Where $x$ and $y$ are on-chain balances of two distinct assets, and $k$ is a fixed constant (at least before factoring in fees). When a user swaps one asset for the other, the pool's new balances $x'$ and $y'$ still need to satisfy $x' \cdot y' \geq k$. The difference arises from the trading fee and the fact that $k$ can effectively increase over time as more liquidity or fees are added. From this product formula emerges the important concept of **price impact.**
 
 :::tip
-**Price slippage:**  it's the gap between the price you expect for a trade and the price at which it ultimately goes through, often caused by swift market shifts between placing an order its execution.
+**Price slippage:** It's the gap between the price you expect for a trade and the price at which it ultimately goes through, often caused by swift market shifts between placing an order and its execution.
 
-**Price Impact:** trading a larger amount of one token will shift the balance significantly, thereby moving the quoted price of the second token more and more.
+**Price Impact:** Trading a larger amount of one token will shift the balance significantly, thereby moving the quoted price of the second token more and more.
 :::
 
-**As an example,** assuming current ETH/DAI price is $2000 and the initial liquidity pair has 62,500,000 DAI and 25,000 ETH. This will give you a constant product of 1.56 billion. The table shows the price slippage or premium that you will have to pay as your transaction sizes grow:
+**As an example,** assuming the current ETH/DAI price is $2000 and the initial liquidity pair has 62,500,000 DAI and 25,000 ETH. This will give you a constant product of 1.56 billion. The table shows the price slippage or premium that you will have to pay as your transaction sizes grow:
 
 | **ETH Purcharsed** | **Cost per ETH in DAI** | **Total Cost in DAI** | **Premium** | **New DAI Reserve** | **New ETH Reserve** | **k** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ Though the constant product design is by far the most popular, other AMMs are bu
 
 $(x_1 \cdot x_2 \cdot ... \cdot x_n)^{1/n} = k$
 
-where each xi could be weighted differently, making it possible to structure liquidity among multiple assets in varying ratios. 
+Where each xi could be weighted differently, making it possible to structure liquidity among multiple assets in varying ratios. 
 
 While these rules govern how pools quote prices, liquidity providers have incentives to deposit assets because each swap generates **fees**, typically deducted from the asset a trader inputs. LPs receive LP tokens that track their share of the total pool. Over time, fees accrue in the pool's balances, potentially increasing the amount of underlying assets each LP token can claim. However, liquidity providers also face **impermanent loss**, which can reduce or negate fee gains if the prices of the pooled assets diverge. Some AMMs allow community voting on the fee level, in which case the largest LP token holders can influence protocol parameters.
 
@@ -49,19 +49,19 @@ In many AMM protocols, the first liquidity provider sets the initial ratio of th
 
 $LP_{minted} = \sqrt{x \cdot y}$
 
-where $x$ and $y$ are the respective token amounts provided. This approach ensures a fair initial distribution of LP tokens that reflects how much liquidity the first depositor contributed. When new liquidity is later added, the number of newly minted LP tokens usually depends on how much the provider's deposit changes the pool's total reserves.
+Where $x$ and $y$ are the respective token amounts provided. This approach ensures a fair initial distribution of LP tokens that reflects how much liquidity the first depositor contributed. When new liquidity is later added, the number of newly minted LP tokens usually depends on how much the provider's deposit changes the pool's total reserves.
 
 ### Fee Mechanics
 
-Different AMMs handle fees slightly differently, but many apply a fraction of the input token (for example, Uniswap V2 is seted to 0.30%) before enforcing the invariant $x' \cdot y' \geq k$. This means only $(1 - fee) \cdot \Delta x$ effectively contributes to changing the pool's balances on one side, causing $k$ to increase over time.
+Different AMMs handle fees slightly differently, but many apply a fraction of the input token (for example, Uniswap V2 is set to 0.30%) before enforcing the invariant $x' \cdot y' \geq k$. This means only $(1 - fee) \cdot \Delta x$ effectively contributes to changing the pool's balances on one side, causing $k$ to increase over time.
 
 ### Impermanent Loss
 
-Yet, participating as an LP involves **impermanent loss** when the underlying value of the pooled asset diverge significantly. One way to see this effect is to compare the outcome of depositing assets in the pool versus simply holding them. If an asset's external market price rises sharply, an AMM's constant function rebalances the pool to hold fewer of that now more-valuable asset and more of the relatively cheaper asset. The following simplified formula captures the relative drop in value, assuming a two-asset constant product AMM:
+Yet, participating as an LP involves **impermanent loss** when the underlying value of the pooled asset diverges significantly. One way to see this effect is to compare the outcome of depositing assets in the pool versus simply holding them. If an asset's external market price rises sharply, an AMM's constant function rebalances the pool to hold fewer of that now more valuable asset and more of the relatively cheaper asset. The following simplified formula captures the relative drop in value, assuming a two-asset constant product AMM:
 
 $IL = 1 - \sqrt{\frac{p_{final}}{p_{initial} + 1}}$
 
-where $p_{initial}$ and $p_{final}$ are initial and final price ratios of the two assets. This *loss* is termed impermanent because it can be offset by fees or reverted if prices move back toward their original ratio. Nevertheless, the risk remains that if a trader withdraws when prices have diverged, they lock in that reduced value.
+Where $p_{initial}$ and $p_{final}$ are the initial and final price ratios of the two assets. This *loss* is termed impermanent because it can be offset by fees or reverted if prices move back toward their original ratio. Nevertheless, the risk remains that if a trader withdraws when prices have diverged, they lock in that reduced value.
 
 ### Other features
 

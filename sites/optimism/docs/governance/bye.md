@@ -6,7 +6,7 @@ sidebar_label: Wrapping up
 
 # Wrapping Up
 
-To wrap up, where the OP Stack defines *how the system runs*, governance defines *how it changes*. It encodes: who can propose, who can vote, and who can veto. And because governance must evolve with the Collective, it’s designed to be both programmable and flexible—via modules, managers, and community experimentation.
+To wrap up, where the OP Stack defines *how the system runs*, governance defines *how it changes*. It encodes: who can propose, who can vote, and who can veto. And because governance must evolve with the Collective, it’s designed to be both programmable and flexible: via modules, managers, and community experimentation.
 
 As you’ve seen, governance isn’t just about casting votes. It’s about trust minimization, fault tolerance, consent, and credible neutrality. The system must balance legitimacy with execution, and decentralization with security.
 

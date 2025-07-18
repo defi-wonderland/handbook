@@ -1,7 +1,7 @@
 # Ethereum Core
 
 :::tip
-We strongly recommend you to dive into the core concepts listed [here](https://inevitableeth.com/en/home/concepts) before diving into how Ethereum works.
+We strongly recommend that you dive into the core concepts listed [here](https://inevitableeth.com/en/home/concepts) before diving into how Ethereum works.
 :::
 
 There are many ways to explain Ethereum—how it works, what it enables, and the key standards that define it. However, we believe the best place to start is with its ethos.
@@ -16,7 +16,7 @@ At its core, Ethereum consists of three main components:
 2. **The Blockchain** – the shared ledger securing transactions and state changes.
 3. **The Network** – the global peer-to-peer infrastructure that keeps Ethereum running.
 
-This guide will explore these components in-depth, along with the standards and mechanisms that make Ethereum such a powerful platform.
+This guide will explore these components in depth, along with the standards and mechanisms that make Ethereum such a powerful platform.
 
 :::tip
 For reference on the historical side, we encourage you to read https://inevitableeth.com/home/background/history-finance.
@@ -28,10 +28,10 @@ The _brain_ of Ethereum. The EVM is a specialized, stack-based execution environ
 
 It has a **Stack-based architecture** because each contract invocation operates in an isolated EVM instance, which uses a [256-bit word](https://en.wikipedia.org/wiki/256-bit_computing), [LIFO stack](https://www.geeksforgeeks.org/lifo-last-in-first-out-approach-in-programming/) as its primary data structure. All operations consume operands from the top of the stack and push results back onto it.
 
-Also, we will differentiate between memory and storage. The first one is volatile, and transient across execution. Measured in bytes, allocated in 32-byte chunks, it is freed after code execution. While the second one is persistent, a 32-byte key-value store unique to each contract address. Written changes remain across transactions.
+Also, we will differentiate between memory and storage. The first one is volatile and transient across execution. Measured in bytes, allocated in 32-byte chunks, it is freed after code execution. While the second one is persistent, a 32-byte key-value store unique to each contract address. Written changes remain across transactions.
 
 :::info
-Both memory and storage cost gas, but storage writes are significantly more expensive because they're committed to chain state.
+Both memory and storage cost gas, but storage writes are significantly more expensive because they're committed to the chain state.
 :::
 
 The EVM supports around 150+ opcodes as described in the [Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf). Each opcode has a defined gas cost. Some rely on environment data, while others manipulate the stack or contract state.
@@ -40,18 +40,18 @@ The EVM supports around 150+ opcodes as described in the [Yellow Paper](https://
 **Deeper Dive:**
 
 - [learnevm](https://learnevm.com/chapters/intro/overview) offers opcode-by-opcode explanations and hands-on examples.
-- _Mastering Ethereum_ (Chapter 8 & 9) shows how contracts translate into EVM bytecode, with practical dev insights.
+- _Mastering Ethereum_ (Chapters 8 & 9) shows how contracts translate into EVM bytecode, with practical dev insights.
   :::
 
-You might be asking: why should I care? And the answer is that a good mental model of the EVM's fundamentals is really important for you to design protocols that rely on EVM-friendly patterns.
+You might be asking: Why should I care? And the answer is that a good mental model of the EVM's fundamentals is really important for you to design protocols that rely on EVM-friendly patterns.
 
 ### Gas and Execution Model
 
 **Gas** is the EVM's integral mechanism for metering and limiting computations. It ensures that complex or infinite loops can't stall the network and that each operation has an associated economic cost.
 
-**Gas Per Operation:** Each opcode has a base cost (e.g., 3 gas for `ADD`) plus possible additional costs (e.g., `SSTORE` can vary based on whether a storage slot goes from zero to non-zero). — See the Appendix G of [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf).
+**Gas Per Operation:** Each opcode has a base cost (e.g., 3 gas for `ADD`) plus possible additional costs (e.g., `SSTORE` can vary based on whether a storage slot goes from zero to non-zero). — See Appendix G of [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf).
 
-**Gas Limit and Fees:** A transaction specifies a gas limit (how much the sender is willing to spend—. Unused gas is refunded, but if execution runs out of gas, all state changes revert (an OOG —Out of Gas— exception). — You should check out the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) that introduced a base fee that is burned + a priority fee that goes to block proposers.
+**Gas Limit and Fees:** A transaction specifies a gas limit (how much the sender is willing to spend). Unused gas is refunded, but if execution runs out of gas, all state changes revert (an OOG —Out of Gas— exception). — You should check out the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) that introduced a base fee that is burned + a priority fee that goes to block proposers.
 
 **Block-Level Constraints:** Each block has a **gas limit** (now effectively a "gas target" times an elasticity multiplier). Overly complex transactions might use the entire block's gas allotment, limiting throughput. The base fee is then adjusted from block to block to keep average consumption near a target.
 
@@ -69,18 +69,18 @@ Contracts in Ethereum are not _"launched and run somewhere else"_—they are **d
 - **Contract Creation**
   - A special transaction with `to = null` is used to deploy code.
   - During creation, an **init code** segment runs to set up the contract's storage or code. The final code is then stored at the address.
-    We recommend you to watch this video : ) 👇
+    We recommend you watch this video : ) 👇
     https://www.youtube.com/watch?v=_tcyI_lNvo0
 - **Message Calls**
   - When an externally owned account (EOA) or another contract calls a contract, the EVM executes the runtime bytecode.
   - Contracts can call other contracts, forming complex interactions.
 - **Deterministic & Atomic**
 
-  - Any changes to contract storage only finalize if **no** exceptions (including OOG) occur. Otherwise the state reverts.
+  - Any changes to contract storage only finalize if **no** exceptions (including OOG) occur. Otherwise, the state reverts.
   - This atomic, all-or-nothing approach is fundamental for building robust, predictable decentralized protocols.
 
 - **The [Yellow Paper, sec. 7 & 8](https://ethereum.github.io/yellowpaper/paper.pdf) —** Formal definitions of contract creation, message calls, and how code executes step by step.
-- [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf), Chapter 6 and Chapter 7, show applied examples (ERC-20).
+- [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf), Chapters 6 and 7, show applied examples (ERC-20).
 
 ### Examples
 
@@ -96,7 +96,7 @@ SSTORE
 - **Gas Implications**: Storing a non-zero value in an empty slot costs significantly more (20,000 gas pre-London adjustments) than updating a slot from non-zero to another non-zero.
 - **Memory vs. Storage**: If a contract just needs data during execution, storing it in **memory** is cheaper. But for cross-transaction persistence, you need **storage**.
 
-For a deeper discussion of how these operations are priced, see the Appendix G in the _Yellow Paper_ or [learnevm's Working with Memory and Storage.](https://learnevm.com/chapters/evm/memory)
+For a deeper discussion of how these operations are priced, see Appendix G in the _Yellow Paper_ or [learnevm's Working with Memory and Storage](https://learnevm.com/chapters/evm/memory)
 
 This was a short introduction, we encorage you to read https://cypherpunks-core.github.io/ethereumbook/13evm.html and the references that have been attached.
 
@@ -108,8 +108,7 @@ At its heart, Ethereum is a **transaction-based state machine**. Each transactio
 
 **State Evolves Block by Block:** Each block includes a set of valid transactions, and the network collectively "_"executes_" these on top of the previous state to arrive at a new state. [Mastering Ethereum](https://wiki.anomalous.xyz/pdfs/mastering-ethereum.pdf) (Ch. 4 & 5) and the [Ethereum Gitbook](https://cypherpunks-core.github.io/ethereumbook/02intro.html) detail how balances, contract storage, and code get updated deterministically.
 
-**Block Structure: a b**locks contain:
-
+**Block Structure:** A block contains:
 - A **header** (metadata like parent block hash, timestamp, base fee).
 - A **list of transactions**.
 - (Post-merge) A set of **withdrawals** for PoS validators.
@@ -125,7 +124,7 @@ Historically, Ethereum started with **proof-of-work (PoW)**—similar to Bitcoin
 
 1. **Proof of Work to Proof of Stake**
    - Under [PoW](https://youtu.be/bBC-nXj3Ng4?t=870), miners expended computational resources solving cryptographic challenges, securing the chain in return for block rewards.
-   - Under PoS, _validators_ lock up ether as stake and are randomly selected to propose blocks. Honest participation is rewarded; malicious activity can cause slashing of stake.
+   - Under PoS, _validators_ lock up ether as stake and are randomly selected to propose blocks. Honest participation is rewarded; malicious activity can cause a slashing of the stake.
 2. **Forks & Upgrades**
    - Ethereum uses _hard forks_ (e.g., [Homestead](https://github.com/ethereum/homestead-guide/blob/master/source/introduction/the-homestead-release.rst), London) to upgrade protocol rules.
    - Some forks have been contentious (like the DAO fork). _The Merge_ itself was a major overhaul, switching out the PoW engine for PoS while keeping the EVM and accounts layer intact.

@@ -8,13 +8,13 @@ sidebar_label: Governance in a nutshell
 
 Before we get into Optimism-specific contracts, let’s zoom out.
 
-On-chain governance is a mechanism for managing shared infrastructure using verifiable rules. In practice, governance contracts behave similar to multisigs, but with vote weights distributed across token holders rather than multisig signers.
+On-chain governance is a mechanism for managing shared infrastructure using verifiable rules. In practice, governance contracts behave similarly to multisigs, but with vote weights distributed across token holders rather than multisig signers.
 
 At its core, governance is about managing change. A **proposal** is just a transaction (or set of transactions): a list of target addresses, call data, and sometimes ETH values. Token holders vote to approve or reject the proposal. If the vote passes and quorum is met, the transaction can be executed onchain. If it fails, it’s simply discarded.
 
 Voting power is usually determined by the number of tokens an address holds at a specific snapshot block. Most systems also allow **delegation**, meaning you can assign your voting power to another address to vote on your behalf.
 
-Some proposals affect onchain systems directly (e.g. upgrading a contract). Others are **signaling-only** (e.g. changing a community guideline or legal structure). In those cases, proposals still follow the same governance flow, but their “execution” happens through offchain coordination or manual implementation.
+Some proposals affect onchain systems directly (e.g. upgrading a contract). Others are **signalling-only** (e.g. changing a community guideline or legal structure). In those cases, proposals still follow the same governance flow, but their “execution” happens through offchain coordination or manual implementation.
 
 ## Common Terms
 
@@ -33,7 +33,7 @@ These are the core terms used across most governance systems, including Optimism
 While implementations vary, the lifecycle of a proposal usually looks like this:
 
 ```nasm
-Pending ⭢ Active ⭢ Defeated ⭢ Canceled
+Pending ⭢ Active ⭢ Defeated ⭢ Cancelled
 			                 ⮑ Succeeded ⭢ Queued ⭢ Executed
 				                   ⮑----------⮑-------⮑  Expired
 ```
@@ -92,12 +92,12 @@ In particular, the [`GovernorCompatibilityBravo`](https://github.com/OpenZeppeli
 Most governance systems in Ethereum share the same building blocks:
 - A voting mechanism that calculates token-weighted power at a specific block (snapshot).
 - A registry of proposals with metadata like start/end blocks, vote tallies, and actions.
-- A timelock controller that enforces a minimum delay before execution.
+- A time lock controller that enforces a minimum delay before execution.
 - A quorum and approval threshold to ensure decisions are legitimate.
 
-On top of this, each protocol adds its own mechanics: delegation systems, role-based permissions, modular thresholds, and custom voting logic.
+On top of this, each protocol adds its mechanics: delegation systems, role-based permissions, modular thresholds, and custom voting logic.
 
-Some proposals are executable, others are advisory. Some are submitted by anyone, others require approvals. Governance is always opinionated, the trick is making those opinions legible and upgradeable.
+Some proposals are executable, others are advisory. Some are submitted by anyone, others require approval. Governance is always opinionated; the trick is making those opinions legible and upgradeable.
 
 ## Limitations and Responsibilities
 

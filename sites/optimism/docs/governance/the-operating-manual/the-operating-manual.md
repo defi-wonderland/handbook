@@ -6,7 +6,7 @@ sidebar_label: The Operating Manual
 
 # The Operating Manual (v0.4.2)
 
-In this section we will describe the current governance proposal process of the Collective. It will evolve over time. The authoritative version is maintained [here](https://github.com/ethereum-optimism/OPerating-manual/blob/main/manual.md) on GitHub.
+In this section, we will describe the current governance proposal process of the Collective. It will evolve. The authoritative version is maintained [here](https://github.com/ethereum-optimism/OPerating-manual/blob/main/manual.md) on GitHub.
 
 ## Bicameral Governance
 
@@ -14,7 +14,7 @@ The Collective is governed by two Houses:
 - **Token House** handles most formal governance processes: protocol upgrades, OP allocation, representative elections, and proposal approvals.
 - **Citizens’ House** governs the distribution of Retro Funding and can **veto** proposals like protocol upgrades and inflation changes to protect the Collective from plutocratic or short-sighted decisions.
 
-They were designed to serve different roles, and to check and balance each other’s influence.
+They were designed to serve different roles and to check and balance each other’s influence.
 
 | House | Who votes? | Main Responsibilities | Voting System | Veto Powers |
 |-------|------------|------------------------|----------------|--------------|
@@ -50,7 +50,7 @@ Most proposals follow a three-week cycle:
 
 - Week 3: Voting
     -  Voting lasts 7 days via Optimism Governance Portal (Token House) or Snapshot (Citizens’ House).
-    - Snapshot of voting power is taken at the start of the voting period.
+    - A snapshot of voting power is taken at the start of the voting period.
     - Quorum and approval thresholds depend on the Proposal Type.
 
 ## Veto Process
@@ -110,7 +110,7 @@ Experiments with Guest Voters are ongoing. The Citizen Attestation Schema tracks
 
 ![citizen-attestaion.png](img/citizens-attestation.png)
 
-Experiments follow this principles:
+Experiments follow these principles:
 - Measurable inputs + outcomes
 - Short feedback cycles
 - Reversibility (e.g. guest voter rounds)

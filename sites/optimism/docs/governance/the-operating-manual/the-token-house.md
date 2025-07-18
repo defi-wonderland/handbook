@@ -24,7 +24,7 @@ The Token House is responsible for voting on most governance proposals, includin
 - Governance procedures (elections, structure changes, ratifications)
 - Code of conduct violations or representative removals
 
-The Token House also participates in veto power when applicable—particularly over certain Citizens’ House proposals.
+The Token House also participates in veto power when applicable, particularly over certain Citizens’ House proposals.
 
 ## Governance Mechanism
 
@@ -54,13 +54,13 @@ Although the Token House formally approves proposals through on-chain voting, ex
 - Coordinating technical upgrades or disbursements
 - Communicating implementation status post-approval
 
-The Foundation operates as a steward, and is expected to decentralize its role over time.
+The Foundation operates as a steward and is expected to decentralize its role over time.
 
 ## Constitutional Alignment
 
 The Token House operates within the framework defined by the Working Constitution, which has the following principles:
 
-- **Governance minimization**: when multiple options achieve the same outcome, choose the least complex
+- **Governance minimization**: When multiple options achieve the same outcome, choose the least complex
 - **Forkability and exit**: collective freedom must be protected
 - **Anti-plutocracy**: token-based governance must be balanced by human-centric governance (Citizens)
 - **Impact = Profit**: proposals should aim to reward meaningful contributions to the ecosystem

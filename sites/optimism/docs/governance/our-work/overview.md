@@ -8,7 +8,7 @@ This section documents active governance-related development initiatives led by 
 
 ## Why it matters
 
-The governance is designed to evolve. Improvements often arise from practical bottlenecks observed by delegates, contributors, and protocol developers. This section records how those pain points are being addressed—through new contracts, improved interfaces, or procedural upgrades.
+The governance is designed to evolve. Improvements often arise from practical bottlenecks observed by delegates, contributors, and protocol developers. This section records how those pain points are being addressed through new contracts, improved interfaces, or procedural upgrades.
 
 Each entry aims to explain:
 
