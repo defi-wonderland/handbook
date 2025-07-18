@@ -114,7 +114,7 @@ Add each public key to the corresponding GitHub account under Settings → SSH K
 ### Generate GPG key:
 
 ```bash
-gpg-- full-generate-key
+gpg --full-generate-key
 ```
 
 Select:
