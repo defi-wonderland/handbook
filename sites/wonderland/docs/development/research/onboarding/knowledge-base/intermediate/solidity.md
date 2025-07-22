@@ -12,7 +12,7 @@ This foundational knowledge will help you analyze protocols more effectively and
 
 ## General resources
 
-### Starting from scratch — **this *must** be addressed during the onboarding.*
+### Starting from scratch - **This *must** be addressed during the onboarding.*
 
 1. **Blockchain Basics (Cyfrin Updraft)**
     
@@ -26,7 +26,7 @@ This foundational knowledge will help you analyze protocols more effectively and
     
     [Learn Solidity Smart Contract Development - Cyfrin Updraft](https://updraft.cyfrin.io/courses/solidity)
 
-### Deep dive, foundry —*Optional*
+### Deep dive, foundry - *Optional*
 
 If you feel confident after completing the recommended resources and want to continue building your Solidity expertise, consider diving into the following courses:
 
