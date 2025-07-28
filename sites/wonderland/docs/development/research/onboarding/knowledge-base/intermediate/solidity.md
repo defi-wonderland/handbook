@@ -12,7 +12,7 @@ This foundational knowledge will help you analyze protocols more effectively and
 
 ## General resources
 
-### Starting from scratch - **This *must** be addressed during the onboarding.*
+### Starting from scratch - **This *must* be addressed during the onboarding.**
 
 1. **Blockchain Basics (Cyfrin Updraft)**
     
