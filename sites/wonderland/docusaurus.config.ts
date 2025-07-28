@@ -71,7 +71,6 @@ const localConfig: Config = {
         themeVariables: {
           // Primary colors matching Wonderland theme
           primaryColor: '#1f55d5',        // --wonderland-blue
-          primaryTextColor: '#ffffff',    
           primaryBorderColor: '#3c2a86',  // --wonderland-purple
           lineColor: '#a371ce',           // --wonderland-lila
           
@@ -81,20 +80,20 @@ const localConfig: Config = {
           
           // Background colors
           background: '#0e152c',          // --wonderland-dark
-          mainBkg: '#1c1f37',            // --wonderland-light
-          secondBkg: '#283c7d',          // --wonderland-blue-700
-          tertiaryBkg: '#4359a1',        // --wonderland-blue-600
+          mainBkg: '#1c1f37',             // --wonderland-light
+          secondBkg: '#283c7d',           // --wonderland-blue-700
+          tertiaryBkg: '#4359a1',         // --wonderland-blue-600
           
           // Text colors
-          textColor: '#f9f9fb',          // --wonderland-gray-50
+          textColor: '#f9f9fb',           // --wonderland-gray-50
           primaryTextColor: '#ffffff',
-          secondaryTextColor: '#b9c0d4', // --wonderland-gray-300
+          secondaryTextColor: '#b9c0d4',  // --wonderland-gray-300
           
           // Node colors for sequence diagrams
-          actor0: '#978cfb',             // --wonderland-accent (sidebar purple)
-          actor1: '#978cfb',             // --wonderland-accent (sidebar purple)  
-          actor2: '#978cfb',             // --wonderland-accent (sidebar purple)
-          actor3: '#978cfb',             // --wonderland-accent (sidebar purple)
+          actor0: '#978cfb',              // --wonderland-accent (sidebar purple)
+          actor1: '#978cfb',              // --wonderland-accent (sidebar purple)  
+          actor2: '#978cfb',              // --wonderland-accent (sidebar purple)
+          actor3: '#978cfb',              // --wonderland-accent (sidebar purple)
           actorBkg0: '#978cfb',
           actorBkg1: '#978cfb',
           actorBkg2: '#978cfb', 
@@ -103,22 +102,22 @@ const localConfig: Config = {
           actorTextColor1: '#ffffff',
           actorTextColor2: '#ffffff',
           actorTextColor3: '#ffffff',
-          actorLineColor0: '#516dc9',    // --wonderland-blue-500
-          actorLineColor1: '#4359a1',    // --wonderland-blue-600
+          actorLineColor0: '#516dc9',     // --wonderland-blue-500
+          actorLineColor1: '#4359a1',     // --wonderland-blue-600
           actorLineColor2: '#a371ce',
           actorLineColor3: '#978cfb',
           
           // Activation box colors
-          activationBkgColor: '#283c7d',  // --wonderland-blue-700
-          activationBorderColor: '#a371ce', // --wonderland-lila
+          activationBkgColor: '#283c7d',   // --wonderland-blue-700
+          activationBorderColor: '#a371ce',// --wonderland-lila
           
           // Sequence numbers
           sequenceNumberColor: '#ffffff',
           
           // Notes
-          noteBkgColor: '#404968',        // --wonderland-gray-700
+          noteBkgColor: '#404968',         // --wonderland-gray-700
           noteTextColor: '#ffffff',
-          noteBorderColor: '#a371ce',     // --wonderland-lila
+          noteBorderColor: '#a371ce',      // --wonderland-lila
           
           // Loop/alt/opt colors  
           loopTextColor: '#ffffff',
@@ -126,17 +125,17 @@ const localConfig: Config = {
           optTextColor: '#ffffff',
           
           // Arrows
-          arrowheadColor: '#a371ce',      // --wonderland-lila
+          arrowheadColor: '#a371ce',       // --wonderland-lila
           
           // Git/flowchart specific
-          git0: '#1f55d5',               // --wonderland-blue
-          git1: '#3c2a86',               // --wonderland-purple
-          git2: '#a371ce',               // --wonderland-lila  
-          git3: '#978cfb',               // --wonderland-accent
-          git4: '#e95b9b',               // --wonderland-pink
-          git5: '#fecc40',               // --wonderland-yellow
-          git6: '#516dc9',               // --wonderland-blue-500
-          git7: '#7d89b0',               // --wonderland-gray-400
+          git0: '#1f55d5',                 // --wonderland-blue
+          git1: '#3c2a86',                 // --wonderland-purple
+          git2: '#a371ce',                 // --wonderland-lila  
+          git3: '#978cfb',                 // --wonderland-accent
+          git4: '#e95b9b',                 // --wonderland-pink
+          git5: '#fecc40',                 // --wonderland-yellow
+          git6: '#516dc9',                 // --wonderland-blue-500
+          git7: '#7d89b0',                 // --wonderland-gray-400
           
           // Flowchart colors
           fillType0: '#1f55d5',
