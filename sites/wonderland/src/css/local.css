@@ -62,75 +62,11 @@
   margin: 1.5rem 0;
 }
 
-/* Mermaid sequence diagram styling */
-.mermaid .actor {
-  fill: var(--wonderland-accent) !important;
-  stroke: var(--wonderland-accent) !important;
-  stroke-width: 2px !important;
+:root {
+  --wonderland-accent:   #978cfb;
+  --wonderland-lila:     #6b5cff;
+  --wonderland-blue-800: #2a3052;
 }
-
-.mermaid .actor-line {
-  stroke: var(--wonderland-lila) !important;
-  stroke-width: 1px !important;
-}
-
-.mermaid .messageLine0,
-.mermaid .messageLine1 {
-  stroke: var(--wonderland-lila) !important;
-  stroke-width: 1.5px !important;
-}
-
-.mermaid .messageText {
-  fill: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-size: 12px !important;
-}
-
-.mermaid .labelText {
-  fill: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-weight: 500 !important;
-}
-
-.mermaid .loopText {
-  fill: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-}
-
-.mermaid .noteText {
-  fill: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-size: 11px !important;
-}
-
-/* Mermaid flowchart styling */
-.mermaid .node rect,
-.mermaid .node circle,
-.mermaid .node polygon {
-  fill: var(--wonderland-accent) !important;
-  stroke: var(--wonderland-accent) !important;
-  stroke-width: 2px !important;
-}
-
-.mermaid .node text {
-  fill: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-weight: 500 !important;
-}
-
-.mermaid .edgePath path {
-  stroke: var(--wonderland-lila) !important;
-  stroke-width: 1.5px !important;
-}
-
-.mermaid .edgeLabel {
-  background-color: var(--wonderland-blue-800) !important;
-  color: #ffffff !important;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  border-radius: 4px !important;
-  padding: 2px 4px !important;
-}
-
 /* Mermaid mindmap styling */
 .mermaid .mindmap-node {
   fill: var(--wonderland-accent) !important;
