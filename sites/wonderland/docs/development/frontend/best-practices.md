@@ -164,7 +164,7 @@ const Button = () => {
 export default Button;
 ```
 
-Or using [\*\*``styled()](https://mui.com/system/styled/?srsltid=AfmBOoq0FmJ0KjHaNEZYbCgi1CbkOamY-AwtPiSm0tDtQ9Bdp7GIY3sd)``\*\* utility from MUI:
+Or using **[`styled()`](https://mui.com/system/styled/)** utility from MUI:
 
 ```jsx
 import { styled } from "@mui/material/styles";
