@@ -93,7 +93,7 @@ const aztecHandbooks: Handbook[] = [
     href: "https://optimism.handbook.wonderland.xyz",
     background: {
       bgType: "other",
-      bgImage: "/common/img/op-handbook-social.png",
+      bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
 ];
