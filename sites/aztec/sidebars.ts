@@ -25,59 +25,11 @@ const sidebars: SidebarsConfig = {
         id: 'background/overview',
       },
       items: [
-        'background/overview',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Stack',
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'stack/overview',
-      },
-      items: [
-        'stack/overview',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Transactions',
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'transactions-messaging/overview',
-      },
-      items: [
-        'transactions-messaging/overview',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Governance',
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'governance/overview',
-      },
-      items: [
-        'governance/overview',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Privacy',
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'privacy/overview',
-      },
-      items: [
-        'privacy/overview',
+        'background/notes',
+        'background/UTXOs',
+        'background/nullifiers',
+        'background/zero-knowledge-proofs',
+        'background/zk-circuits',
       ],
     },
   ],
