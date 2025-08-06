@@ -2,47 +2,89 @@
 
 /* Shape, Icons, etc customization */
 :root {
-  --wonderland-accent: #a7a2ff;
+  --wonderland-accent: #A39FED;
   --aztec-purple: #625CBF;
 }
 
-/* Aztec-specific menu icons */
-.menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
-  background-image: url("/img/icons/stack-icon-filled.svg");
-  filter: hue-rotate(240deg) saturate(1.2) brightness(0.9);
+/* Sidebar menu icons */
+.menu__list-item-collapsible .menu__link[href^="/docs/background"]::before {
+  content: "";
+  background-image: url("/img/icons/map.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
-.menu__list-item-collapsible
-  .menu__link[href^="/docs/interoperability"]::before {
-  background-image: url("/img/icons/interop-icon.svg");
-  filter: hue-rotate(240deg) saturate(1.2) brightness(0.9);
+.menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
+  content: "";
+  background-image: url("/img/icons/stack-icon-filled.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/transactions-messaging"]::before {
+  content: "";
+  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/governance"]::before {
-  background-image: url("/img/icons/governance-icon-filled.svg");
-  filter: hue-rotate(240deg) saturate(1.2) brightness(0.9);
+  content: "";
+  background-image: url("/img/icons/governance-icon.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
-  background-image: url("/img/icons/processes-icon-filled.svg");
-  filter: hue-rotate(240deg) saturate(1.2) brightness(0.9);
+.menu__list-item-collapsible .menu__link[href^="/docs/privacy"]::before {
+  content: "";
+  background-image: url("/img/icons/star.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
-/* Landing page CategoryCards icons now use Aztec purple #625CBF directly in SVG files */
+/* Landing page CategoryCards icons now use #A39FED directly in SVG files */
 
-/* Font for Optimism category titles */
+/* Font for Aztec category titles */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/background"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/stack"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/interoperability"],
+  .menu__link[href^="/docs/transactions-messaging"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/governance"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/processes"] {
+  .menu__link[href^="/docs/privacy"] {
   font-family:
     "Inter",
     system-ui,

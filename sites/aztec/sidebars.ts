@@ -13,50 +13,71 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  * Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  docs: [
+  tutorialSidebar: [
     'intro/welcome',
     {
       type: 'category',
-      label: 'Stack',
+      label: 'Background',
+      collapsible: false,
+      collapsed: false,
       link: {
         type: 'doc',
-        id: 'intro/welcome',
+        id: 'background/overview',
       },
       items: [
-        'intro/welcome',
+        'background/overview',
       ],
     },
     {
       type: 'category',
-      label: 'Interoperability',
+      label: 'Stack',
+      collapsible: false,
+      collapsed: false,
       link: {
         type: 'doc',
-        id: 'intro/welcome',
+        id: 'stack/overview',
       },
       items: [
-        'intro/welcome',
+        'stack/overview',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Transactions',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'transactions-messaging/overview',
+      },
+      items: [
+        'transactions-messaging/overview',
       ],
     },
     {
       type: 'category',
       label: 'Governance',
+      collapsible: false,
+      collapsed: false,
       link: {
         type: 'doc',
-        id: 'intro/welcome',
+        id: 'governance/overview',
       },
       items: [
-        'intro/welcome',
+        'governance/overview',
       ],
     },
     {
       type: 'category',
-      label: 'Processes',
+      label: 'Privacy',
+      collapsible: false,
+      collapsed: false,
       link: {
         type: 'doc',
-        id: 'intro/welcome',
+        id: 'privacy/overview',
       },
       items: [
-        'intro/welcome',
+        'privacy/overview',
       ],
     },
   ],

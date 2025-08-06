@@ -13,24 +13,35 @@ import {
 
 const aztecCategories: Category[] = [
   {
-    title: "STACK",
-    icon: "/img/icons/stack-icon.svg",
-    href: "/docs/intro/welcome",
+    title: "BACKGROUND",
+    icon: "/img/icons/map.svg",
+    href: "/docs/background/overview",
   },
   {
-    title: "INTEROP",
-    icon: "/img/icons/interop-icon.svg",
-    href: "/docs/intro/welcome",
+    title: "STACK",
+    icon: "/img/icons/stack-icon.svg",
+    href: "/docs/stack/overview",
+  },
+  {
+    title: "TRANSACTIONS",
+    icon: "/img/icons/document-currency-dollar.svg",
+    href: "/docs/transactions-messaging/overview",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
     title: "GOVERNANCE",
     icon: "/img/icons/governance-icon.svg",
-    href: "/docs/intro/welcome",
+    href: "/docs/governance/overview",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
-    title: "PROCESSES",
-    icon: "/img/icons/processes-icon.svg",
-    href: "/docs/intro/welcome",
+    title: "PRIVACY",
+    icon: "/img/icons/star.svg",
+    href: "/docs/privacy/overview",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
 ];
 
