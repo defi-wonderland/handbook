@@ -2,85 +2,65 @@
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
-
+/* Main container */
 .main {
-  padding: 2rem;
-  text-align: center;
-}
-
-.hero {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--ifm-color-primary);
-  color: white;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  font-weight: 600;
-}
-
-.button:hover {
-  background: var(--ifm-color-primary-dark);
-  color: white;
-  text-decoration: none;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  position: relative;
   width: 100%;
-  margin-top: 4rem;
-  padding: 0 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0;
+  padding-top: 0;
 }
 
-.feature {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--ifm-color-emphasis-100);
-  border: 1px solid var(--ifm-color-emphasis-200);
+/* Center content wrapper */
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90%;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 6rem;
+  padding-top: 3rem;
 }
 
-.feature h3 {
-  margin: 0 0 1rem 0;
-  color: var(--ifm-color-primary);
-  font-size: 1.25rem;
+/* Aztec background */
+.optimismBackground {
+  background: url("/img/op-background.png") no-repeat center 0;
+  background-size: cover;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: hue-rotate(240deg) saturate(1.1) brightness(0.8);
 }
 
-.feature p {
-  margin: 0;
-  color: var(--ifm-color-emphasis-700);
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
+@media (max-width: 1200px) {
+  .centerContent {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 8rem;
   }
-  
-  .hero p {
-    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 1rem 0;
+    min-height: 100vh;
+    height: auto;
   }
-  
-  .features {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+
+  .centerContent {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 6rem;
   }
 }

@@ -1,60 +1,99 @@
 import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import styles from "./index.module.css";
 import {
+  HeroSection,
   CategoryCards,
+  HandbookSection,
   Category,
+  HeroSectionProps,
+  Handbook,
+  HandbookSectionProps,
   CategoryCardsTheme,
 } from "@handbook/common-config/components";
-import styles from "./index.module.css";
 
-const templateCategories: Category[] = [
+const aztecCategories: Category[] = [
   {
-    title: "Start",
-    icon: "/img/docusaurus.png",
+    title: "STACK",
+    icon: "/img/icons/stack-icon.svg",
     href: "/docs/intro/welcome",
   },
   {
-    title: "Documentation",
-    icon: "/img/docusaurus.png",
+    title: "INTEROP",
+    icon: "/img/icons/interop-icon.svg",
     href: "/docs/intro/welcome",
   },
   {
-    title: "Examples",
-    icon: "/img/docusaurus.png",
+    title: "GOVERNANCE",
+    icon: "/img/icons/governance-icon.svg",
     href: "/docs/intro/welcome",
   },
   {
-    title: "API Reference",
-    icon: "/img/docusaurus.png",
+    title: "PROCESSES",
+    icon: "/img/icons/processes-icon.svg",
     href: "/docs/intro/welcome",
   },
 ];
 
-const templateCategoryTheme: CategoryCardsTheme = {
-  gradientStart: "#4f46e5",
-  gradientEnd: "#7c3aed",
-  iconHoverColorEffect: "none",
+const aztecHeroProps: HeroSectionProps = {
+  title: "Aztec Handbook",
+  titleImage: "/img/aztec-handbook-social.svg",
+  description:
+    "New to Aztec? This handbook is your guide through all the things you need to know before you get started. Cheers!",
+  buttonText: "Enter the Rabbit Hole",
+  buttonImage: "/common/img/enter-button.svg",
+  buttonLink: "/docs/intro/welcome",
 };
 
+const aztecHandbooks: Handbook[] = [
+  {
+    title: "Wonderland Handbook",
+    image: "/common/img/wonderland-button-image.png",
+    href: "https://handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/wonderland-button-bg.jpg",
+    },
+  },  {
+    title: "Optimism Handbook",
+    image: "/common/img/optimism-social-logo.png",
+    href: "https://optimism.handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/op-handbook-social.png",
+    },
+  },
+];
+
+const aztecHandbookProps: HandbookSectionProps = {
+  handbooks: aztecHandbooks,
+  title: "ALL HANDBOOKS",
+  description:
+    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+};
+
+const aztecCategoryTheme: CategoryCardsTheme = {
+  gradientStart: "var(--aztec-purple)",
+  gradientEnd: "var(--aztec-purple)",
+  iconHoverColorEffect: "none"
+};
+const AztecBackground = () => <div className={styles.optimismBackground} />;
+
 function Home(): React.ReactElement {
-  const { siteConfig } = useDocusaurusContext();
-
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+    <Layout description="A curated guide to our best practices, processes, and technical insights.">
+      <style>{`
+        #__docusaurus {
+          overflow: hidden;
+        }
+      `}</style>
       <main className={styles.main}>
-        <div className={styles.hero}>
-          <h1>{siteConfig.title}</h1>
-          <p>{siteConfig.tagline}</p>
-          <Link to="/docs/intro/welcome" className={styles.button}>
-            Get Started
-          </Link>
-        </div>
+        <AztecBackground />
+        <section className={styles.centerContent}>
+          <HeroSection {...aztecHeroProps} />
+          <CategoryCards categories={aztecCategories} theme={aztecCategoryTheme} />
+        </section>
 
-        <CategoryCards
-          categories={templateCategories}
-          theme={templateCategoryTheme}
-        />
+        <HandbookSection {...aztecHandbookProps} />
       </main>
     </Layout>
   );
