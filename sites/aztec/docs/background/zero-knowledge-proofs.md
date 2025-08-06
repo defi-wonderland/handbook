@@ -83,12 +83,9 @@ c = H(R, message)
 s = k + c \* x
 ```
 
-She sends `(R, s)` to anyone.  
+She sends $(R, s)$ to anyone.  
 Anyone can verify:
-```rust
-g^s ?= R \* Y^H(R, message)
-```
-
+$g^s \stackrel{?}{=} R \cdot Y^{H(R, \text{message})}$
 :::note Reference
 This is a **digital signature**: a non-interactive zero-knowledge proof that the signer knows `x` and signed a message.
 :::
