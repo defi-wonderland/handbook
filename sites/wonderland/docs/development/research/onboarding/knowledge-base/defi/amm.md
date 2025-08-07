@@ -67,7 +67,7 @@ Where $p_{initial}$ and $p_{final}$ are the initial and final price ratios of th
 
 On the technical side, modern AMM designs address more than just the basic math. Some protocols implement  **features like [flash swaps](https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/using-flash-swaps)**. If the user cannot repay (plus any fee), the transaction reverts. This mechanism can support advanced arbitrage or refinancing strategies that might otherwise require cumbersome multi-step processes. Other AMMs implement on-chain **price oracles** by recording [time-weighted average prices](https://blog.uniswap.org/uniswap-v3-oracles) of the pool, which external contracts can trust more readily than a spot price from a single block. [To prevent an attacker from forcing a warped price at the end of a block](https://medium.com/@chinmayf/so-you-want-to-use-twap-1f992f9d3819), these AMMs often track the reserves at each trade event and accumulate a price history that is harder to manipulate with a single transaction.
 
-AMMs can also combine with traditional limit order books. When these systems coexist, a user's trade might simultaneously interact with the order book if favorable bids or asks exist, or with the AMM pool if that yields a better rate. This dual-path design can deepen overall liquidity and narrow effective spreads. Some AMMs go further by introducing "auction slots," where an LP can bid part of their holdings for discounted trading fees—essentially reserving preferential treatment and capturing arbitrage returns that might otherwise be siphoned off by opportunistic traders.
+AMMs can also combine with traditional limit order books. When these systems coexist, a user's trade might simultaneously interact with the order book if favorable bids or asks exist, or with the AMM pool if that yields a better rate. This dual-path design can deepen overall liquidity and narrow effective spreads. Some AMMs go further by introducing "auction slots," where an LP can bid part of their holdings for discounted trading fees, essentially reserving preferential treatment and capturing arbitrage returns that might otherwise be siphoned off by opportunistic traders.
 
 Behind these mechanisms, an AMM must ensure that its core contract cannot be exploited. Common security patterns include tracking the pool's last known balances to avoid unexpected external transfers and locking key functions against reentrancy, so no malicious contract can repeatedly call the swap function in a single transaction. AMMs also handle edge cases like non-standard ERC-20 tokens that fail to return a boolean value on transfer, or tokens with highly unusual supply mechanics, by carefully verifying token balances or capping storage variables to prevent overflow.
 
@@ -81,13 +81,13 @@ Behind these mechanisms, an AMM must ensure that its **core contract cannot be e
 
 - Tracking the pool's last known balances to avoid unexpected external transfers,
 - locking key functions against **reentrancy** so no malicious contract can repeatedly call the swap function,
-- Verifying token balances—especially for **non-standard ERC-20** tokens or those with unusual supply mechanics.
+- Verifying token balances, especially for **non-standard ERC-20** tokens or those with unusual supply mechanics.
 
 Best practices also include thorough auditing of the math around fee collection and price updates, plus testing for scenarios where external price feeds or manipulative trades might create temporary imbalances. 
 
 # An example: Uniswap V2
 
-This *product invariant* approach for ERC-20 tokens is popularised by **Uniswap V2**. In this design, a pair contract holds two tokens, say Token A and Token B, and ensures the product of their on-chain balances remains at least k after accounting for a 0.30% fee on every trade. Those fees accrue to liquidity providers over time, tracked by LP tokens. Uniswap V2 also introduced *flash swaps,* letting users withdraw any token from the pool without upfront payment and repay it (plus fees) within the same transaction—enabling complex arbitrage or refinancing strategies without needing external financing. Another feature is its built-in time-weighted average price (TWAP) oracle: by accumulating price data at each block, Uniswap V2 lets other contracts calculate historical average prices less vulnerable to brief, manipulative spikes. The core–periphery architecture (with a minimal "core" holding funds and a "router" for user-friendly interactions) keeps the most critical pool logic simple and secure.
+This *product invariant* approach for ERC-20 tokens is popularised by **Uniswap V2**. In this design, a pair contract holds two tokens, say Token A and Token B, and ensures the product of their on-chain balances remains at least k after accounting for a 0.30% fee on every trade. Those fees accrue to liquidity providers over time, tracked by LP tokens. Uniswap V2 also introduced *flash swaps,* letting users withdraw any token from the pool without upfront payment and repay it (plus fees) within the same transaction, enabling complex arbitrage or refinancing strategies without needing external financing. Another feature is its built-in time-weighted average price (TWAP) oracle: by accumulating price data at each block, Uniswap V2 lets other contracts calculate historical average prices less vulnerable to brief, manipulative spikes. The core–periphery architecture (with a minimal "core" holding funds and a "router" for user-friendly interactions) keeps the most critical pool logic simple and secure.
 
 :::tip
 To learn more about TWAP and Oracle Manipulation in Uni V2, see https://mirror.xyz/0xD28D1D7A6FDebEF46330210E65a1EF11bAfea11a/qdl4V9x3B9LmiJLw8XMw4zLBLv_jQZAnu-sd4YJwIUg.
@@ -143,7 +143,7 @@ A **small swap** barely changes the ratio of x to y, so there's minimal price sl
 <details>
 <summary>✅ Solution</summary>
 
-LPs can face **impermanent loss** if the ratio of the pooled assets diverges from their initial ratio. The pool automatically rebalances to hold more of the cheaper asset and less of the more expensive one—potentially leading to a lower overall value than if the LP had simply held both assets separately. However, if the pool sees sufficient **trading volume and fees**, or if the asset prices revert toward the original ratio, those extra fees can **offset or even exceed** the impermanent loss.
+LPs can face **impermanent loss** if the ratio of the pooled assets diverges from their initial ratio. The pool automatically rebalances to hold more of the cheaper asset and less of the more expensive one, potentially leading to a lower overall value than if the LP had simply held both assets separately. However, if the pool sees sufficient **trading volume and fees**, or if the asset prices revert toward the original ratio, those extra fees can **offset or even exceed** the impermanent loss.
 </details>
 
 **Q4:** Reentrancy is a known attack vector. Why is it particularly important for an AMM contract to lock or otherwise prevent recursive swap calls?
@@ -165,9 +165,9 @@ An attacker could exploit reentrancy by calling the swap function multiple times
 
 # Resources
 
-https://www.machow.ski/posts/an_introduction_to_automated_market_makers/ — **MUST read. Awesome article.**
+https://www.machow.ski/posts/an_introduction_to_automated_market_makers/ - **MUST read. Awesome article.**
 
-https://www.rareskills.io/uniswap-v2-book — Really recommended.
+https://www.rareskills.io/uniswap-v2-book - Really recommended.
 
 Lau, D., Wong, D., Chan, A., & Tan, Y. (2021). Decentralized Exchanges. In *How To DeFi* (pp. 27 - 54). Published by CoinGecko.
 

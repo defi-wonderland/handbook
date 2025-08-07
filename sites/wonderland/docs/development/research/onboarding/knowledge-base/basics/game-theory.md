@@ -1,10 +1,10 @@
 # Game Theory
 
-In every society, people interact all the time. Sometimes, those interactions are cooperative, and other times, they are competitive. In either case, the term _interdependence_ applies—one person's behaviour affects another person's well-being, either positively or negatively.
+In every society, people interact all the time. Sometimes, those interactions are cooperative, and other times, they are competitive. In either case, the term _interdependence_ applies: one person's behaviour affects another person's well-being, either positively or negatively.
 
 As you know, Web3 is mostly about incentives. Most specifically, it's about **aligning incentives**. To do that, calculating the costs of attacks, or determining whether the tokenomics we are designing are accurate enough, we need Game Theory.
 
-We will define this discipline as a method of studying strategic situations — everything that constitutes imperfect competition is a **strategic setting**.
+We will define this discipline as a method of studying strategic situations, everything that constitutes imperfect competition is a **strategic setting**.
 
 :::tip
 A situation is **strategic** if the outcomes that affect you depend on actions not just of yourself but also of others.
@@ -22,7 +22,7 @@ If this is your first time hearing about Game Theory, we recommend that you see 
 
 ## What is a game, _exactly?_
 
-In short, games are formal descriptions of strategic settings. So, game theory is a methodology of formally studying situations of interdependence — _formally,_ because we use mathematically precise and logically consistent structures. Every game can be described by four components:
+In short, games are formal descriptions of strategic settings. So, game theory is a methodology of formally studying situations of interdependence. _Formally,_ because we use mathematically precise and logically consistent structures. Every game can be described by four components:
 
 1. **Players:** Decision-makers in the scenario (e.g., two firms, two politicians, or two classmates).
 2. **Actions/Strategies:** Each player's options (e.g., set a price, vote for a policy, choose a number).
@@ -31,7 +31,7 @@ In short, games are formal descriptions of strategic settings. So, game theory i
 ![Game representation forms](/img/game-theory-1.png)
 </div>
 
-**Payoffs Are Central.** To figure out the "best" move, we need to know what each player is trying to achieve. Without payoffs—some sense of objectives (self-interest, collective good, moral satisfaction)—we can't analyze the situation properly.
+**Payoffs Are Central.** To figure out the "best" move, we need to know what each player is trying to achieve. Without payoffs,some sense of objectives (self-interest, collective good, moral satisfaction), we can't analyze the situation properly.
 
 An **extensive‐form game** is essentially a **game tree** that shows players' moves step by step, in the order they're made, including what each player knows when making a decision. We will have:
 
@@ -42,9 +42,9 @@ An **extensive‐form game** is essentially a **game tree** that shows players' 
 ![image.png](/img/game-theory-2.png)
 </div>
 
-- **Terminal Nodes** – When no further choices remain, you arrive at terminal nodes, each corresponding to an outcome with specific payoffs (or "utilities") for each player. These payoffs represent each player's preference ranking over outcomes.
+- **Terminal Nodes**: When no further choices remain, you arrive at terminal nodes, each corresponding to an outcome with specific payoffs (or "utilities") for each player. These payoffs represent each player's preference ranking over outcomes.
 
-- **Information Sets** – If a player doesn't know exactly which node they're at (because they don't see the other player's choice yet), then these nodes are grouped by a dashed line (an "information set"). This indicates **imperfect information**—the player makes the same decision at any node in that information set.
+- **Information Sets**: If a player doesn't know exactly which node they're at (because they don't see the other player's choice yet), then these nodes are grouped by a dashed line (an "information set"). This indicates **imperfect information**, the player makes the same decision at any node in that information set.
 
 An **extensive‐form game** is essentially a **game tree** that shows players' moves step by step, in the order they're made, including what each player knows when making a decision. We will have:
 
@@ -58,10 +58,10 @@ Let's think of the following example: two players, **Katzenberg** (DreamWorks) a
 Here, the most important concept is the notion of a **strategy.**
 
 :::tip
-A **strategy** is a _complete contingent plan_ for a player in the game — a full specification of a player's behaviour, which describes the actions that the player would take at _each_ of his possible decision points.
+A **strategy** is a _complete contingent plan_ for a player in the game. A full specification of a player's behaviour, which describes the actions that the player would take at _each_ of his possible decision points.
 :::
 
-A **normal‐form** (or "strategic‐form") game is just a more compact way of describing all the players' moves and payoffs—**without** drawing the tree. Here, we will have:
+A **normal‐form** (or "strategic‐form") game is just a more compact way of describing all the players' moves and payoffs, **without** drawing the tree. Here, we will have:
 
 1. **Complete Contingent Plans:** Each player's strategy must specify what they'll do at every decision point or information set they control (even if that point might never be reached). For example. Given three possible decisions in an extensive form, the normal-form strategy has to say: "_If I'm at node $a$, I do $X$; If I'm at $c$ or $d$, I do $Y$; and if I'm at $e$, I do $Z.$"_
 2. **Strategy Sets**: For each player $i$, we list all possible strategies (i.e. all possible ways they could behave across every decision point). We label this set as $S_i$.
@@ -112,7 +112,7 @@ Two drivers speed toward each other. Each must choose either to **Hold course (H
 
 - If **both swerve**, neither "wins" big, but both avoid the terrible crash.
 - If **one holds** and the other swerves, the holder is seen as "tough" (higher payoff), and the swerver is the "chicken."
-- If **both hold**, they crash—a very bad payoff for both.
+- If **both hold**, they crash, a very bad payoff for both.
 
 <div style={{textAlign: "center"}}>
 ![Game theory chicken problem example](/img/chicken-problem.jpg)
@@ -122,7 +122,7 @@ Two drivers speed toward each other. Each must choose either to **Hold course (H
 
 When looking at a game in normal form, it's often helpful to check if any player has a **dominant** strategy, or if any strategy is **dominated**:
 
-- A **strictly dominant strategy** yields a _strictly higher_ payoff than any other choice _no matter_ what the opponent does. If you find one, it's automatically your best move—no guesswork needed.
+- A **strictly dominant strategy** yields a _strictly higher_ payoff than any other choice _no matter_ what the opponent does. If you find one, it's automatically your best move,no guesswork needed.
 - A **strictly dominated strategy** is one that always gives a _strictly lower_ payoff than some other strategy, again regardless of the opponent's action. You can safely discard any strictly dominated strategy, because there's always a strictly better choice available.
 
 Sometimes we look at **weakly** dominant/dominated strategies, meaning the payoff is _at least as good_ in all cases and strictly better in at least one. These are less forceful than "strictly," but still guide player choices.
@@ -152,13 +152,13 @@ For finding the Nash equilibrium, lets analyze two scenarios:
 - If Player 1 Holds, Player 2's best response is to Swerve, because $0 > -1$.
 - If Player 1 Swerves, Player 2's best response is to Hold, because $2 > 1$.
 
-This means there are two Nash equilibria: $(H,S)$ and $(S,H)$. So, the game represents a **brinkmanship situation**—neither player wants to Swerve, but if neither backs down, they both lose badly. This is why Chicken is a model for real-world conflicts where compromise is needed to avoid disaster.
+This means there are two Nash equilibria: $(H,S)$ and $(S,H)$. So, the game represents a **brinkmanship situation**,neither player wants to Swerve, but if neither backs down, they both lose badly. This is why Chicken is a model for real-world conflicts where compromise is needed to avoid disaster.
 
 ## Iterative Elimination
 
-Now that we understand **dominant and dominated strategies** as well as the **Nash equilibrium**, we introduce a useful technique for simplifying games: **Iterative Elimination of Dominated Strategies.** This method helps us systematically remove strategies that are clearly bad choices, making it easier to find rational outcomes—sometimes leading directly to the **Nash equilibrium**.
+Now that we understand **dominant and dominated strategies** as well as the **Nash equilibrium**, we introduce a useful technique for simplifying games: **Iterative Elimination of Dominated Strategies.** This method helps us systematically remove strategies that are clearly bad choices, making it easier to find rational outcomes, sometimes leading directly to the **Nash equilibrium**.
 
-In many games, some strategies are strictly **worse** than others, regardless of what the other player(s) do. When a strategy is **strictly dominated**, we can eliminate it because a rational player will never choose it. After eliminating one bad strategy, others may become strictly dominated as well—so we **iterate** the process until no more dominated strategies remain. The steps for eliminate would be:
+In many games, some strategies are strictly **worse** than others, regardless of what the other player(s) do. When a strategy is **strictly dominated**, we can eliminate it because a rational player will never choose it. After eliminating one bad strategy, others may become strictly dominated as well,so we **iterate** the process until no more dominated strategies remain. The steps for eliminate would be:
 
 1. Identify and remove any strictly dominated strategies.
 2. Update the game and check if new strategies have become strictly dominated.
@@ -170,16 +170,16 @@ For example, in the Prisoner's Dilemma we can see that:
 - **For Player 1:** Comparing (C) and (D):
   - If Player 2 plays **C**, Player 1 prefers **D (3 > 2)**.
   - If Player 2 plays **D**, Player 1 still prefers **D (1 > 0)**.
-  - **So, D strictly dominates C for Player 1**—we eliminate C.
-- **For Player 2:** Same logic applies—**D strictly dominates C**, so **C is eliminated.**
+  - **So, D strictly dominates C for Player 1**,we eliminate C.
+- **For Player 2:** Same logic applies,**D strictly dominates C**, so **C is eliminated.**
 
-After eliminating **C for both players**, we are left with only **(D, D)**—which we already identified as the **Nash equilibrium**.
+After eliminating **C for both players**, we are left with only **(D, D)**, which we already identified as the **Nash equilibrium**.
 
 So, in the Prisoner's Dilemma, iterative elimination leads us straight to the Nash equilibrium. The process confirms that both players will defect, even though $(C, C)$ would have been better for both.
 
 ## Common knowledge vs. Mutual knowledge
 
-So far, we've explored how players **rationally** choose strategies based on the available information. But what if we need to reason about **what others know**—or even **what others know about what we know**? This is where the distinction between **mutual knowledge** and **common knowledge** becomes important.
+So far, we've explored how players **rationally** choose strategies based on the available information. But what if we need to reason about **what others know**,or even **what others know about what we know**? This is where the distinction between **mutual knowledge** and **common knowledge** becomes important.
 
 - **Mutual Knowledge:** You and I may each know there is a pink hat in the room, but I might not know if _you_ know _I_ have seen it.
 - **Common Knowledge:** Extends infinitely: "I know X; you know X; I know that you know X; you know that I know that you know X; etc."
@@ -193,7 +193,7 @@ The difference can be subtle but crucial. Many strategic behaviors (coordinating
 2. **Common knowledge enables deeper reasoning.**
    - In games like **the two-thirds guessing game**, where players must predict how others will think, the reasoning process involves assumptions about what everyone knows _about what everyone knows_.
 3. **Expectations of rationality rely on common knowledge.**
-   - Nash equilibrium assumes that players are **rational and know that others are rational**—but if this rationality is **only mutual knowledge** (not common knowledge), uncertainty might still influence decisions.
+   - Nash equilibrium assumes that players are **rational and know that others are rational**,but if this rationality is **only mutual knowledge** (not common knowledge), uncertainty might still influence decisions.
 
 ## Best Response Analysis
 
@@ -243,7 +243,7 @@ At this solution, each partner _individually_ chooses less than the socially opt
 
 ## Cournot Duopoly
 
-Cournot Duopoly is a classic model in economics that illustrates how two firms, each producing the _same_ good, compete by choosing **quantities** rather than prices. It bridges two extreme cases covered in introductory economics: perfect competition (many firms, each a price-taker) and pure monopoly (a single firm). Cournot thus helps analyze **imperfect competition**—a situation more common to real-world markets.
+Cournot Duopoly is a classic model in economics that illustrates how two firms, each producing the _same_ good, compete by choosing **quantities** rather than prices. It bridges two extreme cases covered in introductory economics: perfect competition (many firms, each a price-taker) and pure monopoly (a single firm). Cournot thus helps analyze **imperfect competition**,a situation more common to real-world markets.
 
 ### **Model Details**
 
@@ -296,7 +296,7 @@ Imagine that Firm 2 **threatens** to produce a very high quantity if Firm 1 ente
 
 However, once Firm 1 **actually enters the market**, Firm 2 must reconsider: does it really make sense to produce an excessively high quantity (or start a price war)?
 
-The answer is usually **no**—Firm 2, once faced with the actual situation, will likely choose a **more rational** response instead. This is an example of an **incredible threat**—a statement that seems rational in advance but isn't actually believable when the decision has to be made.
+The answer is usually **no**,Firm 2, once faced with the actual situation, will likely choose a **more rational** response instead. This is an example of an **incredible threat**,a statement that seems rational in advance but isn't actually believable when the decision has to be made.
 
 ## Backward induction
 
@@ -342,7 +342,7 @@ In a **Stackelberg duopoly**, Firm 1 (the leader) **knows** Firm 2 will **react 
 
 2. **Firm 1 Anticipates and Maximizes Profit:** Knowing that Firm 2 follows $s_2(q_1)$, Firm 1 chooses $q_1$ strategically to maximize its own profit.
 
-   This gives Firm 1 a first-mover advantage—it can manipulate Firm 2's decision to gain a higher profit than in simultaneous-move Cournot competition.
+   This gives Firm 1 a first-mover advantage,it can manipulate Firm 2's decision to gain a higher profit than in simultaneous-move Cournot competition.
 
 :::tip
 **Stackelberg competition** demonstrates **first-mover advantage**, where the leader chooses its strategy knowing the follower will react optimally.
@@ -352,13 +352,13 @@ In a **Stackelberg duopoly**, Firm 1 (the leader) **knows** Firm 2 will **react 
 
 In many political science models, we assume there are two candidates in an election who freely pick their positions on the ideological spectrum. By contrast, **the candidate–voter model** fixes each candidate's position in advance. Specifically, we consider a setting in which every voter could be a potential candidate, and each has a known "true" stance on a political spectrum (e.g., left or right). Voters will vote for whichever candidate is closest to them, ideologically.
 
-A **first lesson** from such a model is that there can be **multiple Nash Equilibria** in which different subsets of the population run for office. Some equilibria might have candidates relatively close together; others might have them far apart. Moreover, not all equilibria end up "crowded at the center"—a contrast to simpler median-voter models.
+A **first lesson** from such a model is that there can be **multiple Nash Equilibria** in which different subsets of the population run for office. Some equilibria might have candidates relatively close together; others might have them far apart. Moreover, not all equilibria end up "crowded at the center",a contrast to simpler median-voter models.
 
 A **second lesson** is that **entry** by an additional candidate on one side of the spectrum can end up benefiting the _other_ side, because the entering candidate "splits" the votes on his or her own ideological side. In other words, a left-leaning candidate who enters might pull votes away from a more moderate left candidate, inadvertently helping the right-leaning candidate to win.
 
 ### Example: Dating
 
-To show how **multiple equilibria** (including inefficient ones) can arise, consider a simpler scenario: a pair of individuals attempting to meet but forgetting to communicate which activity they prefer. Suppose they have two date options—say, going apple-picking or seeing a play. Each has a favorite activity, yet they both prefer to meet rather than to miss each other. In **pure-strategy equilibrium**, they might coordinate on one activity (both choose apple-picking, or both choose the play). However, one also finds a **mixed-strategy Nash Equilibrium** in which each person randomizes over the two options—and thus fails to meet a significant fraction of the time.
+To show how **multiple equilibria** (including inefficient ones) can arise, consider a simpler scenario: a pair of individuals attempting to meet but forgetting to communicate which activity they prefer. Suppose they have two date options,say, going apple-picking or seeing a play. Each has a favorite activity, yet they both prefer to meet rather than to miss each other. In **pure-strategy equilibrium**, they might coordinate on one activity (both choose apple-picking, or both choose the play). However, one also finds a **mixed-strategy Nash Equilibrium** in which each person randomizes over the two options,and thus fails to meet a significant fraction of the time.
 
 Although that mixed equilibrium is **inefficient** (they would be happier always meeting), it remains a valid outcome if neither side can unilaterally do better. Hence, **mixed strategies** in such coordination settings can produce suboptimal outcomes in practice.
 
@@ -381,14 +381,14 @@ In both cases, the incumbent strategy $S$ remains dominant.
 
 If we take a Prisoner's dilemma example, when everyone cooperates (C), defectors (D) easily invade because $D$ does better against $C$. So $C$ is not stable. Conversely, if everyone is defecting, a lone cooperator cannot improve its payoff, so defection is stable in that model.
 
-Thus, we see how purely self-regarding payoffs can lead to "nature" locking in an outcome like universal defection—highlighting that **evolutionary outcomes** need not be "good" or "efficient."
+Thus, we see how purely self-regarding payoffs can lead to "nature" locking in an outcome like universal defection,highlighting that **evolutionary outcomes** need not be "good" or "efficient."
 
 ### Strict Dominance, Nash Equilibrium, and ES
 
 Further analysis shows:
 
 - **Strictly Dominated** strategies cannot be stable: a strictly dominating strategy will always invade.
-- If a strategy $S$ is _not_ a Nash best response to itself, then it cannot be evolutionarily stable. (Any profitable unilateral deviation—some $S'$—forms a successful mutation.)
+- If a strategy $S$ is _not_ a Nash best response to itself, then it cannot be evolutionarily stable. (Any profitable unilateral deviation,some $S'$,forms a successful mutation.)
 
 However, **not every** Nash strategy is stable. If $S$ is merely a _weak_ best response to itself, it might be invaded by a mutation that does equally well versus $S$ but better when facing itself. A **strict** Nash strategy, on the other hand, _is_ guaranteed to be evolutionarily stable in these simplified asexual models.
 
@@ -408,7 +408,7 @@ In extensive-form games, **imperfect information is represented using informatio
 Imagine a **potential entrant (Firm 1)** considering entering a market where an **incumbent (Firm 2)** has already set prices, but the entrant doesn't know whether the incumbent is aggressive or passive.
 
 - If the incumbent's pricing strategy is **hidden**, Firm 1 must make a decision without knowing whether it is facing an aggressive or accommodating competitor.
-- This uncertainty **groups multiple decision nodes into an information set**—Firm 1 cannot distinguish between facing an aggressive or passive incumbent.
+- This uncertainty **groups multiple decision nodes into an information set**,Firm 1 cannot distinguish between facing an aggressive or passive incumbent.
 
 :::tip
 Imperfect information games introduce strategic uncertainty befcause players must act without knowing the full history of the game.
@@ -418,7 +418,7 @@ Imperfect information games introduce strategic uncertainty befcause players mus
 
 While Nash equilibrium is a powerful tool, it has a limitation:
 
-- **Some Nash equilibria rely on "incredible threats"—strategies that seem rational on paper but wouldn't actually be followed through in real-time play.**
+- **Some Nash equilibria rely on "incredible threats",strategies that seem rational on paper but wouldn't actually be followed through in real-time play.**
 - **Subgame perfection eliminates these unrealistic Nash equilibria** by ensuring that strategies remain rational at every stage of the game.
 
 A **Subgame Perfect Nash Equilibrium (SPE)** is a refinement of Nash equilibrium that requires that the chosen strategy must be a Nash equilibrium in every subgame of the original game.
@@ -446,7 +446,7 @@ Using **Nash equilibrium**, we might initially consider a strategy where **Firm 
 
 ### **Applying Subgame Perfection**
 
-- If we analyze only the subgame starting from "Enter", Firm 2 should **choose Accommodate** because fighting is irrational—it hurts Firm 2 too.
+- If we analyze only the subgame starting from "Enter", Firm 2 should **choose Accommodate** because fighting is irrational,it hurts Firm 2 too.
 - Knowing this, Firm 1 should **ignore the threat of a price war** and confidently enter.
 
 The subgame perfect equilibrium is (Enter, Accomodate), eliminating the unrealistic thret of a price war.
@@ -478,7 +478,7 @@ At its core, the model involves three main players:
 The payoffs reflect the costs and benefits associated with each strategy:
 
 - **For the attacker**:
-  $\text{Profit=Inflated Gains−Manipulation Cost}$
+  $\text{Profit=Inflated Gains-Manipulation Cost}$
 - The attacker's goal is to ensure the expected value remains positive.
   $\text{Profit} = \text{Inflated Gains} - \text{Manipulation Cost} > 0$
 - **For oracle nodes**:Honest reporting earns rewards, while misreporting incurs penalties.
@@ -517,7 +517,7 @@ By modeling the problem mathematically, the analysis reveals actionable insights
 
 ## Resources
 
-**https://oyc.yale.edu/economics/econ-159** — Recommended if interested! Most of these notes are taken from this course.
+**https://oyc.yale.edu/economics/econ-159** , Recommended if interested! Most of these notes are taken from this course.
 
 https://www.youtube.com/watch?v=PsLaI4jDftA.
 
@@ -527,4 +527,4 @@ A. Dixit and B. Nalebuff. _Thinking Strategically_. Norton, 1991.
 
 P.K. Dutta. _Strategies and Games: Theory And Practice_. MIT, 1999.
 
-[Bryan Ford and Rainer Böhme. _Rationality is Self-Defeating in Permissionless Systems∗_. ArXiv, 2019](https://arxiv.org/pdf/1910.08820) — Recommended reading afterward to transition into the design of permissionless systems.
+[Bryan Ford and Rainer Böhme. _Rationality is Self-Defeating in Permissionless Systems∗_. ArXiv, 2019](https://arxiv.org/pdf/1910.08820) , Recommended reading afterward to transition into the design of permissionless systems.

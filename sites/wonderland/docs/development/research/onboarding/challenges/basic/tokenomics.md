@@ -39,7 +39,7 @@ After completing the breakdown, answer the following questions with supporting e
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
 - Include diagrams/charts to illustrate key points.
 - Maintain a technical focus throughout.
-- No need to delve extremely deep into the underlying systems—focus on tokenomics, and wisely manage your time.
+- No need to delve extremely deep into the underlying systems: focus on tokenomics, and wisely manage your time.
 - Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 

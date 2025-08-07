@@ -121,7 +121,7 @@ Consider an order book with the following levels:
 If a **market buy order** for 2000 shares is placed:
 
 - 1500 shares executed at 151 USD
-- 500 shares execute at 152 USD —next available price
+- 500 shares execute at 152 USD, next available price
 - The average execution price (VWAP) is:
 
 [(1500 x 151) + (500 x 152)] / 2000 
