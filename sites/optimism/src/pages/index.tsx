@@ -54,6 +54,15 @@ const optimismHandbooks: Handbook[] = [
       bgImage: "/common/img/wonderland-button-bg.jpg",
     },
   },
+  {
+    title: "Aztec handbook",
+    image: "/img/aztec-handbook.svg",
+    href: "https://aztec.handbook.wonderland.xyz",
+    background: {
+      bgType: "wonderland",
+      color: "#625CBFD1",
+    },
+  },
 ];
 
 const optimismHandbookProps: HandbookSectionProps = {

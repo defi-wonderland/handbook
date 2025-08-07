@@ -62,7 +62,7 @@ const wonderlandHandbooks: Handbook[] = [
   {
     title: "Aztec handbook",
     image: "/img/aztec-handbook.svg",
-    href: "/aztec",
+    href: "https://aztec.handbook.wonderland.xyz",
     background: {
       bgType: "wonderland",
       color: "#625CBFD1",
