@@ -9,11 +9,11 @@ Scripts for creating new handbook repos and copying shared static assets.
 
 ```sh
 pnpm create-handbook my-handbook
-pnpm --filter scripts copy-static sites/my-handbook/static
+pnpm --filter @handbook/scripts copy-static sites/my-handbook/static/common
 ```
 
 ## Development
 
 ```bash
-pnpm --filter scripts test
-``` 
+pnpm --filter @handbook/scripts test
+```

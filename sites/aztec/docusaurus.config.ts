@@ -26,7 +26,8 @@ const localConfig: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/sites/aztec",
+          editUrl:
+            "https://github.com/defi-wonderland/handbook/tree/main/sites/aztec",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           showLastUpdateTime: true,
@@ -44,7 +45,7 @@ const localConfig: Config = {
   ],
 
   themeConfig: {
-    image: "img/aztec-social-card.jpg",
+    image: "img/social-card.png",
     navbar: {
       title: "",
       logo: {

@@ -87,9 +87,10 @@ const aztecHandbooks: Handbook[] = [
       bgType: "other",
       bgImage: "/common/img/wonderland-button-bg.jpg",
     },
-  },  {
+  },
+  {
     title: "Optimism Handbook",
-    image: "/common/img/optimism-social-logo.png",
+    image: "/common/img/optimism-handbook.svg",
     href: "https://optimism.handbook.wonderland.xyz",
     background: {
       bgType: "other",
@@ -108,7 +109,7 @@ const aztecHandbookProps: HandbookSectionProps = {
 const aztecCategoryTheme: CategoryCardsTheme = {
   gradientStart: "var(--aztec-purple)",
   gradientEnd: "var(--aztec-purple)",
-  iconHoverColorEffect: "none"
+  iconHoverColorEffect: "none",
 };
 const AztecBackground = () => <div className={styles.aztecBackground} />;
 
@@ -124,7 +125,10 @@ function Home(): React.ReactElement {
         <AztecBackground />
         <section className={styles.centerContent}>
           <HeroSection {...aztecHeroProps} />
-          <CategoryCards categories={aztecCategories} theme={aztecCategoryTheme} />
+          <CategoryCards
+            categories={aztecCategories}
+            theme={aztecCategoryTheme}
+          />
         </section>
 
         <HandbookSection {...aztecHandbookProps} />
