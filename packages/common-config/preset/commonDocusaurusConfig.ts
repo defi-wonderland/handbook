@@ -51,14 +51,11 @@ const commonDocusaurusConfig: Partial<Config> = {
               to: "https://optimism.handbook.wonderland.xyz",
               target: "_self",
             },
-            // // TODO: Enable when Aztec handbook is ready
-            // // TODO: Remember to add the rewrite in vercel.json!
-            // {
-            //   label: "Aztec",
-            //   to: "https://handbook.wonderland.xyz/aztec",
-            //   target: "_blank",
-            //   rel: "noopener noreferrer",
-            // },
+            {
+              label: "Aztec",
+              to: "https://aztec.handbook.wonderland.xyz",
+              target: "_self",
+            },
           ],
         },
         {
