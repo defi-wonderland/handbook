@@ -59,15 +59,15 @@ const wonderlandHandbooks: Handbook[] = [
       bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
-  // {
-  //   title: "Aztec handbook",
-  //   image: "/img/aztec-handbook.svg",
-  //   href: "/aztec",
-  //   background: {
-  //     bgType: "wonderland",
-  //     color: "#625CBFD1",
-  //   },
-  // },
+  {
+    title: "Aztec handbook",
+    image: "/img/aztec-handbook.svg",
+    href: "https://aztec.handbook.wonderland.xyz",
+    background: {
+      bgType: "wonderland",
+      color: "#625CBFD1",
+    },
+  },
 ];
 
 const wonderlandHandbookProps: HandbookSectionProps = {
