@@ -110,7 +110,7 @@ const aztecCategoryTheme: CategoryCardsTheme = {
   gradientEnd: "var(--aztec-purple)",
   iconHoverColorEffect: "none"
 };
-const AztecBackground = () => <div className={styles.optimismBackground} />;
+const AztecBackground = () => <div className={styles.aztecBackground} />;
 
 function Home(): React.ReactElement {
   return (
