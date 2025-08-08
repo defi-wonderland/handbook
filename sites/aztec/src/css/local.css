@@ -10,61 +10,61 @@
 .menu__list-item-collapsible .menu__link[href^="/docs/background"]::before {
   content: "";
   background-image: url("/img/icons/map.svg");
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
   content: "";
   background-image: url("/img/icons/stack-icon-filled.svg");
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/transactions-messaging"]::before {
   content: "";
   background-image: url("/img/icons/document-currency-dollar.svg");
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/governance"]::before {
   content: "";
   background-image: url("/img/icons/governance-icon.svg");
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/privacy"]::before {
   content: "";
   background-image: url("/img/icons/star.svg");
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 /* Landing page CategoryCards icons now use #A39FED directly in SVG files */

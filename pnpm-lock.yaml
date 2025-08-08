@@ -173,7 +173,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
   sites/optimism:
@@ -252,7 +252,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
   sites/template:
@@ -331,7 +331,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
   sites/wonderland:
@@ -410,7 +410,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
 packages:

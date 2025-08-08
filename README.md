@@ -4,6 +4,14 @@ This repository is a **monorepo** containing multiple Docusaurus-based handbooks
 
 ## 🧪 Getting Started
 
+### Node.js Version Management
+
+This monorepo enforces Node.js 22.18.0 and pnpm 10.11.0. Use `.nvmrc` for version management:
+
+```bash
+nvm use
+```
+
 The monorepo uses a shared configuration system where common assets (fonts, styles, images) and configurations are centralized in the `packages/common-config` package. After installation, you'll need to build these common files and copy them to your specific handbook site.
 
 The build process works as follows:
@@ -33,8 +41,8 @@ pnpm --filter wonderland-handbook start
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- pnpm package manager
+- Node.js (v22.18.0) - Use `.nvmrc` for version management
+- pnpm package manager (v10.11.0)
 
 ### Building for Production
 

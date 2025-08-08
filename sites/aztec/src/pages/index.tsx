@@ -38,34 +38,6 @@ const aztecCategories: Category[] = [
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
-  // {
-  //   title: "STANDARDS",
-  //   icon: "/img/icons/document-currency-dollar.svg",
-  //   href: "/docs/standards/overview",
-  //   comingSoon: true,
-  //   comingSoonBanner: "/common/img/coming-soon-banner.png",
-  // },
-  // {
-  //   title: "GOVERNANCE",
-  //   icon: "/img/icons/governance-icon.svg",
-  //   href: "/docs/governance/overview",
-  //   comingSoon: true,
-  //   comingSoonBanner: "/common/img/coming-soon-banner.png",
-  // },
-  // {
-  //   title: "PRIVACY",
-  //   icon: "/img/icons/star.svg",
-  //   href: "/docs/privacy/overview",
-  //   comingSoon: true,
-  //   comingSoonBanner: "/common/img/coming-soon-banner.png",
-  // },
-  // {
-  //   title: "TOOLING",
-  //   icon: "/img/icons/stack-icon.svg",
-  //   href: "/docs/tooling/overview",
-  //   comingSoon: true,
-  //   comingSoonBanner: "/common/img/coming-soon-banner.png",
-  // },
 ];
 
 const aztecHeroProps: HeroSectionProps = {
