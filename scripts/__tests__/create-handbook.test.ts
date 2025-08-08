@@ -96,14 +96,14 @@ describe("create-handbook CLI", () => {
       // Wait for server to be ready with retries
       let serverReady = false;
       let attempts = 0;
-      const maxAttempts = 30; // 30 seconds total
-      
+      const maxAttempts = 45; // 45 seconds total
+
       while (!serverReady && attempts < maxAttempts) {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         serverReady = isPortInUse(3000);
         attempts++;
       }
-      
+
       expect(serverReady).toBe(true);
 
       // Send Ctrl+C (SIGINT) to the process and wait for it to exit

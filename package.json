@@ -16,7 +16,9 @@
     "prettier": "3.2.5",
     "ts-node": "10.9.2"
   },
+  "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": "22.18.0"
+    "node": "22.18.0",
+    "pnpm": "10.11.0"
   }
 }
