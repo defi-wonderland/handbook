@@ -52,22 +52,22 @@ const wonderlandHeroProps: HeroSectionProps = {
 const wonderlandHandbooks: Handbook[] = [
   {
     title: "Optimism handbook",
-    image: "/img/optimism-handbook.svg",
+    image: "/common/img/optimism-handbook.svg",
     href: "https://optimism.handbook.wonderland.xyz",
     background: {
       bgType: "other",
       bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
-  // {
-  //   title: "Aztec handbook",
-  //   image: "/img/aztec-handbook.svg",
-  //   href: "/aztec",
-  //   background: {
-  //     bgType: "wonderland",
-  //     color: "#625CBFD1",
-  //   },
-  // },
+  {
+    title: "Aztec handbook",
+    image: "/common/img/aztec-handbook.svg",
+    href: "https://aztec.handbook.wonderland.xyz",
+    background: {
+      bgType: "wonderland",
+      color: "#625CBFD1",
+    },
+  },
 ];
 
 const wonderlandHandbookProps: HandbookSectionProps = {

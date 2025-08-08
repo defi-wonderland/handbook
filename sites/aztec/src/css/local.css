@@ -1,0 +1,102 @@
+/* Custom styles for your documentation site */
+
+/* Shape, Icons, etc customization */
+:root {
+  --wonderland-accent: #A39FED;
+  --aztec-purple: #625CBF;
+}
+
+/* Sidebar menu icons */
+.menu__list-item-collapsible .menu__link[href^="/docs/background"]::before {
+  content: "";
+  background-image: url("/img/icons/map.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
+  content: "";
+  background-image: url("/img/icons/stack-icon-filled.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/transactions-messaging"]::before {
+  content: "";
+  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/governance"]::before {
+  content: "";
+  background-image: url("/img/icons/governance-icon.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/privacy"]::before {
+  content: "";
+  background-image: url("/img/icons/star.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Landing page CategoryCards icons now use #A39FED directly in SVG files */
+
+/* Font for Aztec category titles */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/background"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/stack"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/transactions-messaging"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/governance"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/privacy"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--wonderland-accent);
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

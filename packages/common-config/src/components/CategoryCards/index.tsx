@@ -6,6 +6,8 @@ export interface Category {
   title: string;
   icon: string;
   href: string;
+  comingSoon?: boolean;
+  comingSoonBanner?: string;
 }
 
 export interface CategoryCardsTheme {
@@ -25,8 +27,14 @@ export default function CategoryCards({
 }: CategoryCardsProps): ReactNode {
   const handleCardClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
+    comingSoon?: boolean
   ) => {
+    if (comingSoon) {
+      e.preventDefault();
+      return;
+    }
+    
     e.preventDefault();
 
     // Scroll to top
@@ -55,7 +63,7 @@ export default function CategoryCards({
           to={category.href}
           className={`${styles.categoryCard} ${currentTheme.iconHoverColorEffect === "none" ? styles.noIconHoverEffect : ""}`}
           onClick={(e: React.MouseEvent<HTMLAnchorElement>) =>
-            handleCardClick(e, category.href)
+            handleCardClick(e, category.href, category.comingSoon)
           }
           style={
             {
@@ -70,6 +78,15 @@ export default function CategoryCards({
             className={styles.categoryIcon}
           />
           <span className={styles.categoryTitle}>{category.title}</span>
+          {category.comingSoon && category.comingSoonBanner && (
+            <div className={styles.comingSoonOverlay}>
+              <img
+                src={category.comingSoonBanner}
+                alt="Coming Soon"
+                className={styles.comingSoonBanner}
+              />
+            </div>
+          )}
         </Link>
       ))}
     </div>

@@ -30,7 +30,7 @@
 
 /* Optimism background */
 .optimismBackground {
-  background: url("/img/op-background.png") no-repeat center 0;
+  background: url("/common/img/common-background.png") no-repeat center 0;
   background-size: cover;
   min-height: 100vh;
   position: absolute;

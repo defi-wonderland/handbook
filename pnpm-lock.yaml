@@ -97,6 +97,85 @@ importers:
         specifier: 5.6.2
         version: 5.6.2
 
+  sites/aztec:
+    dependencies:
+      '@docusaurus/core':
+        specifier: 3.7.0
+        version: 3.7.0(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
+      '@docusaurus/plugin-vercel-analytics':
+        specifier: 3.7.0
+        version: 3.7.0(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
+      '@docusaurus/preset-classic':
+        specifier: 3.7.0
+        version: 3.7.0(@algolia/client-search@5.29.0)(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(@types/react@19.0.0)(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(search-insights@2.17.3)(typescript@5.6.2)
+      '@docusaurus/theme-mermaid':
+        specifier: 3.7.0
+        version: 3.7.0(@docusaurus/plugin-content-docs@3.7.0(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2))(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2)
+      '@handbook/common-config':
+        specifier: workspace:*
+        version: link:../../packages/common-config
+      '@mdx-js/loader':
+        specifier: 3.1.0
+        version: 3.1.0(acorn@8.14.1)(webpack@5.99.9)
+      '@mdx-js/react':
+        specifier: 3.1.0
+        version: 3.1.0(@types/react@19.0.0)(react@19.0.0)
+      acorn:
+        specifier: 8.14.1
+        version: 8.14.1
+      clsx:
+        specifier: 2.0.0
+        version: 2.0.0
+      docusaurus-lunr-search:
+        specifier: 3.6.0
+        version: 3.6.0(@docusaurus/core@3.7.0(@mdx-js/react@3.1.0(@types/react@19.0.0)(react@19.0.0))(acorn@8.14.1)(eslint@9.28.0(jiti@1.21.7))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.6.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      katex:
+        specifier: 0.16.21
+        version: 0.16.21
+      lunr:
+        specifier: 2.3.9
+        version: 2.3.9
+      prism-react-renderer:
+        specifier: 2.3.0
+        version: 2.3.0(react@19.0.0)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      rehype-katex:
+        specifier: 7.0.1
+        version: 7.0.1
+      remark-math:
+        specifier: 6.0.0
+        version: 6.0.0
+      webpack-merge:
+        specifier: 6.0.1
+        version: 6.0.1
+    devDependencies:
+      '@docusaurus/module-type-aliases':
+        specifier: 3.7.0
+        version: 3.7.0(acorn@8.14.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@docusaurus/tsconfig':
+        specifier: 3.7.0
+        version: 3.7.0
+      '@docusaurus/types':
+        specifier: 3.7.0
+        version: 3.7.0(acorn@8.14.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@types/react':
+        specifier: 19.0.0
+        version: 19.0.0
+      '@types/react-dom':
+        specifier: 19.0.0
+        version: 19.0.0
+      docusaurus:
+        specifier: 1.14.7
+        version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
+      typescript:
+        specifier: 5.6.2
+        version: 5.6.2
+
   sites/optimism:
     dependencies:
       '@docusaurus/core':
@@ -173,7 +252,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
   sites/template:
@@ -252,7 +331,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
   sites/wonderland:
@@ -331,7 +410,7 @@ importers:
         specifier: 1.14.7
         version: 1.14.7(eslint@9.28.0(jiti@1.21.7))(typescript@5.6.2)(webpack@5.99.9)
       typescript:
-        specifier: ~5.6.2
+        specifier: 5.6.2
         version: 5.6.2
 
 packages:

@@ -1,0 +1,66 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+/* Main container */
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0;
+  padding-top: 0;
+}
+
+/* Center content wrapper */
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90%;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 6rem;
+  padding-top: 3rem;
+}
+
+/* Aztec background */
+.aztecBackground {
+  background: url("/common/img/common-background.png") no-repeat center 0;
+  background-size: cover;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: hue-rotate(240deg) saturate(1.1) brightness(0.8);
+}
+
+@media (max-width: 1200px) {
+  .centerContent {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 1rem 0;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .centerContent {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 6rem;
+  }
+}
