@@ -12,6 +12,7 @@
     "./styles/global.css": "./static/common/styles/global.css",
     "./components": "./src/components/index.ts",
     "./theme": "./src/components/theme/index.ts",
+    "./config": "./src/index.ts",
     "./preset": "./dist/preset/index.js",
     "./preset/commonDocusaurusConfig": {
       "types": "./preset/commonDocusaurusConfig.ts",
