@@ -2,11 +2,11 @@
 
 Aztec's global state is a cryptographically authenticated set of data structures that encode the persistent status of the network, updated only when new L2 blocks are sequenced and verified. It is structured as a collection of cryptographic Merkle trees, each serving distinct roles in maintaining privacy, preventing double-spends, synchronizing with L1, and executing public contract logic.
 
-Unlike traditional blockchains that rely on a single key–value Merkle tree, Aztec supports both private and public state. The privacy constraints of zk execution apply to private state and require a dual‑tree design (append‑only note tree and indexed nullifier tree) with asymmetric update and access semantics. Public state is handled separately in an indexed key–value Public Data Tree with conventional membership and non‑membership checks.
+Unlike traditional blockchains that use a single key–value Merkle tree, Aztec maintains multiple authenticated data structures for state. For private state alone, there are at least two main trees: the note hash tree (an append-only Merkle tree for storing encrypted notes) and the nullifier tree (an indexed Merkle tree for spent note tracking). Public state is managed separately in an indexed key–value Public Data Tree, supporting standard membership and non-membership proofs.
 
 ## Dual-Tree Design for Private State
 
-The private state **must** be updated without revealing correlations between accesses. The standard Merkle key-value paradigm is unsuitable because updates, even if encrypted, would leak timing and structure.
+The private state **must** be updated without revealing correlations between accesses. If we could link which nullifier relates to which note, privacy would be broken. The standard Merkle key-value paradigm is unsuitable because updates, even if encrypted, would leak timing and structure, making such linkage possible.
 
 To circumvent this, Aztec uses:
 
@@ -44,12 +44,14 @@ Instead, the **sequencer performs the non-membership check and inserts the nulli
 
 ### Read = Write (why reads nullify)
 
-For private, mutable values, you cannot prove that you are reading the current value yourself because non-membership in the nullifier tree must be checked at the head of the chain (by the sequencer). To tie your transaction’s validity to the value being current, the transaction:
+If you were to read a note, how do we ensure you are reading the latest value? The simplest way is to nullify the note after every read and immediately re-create it. This guarantees that any time you read a note (in a constrained environment), you can be sure it is the latest value.
+
+For private, mutable values, you cannot prove you are reading the current value yourself because non-membership in the nullifier tree must be checked at the head of the chain (by the sequencer). To ensure your transaction is valid with respect to the current value, the transaction:
 
 * Emits the nullifier for the previously active note (the sequencer proves non-membership and inserts it), and
-* Re-creates the note with the same plaintext and fresh randomness so it remains available for future reads/writes.
+* Re-creates the note with the same plaintext and fresh randomness so it remains available for future reads or writes.
 
-This makes reads mutating operations. Semantic indistinguishability from writes is a side effect, not the primary reason. A consequence is that shared notes become mutable: once read and re-emitted, any transactions depending on the original may be invalidated.
+This approach makes reads mutating operations. The main reason for this design is to ensure that the latest value is always available and consistent, not to achieve indistinguishability between reads and writes. As a result, shared notes become mutable: once read and re-emitted, any transactions depending on the original may be invalidated.
 
 ## State Categories and Merkle Tree Types
 
@@ -65,7 +67,7 @@ In Aztec, global state is partitioned across five specialized Merkle trees:
 
 ### Indexed Merkle Trees
 
-Used for the **nullifier** and **public data** trees, indexed Merkle trees (IMTs) enable efficient non-membership proofs:
+Used for the **nullifier** and **public data** trees, indexed Merkle trees (IMTs) enable efficient non-membership proofs and efficient batch writes:
 
 * Each leaf contains a `(value, nextValue, nextIndex)` triple.
 * Trees behave like a Merkle-linked list, allowing binary search for bounding nodes.
@@ -88,6 +90,7 @@ Each note commitment is made unique and siloed per contract to enforce:
 
 * Independence of contract states
 * Unique nullifiers per note (prevents nullifier collisions / faerie-gold attacks)
+* Ensures every note is unique, allowing multiple notes with the same value (for example, two 10 DAI notes owned by the same user)
 
 :::note
 A faerie-gold attack is a class of replay or double-spend attack where two distinct notes (commitments) are constructed such that they share the same nullifier. If this occurs, spending one note (emitting its nullifier) would unintentionally invalidate the other, allowing an attacker to "spend" the same nullifier multiple times or disrupt contract logic.

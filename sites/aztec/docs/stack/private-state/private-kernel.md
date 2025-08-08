@@ -27,12 +27,16 @@ The diagram from the [High-Level Topology spec](https://github.com/AztecProtocol
 
 Let's look at each of these circuits in more detail.
 
+:::note
+Kernels do not perform oracle calls during proving and do not use `rand()`. Their structure is designed for prefetching all required inputs and then processing them in one pass for performance and simplicity. All circuit private inputs are unconstrained; oracle return values are identical in status to private inputs and must be constrained by the circuit.
+:::
+
 ### 1. The Initial Kernel
 
 As its name suggests, the `Initial Private Kernel` circuit is always the first one executed. It has several unique responsibilities that only need to happen once per transaction:
 
 - **Validating the Transaction Request:** It checks that the first private function call matches the user's intent, as specified in the `TransactionRequest`. This ensures that the transaction being executed is the one the user actually authorized.
-- **Creating the Transaction Nullifier:** To prevent replay attacks and ensure transaction uniqueness, the initial kernel computes a hash of the `TransactionRequest` and emits this as the **very first nullifier** of the transaction. This special nullifier serves as a unique identifier for the transaction.
+- **Creating the Transaction Nullifier:** The initial kernel computes a hash of the `TransactionRequest` and emits this as the **very first nullifier** of the transaction. This transaction-level nullifier prevents transaction replays by acting as a unique identifier for the transaction (this is not the transaction hash, even though it may appear similar).
 - **Validating the First Function Call:** It performs a series of checks on the first private function execution, including:
     - Verifying the function's proof.
     - Ensuring the function being called actually exists within the specified contract's class.
@@ -101,7 +105,7 @@ The hand-off is built around the two main buckets of data produced by the Tail K
     - Next, it executes the main "app logic" public function calls.
     - If any of these public function calls fail or revert, the simulator can simply **discard** all changes made since the checkpoint. This effectively erases the `revertibleAccumulatedData` and the effects of the failed public calls, as if they never happened. If everything succeeds, the checkpoint is committed.
 
-4.  **Teardown Phase**: Finally, regardless of the outcome of the revertible phase, teardown logic (like fee payment) is executed.
+4.  **Teardown Phase**: Finally, regardless of the outcome of the revertible phase, teardown logic is executed. This is where transaction fees are settled (deducted from the payer) and any protocol-defined reimbursements/refunds are finalized.
 
 This elegant structure, with the kernel carefully sorting side-effects and the public VM executing them in phases, is what allows us to build complex applications that atomically interact with both private and public state.
 

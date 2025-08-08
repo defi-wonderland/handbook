@@ -2,16 +2,9 @@
 
 ## What is the PXE?
 
-The Private Execution Environment (PXE) is designed to run on a user's local machine. It acts as a personal, trusted environment that manages a user's private data, such as their secret keys and notes, and handles all the cryptographic heavy lifting required to interact with the network while preserving privacy.
+The Private Execution Environment (PXE) is a local tool that helps users manage their private data and perform cryptographic operations needed to interact with the Aztec network. It is not responsible for continuous syncing, trial decryption, or automatic note discovery. 
 
-At its core, the PXE serves as a client to an Node. While the Node provides a view of the public state of the network, the PXE is responsible for everything that happens on the user's side *before* a transaction is sent to the network, which includes:
-
-- **State Management**: it stores a user's private state. This isn't just limited to secret keys; it also includes a database of all the notes a user owns, which represent their assets or private data within different applications. It keeps track of which notes are available to be spent and which have already been nullified.
-- **Note Discovery and Decryption**: it continuously syncs with the Aztec network, scanning for incoming notes intended for the user. It uses the user's keys to try and decrypt data from the chain, and when it successfully decrypts a note, it adds it to the user's local database.
-- **Transaction Simulation and Proving**: when a user wants to perform an action, like sending funds, the PXE simulates the transaction locally. It then orchestrates the creation of a zero-knowledge proof by stepping through the necessary private kernel circuits. This process proves that the user is authorized to perform the action (e.g. they own the notes they're trying to spend) without revealing any of the underlying private data.
-- **Interface for dApps**: developers can build applications that interact with the PXE, allowing users to manage their assets and interact with smart contracts in a privacy-preserving way.
-
-In essence, the PXE is the user's private gateway to the network. 
+Instead, contracts and applications are given the tools to find or receive the messages necessary to locate notes. The PXE's role is to provide utilities and APIs that assist users and contracts in processing private data, managing secret keys, and generating zero-knowledge proofs for transactions. It does not act as a general-purpose client or perform background scanning for notes. Developers can use the PXE to build privacy-preserving applications, but the responsibility for finding and handling notes lies with the contract logic and user workflows, not with the PXE itself.
 
 ## Core Components and Architecture
 
@@ -34,7 +27,7 @@ All these providers are built on top of a generic key-value store (`AztecAsyncKV
 
 ### The Synchronizer
 
-A user's private state is affected by on-chain events. For the PXE to be useful, it must have an up-to-date view of the user's notes and state. This is the job of the **`Synchronizer`**. It continuously monitors the Aztec Node for new blocks, scans the block data, and attempts to decrypt logs with the user's registered keys. When it finds a new note belonging to the user, it passes it to the `NoteDataProvider` to be stored in the local database. This synchronization process ensures that a user's PXE always reflects their current state on the network, allowing them to see new assets as they arrive.
+A user's private state is affected by on-chain events. The **`Synchronizer`** is a library component the wallet calls to advance PXE’s internal view of the network to the tip of the chain and detect reorgs. It does not run continuously and does not scan blocks in the background. When invoked by the wallet, it processes relevant blocks/logs and updates local state accordingly.
 
 ### Proving Engine: Kernel Prover and Oracle
 
@@ -42,7 +35,11 @@ The most computationally intensive task the PXE performs is generating proofs fo
 
 -   **[`PrivateKernelExecutionProver`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/private_kernel/private_kernel_execution_prover.ts)**: This is the logic that sequences the steps of a private transaction. A single user action can involve multiple function calls (e.g. a "merge and split" of notes). This components walks through this execution tree and, for each step, prepares the inputs for the appropriate private kernel circuit (`init`, `inner`, or `tail`).
 
--   **[`PrivateKernelOracle`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/private_kernel/private_kernel_oracle.ts)**: The kernel circuits cannot directly access the network or the PXE's database while they are running. The [`PrivateKernelOracleImpl`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/private_kernel/private_kernel_oracle_impl.ts) acts as a data bridge. Before the prover runs a circuit, it uses the oracle to fetch all the necessary data—such as Merkle proofs for note inclusion, contract bytecode, or the user's keys. The oracle gathers this information and provides it as private inputs to the circuit, ensuring the proof can be generated in a self-contained, deterministic environment.
+-   **[`PrivateKernelOracle`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/private_kernel/private_kernel_oracle.ts)**: The kernel circuits cannot directly access the network or the PXE's database while they are running. The [`PrivateKernelOracleImpl`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/private_kernel/private_kernel_oracle_impl.ts) acts as a data bridge. Before the prover runs a circuit, it uses the oracle to fetch the necessary data—such as Merkle proofs for note inclusion, contract bytecode, public key material and key “fingerprints” (never raw secret keys), and randomness that cannot be generated inside the circuit. Oracle outputs are injected as private inputs to the circuit; all private inputs are unconstrained by default and must be validated by circuit constraints.
+
+:::note
+Kernels do not perform oracle calls during proving and do not use `rand()`. Their structure is designed for prefetching all required inputs and then processing them in one pass for performance and simplicity.
+:::
 
 ## The Lifecycle of a Note in the PXE
 
@@ -50,15 +47,17 @@ The PXE is where the lifecycle of a note is practically managed. From a user's p
 
 ### 1. Discovery, Decryption, and Storage
 
-A note's life in the PXE begins with discovery. The [`Synchronizer`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/synchronizer/synchronizer.ts) component is in constant communication with an Aztec Node, observing newly mined blocks. For each transaction in a block, the `Synchronizer` fetches the associated encrypted logs. It then iterates through all the accounts (and their corresponding keys) managed by the PXE's [`KeyStore`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/key-store/src/key_store.ts) and attempts to decrypt these logs.
+A note's life in the PXE begins when the wallet asks the Synchronizer to advance state. Upon request, the [`Synchronizer`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/synchronizer/synchronizer.ts) fetches the necessary blocks or logs from an Aztec Node and uses wallet-provided keys/tagging schemes to identify and decrypt the user’s messages (no continuous trial decryption). Newly recovered notes are reconstructed and handed to the [`NoteDataProvider`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/storage/note_data_provider/note_dao.ts) for local storage.
 
-If a log is successfully decrypted, it means a new note intended for the user has been found. The `Synchronizer` reconstructs the full note data from the decrypted log. This new note, now in its plaintext form, is handed over to the [`NoteDataProvider`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/storage/note_data_provider/note_dao.ts).
-
-The `NoteDataProvider` then saves the note to the local [`KVStore`](https://github.com/AztecProtocol/aztec-packages/tree/next/yarn-project/kv-store). Besides storing the note's content, it also creates several indexes to make finding the note later fast and easy. For instance, it indexes the note by its contract address, its storage slot, and its owner. This way, when a dApp asks, "show me all my `TokenA` notes", the PXE can answer the query efficiently without having to scan every note it owns.
+The `NoteDataProvider` then saves the note to the local [`KVStore`](https://github.com/AztecProtocol/aztec-packages/tree/next/yarn-project/kv-store). Besides storing the note's content, it also creates several indexes to make finding the note later fast and easy. For instance, it indexes the note by its contract address, its storage slot, and its owner. This way, when a dApp asks, "what is my private `TokenA` balance?" the PXE can compute it efficiently; when constructing a transaction, the wallet uses these indexes to select notes internally (not exposed to the dApp).
 
 ### 2. Querying for Spendable Notes
 
-Once a note is stored in the `NoteDataProvider`, it is considered **active** and is available to be used in future transactions. When a user wants to initiate an action (e.g. make a payment), their wallet application will query the [`PXEService`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/pxe_service/pxe_service.ts) for available notes.
+Once a note is stored in the `NoteDataProvider`, it is considered **active** and is available to be used in future transactions. When a user wants to initiate an action (e.g. make a payment), the wallet queries the [`PXEService`](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/pxe/src/pxe_service/pxe_service.ts) to select notes internally.
+
+:::note App-facing APIs
+End-user dApps should query a user’s private balance, not raw notes. Raw note inspection is the job of contracts and the PXE; contracts read notes and emit nullifiers. Wallets/dApps surface balances and rely on the PXE to select notes internally when constructing transactions.
+:::
 
 A request to [`pxe.getNotes(filter)`](https://github.com/AztecProtocol/aztec-packages/blob/f0619dd82429a5973f3e1da8d7eb0877264908e3/yarn-project/pxe/src/pxe_service/pxe_service.ts#L657-L676) allows an application to specify criteria to find suitable notes. The filter can include the note's contract address, owner, or even a minimum value, to ensure only relevant notes are returned. The `NoteDataProvider` uses its indexes to quickly gather and return the requested notes to the application, which can then select which ones to use as inputs for the new transaction.
 
@@ -78,9 +77,7 @@ The protocol specification for [Private Message Delivery](https://github.com/Azt
 
 ### PXE's Role in Note Discovery
 
-We need a **note discovery protocol** to help users find their notes without having to trial-decrypt every transaction on the network. This is often achieved by using "tags", data derived from a shared secret between the sender and receiver.
-
-The `Synchronizer` is the engine that performs this discovery. When a user registers an account with their PXE, they are also providing the keys necessary to generate these shared secrets. The `Synchronizer` can then compute the expected tags for incoming messages and efficiently query the Aztec Node for logs that match those tags. This makes the PXE the active agent in the user's chosen note discovery scheme.
+Note discovery avoids trial-decrypting the entire network by relying on tags derived from sender/receiver secrets. When the wallet invokes it, the Synchronizer computes the expected tags (given the registered keys) and queries an Aztec Node for matching logs. It then decrypts only those matching messages and updates local state. The PXE does not autonomously scan; the wallet drives when and how discovery runs.
 
 ### PXE as an Oracle for Sending Notes
 
@@ -110,6 +107,10 @@ fn provably_send_note(recipient, note, encryption_type)
 ```
 
 If a recipient is not in the public registry, the application can make an oracle call to the sender's PXE: `pxe_oracle.get_preimage(recipient)`. The PXE, if it has been given the recipient's address details out-of-band, can provide the necessary public keys.
+
+:::note Illustrative snippet
+The `pxe_oracle.get_preimage(recipient)` call is documentation pseudocode, not a stable, exported client API. App UIs should query balances via contract methods (e.g. `balance_of_private`) and rely on the PXE/wallet to select notes internally when building transactions. Key/recipient resolution may be implemented app-side using local PXE facilities, but is not exposed as a generic `get_preimage` API.
+:::
 
 ### The Destination for Private Data
 
