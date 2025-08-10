@@ -15,32 +15,32 @@ From here, you can dive deeper where it matters most to you:
 
 ## 🧠 Knowledge Check
 
-#### Q1: Why do reads of private mutable values emit a nullifier and re‑create the note?
+### Q1: Why do reads of private mutable values emit a nullifier and re-create the note?
 <details>
 <summary>Solution</summary>
-Non‑membership in the nullifier tree must be checked at the head by the sequencer. Emitting the nullifier ties validity to “currentness”, re‑creating the note (new randomness) keeps the value available without linkability.
+Non-membership in the nullifier tree must be checked at the head by the sequencer. Emitting the nullifier ties validity to “currentness”, re-creating the note (new randomness) keeps the value available without linkability.
 </details>
 
-#### Q2: Which trees are append‑only versus indexed, and why?
+### Q2: Which trees are append-only versus indexed, and why?
 <details>
 <summary>Solution</summary>
-Note Hash and Archive trees are append‑only (membership with historical roots). Nullifier and Public Data trees are indexed to support efficient non‑membership at head.
+Note Hash and Archive trees are append-only (membership with historical roots). Nullifier and Public Data trees are indexed to support efficient non-membership at head.
 </details>
 
-#### Q3: Where are transaction fees settled, and what happens on failure?
+### Q3: Where are transaction fees settled, and what happens on failure?
 <details>
 <summary>Solution</summary>
-Fees are settled in the teardown phase. If teardown reverts, receipt status is `teardown_reverted`; non‑revertible effects remain.
+Fees are settled in the teardown phase. If teardown reverts, receipt status is `teardown_reverted`; non-revertible effects remain.
 </details>
 
-#### Q4: How should dApps obtain a user’s private balance?
+### Q4: How should dApps obtain a user’s private balance?
 <details>
 <summary>Solution</summary>
 Through contract methods (e.g. `balance_of_private`). dApps don’t read raw notes; wallets/PXE select notes internally when building transactions.
 </details>
 
-#### Q5: Who checks non‑membership and when can historical roots be used?
+### Q5: Who checks non-membership and when can historical roots be used?
 <details>
 <summary>Solution</summary>
-Non‑membership is checked by the sequencer at the head (indexed trees). Historical roots can be used for membership in append‑only trees.
+Non-membership is checked by the sequencer at the head (indexed trees). Historical roots can be used for membership in append-only trees.
 </details>
