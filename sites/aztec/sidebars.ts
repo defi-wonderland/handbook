@@ -54,7 +54,8 @@ const sidebars: SidebarsConfig = {
           'stack/private-state/private-kernel' 
         ] 
       },
-      'stack/transaction-lifecycle'
+      'stack/transaction-lifecycle',
+      'stack/wrapping-up'
     ],
     },
   ],
