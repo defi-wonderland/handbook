@@ -68,7 +68,7 @@ In Aztec, global state is partitioned across five specialized Merkle trees:
 | **Note Hash Tree**     | Stores commitments to new private notes      | Append-only | Membership                                             |
 | **Nullifier Tree**     | Stores spent-note nullifiers, prevents reuse | Indexed     | Non-membership                                         |
 | **Public Data Tree**   | Key-value store for public contract state    | Indexed     | Membership + Non-membership                            |
-| **L1→L2 Message Tree** | Stores inbound messages from L1              | Append-only | Membership (uses nullifier tree for replay protection) |
+| **L1→L2 Message Tree** | Stores inbound messages from L1              | Append-only | Membership (per-message nullifier using message leaf index for replay protection) |
 | **Archive Tree**       | Stores historic block headers                | Append-only | Membership (used in private proofs)                    |
 
 ### Indexed Merkle Trees
@@ -129,3 +129,4 @@ See [this section](https://github.com/AztecProtocol/aztec-packages/blob/next/doc
 ## References
 - [Protocol Specs](https://github.com/AztecProtocol/aztec-packages/tree/next/docs/docs/protocol-specs/state)
 - [Trees Implementation](https://github.com/AztecProtocol/aztec-packages/tree/next/yarn-project/stdlib/src/trees)
+ - [Portals](https://docs.aztec.network/aztec/concepts/communication/portals#l1-l2-messaging)
