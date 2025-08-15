@@ -1,6 +1,6 @@
 # Overview
 
-Quality assurance (QA) is the practice of ensuring that a product meets defined quality standards before it reaches the end user. It combines different testing approaches to verify functionality, usability, and reliability. Effective QA strategies balance human expertise with automation, while also considering potential risks to focus testing efforts where they will have the greatest impact.
+Our quality assurance (QA) process combines different testing approaches to verify functionality, usability, and reliability. Effective QA strategies balance human expertise with automation, while also considering potential risks to focus testing efforts where they will have the greatest impact.
 
 <div align="center">
   <img src="/img/qa-meme.jpg" width="900" alt="A white cat in a black jacket contrasts the misconception that testers break things with the idea that they reveal hidden issues." />
