@@ -53,7 +53,7 @@ test('should change origin chain', async ({ page }) => {
   // ACT - Change the origin chain
   await page.getByTestId('from-chain-selector').click();
   await page.getByTestId(`chain-${base.id}`).click();
-  // ASSERT - Verify that the change occur8red
+  // ASSERT - Verify that the change occurred
   await expect(page.getByTestId('from-chain-selector')).toHaveText(base.name);
 });
 ```
