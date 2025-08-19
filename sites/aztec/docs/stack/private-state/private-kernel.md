@@ -81,8 +81,8 @@ Once all private function calls have been processed by the initial and inner ker
 - **Final Proof Verification:** It verifies the proof of the very last kernel iteration.
 - **Siloing Values:** It takes all the accumulated note hashes, nullifiers, and L2->L1 messages and "silos" them. This means hashing them with the contract address that produced them, ensuring that a nullifier from one contract cannot be confused with a nullifier from another. It also makes note hashes unique by hashing them with a nonce derived from the transaction nullifier.
 - **Ordering and Splitting Data:** This is its most important job. It takes the final, unordered list of side-effects and sorts them chronologically based on their counters. It then splits these sorted lists into two buckets:
-- **Non-Revertible Data:** Side-effects that should be processed even if the public part of the transaction fails (e.g. the transaction nullifier).
-- **Revertible Data:** Side-effects that should only be processed if the public part of the transaction succeeds.
+  - **Non-Revertible Data:** Side-effects that should be processed even if the public part of the transaction fails (e.g. the transaction nullifier).
+  - **Revertible Data:** Side-effects that should only be processed if the public part of the transaction succeeds.
 - **Producing Final Outputs:** It produces the final `AccumulatedData` (both revertible and non-revertible) and the list of enqueued public function calls. These are the public outputs of the entire private kernel phase.
 
 :::note reference
