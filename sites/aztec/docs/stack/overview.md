@@ -40,7 +40,7 @@ Instead, the **sequencer performs the non-membership check and inserts the nulli
 
 * Transactions include the nullifier.
 * The sequencer checks it's not already present, proves non-membership, and inserts it.
-* Conflicting nullifiers will fail inclusion.
+* Conflicting nullifiers will cause the transaction to revert.
 
 ### Read = Write (why reads nullify)
 
