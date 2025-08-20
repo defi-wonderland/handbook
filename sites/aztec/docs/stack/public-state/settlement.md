@@ -59,7 +59,7 @@ struct L2Actor {
 struct L1ToL2Msg {
   L1Actor  sender;       // auto‑filled as msg.sender + chainId
   L2Actor  recipient;    // supplied by caller (portal knows its L2 pair)
-  bytes32  content;      // 32 B payload **or** sha256(bigPayload)
+  bytes32  content;      // 32 B payload or sha256(bigPayload)
   bytes32  secretHash;   // commitment to random `r` → hides nullifier timing
   uint256  index;        // globalLeafIdx = treeNum * SIZE + localIdx
 }
