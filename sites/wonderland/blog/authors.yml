@@ -1,23 +1,294 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
-  socials:
-    x: yangshunz
-    github: yangshun
+matias-nisenson:
+  name: Matias Nisenson
+  title: Co-founder & CEO
+  image_url: /img/pfp/Mati.png
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+skeletor:
+  name: Skeletor
+  title: Architect
+  image_url: /img/pfp/Skele.png
+
+pepo:
+  name: Pepo
+  title: Co-founder
+  image_url: /img/pfp/Pepo.png
+
+gorilla:
+  name: Gorilla
+  title: CTO
+  image_url: /img/pfp/Gorilla.png
+
+billi:
+  name: Billi
+  title: COO
+  image_url: /img/pfp/Billi.png
+
+wei3er-hase:
+  name: Wei3er
+  title: Architect
+  image_url: /img/pfp/Wei3er.png
+
+ng:
+  name: NG
+  title: Architect
+  image_url: /img/pfp/NG.png
+
+ashitaka:
+  name: Ashitaka
+  title: Developer
+  image_url: /img/pfp/Ashi.png
+
+gas1cent:
+  name: Gas1cent
+  title: Engineering Manager
+  image_url: /img/pfp/Gas.png
+
+simon-something:
+  name: Simon Something
+  title: Chief Testing Officer
+  image_url: /img/pfp/Doc.png
+
+"0xjabberwock":
+  name: 0xJabberwock
+  title: Developer
+  image_url: /img/pfp/Jabber.png
+
+shaito:
+  name: Shaito
+  title: Partner Lead
+  image_url: /img/pfp/Shaito.png
+
+gotzen:
+  name: Gotzen
+  title: Partner Lead
+  image_url: /img/pfp/Gotzen.png
+
+turtlemoji:
+  name: Turtlemoji
+  title: Chief Security Officer
+  image_url: /img/pfp/Turtle.png
+
+"0xraccoon":
+  name: 0xRaccoon
+  title: Developer
+  image_url: /img/pfp/Raccoon.png
+
+"0xaustrian":
+  name: 0xAustrian
+  title: Developer
+  image_url: /img/pfp/Austrian.png
+
+onetony:
+  name: OneTony
+  title: Developer
+  image_url: /img/pfp/Tony.png
+
+parti:
+  name: Parti
+  title: Architect
+  image_url: /img/pfp/Parti.png
+
+"0xmono":
+  name: 0xMono
+  title: Researcher
+  image_url: /img/pfp/Mono.png
+
+joxes:
+  name: Joxes
+  title: Architect
+  image_url: /img/pfp/Joxes.png
+
+ardy:
+  name: Ardy
+  title: Lead UI
+  image_url: /img/pfp/Ardy.png
+
+rex:
+  name: Rex
+  title: Researcher
+  image_url: /img/pfp/Rex.png
+
+discotech:
+  name: Discotech
+  title: Developer
+  image_url: /img/pfp/Discotech.png
+
+moebius:
+  name: Moebius
+  title: Architect
+  image_url: /img/pfp/Moebius.png
+
+enti:
+  name: Enti
+  title: Researcher
+  image_url: /img/pfp/Enti.png
+
+agusduha:
+  name: Agusduha
+  title: Partner Lead
+  image_url: /img/pfp/Agus.png
+
+lempire:
+  name: Lempire
+  title: Developer
+  image_url: /img/pfp/Lempire.png
+
+titi:
+  name: Titi
+  title: Partner Lead
+  image_url: /img/pfp/Titi.png
+
+hex:
+  name: Hex
+  title: Developer
+  image_url: /img/pfp/Hex.png
+
+ringo:
+  name: Ringo
+  title: Financial Analyst
+  image_url: /img/pfp/Ringo.png
+
+kenji:
+  name: Kenji
+  title: Architect
+  image_url: /img/pfp/kenji.png
+
+teddy:
+  name: Teddy
+  title: Developer
+  image_url: /img/pfp/Teddy.png
+
+ilpepepig:
+  name: Ilpepepig
+  title: Developer
+  image_url: /img/pfp/ilpepepig.png
+
+yaco:
+  name: Yaco
+  title: Partner Lead
+  image_url: /img/pfp/Yaco.png
+
+laruku:
+  name: Laruku
+  title: QA
+  image_url: /img/pfp/Laruku.png
+
+zorzal:
+  name: Zorzal
+  title: Developer
+  image_url: /img/pfp/Zorzal.png
+
+flux:
+  name: Flux
+  title: Developer
+  image_url: /img/pfp/Flux.png
+
+jahabeebs:
+  name: Jahabeebs
+  title: Developer
+  image_url: /img/pfp/Jahabeebs.png
+
+shishigami:
+  name: Shishigami
+  title: Developer
+  image_url: /img/pfp/Shishigami.png
+
+onizuka:
+  name: Onizuka
+  title: Developer
+  image_url: /img/pfp/Onizuka.png
+
+funkornaut:
+  name: Funkornaut
+  title: Developer
+  image_url: /img/pfp/Funkornaut.png
+
+lumi:
+  name: Lumi
+  title: Researcher
+  image_url: /img/pfp/Lumi.png
+
+chin:
+  name: Chin
+  title: Developer
+  image_url: /img/pfp/Chin.png
+
+ace:
+  name: Ace
+  title: Developer
+  image_url: /img/pfp/Ace.png
+
+daopunk:
+  name: Daopunk
+  title: Developer
+  image_url: /img/pfp/Daopunk.png
+
+jagger:
+  name: Jagger
+  title: Developer
+  image_url: /img/pfp/Jagger.png
+
+luke:
+  name: Luke
+  title: Partner Lead
+  image_url: /img/pfp/Luke.png
+
+cooki:
+  name: Cooki
+  title: Developer
+  image_url: /img/pfp/Cooki.png
+
+ghostlee:
+  name: GhostLee
+  title: Developer
+  image_url: /img/pfp/Ghost.png
+
+paperclip-minimizer:
+  name: Paperclip Minimizer
+  title: Researcher
+  image_url: /img/pfp/Paperclip.png
+
+niha:
+  name: Niha
+  title: Developer
+  image_url: /img/pfp/Niha.png
+
+akoi-dehoibe:
+  name: Akoi Dehoibe
+  title: Architect
+  image_url: /img/pfp/Akoi.png
+
+zeriph:
+  name: Zeriph
+  title: Researcher
+  image_url: /img/pfp/Zeriph.png
+
+leopoldo:
+  name: Leopoldo
+  title: Developer
+  image_url: /img/pfp/Leopoldo.png
+
+th0r:
+  name: Th0r
+  title: Developer
+  image_url: /img/pfp/Thor.png
+
+euler:
+  name: Euler
+  title: Researcher
+  image_url: /img/pfp/Euler.png
+
+tano:
+  name: Tano
+  title: Developer
+  image_url: /img/pfp/Tano.png
+
+itadaki:
+  name: Itadaki
+  title: Developer
+  image_url: /img/pfp/Itadaki.png
+
+frov:
+  name: Frov
+  title: Developer
+  image_url: /img/pfp/Frov.png

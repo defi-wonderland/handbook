@@ -36,7 +36,16 @@ const localConfig: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/sites/wonderland",
+          // Hide the default sidebar on blog list pages
+          blogSidebarCount: 0,
+          postsPerPage: 12,
+          // Enable math for blog MDX as posts contain formulas
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
         theme: {
           customCss: [
             "./src/css/local.css",
@@ -48,6 +57,12 @@ const localConfig: Config = {
   ],
 
   themeConfig: {
+    stylesheets: [
+      {
+        href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
+        type: "text/css",
+      },
+    ],
     image: "img/wonderland-social-card.png",
     navbar: {
       logo: {
@@ -56,7 +71,13 @@ const localConfig: Config = {
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
-      items: [],
+      items: [
+        {
+          to: "/blog",
+          label: "Blog",
+          position: "right",
+        },
+      ],
     },
   } satisfies Preset.ThemeConfig,
 };
