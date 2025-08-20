@@ -91,10 +91,10 @@ The stolen amount must be distinguished from the net Profit, as the manipulation
 
 The regular scheme for attacking a lending market is via the following steps:
 
-1. The attacker will use a total capital $C$ (measured in B): $C=C_{colateral}+C_{manipulation}$
-2. With $C_{colateral}$, purchase $a_{colateral}$ of A at price $P_i$ (relative to B): $C_{colateral}=a_{colateral}P_i$. The attacker can do this over several blocks and liquidity markets to mitigate price impact. This step is unnecessary if efficient arbitrage exists (see Math article).
+1. The attacker will use a total capital $C$ (measured in B): $C=C_{collateral}+C_{manipulation}$
+2. With $C_{collateral}$, purchase $a_{collateral}$ of A at price $P_i$ (relative to B): $C_{collateral}=a_{collateral}P_i$. The attacker can do this over several blocks and liquidity markets to mitigate price impact. This step is unnecessary if efficient arbitrage exists (see Math article).
 3. With $C_{manipulation}$, manipulate the $TWAP$ to $TWAP_{final}$, by purchasing $a_{manipulation}$ of token A in the AMM. The spot price to manipulate depends on the length of the TWAP queried by the market.
-4. Deposit $a_{colateral}$ as collateral and borrow asset B with borrowing capacity $f*a_{colateral}*TWAP_{final}$. Notice the reserves cap this amount. If efficient arbitrage exists, deposit $a_{manipulation}$ instead.
+4. Deposit $a_{collateral}$ as collateral and borrow asset B with borrowing capacity $f*a_{collateral}*TWAP_{final}$. Notice the reserves cap this amount. If efficient arbitrage exists, deposit $a_{manipulation}$ instead.
 5. If possible (no arbitrage), manipulate the price back to the starting value by selling back $a_{manipulation}$ (or what's left) of A and get at most $C_{manipulation}$ back. This step makes a huge difference in cost.
 6. Default bad debt and profit. Notice the stolen capital B can be sold slowly over time to reduce price impact.
 
@@ -142,12 +142,12 @@ Suppose there is a delay of information (like Uniswap v3 $TWAP$) and no-arbitrag
 
 How would an optimal attack scheme look post-PoS for a validator with $n$ consecutive blocks?
 
-1. Attack will use a total capital $C$ (measured in B): $C=C_{colateral}+C_{manipulation}$
-2. With $C_{colateral}$, purchase $a_{colateral}$ of A at price $P_i$ (relative to B): $C_{colateral}=a_{colateral}P_i$. The attacker can do this over several blocks and liquidity markets to mitigate price impact.
+1. Attack will use a total capital $C$ (measured in B): $C=C_{collateral}+C_{manipulation}$
+2. With $C_{collateral}$, purchase $a_{collateral}$ of A at price $P_i$ (relative to B): $C_{collateral}=a_{collateral}P_i$. The attacker can do this over several blocks and liquidity markets to mitigate price impact.
 3. With $C_{manipulation}$, manipulate the $TWAP$ to $TWAP_{final}$, by purchasing $a_{manipulation}$ of A in the AMM. The spot price to manipulate depends on the length of the TWAP queried by the market and how many blocks the proposer has at disposition.
 4. Let $n-1$ block pass to register the new price.
 5. Manipulate the price back in the AMM to $P_f'=f*TWAP_{final}$ by selling back $a_{back}$. The attacker still holds $a_{left} = a_{manipulation}-a_{back}$. Notice $a_{left}$ is equivalent to the amount out of manipulating the pool up to $P_f'$.
-6. In the same block, deposit $a_{colateral}+a_{left}$ as colateral and borrow asset B with borrowing capacity $f(a_{colateral}+a_{left})TWAP_{final}$. Notice the reserves cap this amount.
+6. In the same block, deposit $a_{collateral}+a_{left}$ as collateral and borrow asset B with borrowing capacity $f(a_{collateral}+a_{left})TWAP_{final}$. Notice the reserves cap this amount.
 7. Default bad debt and profit.
 
 An attacker could also manipulate the TWAP without getting arbitraged if they propose several non-consecutive batches of blocks where they must sacrifice the final block of each batch to close the manipulation.
