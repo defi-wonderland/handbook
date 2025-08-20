@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "@docusaurus/Link";
 
 type BlogContent = {
@@ -12,6 +11,8 @@ type BlogContent = {
       name?: string;
       title?: string;
       imageURL?: string;
+      key?: string;
+      page?: boolean | { permalink?: string };
     }>;
   };
 };
@@ -20,6 +21,9 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
   const { metadata } = post;
   const cover = metadata.frontMatter?.image;
   const authors = metadata.authors || [];
+  // Limit inline rendering to 2 authors to avoid awkward wrapping on tight cards
+  const visibleAuthors = authors.slice(0, 2);
+  const remainingAuthorsCount = Math.max(authors.length - visibleAuthors.length, 0);
 
   const formattedDate = new Date(metadata.date).toLocaleDateString(undefined, {
     weekday: "long",
@@ -43,17 +47,33 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
         )}
         {authors.length > 0 && (
           <div className="wl-post-card__meta">
-            {authors.map((a, idx) => (
+            {visibleAuthors.map((a, idx) => (
               <div key={idx} className="wl-author">
                 {a.imageURL && (
                   <img className="wl-avatar" src={a.imageURL} alt={a.name || ""} loading="lazy" />
                 )}
                 <div className="wl-author__text">
-                  {a.name && <div className="wl-author__name">{a.name}</div>}
+                  {a.name && (
+                    <div className="wl-author__name">
+                      {a.page && a.key ? (
+                        <Link 
+                          to={`/blog/authors/${a.key}`} 
+                          className="wl-author__name-link"
+                        >
+                          {a.name}
+                        </Link>
+                      ) : (
+                        a.name
+                      )}
+                    </div>
+                  )}
                   {a.title && <div className="wl-author__title">{a.title}</div>}
                 </div>
               </div>
             ))}
+            {remainingAuthorsCount > 0 && (
+              <div className="wl-author wl-author__extra">+{remainingAuthorsCount}</div>
+            )}
           </div>
         )}
       </div>

@@ -18,3 +18,9 @@ Math:
   label: Math
 Consensus:
   label: Consensus
+DeFi:
+  label: DeFi
+Security:
+  label: Security
+Whitehack:
+  label: Whitehack

@@ -93,7 +93,7 @@ A simplified diagram of how a light client works—[Sync Protocol](https://githu
 
 The light client sees the following `LightClientUpdate` object from the network:
 
-```text
+```rust
 class LightClientUpdate(Container):
     # Update beacon block header
     header: BeaconBlockHeader

@@ -5,22 +5,15 @@ import rehypeKatex from "rehype-katex";
 import { merge } from "webpack-merge";
 import commonConfig from "@handbook/common-config/preset/commonDocusaurusConfig";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const localConfig: Config = {
   title: "Wonderland Handbook",
   tagline:
     "A curated guide to our best practices, processes, and technical insights.",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://handbook.wonderland.xyz",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "defi-wonderland", // Usually your GitHub org/user name.
   projectName: "handbook", // Usually your repo name.
 
@@ -42,6 +35,11 @@ const localConfig: Config = {
           // Hide the default sidebar on blog list pages
           blogSidebarCount: 0,
           postsPerPage: 12,
+          // Enable author pages (path relative to the blog directory)
+          authorsMapPath: "authors.yml",
+          authorsBasePath: "authors",
+          // Force Docusaurus to use our custom author posts page component
+          blogAuthorsPostsComponent: "@site/src/theme/BlogAuthorsPostsPage",
           // Enable math for blog MDX as posts contain formulas
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],

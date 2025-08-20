@@ -27,7 +27,7 @@ const Card = ({ post }: { post: any }) => <BlogCard post={post} />;
 
 export default function BlogListPage(props: any) {
   const posts = (props?.items || []).map((i: any) => i.content);
-  const [first, second, third, ...rest] = posts;
+  const [first, second, third, fourth, ...rest] = posts;
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -43,7 +43,7 @@ export default function BlogListPage(props: any) {
               </div>
               <div className="wl-highlights__side">
                 {second && <BlogCard post={second} className="wl-post-card--compact" />}
-                {third && <BlogCard post={third} className="wl-post-card--compact" />}
+                {fourth && <BlogCard post={fourth} className="wl-post-card--compact" />}
               </div>
             </section>
           )}
@@ -60,5 +60,4 @@ export default function BlogListPage(props: any) {
     </Layout>
   );
 }
-
 
