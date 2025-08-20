@@ -12,7 +12,7 @@ Oracles are a single point of failure and can make or break a DeFi protocol. The
 
 Unfortunately, crypto is a flock of black swans, so you better be prepared.
 
-![](/img/blog-posts-img/rip-oracles/swan.jpg)
+![swan on lake](/img/blog-posts-img/rip-oracles/swan.jpg)
 
 ## Are we talking about this again?
 <!-- truncate -->
@@ -21,7 +21,7 @@ There are a plethora of resources to understand the importance of oracles. We re
 
 But what’s the status quo of oracles? We know that no solution is perfect, but we must understand what’s going on in order to make informed decisions. We must be aware of the risks and act accordingly.
 
-![](/img/blog-posts-img/rip-oracles/meme.jpg)
+![oracle meme](/img/blog-posts-img/rip-oracles/meme.jpg)
 
 > _“But we have Chainlink! A decentralized solution that works like a charm”_
 
@@ -29,7 +29,7 @@ But what’s the status quo of oracles? We know that no solution is perfect, but
 
 **TL;DR:** Chainlink is the most widely used solution in DeFi. It’s the most reliable and cheap, but incentives for nodes are centralized and non-scalable, making the whole system permissioned.
 
-![](/img/blog-posts-img/rip-oracles/chainlink.png)
+![Chainlink logo](/img/blog-posts-img/rip-oracles/chainlink.png)
 
 - **Incentives are centralized:** Right now, incentives for data feeders are not decentralized since they rely on Chainlink, a centralized entity. They are subsidized and paid via LINK emissions from a multi-sig (an additional potential point of failure).
 - **Incentives will keep being centralized:** [An upgrade](https://blog.chain.link/sustainably-growing-chainlink/) is scheduled for decentralizing these payments using a stake/slash mechanism. The Chainlink Node Operator [recently paid 30M LINK](https://etherscan.io/address/0x98c63b7b319dfbdf3d811530f2ab9dfe4983af9d#tokentxns) to bootstrap these mechanisms.
@@ -53,7 +53,7 @@ There are also issues with the API, [software](https://www.cryptotimes.io/venus
 
 **TLDR:** Maker’s internal oracle, which defends more than $8b, is expensive to maintain and therefore, not efficient for scale.
 
-![](/img/blog-posts-img/rip-oracles/maker.png)
+![MakerDAO logo](/img/blog-posts-img/rip-oracles/maker.png)
 
 Maker uses their oracle to report collaterals’ prices in the protocol. Although this oracle is not designed to be used by other protocols, we might consider using the same methodology on our protocol, right?
 
@@ -66,7 +66,7 @@ Maker uses their oracle to report collaterals’ prices in the protocol. Althoug
 
 **TLDR:** Uniswap v3 introduced a novel way of querying price data. It is decentralized and sustainable (thanks to swappers and LP’s subsidies), but it is complicated to rely on due to liquidity’s unpredictability.
 
-![](/img/blog-posts-img/rip-oracles/uniswap.png)
+![Uniswap v3 logo](/img/blog-posts-img/rip-oracles/uniswap.png)
 
 Uniswap has the most decentralized and sustainable solution for oracles, but it also has a long track of exploits and manipulations. This improved after v3, but it’s [still happening](https://twitter.com/raricapital/status/1455569653820973057), and it’s prone to a PoS multi-block attack.
 
@@ -87,7 +87,7 @@ Medians were [suggested](https://github.com/euler-xyz/median-oracle) several t
 
 **Price** is a permissionless and reliable solution that leverages UniV3 and keeper automation to provide safe price quotes on any existing token.
 
-![](/img/blog-posts-img/rip-oracles/price.png)
+![PRICE protocol logo](/img/blog-posts-img/rip-oracles/price.png)
 
 Price is built on top of Uniswap v3, thus inheriting all its decentralization and sustainable features. In addition, it solves the issues we marked above:
 
@@ -95,7 +95,7 @@ Price is built on top of Uniswap v3, thus inheriting all its decentralization an
 - **Complexity:** Everything is managed by smart contracts. We created a hassle-free experience for our users.
 - **Multi-block attacks:** Price uses automation to detect and correct price manipulations, including multi-block attacks. These corrections unlock safer, more precise TWAPs, even for short time frames.
 
-![](/img/blog-posts-img/rip-oracles/meme-2.png)
+![oracle meme](/img/blog-posts-img/rip-oracles/meme-2.png)
 
 ### **And the best of it all? Price is just around the corner…**
 
