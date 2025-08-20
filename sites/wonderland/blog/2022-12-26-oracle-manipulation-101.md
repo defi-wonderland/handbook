@@ -174,4 +174,4 @@ You can reach out to us on [Twitter](https://twitter.com/price_oracle) if you ha
 
 [Price](https://oracles.rip/)
 
-Special t*hanks to [Guillaume Lambert](https://twitter.com/guil_lambert) and [Gaston Maffei](https://twitter.com/maffeigaston) for the review and feedback.*
+*Special thanks to [Guillaume Lambert](https://twitter.com/guil_lambert) and [Gaston Maffei](https://twitter.com/maffeigaston) for the review and feedback.*
