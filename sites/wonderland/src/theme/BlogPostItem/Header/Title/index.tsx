@@ -1,8 +1,15 @@
 import React from "react";
 
-export default function BlogPostItemHeaderTitle({ title }: { title?: string }): JSX.Element | null {
+export default function BlogPostItemHeaderTitle({
+  title,
+  isBlogPostPage,
+}: {
+  title?: string;
+  isBlogPostPage?: boolean;
+}): JSX.Element | null {
   if (!title) return null;
-  return <h1 className="wl-post-title">{title}</h1>;
+  const Heading = (isBlogPostPage ? "h1" : "h2") as const;
+  return <Heading className="wl-post-title">{title}</Heading>;
 }
 
 
