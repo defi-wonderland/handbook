@@ -73,6 +73,10 @@ In Aztec, global state is partitioned across five specialized Merkle trees:
 
 ### Indexed Merkle Trees
 
+::tip 
+For a deeper explanation about Indexed Merkle Trees, we recommend [reading this page](https://docs.aztec.network/aztec/concepts/advanced/storage/indexed_merkle_tree) of Aztec Docs. And if you are really interested in [Merkle trees](https://www.youtube.com/watch?v=9tI6D4sIcNI&pp=ygUaaW5kZXhlZCBtZXJrbGUgdHJlZXMgY2lhcmE%3D), this might be relevant for your rabbit hole exploration.
+:::
+
 Used for the **nullifier** and **public data** trees, indexed Merkle trees (IMTs) enable efficient non-membership proofs and efficient batch writes:
 
 * Each leaf contains a `(value, nextValue, nextIndex)` triple.
