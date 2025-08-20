@@ -1,11 +1,18 @@
 import Link from "@docusaurus/Link";
 
 const withOrdinal = (d: Date): string => {
-  const day = d.getDate();
+  const day = d.getUTCDate();
   const j = day % 10;
   const k = day % 100;
-  const suffix = j === 1 && k !== 11 ? "st" : j === 2 && k !== 12 ? "nd" : j === 3 && k !== 13 ? "rd" : "th";
-  const month = d.toLocaleString(undefined, { month: "long" });
+  const suffix =
+    j === 1 && k !== 11
+      ? "st"
+      : j === 2 && k !== 12
+      ? "nd"
+      : j === 3 && k !== 13
+      ? "rd"
+      : "th";
+  const month = d.toLocaleString(undefined, { month: "long", timeZone: "UTC" });
   const year = d.getFullYear();
   return `${month} ${day}${suffix}, ${year}`;
 };
