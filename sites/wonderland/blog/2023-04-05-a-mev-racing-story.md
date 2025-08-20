@@ -31,7 +31,7 @@ The Merge event in Ethereum has unleashed a host of dangers in the [Ethereum Dar
 
 In this blog post, we will not only introduce you to some of these new and unprecedented beasts, but also provide you with the tools you need to protect yourself against them. This is only the beginning of our quest to find and combat these beasts, as we continue to search for more.
 
-### Thread carefully, racer, for the roots of the dark forest lie in wait, ready to trip you up.
+### Tread carefully, racer, for the roots of the dark forest lie in wait, ready to trip you up
 
 ## Dark Forest, April the 3rd
 
@@ -51,7 +51,7 @@ Proposers who use [mev-geth](https://github.com/flashbots/mev-geth) are required
 
 However, there was a loophole. The relay did not verify the validity of the signed block header and would try to broadcast it regardless. Although the beacon chain would naturally reject the block sent by the relay, the relay would still disclose the block's contents to the proposer. This gave the proposer an opportunity to modify transactions and broadcast a modified block uncontested to the entire network, giving them an unfair advantage. This is exactly what the attacker used on April the 3rd.
 
-The proposer's behavior of signing two headers in the same slot is a **[slashable offense](https://twitter.com/terencechain/status/1642898223076614144)**. However, the penalty for such an offense is a meager amount of 1ETH and rewards for the subsequent 36 days. This penalty is a minor cost compared to the potential profit gained from such an act.
+The proposer's signing of two headers in the same slot is a [slashable offense](https://twitter.com/terencechain/status/1642898223076614144). The penalty is only 1 ETH plus rewards withheld for 36 days, which is small compared to the potential profits.
 
 However, Flashbots has taken measures to address this issue by implementing a **[patch](https://github.com/flashbots/mev-boost-relay/pull/330)**. This patch ensures that the relay checks whether their block has been successfully published before revealing the block's content to the proposer, mitigating the risk of such attacks in the future.
 
@@ -65,7 +65,7 @@ During the investigation, a second attack was also discovered: a proposer with t
 
 The recent patch also addresses this vulnerability. After a certain period has elapsed, the relay will no longer provide the block's content to the proposer. The initial time limit was set at 3 second. You can read a lot more details in the [Flashbot’s post-mortem](https://collective.flashbots.net/t/post-mortem-april-3rd-2023-mev-boost-relay-incident-and-related-timing-issue/1540).
 
-The same attacker notified the flashbots team about another possible attack. A proposer could call the `getPayload()` function before the begining of their slot and then try to race the relay’s block by equivocating. A [new patch](https://github.com/flashbots/mev-boost-relay/commit/d7b3849b7ee101562b9e715f7c85015cf7fef5d5) was created to address this issue. You can read more about this in the [Flashbot’s disclosure](https://collective.flashbots.net/t/disclosure-mitigation-of-block-equivocation-strategy-with-early-getpayload-calls-for-proposers/1705).
+The same attacker notified the Flashbots team about another possible attack: a proposer could call `getPayload()` before the beginning of their slot and then attempt to race the relay’s block by equivocating. A [new patch](https://github.com/flashbots/mev-boost-relay/commit/d7b3849b7ee101562b9e715f7c85015cf7fef5d5) addresses this issue; see Flashbots' [disclosure](https://collective.flashbots.net/t/disclosure-mitigation-of-block-equivocation-strategy-with-early-getpayload-calls-for-proposers/1705) for details.
 
 ## We are safe…right?
 
@@ -158,7 +158,7 @@ It's important to note that the potential penalty for engaging in such attacks i
 As a regular user, you can rest assured that there is nothing to worry about. However, the real danger lies with sandwich bots. These pilots are focused solely on winning the race, often taking unnecessary risks and endangering themselves. So, what should they do? Slow down:
 
 1. Ensure 0 slippage. Our scripts have shown that no bots have slipped through this check so far.
-2. Ensure right inclusion. This will cost a bit of gas, but will also protect you from multiblock attacks and backruns. There are two way of doing this:
+2. Ensure correct inclusion. This costs a bit of gas but protects against multiblock attacks and backruns. There are two ways to do this:
    1. Verify that the block number matches the intended height.
    2. Add a timestamp check that reverts outside the expected timeslot. Unlike a, this method would also protect the bot also against block reorgs.
 

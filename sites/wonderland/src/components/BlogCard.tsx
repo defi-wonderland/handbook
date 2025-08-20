@@ -5,7 +5,8 @@ type BlogContent = {
     permalink: string;
     title: string;
     description?: string;
-    date: string;
+    date?: string;
+    formattedDate?: string;
     frontMatter?: { image?: string };
     authors?: Array<{
       name?: string;
@@ -25,12 +26,16 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
   const visibleAuthors = authors.slice(0, 2);
   const remainingAuthorsCount = Math.max(authors.length - visibleAuthors.length, 0);
 
-  const formattedDate = new Date(metadata.date).toLocaleDateString(undefined, {
-    weekday: "long",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const formattedDate = metadata.formattedDate ?? (
+    metadata.date
+      ? new Date(`${metadata.date}T00:00:00Z`).toLocaleDateString(undefined, {
+          weekday: "long",
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })
+      : undefined
+  );
 
   return (
     <article className={`wl-post-card ${className ?? ""}`}>
@@ -38,7 +43,9 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
         {cover ? <img src={cover} alt="" loading="lazy" /> : <span className="wl-post-card__thumbOverlay" />}
       </Link>
       <div className="wl-post-card__body">
-        <div className="wl-post-card__date">{formattedDate}</div>
+        {formattedDate && (
+          <div className="wl-post-card__date">{formattedDate}</div>
+        )}
         <h3 className="wl-post-card__title">
           <Link to={metadata.permalink}>{metadata.title}</Link>
         </h3>
