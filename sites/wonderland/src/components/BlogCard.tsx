@@ -18,6 +18,12 @@ type BlogContent = {
   };
 };
 
+const parseDate = (value: unknown): Date | undefined => {
+  if (!value) return undefined;
+  const date = value instanceof Date ? value : new Date(String(value));
+  return isNaN(date.getTime()) ? undefined : date;
+};
+
 export function BlogCard({ post, className }: { post: BlogContent; className?: string }) {
   const { metadata } = post;
   const cover = metadata.frontMatter?.image;
@@ -26,16 +32,18 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
   const visibleAuthors = authors.slice(0, 2);
   const remainingAuthorsCount = Math.max(authors.length - visibleAuthors.length, 0);
 
-  const formattedDate = metadata.formattedDate ?? (
-    metadata.date
-      ? new Date(`${metadata.date}T00:00:00Z`).toLocaleDateString(undefined, {
+  const formattedDate = metadata.formattedDate ?? (() => {
+    const d = parseDate(metadata.date);
+    return d
+      ? d.toLocaleDateString(undefined, {
           weekday: "long",
           day: "numeric",
           month: "short",
           year: "numeric",
+          timeZone: "UTC",
         })
-      : undefined
-  );
+      : undefined;
+  })();
 
   return (
     <article className={`wl-post-card ${className ?? ""}`}>
