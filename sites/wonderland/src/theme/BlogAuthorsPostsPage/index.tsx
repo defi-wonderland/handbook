@@ -6,10 +6,6 @@ function BlogAuthorsPostsPageContent({author, items}: any) {
   // Transform items to posts like in BlogListPage
   const posts = (items || []).map((item: any) => item.content);
   const postCount = posts.length;
-  
-  // Debug: Log to help verify override is working
-  console.log('Custom BlogAuthorsPostsPage rendering for author:', author?.name || 'unknown');
-
   return (
     <Layout>
         <div className="container margin-top--lg">

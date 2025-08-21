@@ -231,7 +231,7 @@ function _calculatePayout(address[] memory _recipients) internal returns (uint25
 }
 ```
 
-The `SWV` ****contract is the strategy that combines `VotingExtension` with `AllocationExtension` to manage voting, allocation periods, and fund distribution. We start by importing the necessary dependencies: `SafeERC20` from `@openzeppelin,` the `VotingExtension` we just created and the `AllocationExtension` from the repo we cloned.
+The `SWV` contract is the strategy that combines `VotingExtension` with `AllocationExtension` to manage voting, allocation periods, and fund distribution. We start by importing the necessary dependencies: `SafeERC20` from `@openzeppelin,` the `VotingExtension` we just created and the `AllocationExtension` from the repo we cloned.
 
 Now, SWV will inherit from the extensions, but also from `BaseStrategy`. 
 
@@ -261,7 +261,6 @@ error SWV_InvalidRecipientArray();
 The constructor initializes the `VotingExtension`, passing the `Allo` contract address and the voting token.
 
 ```solidity
-
     constructor(
         address _allo,
         address _votingToken,

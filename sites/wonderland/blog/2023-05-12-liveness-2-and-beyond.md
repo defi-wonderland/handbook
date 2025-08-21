@@ -3,7 +3,6 @@ slug: liveness-2-and-beyond
 title: Liveness 2 and beyond
 description: Safety and scalability of SAFE liveness.
 date: 2023-05-12
-draft: true
 tags: [Cryptography, Verification, Cross-chain]
 authors: [parti, skeletor]
 image: /img/blog-posts-img/current-state-of-storage-proofs/cover.jpg

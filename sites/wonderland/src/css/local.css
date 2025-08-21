@@ -253,7 +253,9 @@
 /* Center images within blog post content */
 .wl-post-content img,
 .wl-post-content .markdown img,
-.wl-post-content article img {
+.wl-post-content article img,
+.wl-post-original article img,
+.wl-post-original .markdown img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -292,6 +294,20 @@
 .theme-blog pre[class*="language-"],
 .theme-blog code[class*="language-"] {
   background-color: var(--wonderland-blue-950) !important;
+}
+
+/* Wrapper: hide original BlogPostPage header/footer to avoid duplicates */
+.wl-post-original .wl-post-header,
+.wl-post-original .blogPostFooter,
+.wl-post-original nav.pagination-nav,
+.wl-post-original .pagination-nav,
+.wl-post-original footer {
+  display: none !important;
+}
+
+/* Hide the original theme header/meta inside the embedded BlogPostPage */
+.wl-post-original article > header {
+  display: none !important;
 }
 
 .theme-blog .theme-code-block {
@@ -344,35 +360,7 @@
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
 }
-/* Normalize list styling inside blog posts to match body text */
-.wl-post-content .markdown ul,
-.wl-post-content .markdown ol {
-  margin: 0.75rem 0 1rem;
-  padding-left: 1.25rem;
-  color: var(--wonderland-gray-300);
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-weight: 400 !important;
-  line-height: 150%;
-}
-
-.wl-post-content .markdown li {
-  margin: 0.35rem 0;
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-weight: 400 !important;
-  line-height: 150%;
-}
-
-.wl-post-content .markdown li p {
-  margin: 0; /* keep compact like plain text */
-  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
-  font-weight: 400 !important;
-  line-height: 150%;
-}
-
-/* Ensure list items wrap like body text */
-.markdown li,
-.markdown ul,
-.markdown ol,
+/* Ensure list items wrap like body text (docs only) */
 .theme-doc-markdown li,
 .theme-doc-markdown ul,
 .theme-doc-markdown ol {
@@ -384,24 +372,14 @@
   color: var(--wonderland-gray-300) !important;
 }
 
-.wl-post-content .markdown li::marker {
-  color: var(--wonderland-gray-500);
-  font-weight: 400;
-}
-
-.wl-post-content .markdown li > ul,
-.wl-post-content .markdown li > ol {
-  margin: 0.35rem 0 0.5rem;
-}
-
 /* Keep header (title/author) aligned with content width */
 .wl-post-header {
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
+  padding-top: calc(var(--ifm-navbar-height, 3.5rem) + 2rem); /* reduced so title appears immediately */
+  padding-bottom: 0.75rem; /* tighter gap to article */
 }
 
 @font-face {
@@ -686,6 +664,15 @@
   text-decoration: underline;
 }
 
+.theme-blog nav.navbar.navbar--fixed-top + .main-wrapper {
+  padding-top: var(--ifm-navbar-height, 3.5rem) !important;
+}
+
+/* Ensure override applies specifically on blog post pages */
+.blog-post-page nav.navbar.navbar--fixed-top + .main-wrapper {
+  padding-top: 0 !important;
+}
+
 /* Author Page Styling */
 .wl-author-page-header {
   display: flex;
@@ -773,9 +760,7 @@
   gap: 2rem;
 }
 
-.wl-author-post-card {
-  /* Inherit all styles from .wl-post-card */
-}
+/* .wl-author-post-card intentionally inherits from .wl-post-card; keeping as comment to avoid empty ruleset */
 
 .wl-no-posts {
   text-align: center;
