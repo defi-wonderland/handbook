@@ -32,29 +32,44 @@ export default function BlogPostItemHeaderAuthors({
   authors?: Author[];
   date?: string;
 }): React.ReactElement | null {
-  const mainAuthor = authors[0];
   const formatted = date ? withOrdinal(new Date(date)) : undefined;
-  if (!mainAuthor && !date) return null;
+  if ((!authors || authors.length === 0) && !date) return null;
 
   return (
     <div className="wl-post-meta">
-      {mainAuthor?.imageURL && (
-        <img className="wl-post-author-avatar" src={mainAuthor.imageURL} alt={mainAuthor.name || ""} />
+      {/* Avatars */}
+      {authors && authors.length > 0 && (
+        <div className="wl-post-authors-avatars">
+          {authors.map((a, idx) => (
+            a?.imageURL ? (
+              <img
+                key={`${a.key || a.name || idx}-avatar`}
+                className="wl-post-author-avatar"
+                src={a.imageURL}
+                alt={a?.name || ""}
+              />
+            ) : null
+          ))}
+        </div>
       )}
+
+      {/* Names and date */}
       <div className="wl-post-author-line">
-        {mainAuthor?.name && (
-          <>
-            {mainAuthor.page && mainAuthor.key ? (
-              <Link 
-                to={`/blog/authors/${mainAuthor.key}`} 
-                className="wl-post-author-name wl-post-author-name--link"
-              >
-                {mainAuthor.name}
-              </Link>
-            ) : (
-              <span className="wl-post-author-name">{mainAuthor.name}</span>
-            )}
-          </>
+        {authors && authors.length > 0 && (
+          <div className="wl-post-authors-line">
+            {authors.map((a, idx) => (
+              <span key={`${a.key || a.name || idx}-name`} className="wl-post-author">
+                {a?.page && a?.key ? (
+                  <Link to={`/blog/authors/${a.key}`} className="wl-post-author-name wl-post-author-name--link">
+                    {a?.name || ""}
+                  </Link>
+                ) : (
+                  <span className="wl-post-author-name">{a?.name || ""}</span>
+                )}
+                {idx < authors.length - 1 && <span className="wl-post-author-sep">,</span>}
+              </span>
+            ))}
+          </div>
         )}
         {formatted && (
           <>
