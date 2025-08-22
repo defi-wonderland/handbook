@@ -71,15 +71,14 @@ Each memory cell is tagged with a **range-constrained type**, and the AVM enforc
 | 3   | `u32`   | $2^{32} - 1$    | Memory addresses         |
 | 6   | `field` | $p - 1$ (BN254) | Slot values and calldata |
 
-To load a slot, the contract must perform an **indirect memory access**:
+To load a slot, the contract uses an **indirect memory access**. Here `offset` is a `u32` pointer into main memory where the computed slot address (`Fr`) has been stored:
 
 ```ts
-M[offset] = slot_address
 assert T[offset] == u32
-value = M[M[offset]]
+slot_address = M[offset]
 ```
 
-Which allow us to have dynamic resolution of slot addresses computed at runtime.
+This lets contracts compute slot addresses at runtime and dereference them via a pointer, enabling dynamic resolution (e.g., loops, maps, arrays) and letting the AVM enforce type-tag checks on pointers and values.
 
 ## Reading from a Storage Slot
 
