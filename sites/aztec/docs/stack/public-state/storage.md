@@ -98,7 +98,9 @@ When the `contract_storage_read` syscall is invoked:
 1. The **slot address** is loaded from memory, with tag `u32`
 2. A **siloed key** is computed from the contract + slot
 3. A **Merkle membership proof** is performed against the Public Data Tree (an Indexed Merkle Tree)
-4. The value is written back into memory with tag `field`
+4. The read value is returned into VM memory at a destination offset, tagged as `field` (this is not a storage write)
+
+The “write” in step 4 refers to placing the returned value into AVM main memory so the contract can use it in subsequent instructions. The Public Data Tree is not modified by reads.
 
 ![contract-storage-read](/img/diagrams/memory-check.png)
 
