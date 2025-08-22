@@ -4,9 +4,9 @@
 We strongly recommend that you dive into the core concepts listed [here](https://inevitableeth.com/en/home/concepts) before diving into how Ethereum works.
 :::
 
-There are many ways to explain Ethereum—how it works, what it enables, and the key standards that define it. However, we believe the best place to start is with its ethos.
+There are many ways to explain Ethereum, how it works, what it enables, and the key standards that define it. However, we believe the best place to start is with its ethos.
 
-It is often described as a trustless world computer— a shared, decentralized platform where participants can execute code, exchange value, and collaborate without needing central intermediaries. As you probably know, unlike first-generation blockchains that focus on simple value transfers, Ethereum's main innovation is its **programmability**: through _smart contracts_, participants can encode arbitrary logic that runs deterministically across a global network of nodes.
+It is often described as a trustless world computer, a shared, decentralized platform where participants can execute code, exchange value, and collaborate without needing central intermediaries. As you probably know, unlike first-generation blockchains that focus on simple value transfers, Ethereum's main innovation is its **programmability**: through _smart contracts_, participants can encode arbitrary logic that runs deterministically across a global network of nodes.
 
 The core motivation is to generalize Bitcoin's concept of a decentralized ledger into a [**Turing-complete platform**](https://en.wikipedia.org/wiki/Turing_completeness#:~:text=In%20colloquial%20usage%2C%20the%20terms,purpose%20computer%20or%20computer%20language.). By abstracting the ledger into a robust, distributed state machine, Ethereum extends the blockchain paradigm far beyond payment use cases.
 
@@ -49,22 +49,22 @@ You might be asking: Why should I care? And the answer is that a good mental mod
 
 **Gas** is the EVM's integral mechanism for metering and limiting computations. It ensures that complex or infinite loops can't stall the network and that each operation has an associated economic cost.
 
-**Gas Per Operation:** Each opcode has a base cost (e.g., 3 gas for `ADD`) plus possible additional costs (e.g., `SSTORE` can vary based on whether a storage slot goes from zero to non-zero). — See Appendix G of [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf).
+**Gas Per Operation:** Each opcode has a base cost (e.g., 3 gas for `ADD`) plus possible additional costs (e.g., `SSTORE` can vary based on whether a storage slot goes from zero to non-zero).See Appendix G of [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf).
 
-**Gas Limit and Fees:** A transaction specifies a gas limit (how much the sender is willing to spend). Unused gas is refunded, but if execution runs out of gas, all state changes revert (an OOG —Out of Gas— exception). — You should check out the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) that introduced a base fee that is burned + a priority fee that goes to block proposers.
+**Gas Limit and Fees:** A transaction specifies a gas limit (how much the sender is willing to spend). Unused gas is refunded, but if execution runs out of gas, all state changes revert (an OOG ,Out of Gas, exception). You should check out the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) that introduced a base fee that is burned + a priority fee that goes to block proposers.
 
 **Block-Level Constraints:** Each block has a **gas limit** (now effectively a "gas target" times an elasticity multiplier). Overly complex transactions might use the entire block's gas allotment, limiting throughput. The base fee is then adjusted from block to block to keep average consumption near a target.
 
 :::tip
 **Further Reading:**
 
-- Mastering Ethereum explains how gas influences contract design, especially with patterns like **optimizing for minimal SSTORE usage — See Chapter 13**
+- Mastering Ethereum explains how gas influences contract design, especially with patterns like **optimizing for minimal SSTORE usage - See Chapter 13**
 - The [Ethereum Gitbook](https://cypherpunks-core.github.io/ethereumbook/02intro.html) covers real-world examples of gas optimization in DeFi or NFT minting contracts.
   :::
 
 ### Contracts
 
-Contracts in Ethereum are not _"launched and run somewhere else"_—they are **deployed** to the EVM, then **invoked** by transactions or message calls. Let's break this down:
+Contracts in Ethereum are not _"launched and run somewhere else"_,they are **deployed** to the EVM, then **invoked** by transactions or message calls. Let's break this down:
 
 - **Contract Creation**
   - A special transaction with `to = null` is used to deploy code.
@@ -120,7 +120,7 @@ Understanding this state transition mechanism is key to analyzing **transaction 
 
 ### Consensus & Forks
 
-Historically, Ethereum started with **proof-of-work (PoW)**—similar to Bitcoin's approach—but later transitioned to **proof-of-stake (PoS)** via _The Merge_. This shift changed how blocks are proposed and finalized.
+Historically, Ethereum started with **proof-of-work (PoW)**, similar to Bitcoin's approach, but later transitioned to **proof-of-stake (PoS)** via _The Merge_. This shift changed how blocks are proposed and finalized.
 
 1. **Proof of Work to Proof of Stake**
    - Under [PoW](https://youtu.be/bBC-nXj3Ng4?t=870), miners expended computational resources solving cryptographic challenges, securing the chain in return for block rewards.
@@ -135,7 +135,7 @@ See https://inevitableeth.com/home/ethereum/network/consensus/PoW-vs-PoS for ref
 
 ## The Network
 
-While the EVM and the blockchain provide Ethereum's computational and data-security layers, **the network** is what ties it all together globally. Nodes discover each other, exchange transactions, and synchronize new blocks—ensuring a single coherent state.
+While the EVM and the blockchain provide Ethereum's computational and data-security layers, **the network** is what ties it all together globally. Nodes discover each other, exchange transactions, and synchronize new blocks, ensuring a single coherent state.
 
 ### The P2P Layer
 
@@ -144,7 +144,7 @@ We need to discover nodes, right? For doing that, Ethereum relies on the devp2p 
 1. Node Discovery: Uses a kademlia-like protocol (UDP based) to find peers. Once discovered, a node's identity and capabilities are exchanged, so others know which subprotocols you support.
 2. Peer connections & devp2p RLPx: After discovery, nodes set up an encrypted TCP session using RLPx, with ephemeral key exchange.
 
-   They will do a handshake, exchanging a Hello —or _Status_— message. EIP-8 ensures that version mismatches or extra list elements do not break the handshake — older nodes can interoperate with newer devp2p versions.
+   They will do a handshake, exchanging a Hello, or _Status_, message. EIP-8 ensures that version mismatches or extra list elements do not break the handshake: older nodes can interoperate with newer devp2p versions.
 
    The handshake and subsequent devp2p messages are encoded in RLP (Recursive Length Prefix). Extra fields or new versions can be gracefully ignored if the node doesn't recognize them.
 
@@ -197,7 +197,7 @@ So, as a takeaway, the network can be seen as the "circulatory system," it carri
 - Evaluate finality times or block distribution for advanced protocols.
 - Explore how L2 or cross-chain solutions integrate at the node level.
 
-With the EVM, the blockchain, and the network under your belt, the next step is to examine **the standards**—EIPs and ERCs—that unify development practices and enable new functionalities across the Ethereum ecosystem.
+With the EVM, the blockchain, and the network under your belt, the next step is to examine **the standards**, EIPs and ERCs, that unify development practices and enable new functionalities across the Ethereum ecosystem.
 
 ## The EIPs
 
@@ -205,7 +205,7 @@ Ethereum Improvement Proposals are the way we propose protocol upgrades, applica
 
 ### What are EIPs, and why do they matter?
 
-**An EIP** is a design document for introducing or discussing changes in Ethereum. Authors describe the motivation, the specification, and (often) a reference implementation. Whether it's a fundamental shift in the core protocol (like [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)) or a contract standard —they are ERCs now—, EIPs are the "source of truth."
+**An EIP** is a design document for introducing or discussing changes in Ethereum. Authors describe the motivation, the specification, and (often) a reference implementation. Whether it's a fundamental shift in the core protocol (like [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)) or a contract standard, they are ERCs now, EIPs are the "source of truth."
 
 - **They are community-driven:** Anyone can propose an EIP by opening a Pull Request on the [ethereum/EIPs GitHub repository](https://github.com/ethereum/EIPs). It is then discussed on forums such as Ethereum Magicians, ensuring open debate and iteration.
 - **It tries to achieve a consensus at scale:** Critical "Core" EIPs (e.g., changing consensus rules) must achieve near-universal buy-in from client developers, node operators, and the broader community. This distributed acceptance is fundamental to the Ethereum ethos of permissionless evolution.
@@ -238,7 +238,7 @@ Additionally:
 - **Living**: A special permanent-draft status for "evergreen" EIPs like EIP-1.
 
 :::tip
-It is _super_ useful to be updated with the EIPs, for doing that, we recommend you check out [EIPs.wtf](https://www.eips.wtf/), [EIP.Fun](http://EIP.Fun) and [EIPs Insight](https://eipsinsight.com/). Also, if interested in discussing, you should refer to [Ethereum Magicians Forum](https://ethereum-magicians.org/) —it is the primary place to discuss EIPs with other devs/researchers.
+It is _super_ useful to be updated with the EIPs, for doing that, we recommend you check out [EIPs.wtf](https://www.eips.wtf/), [EIP.Fun](http://EIP.Fun) and [EIPs Insight](https://eipsinsight.com/). Also, if interested in discussing, you should refer to [Ethereum Magicians Forum](https://ethereum-magicians.org/), it is the primary place to discuss EIPs with other devs/researchers.
 :::
 
 ### Who Oversees EIPs?
@@ -289,7 +289,7 @@ See https://ethereum.stackexchange.com/questions/3667/difference-between-call-ca
 - Allows advanced patterns in DeFi, state channels, "factory" contracts, etc.
 
 :::info
-Read https://eips.ethereum.org/EIPS/eip-1014 — We use this **all the time**.  
+Read https://eips.ethereum.org/EIPS/eip-1014 - We use this **all the time**.  
 :::
 
 #### **EIP-3675** – Transition to Proof of Stake (The Merge)
