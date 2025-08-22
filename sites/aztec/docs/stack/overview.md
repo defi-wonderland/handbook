@@ -89,11 +89,12 @@ This avoids sparse tree overhead and reduces the cost of non-membership proofs f
 Isolation is used extensively across the trees to prevent cross-domain interference. For example:
 
 ```rust
-fn compute_siloed_note_hash(commitment, contract, tx):
-  let index = index_of(commitment, tx.commitments)
-  let nonce = hash([tx.tx_hash, index], NOTE_HASH_NONCE)
-  let unique = hash([nonce, commitment], UNIQUE_NOTE_HASH)
-  return hash([contract, unique], SILOED_NOTE_HASH)
+fn compute_siloed_note_hash(commitment: Commitment, contract: Contract, tx: Tx) -> Hash {
+    let index = index_of(commitment, tx.commitments);
+    let nonce = hash([tx.tx_hash, index], NOTE_HASH_NONCE);
+    let unique = hash([nonce, commitment], UNIQUE_NOTE_HASH);
+    hash([contract, unique], SILOED_NOTE_HASH)
+}
 ```
 
 Each note commitment is made unique and siloed per contract to enforce:
