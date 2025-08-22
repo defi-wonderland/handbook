@@ -11,7 +11,12 @@ This section describes how public contract state is structured, accessed, and ve
 
 Each public storage variable maps to a **storage slot**, which is a ~254-bit field element (`Fr`) that acts as a key in the Public Data Tree.
 
-Slots are application-defined rather than compiler-assigned. A raw slot is computed deterministically (typically via a hash) from domain inputs such as:
+Slots are application-defined rather than compiler-assigned. Two terms are useful:
+
+* **Raw slot**: the application-chosen 254-bit key. This can be a fixed literal (e.g. `1`, `2`, `3`) or it can be derived by hashing structured inputs (a namespace and indices). Not all raw slots are hashed, many layouts use fixed numeric slots.
+* **Siloed slot**: the final on-chain key obtained by combining the contract’s address with the raw slot.
+
+When deriving a raw slot via hashing, the inputs typically include:
 
 * A namespace or field identifier (e.g. variable/selector)
 * Optional indices or struct-field discriminants (for mappings, arrays, etc.)
@@ -19,6 +24,30 @@ Slots are application-defined rather than compiler-assigned. A raw slot is compu
 To enforce contract-level isolation, the final storage key is **siloed** using the contract’s address:
 
 ```ts
+siloed_slot = hash([contract_address, raw_slot], PUBLIC_DATA_LEAF)
+```
+
+This ensures contract-level isolation: even if two contracts pick the same raw slot, their siloed slots differ.
+
+### Examples
+
+Fixed numeric raw slots (no hashing). Many native/simple types, or macro-generated layouts, use literal slots directly:
+
+```rust
+#[abi(storage)]
+global CONTRACT_NAME_STORAGE_LAYOUT = StorageLayout {
+    balance: dep::aztec::prelude::Storable { slot: 1 },
+    owner: dep::aztec::prelude::Storable { slot: 2 },
+    token_map: dep::aztec::prelude::Storable { slot: 3 },
+};
+```
+
+Hashed raw slots (derived from domain inputs). Useful for maps, arrays, and namespaced fields:
+
+```ts
+// Derive a raw slot from a namespace and an index/key
+raw_slot = hash(["balances", owner], RAW_PUBLIC_DATA_SLOT)
+// Then silo by contract to get the actual storage key
 siloed_slot = hash([contract_address, raw_slot], PUBLIC_DATA_LEAF)
 ```
 
