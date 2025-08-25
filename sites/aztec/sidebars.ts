@@ -32,6 +32,17 @@ const sidebars: SidebarsConfig = {
         'background/zk-circuits',
       ],
     },
+    {
+      type: 'category',
+      label: 'Consensus / Block Productino',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'consensus-block-production/overview',
+      },
+      items: ['consensus-block-production/sequencing'],
+    }
   ],
 };
 

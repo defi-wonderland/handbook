@@ -35,8 +35,6 @@ const aztecCategories: Category[] = [
     title: "CONSENSUS",
     icon: "/img/icons/processes-icon.svg",
     href: "/docs/consensus-block-production/overview",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
 ];
 
