@@ -53,3 +53,36 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+/* Mermaid diagram styling */
+.mermaid {
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+:root {
+  --wonderland-accent:   #978cfb;
+  --wonderland-lila:     #6b5cff;
+  --wonderland-blue-800: #2a3052;
+}
+/* Mermaid mindmap styling */
+.mermaid .mindmap-node {
+  fill: var(--wonderland-accent) !important;
+  stroke: var(--wonderland-accent) !important;
+}
+
+.mermaid .mindmap-node text {
+  fill: #ffffff !important;
+  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+}
+
+/* Ensure proper contrast for all Mermaid text */
+.mermaid * {
+  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+}
+
+.mermaid text {
+  fill: #ffffff !important;
+}

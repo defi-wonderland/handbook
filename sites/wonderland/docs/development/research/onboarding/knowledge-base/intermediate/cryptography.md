@@ -6,7 +6,7 @@ If you don't have a background in math, we strongly recommend starting with [thi
 
 Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cypher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
 
-By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs — such as the deciphering of German Enigma or Japanese naval codes — had direct strategic consequences. A careless transmission, especially one sent both in cypher and plain text, could reveal entire encryption systems and undermine months of planning.
+By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs, such as the deciphering of German Enigma or Japanese naval codes, had direct strategic consequences. A careless transmission, especially one sent both in cypher and plain text, could reveal entire encryption systems and undermine months of planning.
 
 Today, the battlefield has shifted to digital networks, and cryptography secures everything from bank transfers to blockchain protocols. But the lessons endure: robust encryption and careful key management remain foundational to privacy and security.
 
