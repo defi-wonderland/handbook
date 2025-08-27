@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import BlogPostPage from "@theme-original/BlogPostPage";
 import Authors from "@site/src/theme/BlogPostItem/Header/Authors";
+import { useBlogScrollReset } from "@site/src/hooks/useScrollReset";
 
 export default function BlogPostPageWrapper(props: any) {
   const Content = props?.content as React.ComponentType<any> & { metadata?: any };
@@ -8,6 +9,7 @@ export default function BlogPostPageWrapper(props: any) {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
 
+  useBlogScrollReset();
 
   return (
     <div className="wl-post-page-wrapper">
