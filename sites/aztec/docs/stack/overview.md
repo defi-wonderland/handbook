@@ -103,9 +103,9 @@ Each note commitment is made unique and siloed per contract to enforce:
 * Unique nullifiers per note (prevents nullifier collisions / faerie-gold attacks)
 * Ensures every note is unique, allowing multiple notes with the same value (for example, two 10 DAI notes owned by the same user)
 
-:::note
-A faerie-gold attack is a class of replay or double-spend attack where two distinct notes (commitments) are constructed such that they share the same nullifier. If this occurs, spending one note (emitting its nullifier) would unintentionally invalidate the other, allowing an attacker to "spend" the same nullifier multiple times or disrupt contract logic.
-:::
+::::note
+Faerie-gold is when two different notes are engineered to share one nullifier. The attacker spends their note first (emitting that nullifier). When the victim later tries to spend, the chain rejects it because the nullifier already exists, leaving the victim with an unspendable note. If an application credited value on receipt before the spend finalized, the attacker could extract value once while stranding the victim. Deriving the nullifier from a unique, siloed note hash prevents constructing two commitments that share a nullifier.
+::::
 
 Replay prevention is enforced by the nullifier tree via sequencer-checked non-membership. Note uniqueness exists to avoid different notes sharing the same nullifier, not to provide replay resistance.
 
