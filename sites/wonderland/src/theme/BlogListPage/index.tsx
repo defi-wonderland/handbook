@@ -5,6 +5,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import BlogCard from "../../components/BlogCard";
 import { StarsBackground } from "@handbook/common-config/components";
+import { useBlogScrollReset } from "@site/src/hooks/useScrollReset";
 
 function Hero() {
   const hero = useBaseUrl("/img/hero-blog.svg");
@@ -29,6 +30,8 @@ export default function BlogListPage(props: any) {
   const posts = (props?.items || []).map((i: any) => i.content);
   const [first, second, third, fourth, ...rest] = posts;
   const { siteConfig } = useDocusaurusContext();
+
+  useBlogScrollReset();
 
   return (
     <Layout title="Blog" description={siteConfig.tagline}>
