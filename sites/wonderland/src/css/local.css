@@ -3,6 +3,7 @@
 /* Shape, Icons, etc customization */
 :root {
   --wonderland-accent: #978cfb;
+  --blog-content-width: 48rem; /* Increased from 40rem to 48rem (about 768px) */
 }
 
 /* Wonderland-specific menu icons */
@@ -245,9 +246,9 @@
 
 /* Blog post page layout tweaks */
 .wl-post-content {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--blog-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Center images within blog post content */
@@ -308,6 +309,18 @@
 /* Hide the original theme header/meta inside the embedded BlogPostPage */
 .wl-post-original article > header {
   display: none !important;
+}
+
+/* Force the article content width to match our custom width */
+.wl-post-original article,
+.wl-post-original .container,
+.wl-post-original .container-wrapper,
+.wl-post-original .main-wrapper,
+.wl-post-original .blog-wrapper,
+.wl-post-original .blog-post-page {
+  max-width: var(--blog-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .theme-blog .theme-code-block {
@@ -374,9 +387,9 @@
 
 /* Keep header (title/author) aligned with content width */
 .wl-post-header {
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--blog-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   text-align: center;
   padding-top: calc(var(--ifm-navbar-height, 3.5rem) + 2rem); /* reduced so title appears immediately */
   padding-bottom: 0.75rem; /* tighter gap to article */
@@ -447,12 +460,50 @@
   margin-bottom: 1rem !important;
 }
 
-/* Add horizontal padding on small screens to match Docusaurus container gutter */
+/* Hide table of contents completely */
+.blog-post-page .table-of-contents,
+.blog-post-page .theme-doc-toc,
+.blog-post-page .theme-doc-toc-desktop,
+.blog-post-page .theme-doc-toc-mobile,
+.blog-post-page .col.col--3 {
+  display: none !important;
+}
+
+/* Blog post layout without TOC */
+@media (min-width: 997px) {
+  /* Center the content */
+  .blog-post-page .container > .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Make the main content column take full width up to our defined content width */
+  .blog-post-page .col.col--9 {
+    max-width: var(--blog-content-width);
+    flex-basis: var(--blog-content-width);
+    width: 100%;
+  }
+}
+
 @media (max-width: 996px) {
+  /* Add padding and ensure full width on mobile */
   .wl-post-header,
-  .wl-post-content {
+  .wl-post-content,
+  .wl-post-original article,
+  .wl-post-original .container,
+  .wl-post-extras {
     padding-left: var(--ifm-spacing-horizontal, 1rem);
     padding-right: var(--ifm-spacing-horizontal, 1rem);
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure blog content takes full width on mobile */
+  .blog-post-page .col.col--9 {
+    max-width: 100%;
+    flex-basis: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -472,7 +523,7 @@
 }
 
 /* Share + related */
-.wl-post-extras { margin: 3rem auto; max-width: 1000px; text-align: center; }
+.wl-post-extras { margin: 3rem auto; max-width: var(--blog-content-width) !important; text-align: center; }
 .wl-share-button { display: inline-flex; align-items: center; text-decoration: none; border: none; background: transparent; padding: 0; }
 .wl-share-button img { width: 260px; height: auto; display: inline-block; }
 .wl-related { margin-top: 2.5rem; }
@@ -495,7 +546,7 @@
 }
 
 .wl-author-header {
-  max-width: 880px;
+  max-width: var(--blog-content-width) !important;
   margin: 0 auto 3rem;
   text-align: center;
   padding: 0 1rem;
