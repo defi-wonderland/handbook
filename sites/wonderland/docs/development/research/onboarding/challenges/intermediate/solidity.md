@@ -10,7 +10,7 @@ You are presented with a staking system where users stake tokens and receive rew
 
 Rewards are distributed based on the proportion of tokens staked by each user, relative to the total staked amount over time. 
 
-## The challenge
+### The challenge
 
 Given the following smart contract, analyze how the reward calculation problem is addressed. Specifically:
 
@@ -192,6 +192,35 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 1. A detailed explanation addressing the three questions above.
 2. Highlight any assumptions or observations you make while analyzing the contract.
 3. Provide suggestions (if applicable) for improvements to the reward calculation logic.
+
+## Standing on the Shoulders of Giants
+
+This section should emphasize **studying canonical contracts that shaped DeFi** and understanding how they influenced the ecosystem.
+
+1. **Start with the [OpenZeppelin Library](https://www.openzeppelin.com/contracts)** documentation as the foundation.
+2. Explore influential contracts:
+   * [Synthetix Staking](https://github.com/Synthetixio/synthetix/blob/develop/contracts/StakingRewards.sol)
+   * [UniswapV2 Pair](https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Pair.sol)
+   * [Gnosis Safe Multisig](https://github.com/safe-global/safe-smart-account/tree/main/contracts)
+   * [Sushi MasterChef](https://github.com/sushiswap/sushiswap/blob/archieve/canary/contracts/MasterChef.sol)
+
+The main idea is for you to:
+
+* Clone the repositories of these protocols.
+* Explore their codebases, focusing on the **specific contracts** highlighted above.
+* Be able to explain **why they are implemented this way** and **how they work**.
+* Produce notes and deliver a **short (live) presentation on one contract of your choice**.
+
+### Core Concepts to Understand
+
+* [**ERC-4626**](https://erc4626.info/) (Vault standard)
+* [**EIP-1559**](https://eips.ethereum.org/EIPS/eip-1559) (Ethereum fee market change)
+* [**ERC-4337**](https://www.erc4337.io/) (Account abstraction)
+* Opcodes: **[CREATE, CREATE2, CREATE3,](https://blog.solichain.com/the-ultimate-guide-to-create-create2-and-create3-cc6fe71c6d40) [CREATEX](https://github.com/pcaversaccio/createx?tab=readme-ov-file)**
+
+### Important Note
+
+All of this requires **research-backed examples and case studies** to connect standards and opcodes to **real-world usage** in protocols. This way, you not only learn how they work in theory but also when and why to apply them in practice.
 
 ### **How to Submit Your Work**
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
