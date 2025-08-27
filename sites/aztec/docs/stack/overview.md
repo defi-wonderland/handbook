@@ -49,7 +49,7 @@ If you were to read a note, how do we ensure you are reading the latest value? T
 For private, mutable values, you cannot prove you are reading the current value yourself because non-membership in the nullifier tree must be checked at the head of the chain (by the sequencer). To ensure your transaction is valid with respect to the current value, the transaction:
 
 * Emits the nullifier for the previously active note (the sequencer proves non-membership and inserts it), and
-* Re-creates the note with the same plaintext and fresh randomness so it remains available for future reads or writes.
+* Re-creates the note with the same plaintext and a fresh unique nonce (incremented counter) so it remains available for future reads or writes.
 
 This approach makes reads mutating operations. The main reason for this design is to ensure that the latest value is always available and consistent, not to achieve indistinguishability between reads and writes. As a result, shared notes become mutable: once read and re-emitted, any transactions depending on the original may be invalidated.
 
@@ -57,7 +57,7 @@ Why this pattern:
 
 * It is otherwise hard to know you are using the latest value while proving; membership proofs over append-only trees can be constructed against historical roots.
 * Without nullifying-on-read, two transactions can consume the same note concurrently; the first nullifier included wins and the other transaction becomes invalid (race condition).
-* Practically, this behaves like optimistic concurrency: the nullifier is the version check, and the re-created note (same plaintext, fresh randomness) is the new version.
+* Practically, this behaves like optimistic concurrency: the nullifier is the version check, and the re-created note (same plaintext, fresh unique nonce) is the new version.
 
 ## State Categories and Merkle Tree Types
 
