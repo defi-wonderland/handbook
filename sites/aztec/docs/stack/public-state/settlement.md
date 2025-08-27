@@ -1,6 +1,6 @@
 # Settlement & Cross‑Layer Messaging 
 
-Aztec finalises every L2 block on Ethereum **and** ferries data between the two layers without leaking private information.  This page first introduces the *portal/message‑box* abstraction that makes private cross‑layer calls possible, then walks through a single block from proof generation to message consumption.
+Aztec finalises every L2 block on Ethereum **and** ferries data between the two layers without leaking private information. This page first introduces the *portal/message‑box* abstraction that makes private cross‑layer calls possible, then walks through a single block from proof generation to message consumption.
 
 
 ## Portals and Message Boxes: the Big Idea
