@@ -2,7 +2,7 @@
 
 ## What is the PXE?
 
-The Private Execution Environment (PXE) is a local tool that helps users manage their private data and perform cryptographic operations needed to interact with the Aztec network. It is not responsible for continuous syncing, trial decryption, or automatic note discovery. 
+The Private eXecution Environment (PXE) is a local tool that helps users manage their private data and perform cryptographic operations needed to interact with the Aztec network. It is not responsible for continuous syncing, trial decryption, or automatic note discovery. 
 
 Instead, contracts and applications are given the tools to find or receive the messages necessary to locate notes. The PXE's role is to provide utilities and APIs that assist users and contracts in processing private data, managing secret keys, and generating zero-knowledge proofs for transactions. It does not act as a general-purpose client or perform background scanning for notes. Developers can use the PXE to build privacy-preserving applications, but the responsibility for finding and handling notes lies with the contract logic and user workflows, not with the PXE itself.
 
