@@ -31,7 +31,7 @@ We call the data structure that stores these leaves a **Message Box**.  There a
 
 ### Why *pulling* instead of *pushing*?
 
-Other roll‑ups **push** calldata from their bridge contract into user contracts, revealing full parameters. Aztec **pulls**:  the L1 portal calls its own logic and then **pulls** the corresponding message out of the Outbox. For deposits this leaks the amount on L1 (that’s inevitable) but hides the L2 recipient and the exact block in which it is claimed.
+Other roll‑ups **push** calldata from their bridge contract into user contracts, revealing full parameters. Aztec **pulls**: the L1 portal calls its own logic and then **pulls** the corresponding message out of the Outbox. For deposits this leaks the amount on L1 (that’s inevitable) but hides the L2 recipient and, for anyone without the message secret, which L2 block the deposit is claimed in (it appears only as an unlinkable nullifier insertion).
 
 ### Message formats
 
