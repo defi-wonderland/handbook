@@ -95,7 +95,7 @@ The output of the Tail Kernel is a crucial bridge between the private and public
 
 The hand-off is built around the two main buckets of data produced by the Tail Kernel: `nonRevertibleAccumulatedData` and `revertibleAccumulatedData`. The public execution environment processes these in distinct phases:
 
-1.  **Non-Revertible Phase**: First, the simulator processes all `nonRevertibleAccumulatedData`. This includes inserting the core transaction nullifier, along with any other side effects (note hashes, nullifiers) that *must* be included on-chain, regardless of what happens in the public domain. These actions are final.
+1.  **Non-Revertible Phase**: First, the simulator processes all `nonRevertibleAccumulatedData`. This includes inserting the core transaction nullifier, along with any other side effects (note hashes, nullifiers) that *must* be included on-chain, regardless of what happens in the public domain. These actions are final. In practice, this phase also locks/escrows the transaction fee payment so the sequencer is guaranteed to be paid even if later public execution reverts; the actual deduction/settlement is finalized in the Teardown phase.
 
 2.  **Public Setup**: The simulator executes the public functions enqueued for the "setup" phase of the transaction. These are for pre-transaction logic that should also not be reverted.
 
