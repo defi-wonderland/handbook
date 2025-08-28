@@ -205,6 +205,25 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+        {
+          type: "category",
+          label: "QA",
+          items: [
+            "development/qa/qa-overview",
+            "development/qa/manual-testing-process",
+            {
+              type: "category",
+              label: "Web3 E2E Automation",
+              items: [
+                "development/qa/web3-e2e-automation/overview",
+                "development/qa/web3-e2e-automation/which-tests-should-be-automated",
+                "development/qa/web3-e2e-automation/design-patterns",
+                "development/qa/web3-e2e-automation/locator-strategies",
+              ],
+            },
+            "development/qa/risk-based-testing",
+          ],
+        },
       ],
     },
     {
