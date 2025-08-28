@@ -35,18 +35,24 @@ export default function BlogPostItemHeaderAuthors({
   const formatted = date ? withOrdinal(new Date(date)) : undefined;
   if ((!authors || authors.length === 0) && !date) return null;
 
+  const shown = (authors || []).slice(0, 2);
+  const remaining = Math.max((authors?.length ?? 0) - shown.length, 0);
+  const aria = shown.length
+    ? `Authors: ${shown.map((a) => a.name || "").filter(Boolean).join(', ')}${remaining ? `, and ${remaining} more` : ''}`
+    : undefined;
+
   return (
-    <div className="wl-post-meta">
+    <div className="wl-post-meta" aria-label={aria}>
       {/* Avatars */}
       {authors && authors.length > 0 && (
         <div className="wl-post-authors-avatars">
-          {authors.map((a, idx) => (
+          {shown.map((a, idx) => (
             a?.imageURL ? (
               <img
                 key={`${a.key || a.name || idx}-avatar`}
                 className="wl-post-author-avatar"
                 src={a.imageURL}
-                alt={a?.name || ""}
+                alt=""
               />
             ) : null
           ))}
@@ -55,9 +61,9 @@ export default function BlogPostItemHeaderAuthors({
 
       {/* Names and date */}
       <div className="wl-post-author-line">
-        {authors && authors.length > 0 && (
+        {shown && shown.length > 0 && (
           <div className="wl-post-authors-line">
-            {authors.map((a, idx) => (
+            {shown.map((a, idx) => (
               <span key={`${a.key || a.name || idx}-name`} className="wl-post-author">
                 {a?.page && a?.key ? (
                   <Link to={`/blog/authors/${a.key}`} className="wl-post-author-name wl-post-author-name--link">
@@ -66,9 +72,12 @@ export default function BlogPostItemHeaderAuthors({
                 ) : (
                   <span className="wl-post-author-name">{a?.name || ""}</span>
                 )}
-                {idx < authors.length - 1 && <span className="wl-post-author-sep">,</span>}
+                {idx < shown.length - 1 && <span className="wl-post-author-sep">,</span>}
               </span>
             ))}
+            {remaining > 0 && (
+              <span className="wl-post-author wl-post-author-name" aria-hidden>{`+${remaining}`}</span>
+            )}
           </div>
         )}
         {formatted && (

@@ -12,7 +12,7 @@ function BlogAuthorsPostsPageContent({author, items}: any) {
           <div className="row">
             <div className="col col--12">
               {/* Author Header */}
-              <div className="wl-author-page-header">
+              <div className="wl-author-page-header" role="banner" aria-label={`Author: ${author.name}`}>
                 {(author.imageURL || author.image_url) && (
                   <img 
                     className="wl-author-page-avatar" 
@@ -33,7 +33,7 @@ function BlogAuthorsPostsPageContent({author, items}: any) {
                     </div>
                   )}
                   <div className="wl-author-page-stats">
-                    <span className="wl-author-post-count">
+                    <span className="wl-author-post-count" role="status" aria-label={`${postCount} ${postCount === 1 ? 'post' : 'posts'}`} tabIndex={0}>
                       {postCount} {postCount === 1 ? 'post' : 'posts'}
                     </span>
                   </div>

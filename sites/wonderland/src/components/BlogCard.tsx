@@ -45,27 +45,30 @@ export function BlogCard({ post, className }: { post: BlogContent; className?: s
       : undefined;
   })();
 
+  const shownAuthorNames = visibleAuthors.map((a) => a.name).filter(Boolean) as string[];
+  const authorsAria = shownAuthorNames.length
+    ? `Authors: ${shownAuthorNames.join(', ')}${remainingAuthorsCount ? `, and ${remainingAuthorsCount} more` : ''}`
+    : undefined;
+
   return (
     <article className={`wl-post-card ${className ?? ""}`}>
-      <Link className="wl-post-card__thumb" to={metadata.permalink}>
+      <div className="wl-post-card__thumb">
         {cover ? <img src={cover} alt="" loading="lazy" /> : <span className="wl-post-card__thumbOverlay" />}
-      </Link>
+      </div>
       <div className="wl-post-card__body">
         {formattedDate && (
           <div className="wl-post-card__date">{formattedDate}</div>
         )}
-        <h3 className="wl-post-card__title">
-          <Link to={metadata.permalink}>{metadata.title}</Link>
-        </h3>
+        <h3 className="wl-post-card__title">{metadata.title}</h3>
         {metadata.description && (
           <p className="wl-post-card__excerpt">{metadata.description}</p>
         )}
         {authors.length > 0 && (
-          <div className="wl-post-card__meta">
+          <div className="wl-post-card__meta" aria-label={authorsAria}>
             {visibleAuthors.map((a, idx) => (
               <div key={idx} className="wl-author">
                 {a.imageURL && (
-                  <img className="wl-avatar" src={a.imageURL} alt={a.name || ""} loading="lazy" />
+                  <img className="wl-avatar" src={a.imageURL} alt="" loading="lazy" />
                 )}
                 <div className="wl-author__text">
                   {a.name && (

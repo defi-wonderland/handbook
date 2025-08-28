@@ -1,6 +1,6 @@
 ---
 slug: lc-bridges
-title: Can we trust interoperability to Light Clients?
+title: Can we trust interop to Light Clients?
 description: A deep dive into Light Client based bridges
 date: 2024-06-03
 tags: [Consensus, Verification, Cross-chain]

@@ -4,6 +4,32 @@
 :root {
   --wonderland-accent: #978cfb;
   --blog-content-width: 48rem; /* Increased from 40rem to 48rem (about 768px) */
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Radii */
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* Accessible dark palette */
+  --bg-surface: #0b1020;
+  --card-surface: #101632;
+  --text-strong: #e9eefc;
+  --text: #c8d1ee;
+  --text-muted: #9fb0da;
+  --link: #aebaff;
+  --link-hover: #c9d2ff;
+  --chip-bg: #2a3569;
+  --chip-text: #d6ddff;
+  --border-subtle: #283255;
+  --focus-ring: #7ea1ff;
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.35);
 }
 
 /* Wonderland-specific menu icons */
@@ -96,22 +122,28 @@
 }
 
 .wl-post-card {
-  background: transparent;
-  border: none;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
+  padding: var(--space-6);
+  background: var(--card-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.wl-post-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.wl-post-card:focus-within { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
 .wl-post-card__thumb {
   display: block;
-  height: 180px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   background: radial-gradient(140% 100% at 10% 10%, rgba(255, 255, 255, 0.06), transparent),
     radial-gradient(80% 80% at 90% 80%, rgba(233, 91, 155, 0.18), transparent 60%),
     radial-gradient(80% 80% at 10% 80%, rgba(31, 85, 213, 0.18), transparent 60%);
-  border: 1px solid var(--wonderland-blue-800);
-  background-color: var(--wonderland-blue-950);
-  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
   overflow: hidden;
 }
 
@@ -124,21 +156,16 @@
 
 .wl-post-card__thumbOverlay { display: none; }
 
-.wl-post-card__body { padding: 1rem 0.25rem 0; }
-.wl-post-card__body > *:first-child { margin-top: 0.5rem; }
+.wl-post-card__body { padding: var(--space-4) 0 0; display: flex; flex-direction: column; flex: 1; }
+.wl-post-card__body > *:first-child { margin-top: var(--space-2); }
 
-.wl-post-card__date {
-  color: var(--wonderland-gray-500);
-  font-size: 0.85rem;
-}
+.wl-post-card__date { color: var(--text-muted); font-size: 0.875rem; line-height: 1.4; }
 
-.wl-post-card__title a {
-  color: var(--wonderland-gray-100);
-}
+.wl-post-card__title { color: var(--text-strong); margin: 0 0 var(--space-2); line-height: 1.25; }
+.wl-post-card__title a { color: inherit; text-decoration: none; }
+.wl-post-card__title a:hover { color: var(--link-hover); text-decoration: underline; }
 
-.wl-post-card__excerpt {
-  color: var(--wonderland-gray-300);
-}
+.wl-post-card__excerpt { color: var(--text); margin: 0 0 var(--space-3); line-height: 1.5; }
 
 /* Add subtle separator spacing between image and text */
 .wl-post-card + .wl-post-card__body { margin-top: 0.5rem; }
@@ -147,34 +174,25 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  display: block;
+  cursor: pointer;
 }
 
-.wl-post-card :is(a, button) { position: relative; z-index: 2; }
+.wl-post-card :is(a, button):not(.wl-post-card__overlay) { position: relative; z-index: 2; }
 
-.wl-post-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-}
+.wl-post-card__meta { display: flex; align-items: flex-end; gap: var(--space-3); margin-top: auto; padding-top: var(--space-3); color: var(--text-muted); font-size: 0.875rem; }
 
-.wl-author { display: inline-flex; align-items: center; gap: 0.5rem; }
-.wl-avatar { width: 28px; height: 28px; border-radius: 999px; border: 1px solid var(--wonderland-blue-800); object-fit: cover; }
-.wl-author__name { color: var(--wonderland-gray-200); font-weight: 500; }
-.wl-author__extra { color: var(--wonderland-gray-400); font-weight: 600; margin-left: 0.25rem; }
+.wl-author { display: inline-flex; align-items: flex-start; gap: 0.5rem; }
+.wl-avatar { width: 24px; height: 24px; border-radius: 999px; border: 2px solid var(--card-surface); object-fit: cover; }
+.wl-author__name { color: var(--text-muted); font-weight: 500; max-width: 12ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.wl-author__extra { background: var(--chip-bg); color: var(--chip-text); font-weight: 600; margin-left: 0.25rem; padding: .125rem .375rem; border-radius: 999px; font-size: .75rem; }
 
-.wl-author__name-link {
-  color: var(--wonderland-gray-200);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-weight: 500;
-}
+.wl-author__name-link { color: inherit; text-decoration: none; transition: color 0.3s ease; font-weight: 500; }
 
-.wl-author__name-link:hover {
-  color: var(--wonderland-accent);
-  text-decoration: underline;
-}
-.wl-author__title { color: var(--wonderland-gray-500); font-size: 0.85rem; }
+.wl-author__name-link:hover { color: var(--link-hover); text-decoration: underline; }
+.wl-author__title { color: var( --wonderland-gray-50); font-size: 0.85rem; }
+/* Keep compact cards slightly smaller while still prominent */
+
 
 /* Highlights layout */
 
@@ -199,6 +217,22 @@
 .wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb { height: 55%; width: 100%; margin-left: 0; margin-right: 0; }
 .wl-post-card--primary .wl-post-card__body { width: 100%; }
 
+/* Ensure primary highlight title fits within the card height */
+.wl-post-card--primary .wl-post-card__title {
+  font-size: clamp(1.6rem, 2.3vw, 2.3rem);
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.wl-post-card--primary .wl-post-card__excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .wl-highlights__side { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; height: var(--highlight-height); }
 
 /* Compact card variant for highlights side */
@@ -209,28 +243,32 @@
   gap: 1rem;
   align-items: start;
 }
+.wl-post-card--compact { padding: var(--space-4); }
 .wl-post-card--compact .wl-post-card__thumb { align-self: start; }
 /* Make side highlight card thumbs perfectly square */
-.wl-highlights__side .wl-post-card--compact { grid-template-columns: 36% 1fr; }
+.wl-highlights__side .wl-post-card--compact { grid-template-columns: 30% 1fr; }
 .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb {
   aspect-ratio: auto;   /* allow to grow vertically */
   width: 100%;
   height: 100%;
   min-height: 0;
 }
-.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: start; display: flex; flex-direction: column; justify-content: flex-start; }
+.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; min-height: 100%; }
+.wl-post-card--compact .wl-post-card__meta { margin-top: auto; padding-top: var(--space-2); }
 .wl-post-card--compact .wl-post-card__title {
   font-size: 1.2rem;
   line-height: 1.15;
   margin: 0.15rem 0 0.35rem;
 }
+.wl-post-card--compact .wl-post-card__title { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .wl-post-card--compact .wl-post-card__excerpt { margin-top: 0.4rem; }
-.wl-post-card--compact .wl-post-card__date { font-size: 0.85rem; opacity: 0.85; }
+.wl-post-card--compact .wl-post-card__excerpt { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+.wl-post-card--compact .wl-post-card__date { font-size: 0.8125rem; opacity: 0.9; }
 
 /* Scale author avatars and tighten meta in compact cards */
-.wl-post-card--compact .wl-avatar { width: 36px; height: 36px; }
+.wl-post-card--compact .wl-avatar { width: 22px; height: 22px; }
 .wl-post-card--compact .wl-author__name { font-weight: 600; }
-.wl-post-card--compact .wl-post-card__meta { gap: 0.5rem; margin-top: 0.5rem; }
+.wl-post-card--compact .wl-post-card__meta { gap: var(--space-2); margin-top: var(--space-2); font-size: 0.8125rem; }
 
 /* Rest of posts grid: 3 cards per row */
 .wl-posts-grid > .wl-post-card { grid-column: span 4; }
@@ -597,7 +635,7 @@
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--wonderland-gray-300);
-  max-width: 600px;
+  max-width: 62ch;
   margin: 0 auto;
 }
 
@@ -774,6 +812,9 @@
   color: var(--wonderland-gray-300);
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wl-author-page-description p {
@@ -783,6 +824,7 @@
 .wl-author-page-stats {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
