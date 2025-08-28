@@ -71,6 +71,9 @@ struct L2ToL1Msg {
   // `index` lives in the Outbox leaf, same idea as above
 }
 ```
+:::note Privacy note on L2→L1 origin
+The Outbox commits to a hash of `L2ToL1Msg` (which includes the L2 sender), but only the hash is public in the tree. The preimage—revealing the sender—is provided at consumption time on L1 together with a Merkle proof. This lets L1 portals authenticate the exact L2 contract address without leaking it earlier than necessary.
+:::
 
 `L1ToL2Msg` and `L2ToL1Msg` are flattened → hashed with **SHA‑256 >> Field**¹. That 254‑bit field is the **only thing the Merkle tree stores**.
 
