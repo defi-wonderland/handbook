@@ -21,8 +21,6 @@ const aztecCategories: Category[] = [
     title: "STACK",
     icon: "/img/icons/stack-icon.svg",
     href: "/docs/stack/overview",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
     title: "TRANSACTIONS",

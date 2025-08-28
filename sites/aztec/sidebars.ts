@@ -32,6 +32,32 @@ const sidebars: SidebarsConfig = {
         'background/zk-circuits',
       ],
     },
+    {
+      type: 'category',
+      label: 'Stack',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'stack/overview',
+      },
+      items: [{ 
+        type: 'category', label: 'Public State', items: [
+          'stack/public-state/storage', 
+          'stack/public-state/settlement', 
+          'stack/public-state/avm'
+        ] 
+      },
+      { 
+        type: 'category', label: 'Private State', items: [
+          'stack/private-state/pxe-and-notes', 
+          'stack/private-state/private-kernel' 
+        ] 
+      },
+      'stack/transaction-lifecycle',
+      'stack/wrapping-up'
+    ],
+    },
   ],
 };
 
