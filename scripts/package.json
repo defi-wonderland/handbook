@@ -6,7 +6,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "copy-static": "ts-node src/copyStaticTo.ts"
+    "copy-static": "ts-node src/copyStaticTo.ts",
+    "script:util:authors": "ts-node src/generateAuthorsFromWeb.ts"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",
@@ -16,6 +17,7 @@
     "jest-environment-node": "29.7.0",
     "ts-jest": "29.1.2",
     "ts-node": "10.9.2",
-    "typescript": "5.6.2"
+    "typescript": "5.6.2",
+    "yaml": "2.6.1"
   }
 }

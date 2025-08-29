@@ -1,0 +1,442 @@
+0xaustrian:
+  name: 0xAustrian
+  title: Developer
+  description: "Software Developer. Learned Solidity because he was bored at work.
+    Fun fact: 90's horror movies fan."
+  image_url: https://wonderland.xyz/img/pfp/Austrian.png
+  page: true
+0xjabberwock:
+  name: 0xJabberwock
+  title: Developer
+  description: "Recruited by Wonderland. Codes even his life. Fun fact: Lifts a
+    dumbbell every day."
+  image_url: https://wonderland.xyz/img/pfp/Jabber.png
+  page: true
+0xmono:
+  name: 0xMono
+  title: Researcher
+  description: "Enrolled in IT infrastructure studies. Defi research and
+    scalability enthusiast. Fun fact: Spends his spare time in DeFi as well."
+  image_url: https://wonderland.xyz/img/pfp/Mono.png
+  page: true
+0xraccoon:
+  name: 0xRaccoon
+  title: Developer
+  description: "UTN Systems engineer. Believes adaptability is an important
+    feature. Fun fact: Likes to travel and do outdoor activities."
+  image_url: https://wonderland.xyz/img/pfp/Raccoon.png
+  page: true
+ace:
+  name: Ace
+  title: Developer
+  description: "Software Engineer decentralization fan. Coffee enthusiast. Fun
+    Fact: He conducts really deep investigation on every bought he makes."
+  image_url: https://wonderland.xyz/img/pfp/Ace.png
+  page: true
+agusduha:
+  name: Agusduha
+  title: Partner Lead
+  description: "Computer Engineer. Crypto enthusiast (or addict). Loves gaming and
+    football. Fun fact: Yearly scammed FIFA player."
+  image_url: https://wonderland.xyz/img/pfp/Agus.png
+  page: true
+akoi-dehoibe:
+  name: Akoi
+  title: Cryptographer
+  description: "PhD in Theoretical Physics. Worked several years in mathematical
+    modelling applied to several topics (among them, Causal AI). Love sports,
+    languages and cultures. Fun Fact: once he gave 20 kg of frozen fish
+    (pejerrey) to Particle as a present"
+  image_url: https://wonderland.xyz/img/pfp/Akoi.png
+  page: true
+ardy:
+  name: Ardy
+  title: Lead
+  description: "Background in Engineering. Passionate about mathematics and
+    philosophy. Fun fact: Bonsaist apprentice 🌳."
+  image_url: https://wonderland.xyz/img/pfp/Ardy.png
+  page: true
+ashitaka:
+  name: Ashitaka
+  title: Developer
+  description: "Solidity dev Studied Telecommunications engineering and
+    philosophy. Fun fact: Pro player of Magic: The Gathering."
+  image_url: https://wonderland.xyz/img/pfp/Ashi.png
+  page: true
+billi:
+  name: Billi
+  title: COO
+  description: "Addicted to meetings and context switching. Fun fact: Loves
+    scaring buns. Have you seen any around?"
+  image_url: https://wonderland.xyz/img/pfp/Billi.png
+  page: true
+chin:
+  name: Chin
+  title: Developer
+  description: "Hackathons enjoyooor. Has 15+ (symbolic) penguins in his house.
+    Likes to learn random stuff. Fun fact: Likes to jump and spin."
+  image_url: https://wonderland.xyz/img/pfp/Chin.png
+  page: true
+cooki:
+  name: Cooki
+  title: Developer
+  description: "Former academic (ethics, evolution, philosophy) Loves hiking in
+    nature and pokemon Fun Fact: my “big toe” isn’t my biggest toe"
+  image_url: https://wonderland.xyz/img/pfp/Cooki.png
+  page: true
+daopunk:
+  name: Daopunk
+  title: Developer
+  description: "Planning to outlive capitalism. Nomadic. Fun fact: Enjoys
+    clandestine dance parties."
+  image_url: https://wonderland.xyz/img/pfp/Daopunk.png
+  page: true
+discotech:
+  name: Discotech
+  title: Developer
+  description: "Interested in blockchain and startups. Loves watching and playing
+    football. Boca Juniors fan. Fun fact: Once won a pair of pants in a FIFA
+    tournament."
+  image_url: https://wonderland.xyz/img/pfp/Discotech.png
+  page: true
+edna:
+  name: Edna
+  title: Office
+  description: "Colombian–Argentine with a degree in International Relations and
+    Political Science. New to the industry; learns at warp speed. Need a favor
+    or a fix? Consider it handled. More humorous than she lets on. Fun fact:
+    Sounds even sharper in Spanish."
+  image_url: https://wonderland.xyz/img/pfp/Edna.png
+  page: true
+euler:
+  name: Euler
+  title: Researcher
+  description: "Informatics engineer & data enthusiast. Data kills denial, which
+    prevents disaster. Fun fact: My dog basically lives in a Michelin starred
+    kennel while I survive on instant noodles."
+  image_url: https://wonderland.xyz/img/pfp/Euler.png
+  page: true
+flux:
+  name: Flux
+  title: Developer
+  description: "Caffeine addicted dromedary. Loves to code, read and lift heavy
+    stuff. Fun fact: Can power-nap pretty much anywhere."
+  image_url: https://wonderland.xyz/img/pfp/Flux.png
+  page: true
+frov:
+  name: Frov
+  title: Developer
+  description: "Software engineer deep into defi and privacy Bass player learning
+    drums Loves football and asados Fun fact: ambidextrous playing football"
+  image_url: https://wonderland.xyz/img/pfp/Frov.png
+  page: true
+funkornaut:
+  name: Funkornaut
+  title: Developer
+  description: "Solidity developer. Previously made beer for a living. Big golf
+    guy and yogi. Fun fact: Can wiggle ears without touching them."
+  image_url: https://wonderland.xyz/img/pfp/Funkornaut.png
+  page: true
+gas1cent:
+  name: Gas1cent
+  title: Engineering
+  description: "Watched over 1000 movies, vaguely remembers 4 of them. A big
+    nap2earn proponent. Fun fact: Jail dropout."
+  image_url: https://wonderland.xyz/img/pfp/Gas.png
+  page: true
+ghostlee:
+  name: GhostLee
+  title: Developer
+  description: Optimize everything
+  image_url: https://wonderland.xyz/img/pfp/Ghost.png
+  page: true
+gorilla:
+  name: Gorilla
+  title: CTO
+  description: "10+ years in Software Development. Addicted to scalability and
+    conventions. Fun fact: His OCD compels him to arrange the dishwasher like a
+    Tetris game!"
+  image_url: https://wonderland.xyz/img/pfp/Gorilla.png
+  page: true
+gotzen:
+  name: Gotzen
+  title: Partner Lead
+  description: "Compulsive optimizer. Another University deserter. Fun fact:
+    Really good at voice impressions."
+  image_url: https://wonderland.xyz/img/pfp/Gotzen.png
+  page: true
+hex:
+  name: Hex
+  title: Developer
+  description: "Former QC Analyst. Started in crypto mining Ravencoin. Considers
+    himself a multipotentialite. Fun fact: Started playing pokemon tcg as an
+    adult."
+  image_url: https://wonderland.xyz/img/pfp/Hex.png
+  page: true
+ilpepepig:
+  name: Ilpepepig
+  title: Developer
+  description: "Still wondering what a degree in bioengineering is for. Fun fact:
+    Always obsessed with something."
+  image_url: https://wonderland.xyz/img/pfp/ilpepepig.png
+  page: true
+itadaki:
+  name: Itadaki
+  title: Developer
+  description: "Vegan Anime fan Scared of the ocean, still learning to surf Trying
+    to create pull requests using the Force Fun fact: I played in a punk rock
+    band when I was 16"
+  image_url: https://wonderland.xyz/img/pfp/Itadaki.png
+  page: true
+jagger:
+  name: Jagger
+  title: Developer
+  description: "Enthusiast runner. Coffee, mate, or tea for bootstrapping the day.
+    Replaced spreadsheets with code editors. Fun Fact: Had a +300-day streak
+    playing FIFA."
+  image_url: https://wonderland.xyz/img/pfp/Jagger.png
+  page: true
+jahabeebs:
+  name: Jahabeebs
+  title: Developer
+  description: "A macaw who specializes in Typescript by profession but also
+    enjoys tennis and violin. Migratory path between the U.S. and Colombia. Fun
+    fact: Exceptional whistler."
+  image_url: https://wonderland.xyz/img/pfp/Jahabeebs.png
+  page: true
+joxes:
+  name: Joxes
+  title: Lead
+  description: "Background in Engineering and Thermal Analysis. Incubated four
+    communities to spread Ethereum's technologies and ethos. Fun fact: My mental
+    model refers to ΔG = ΔH − TΔS to predict the success of our next project."
+  image_url: https://wonderland.xyz/img/pfp/Joxes.png
+  page: true
+kenji:
+  name: Kenji
+  title: Architect
+  description: "Dropped out of Civil Engineering to become a Software Developer.
+    Self-taught sushi itamae. 1st member of the Off-chain department. Fun fact:
+    Hasn’t missed a day of guitar playing in 20 years"
+  image_url: https://wonderland.xyz/img/pfp/kenji.png
+  page: true
+kubo:
+  name: Kubo
+  title: Recruiter
+  description: "Optics Likes to ask questions Got into crypto because of a tweet
+    Fun fact: Gets way too competitive when playing board games."
+  image_url: https://wonderland.xyz/img/pfp/Kubo.png
+  page: true
+laruku:
+  name: Laruku
+  title: QA
+  description: "Background in International Relations. World of Warcraft player
+    for 11 years and counting. (Really bad) Violinist. Fun fact: Buy more
+    stationery than they can use."
+  image_url: https://wonderland.xyz/img/pfp/Laruku.png
+  page: true
+lempire:
+  name: Lempire
+  title: Developer
+  description: "Likes to play chess and practice Jiu Jitsu. Fun fact: Likes to read books."
+  image_url: https://wonderland.xyz/img/pfp/Lempire.png
+  page: true
+leopoldo:
+  name: Leopoldo
+  title: Developer
+  description: "I like building things and being part of the process. I could
+    watch totally random movies for hours (I really like art in general).
+    Football lover. Fun fact: I can't start the day without coffee."
+  image_url: https://wonderland.xyz/img/pfp/Leopoldo.png
+  page: true
+luke:
+  name: Luke
+  title: Developer
+  description: "A never-quit lion. Jedi wannabe. Mantra: Discipline over talent.
+    Fun fact: He is ambidextrous with scissors."
+  image_url: https://wonderland.xyz/img/pfp/Luke.png
+  page: true
+lumi:
+  name: Lumi
+  title: Tech
+  description: "Swapped neurons for nodes after working in neuroscience. Currently
+    hacking her way through a BS in Digital Technology at UTDT. Fluent in nerdy
+    talk. Fun fact: Alter ego spent a semester rocking out in music school."
+  image_url: https://wonderland.xyz/img/pfp/Lumi.png
+  page: true
+matias-nisenson:
+  name: Matias
+  title: CEO
+  description: "3x Startup founder & CEO. Founder & GP at a $50M deep-tech VC. Fun
+    fact: Helped unearth a brand-new species of titanosaur that roamed the Earth
+    70 million years ago!"
+  image_url: https://wonderland.xyz/img/pfp/Mati.png
+  page: true
+moebius:
+  name: Moebius
+  title: Developer
+  description: "Decentralization and privacy maximalist. In love with the
+    mountains. Fun fact: Former card magician."
+  image_url: https://wonderland.xyz/img/pfp/Moebius.png
+  page: true
+ng:
+  name: NG
+  title: Security
+  description: "Derives joy from finding bugs. Reached Top 4 in Curta during the
+    first eight puzzles. Fun fact: Can recite words backwards fast."
+  image_url: https://wonderland.xyz/img/pfp/NG.png
+  page: true
+niha:
+  name: Niha
+  title: Developer
+  description: "Computer Engineer wannabe. Can turn anything into a competition.
+    Loves sports, philosophy and shouting “estudió” on the weekends. Fun fact:
+    records suggest he has lifted a shovel exactly once in his lifetime."
+  image_url: https://wonderland.xyz/img/pfp/Niha.png
+  page: true
+onetony:
+  name: OneTony
+  title: Developer
+  description: "Studied Electrical & Computer Engineering. Previously, open source
+    contributor and independent consultant focused on the Ethereum blockchain.
+    Fun fact: Searching for the One Piece 🙂."
+  image_url: https://wonderland.xyz/img/pfp/Tony.png
+  page: true
+onizuka:
+  name: Onizuka
+  title: Developer
+  description: "Electronic technician. Anime addict. MMORPG lover. Fun fact:
+    Impulsive buyer of unnecessary things (that’s what they work for)."
+  image_url: https://wonderland.xyz/img/pfp/Onizuka.png
+  page: true
+paperclip-minimizer:
+  name: Paperclip
+  title: Researcher
+  description: "Rogue physicist Study subject in at least 3 undergrad theses
+    Mostly harmless Fun fact: might bite"
+  image_url: https://wonderland.xyz/img/pfp/Paperclip.png
+  page: true
+parti:
+  name: Parti
+  title: Cryptography
+  description: "Managed to earn a PhD in Physics. Switched particles for nodes:
+    \"Pls Parti, stop asking about the Beacon Chain's entropy.\" Chaos enjoyer.
+    Fun fact: Die-hard Boca Juniors fan."
+  image_url: https://wonderland.xyz/img/pfp/Parti.png
+  page: true
+pepo:
+  name: Pepo
+  title: Co-founder
+  description: Your hot-takes friend from DeFi summer.
+  image_url: https://wonderland.xyz/img/pfp/Pepo.png
+  page: true
+rex:
+  name: Rex
+  title: Researcher
+  description: "Background in economics. Just your average abacus ASMR enjoyer.
+    Fun fact: Has a wall with about 136 obscure board games."
+  image_url: https://wonderland.xyz/img/pfp/Rex.png
+  page: true
+ringo:
+  name: Ringo
+  title: Financial
+  description: "Background in Economics. He worked at Wonderland for over a year
+    under the hood. Loves lifting heavy shit, playing football, and golfing. Fun
+    Fact: Has been breaking cymbals, heads, and sticks since he was twelve."
+  image_url: https://wonderland.xyz/img/pfp/Ringo.png
+  page: true
+shaito:
+  name: Shaito
+  title: Partner Lead
+  description: "Flying bison addicted to crypto and building stuff. Normie dev
+    turned Solidity enjoyer. Fun fact: Has been rewatching Avatar: The Last
+    Airbender for the past 7 years."
+  image_url: https://wonderland.xyz/img/pfp/Shaito.png
+  page: true
+shishigami:
+  name: Shishigami
+  title: Developer
+  description: "Designer turned Developer. Obsessed with rendering crazy stuff on
+    displays. Fun fact: Makes big decisions by talking to plants."
+  image_url: https://wonderland.xyz/img/pfp/Shishigami.png
+  page: true
+simon-something:
+  name: Simon
+  title: C. Testing Officer
+  description: "Random diploma collector. Assembly fanatic (Huff is cheating). Fun
+    fact: Has 99 issues and a bitshift ain't one."
+  image_url: https://wonderland.xyz/img/pfp/Doc.png
+  page: true
+skeletor-spaceman:
+  name: Skeletor
+  title: Architect
+  description: "First contract deployed on 25/07/2017. Enjoys breaking things. Fun
+    fact: Has never been to space."
+  image_url: https://wonderland.xyz/img/pfp/Skele.png
+  page: true
+tano:
+  name: Tano
+  title: Developer
+  description: "Software engineer with a healthy dose of obsession. Boca Juniors
+    fan, willing to talk fútbol at any hour. Fun fact: Uses Brooklyn99 to fall
+    asleep and has rewatched it over 10 times."
+  image_url: https://wonderland.xyz/img/pfp/Tano.png
+  page: true
+teddy:
+  name: Teddy
+  title: Developer
+  description: "Solidity dev. Likes lying to machines. Cuddly and sleepy, but
+    technically doesn't hibernate. Fun fact: Clumsy welder."
+  image_url: https://wonderland.xyz/img/pfp/Teddy.png
+  page: true
+th0r:
+  name: Th0r
+  title: Developer
+  description: "Goat smashing bugs and decentralizing the web. Keyboard shortcut
+    evangelist. Fun fact: Can differentiate ketchup brands only by taste."
+  image_url: https://wonderland.xyz/img/pfp/Thor.png
+  page: true
+titi:
+  name: Titi
+  title: Partner Lead
+  description: "Background in economics. Traded bonds for nodes. Bake it till you
+    make it. Fun fact: Could happily eat pasta every day for the rest of their
+    life."
+  image_url: https://wonderland.xyz/img/pfp/Titi.png
+  page: true
+turtlemoji:
+  name: Turtlemoji
+  title: CSO
+  description: "Co-created and helped in multiple onchain and normie
+    products/companies. Loves swimming, video games, anime, science and debating
+    anything. Fun fact: Addicted to Coke (the drink)."
+  image_url: https://wonderland.xyz/img/pfp/Turtle.png
+  page: true
+wei3er-hase:
+  name: Wei3er
+  title: Architect
+  description: "Just a bun from Görli 🥕. Fun fact: Afraid of bugs and owls."
+  image_url: https://wonderland.xyz/img/pfp/Wei3er.png
+  page: true
+yaco:
+  name: Yaco
+  title: Developer
+  description: "Backend/Data engineer. Enjoys doing stuff that just works. Fun
+    fact: Dulce de batata enjoyer & sudoku puzzle enthusiast."
+  image_url: https://wonderland.xyz/img/pfp/Yaco.png
+  page: true
+zeriph:
+  name: Zeriph
+  title: Researcher
+  description: "Background in Economics with a specialization in Finance I
+    previously worked in asset management I love surfing, anime and sitcoms. Fun
+    fact: 3 dogs, 0 cats"
+  image_url: https://wonderland.xyz/img/pfp/Zeriph.png
+  page: true
+zorzal:
+  name: Zorzal
+  title: Developer
+  description: "Mushroom grower. RTS and 4X games addict in recovery. Makes
+    homemade pasta at least once a week. Fun fact: Argentum Online connoisseur."
+  image_url: https://wonderland.xyz/img/pfp/Zorzal.png
+  page: true

@@ -4,7 +4,7 @@ title: A (MEV) racing story
 description: What do we know about the dark forest 2.0?
 date: 2023-04-05
 tags: [MEV, Flashbots]
-authors: [skeletor, ng, parti]
+authors: ["skeletor-spaceman", ng, parti]
 image: /img/blog-posts-img/a-mev-racing-story/cover.jpg
 ---
 

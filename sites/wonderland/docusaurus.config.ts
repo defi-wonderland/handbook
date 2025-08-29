@@ -36,7 +36,7 @@ const localConfig: Config = {
           blogSidebarCount: 0,
           postsPerPage: 12,
           // Enable author pages (path relative to the blog directory)
-          authorsMapPath: "authors.yml",
+          authorsMapPath: "generated/authors.yml",
           authorsBasePath: "authors",
           // Force Docusaurus to use our custom author posts page component
           blogAuthorsPostsComponent: "@site/src/theme/BlogAuthorsPostsPage",

@@ -1,6 +1,6 @@
 ---
 slug: allo-explained
-title: Allo v2.1 explained, from strategies to extensions
+title: Allo v2.1 explained
 description: Communities need resources, projects need grants, and countries need to distribute capital. Allo is a flexible and transparent library for managing on-chain capital allocation.
 date: 2024-11-06
 tags: [DeFi]

@@ -1,7 +1,7 @@
 ---
 slug: storage-proofs
 title: The current state of storage proofs
-authors: [parti, skeletor]
+authors: [parti, "skeletor-spaceman"]
 tags: [Cryptography, Verification, Cross-chain]
 description: The current state of on-chain storage proofs
 image: /img/blog-posts-img/current-state-of-storage-proofs/cover.jpg

@@ -4,7 +4,7 @@ title: Liveness 2 and beyond
 description: Safety and scalability of SAFE liveness.
 date: 2023-05-12
 tags: [Cryptography, Verification, Cross-chain]
-authors: [parti, skeletor]
+authors: [parti, "skeletor-spaceman"]
 image: /img/blog-posts-img/current-state-of-storage-proofs/cover.jpg
 ---
 
