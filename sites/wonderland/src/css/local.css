@@ -207,7 +207,7 @@
 
 /* Primary and side column height */
 .wl-highlights__primary > .wl-post-card--primary { height: var(--highlight-height); display: flex; flex-direction: column; width: 100%; }
-.wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb { height: auto; width: 100%; margin-left: 0; margin-right: 0; aspect-ratio: 16 / 9; }
+.wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb { height: 55%; width: 100%; margin-left: 0; margin-right: 0; }
 .wl-post-card--primary .wl-post-card__body { width: 100%; }
 
 /* Primary highlight title clamp */
@@ -242,9 +242,10 @@
 .wl-post-card--compact .wl-post-card__thumb { align-self: start; }
 .wl-highlights__side .wl-post-card--compact { grid-template-columns: 30% 1fr; }
 .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb {
+  aspect-ratio: auto;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  min-height: 0;
 }
 .wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; }
 .wl-post-card--compact .wl-post-card__meta { margin-top: auto; padding-top: var(--space-2); }
