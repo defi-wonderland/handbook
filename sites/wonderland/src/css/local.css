@@ -1,11 +1,9 @@
-/* Custom styles for your documentation site */
-
-/* Shape, Icons, etc customization */
+/* Base variables */
 :root {
   --wonderland-accent: #978cfb;
-  --blog-content-width: 48rem; /* Increased from 40rem to 48rem (about 768px) */
+  --blog-content-width: 48rem;
 
-  /* Spacing scale */
+  /* Spacing */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -17,7 +15,7 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
 
-  /* Accessible dark palette */
+  /* Palette */
   --bg-surface: #0b1020;
   --card-surface: #101632;
   --text-strong: #e9eefc;
@@ -32,27 +30,24 @@
   --shadow-lg: 0 10px 30px rgba(0,0,0,.35);
 }
 
-/* Wonderland-specific menu icons */
+/* Sidebar icons */
 .menu__list-item-collapsible .menu__link[href^="/docs/processes"]::before {
   background-image: url("/img/icons/map.svg");
 }
 
-/* Development category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/development"]::before {
   background-image: url("/img/icons/code-bracket-square.svg");
 }
 
-/* Security category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/security"]::before {
   background-image: url("/img/icons/key.svg");
 }
 
-/* Testing category icon */
 .menu__list-item-collapsible .menu__link[href^="/docs/testing"]::before {
   background-image: url("/img/icons/bug-ant.svg");
 }
 
-/* Font for category titles */
+/* Category title font */
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/processes"],
@@ -81,11 +76,10 @@
   gap: 0.5rem;
 }
 
-/* Blog custom layout */
+/* Blog layout */
 .wl-blog-hero { padding: 7rem 0 2rem; text-align: center; position: relative; overflow: visible; }
 .wl-blog-hero__container { position: relative; }
 
-/* text titles removed; content is embedded in the SVG */
 
 .wl-blog-hero__image { margin: 2.5rem auto 0; width: min(1100px, 95%); display: block; animation: fadeIn 700ms ease-out both; }
 .wl-blog-hero__rabbit { margin: 2rem auto 0; width: min(420px, 62%); display: block; animation: fadeIn 900ms ease-out both; }
@@ -110,7 +104,7 @@
   padding: 1rem 0 4rem;
 }
 
-/* Narrower main container for the blog list page only */
+/* Blog list container width */
 .wl-blog-list > .container {
   max-width: 1000px;
 }
@@ -167,7 +161,7 @@
 
 .wl-post-card__excerpt { color: var(--text); margin: 0 0 var(--space-3); line-height: 1.5; }
 
-/* Add subtle separator spacing between image and text */
+/* Separator spacing between image and text */
 .wl-post-card + .wl-post-card__body { margin-top: 0.5rem; }
 
 .wl-post-card__overlay {
@@ -191,43 +185,44 @@
 
 .wl-author__name-link:hover { color: var(--link-hover); text-decoration: underline; }
 .wl-author__title { color: var( --wonderland-gray-50); font-size: 0.85rem; }
-/* Keep compact cards slightly smaller while still prominent */
 
 
-/* Highlights layout */
+/* Highlights */
 
 .wl-highlights {
   display: grid;
-  grid-template-columns: 4fr 5fr; /* left a bit narrower, right wider */
+  grid-template-columns: 4fr 5fr;
   gap: 1.25rem;
   margin: 2rem 0 2.5rem;
   align-items: stretch;
   --highlight-height: 560px;
 }
 
-/* Ensure cards align with container padding */
+/* Align cards with container padding */
 .wl-highlights,
 .wl-posts-grid {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* Make primary and side column equal height */
+/* Primary and side column height */
 .wl-highlights__primary > .wl-post-card--primary { height: var(--highlight-height); display: flex; flex-direction: column; width: 100%; }
-.wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb { height: 55%; width: 100%; margin-left: 0; margin-right: 0; }
+.wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb { height: auto; width: 100%; margin-left: 0; margin-right: 0; aspect-ratio: 16 / 9; }
 .wl-post-card--primary .wl-post-card__body { width: 100%; }
 
-/* Ensure primary highlight title fits within the card height */
+/* Primary highlight title clamp */
 .wl-post-card--primary .wl-post-card__title {
   font-size: clamp(1.6rem, 2.3vw, 2.3rem);
   line-height: 1.15;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .wl-post-card--primary .wl-post-card__excerpt {
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -235,42 +230,40 @@
 
 .wl-highlights__side { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; height: var(--highlight-height); }
 
-/* Compact card variant for highlights side */
+/* Compact highlight cards */
 .wl-post-card--compact {
   height: 100%;
   display: grid;
-  grid-template-columns: 32% 1fr; /* base setting; overridden for right highlights below */
+  grid-template-columns: 32% 1fr;
   gap: 1rem;
   align-items: start;
 }
 .wl-post-card--compact { padding: var(--space-4); }
 .wl-post-card--compact .wl-post-card__thumb { align-self: start; }
-/* Make side highlight card thumbs perfectly square */
 .wl-highlights__side .wl-post-card--compact { grid-template-columns: 30% 1fr; }
 .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb {
-  aspect-ratio: auto;   /* allow to grow vertically */
   width: 100%;
-  height: 100%;
-  min-height: 0;
+  height: auto;
+  aspect-ratio: 16 / 9;
 }
-.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; min-height: 100%; }
+.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; }
 .wl-post-card--compact .wl-post-card__meta { margin-top: auto; padding-top: var(--space-2); }
 .wl-post-card--compact .wl-post-card__title {
   font-size: 1.2rem;
   line-height: 1.15;
   margin: 0.15rem 0 0.35rem;
 }
-.wl-post-card--compact .wl-post-card__title { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.wl-post-card--compact .wl-post-card__title { display: -webkit-box; line-clamp: 3; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .wl-post-card--compact .wl-post-card__excerpt { margin-top: 0.4rem; }
-.wl-post-card--compact .wl-post-card__excerpt { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+.wl-post-card--compact .wl-post-card__excerpt { display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
 .wl-post-card--compact .wl-post-card__date { font-size: 0.8125rem; opacity: 0.9; }
 
-/* Scale author avatars and tighten meta in compact cards */
+/* Compact author/meta tweaks */
 .wl-post-card--compact .wl-avatar { width: 22px; height: 22px; }
 .wl-post-card--compact .wl-author__name { font-weight: 600; }
 .wl-post-card--compact .wl-post-card__meta { gap: var(--space-2); margin-top: var(--space-2); font-size: 0.8125rem; }
 
-/* Rest of posts grid: 3 cards per row */
+/* Posts grid: 3 per row */
 .wl-posts-grid > .wl-post-card { grid-column: span 4; }
 
 @media (max-width: 996px) {
@@ -282,14 +275,14 @@
   .wl-posts-grid > .wl-post-card { grid-column: span 6; }
 }
 
-/* Blog post page layout tweaks */
+/* Blog post page */
 .wl-post-content {
   max-width: var(--blog-content-width) !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-/* Center images within blog post content */
+/* Center images in post content */
 .wl-post-content img,
 .wl-post-content .markdown img,
 .wl-post-content article img,
@@ -298,15 +291,14 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /* Keep images smaller by default and responsive */
   max-width: min(100%, 720px);
   width: auto;
-  height: auto; /* maintain aspect ratio */
-  border-radius: 12px; /* rounded corners */
+  height: auto;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-/* Embedded videos – responsive, centered, and styled */
+/* Embedded videos */
 .wl-post-content iframe[src*="youtube.com"],
 .wl-post-content iframe[src*="youtu.be"],
 .wl-post-content iframe[src*="player.vimeo.com"],
@@ -324,7 +316,7 @@
   box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
-/* Blog: make code blocks look identical to handbook */
+/* Code block theme */
 .theme-blog .theme-code-block,
 .theme-blog div[class^="codeBlock"],
 .theme-blog div[class^="codeBlockContainer"],
@@ -335,7 +327,7 @@
   background-color: var(--wonderland-blue-950) !important;
 }
 
-/* Wrapper: hide original BlogPostPage header/footer to avoid duplicates */
+/* Hide original blog wrapper parts */
 .wl-post-original .wl-post-header,
 .wl-post-original .blogPostFooter,
 .wl-post-original nav.pagination-nav,
@@ -344,12 +336,12 @@
   display: none !important;
 }
 
-/* Hide the original theme header/meta inside the embedded BlogPostPage */
+/* Hide embedded header/meta */
 .wl-post-original article > header {
   display: none !important;
 }
 
-/* Force the article content width to match our custom width */
+/* Force embedded content width */
 .wl-post-original article,
 .wl-post-original .container,
 .wl-post-original .container-wrapper,
@@ -411,7 +403,7 @@
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
 }
-/* Ensure list items wrap like body text (docs only) */
+/* Docs list wrapping */
 .theme-doc-markdown li,
 .theme-doc-markdown ul,
 .theme-doc-markdown ol {
@@ -423,14 +415,14 @@
   color: var(--wonderland-gray-300) !important;
 }
 
-/* Keep header (title/author) aligned with content width */
+/* Post header width */
 .wl-post-header {
   max-width: var(--blog-content-width) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   text-align: center;
-  padding-top: calc(var(--ifm-navbar-height, 3.5rem) + 2rem); /* reduced so title appears immediately */
-  padding-bottom: 0.75rem; /* tighter gap to article */
+  padding-top: calc(var(--ifm-navbar-height, 3.5rem) + 2rem);
+  padding-bottom: 0.75rem;
 }
 
 @font-face {
@@ -484,7 +476,7 @@
 .wl-post-bullet { opacity: 0.6; }
 .wl-post-date { color: var(--wonderland-gray-400); }
 
-/* If an article body starts with an H1, promote it to hero scale for legacy content */
+/* Legacy hero H1/H2 */
 .wl-post-content .markdown > h1:first-child,
 .wl-post-content .markdown > h2:first-child {
   font-family: "Sharp Grotesk Light Italic", "Inter", system-ui, -apple-system, sans-serif;
@@ -498,7 +490,7 @@
   margin-bottom: 1rem !important;
 }
 
-/* Hide table of contents completely */
+/* Hide TOC */
 .blog-post-page .table-of-contents,
 .blog-post-page .theme-doc-toc,
 .blog-post-page .theme-doc-toc-desktop,
@@ -509,13 +501,13 @@
 
 /* Blog post layout without TOC */
 @media (min-width: 997px) {
-  /* Center the content */
+  /* Center content */
   .blog-post-page .container > .row {
     display: flex;
     justify-content: center;
   }
   
-  /* Make the main content column take full width up to our defined content width */
+  /* Main column width */
   .blog-post-page .col.col--9 {
     max-width: var(--blog-content-width);
     flex-basis: var(--blog-content-width);
@@ -524,7 +516,7 @@
 }
 
 @media (max-width: 996px) {
-  /* Add padding and ensure full width on mobile */
+  /* Mobile padding/full width */
   .wl-post-header,
   .wl-post-content,
   .wl-post-original article,
@@ -536,7 +528,7 @@
     width: 100% !important;
   }
   
-  /* Ensure blog content takes full width on mobile */
+  /* Full width on mobile */
   .blog-post-page .col.col--9 {
     max-width: 100%;
     flex-basis: 100%;
@@ -548,15 +540,80 @@
 @media (max-width: 600px) {
   .wl-posts-grid { grid-template-columns: repeat(1, 1fr); }
   .wl-posts-grid > .wl-post-card { grid-column: auto; }
-  .wl-post-card__thumb { height: 140px; }
-  /* Stack highlights side cards and compact card layout on very small screens */
+  .wl-post-card__thumb { height: auto; aspect-ratio: 277 / 140; min-height: 160px; }
+  
+  .wl-highlights { margin: 1rem 0; gap: 1rem; }
+  .wl-highlights__primary > .wl-post-card--primary,
+  .wl-highlights__side .wl-post-card--compact,
+  .wl-post-card--compact {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Mobile card padding */
+  .wl-post-card,
+  .wl-post-card--primary,
+  .wl-post-card--compact {
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    border-radius: var(--radius-xl);
+  }
+  
+  /* Mobile title clamp */
+  .wl-post-card__title {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  /* Mobile primary title clamp */
+  .wl-post-card--primary .wl-post-card__title {
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-height: 1.2;
+  }
+  
+  /* Mobile body padding */
+  .wl-post-card--compact .wl-post-card__body,
+  .wl-post-card--primary .wl-post-card__body {
+    padding: var(--space-4) 0 0;
+  }
+  /* Mobile meta spacing */
+  .wl-post-card__meta { padding-top: var(--space-2); }
+  
+  /* Mobile excerpt clamp */
+  .wl-post-card__excerpt,
+  .wl-post-card--compact .wl-post-card__excerpt {
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+  
+  /* Mobile thumbnails full-width */
+  .wl-post-card__thumb,
+  .wl-post-card--primary .wl-post-card__thumb,
+  .wl-post-card--compact .wl-post-card__thumb,
+  .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb,
+  .wl-highlights__primary > .wl-post-card--primary .wl-post-card__thumb {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 277 / 140 !important;
+    margin: 0 0 var(--space-3) 0 !important;
+    min-height: 160px !important;
+  }
+  /* Stack highlights/compact */
   .wl-highlights__side { grid-template-columns: 1fr; grid-template-rows: none; }
   .wl-post-card--compact { grid-template-columns: 1fr; grid-template-rows: auto auto; }
   .wl-highlights__side .wl-post-card--compact { grid-template-columns: 1fr !important; grid-template-rows: auto auto; }
-  .wl-post-card--compact .wl-post-card__thumb { height: 160px; aspect-ratio: auto; }
-  .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb { height: 160px; aspect-ratio: auto; }
+  .wl-post-card--compact .wl-post-card__thumb { height: auto !important; aspect-ratio: 277 / 140 !important; }
+  .wl-highlights__side .wl-post-card--compact .wl-post-card__thumb { height: auto !important; aspect-ratio: 277 / 140 !important; }
   .wl-post-card--compact .wl-avatar { width: 28px; height: 28px; }
-  /* Slightly reduce blog hero vertical padding on very small screens */
+  /* Smaller blog hero on very small screens */
   .wl-blog-hero { padding: 5rem 0 1rem; }
 }
 
@@ -578,7 +635,7 @@
   .wl-related__grid { grid-template-columns: 1fr; }
 }
 
-/* Author Pages Styling */
+/* Author pages */
 .wl-author-page {
   padding: 2rem 0 4rem;
 }
@@ -738,7 +795,7 @@
   }
 }
 
-/* Author links in blog posts - simple styling */
+/* Author links */
 .wl-post-content a[href^="/blog/authors/"],
 .wl-post-card a[href^="/blog/authors/"] {
   color: var(--wonderland-gray-200);
@@ -757,12 +814,12 @@
   padding-top: var(--ifm-navbar-height, 3.5rem) !important;
 }
 
-/* Ensure override applies specifically on blog post pages */
+/* Ensure override on blog post pages */
 .blog-post-page nav.navbar.navbar--fixed-top + .main-wrapper {
   padding-top: 0 !important;
 }
 
-/* Author Page Styling */
+/* Author page header */
 .wl-author-page-header {
   display: flex;
   flex-direction: column;
@@ -876,7 +933,7 @@
   text-decoration: underline;
 }
 
-/* Responsive design for author pages */
+/* Author responsive */
 @media (max-width: 768px) {
   .wl-author-page-header {
     flex-direction: column;
@@ -895,7 +952,7 @@
   }
 }
 
-/* Default Docusaurus Author Pages Styling */
+/* Default author pages */
 .theme-blog-authors-posts-page {
   padding: 2rem 0 4rem;
   background: var(--wonderland-blue-950);
@@ -905,7 +962,7 @@
   max-width: 1000px;
 }
 
-/* Author header styling */
+/* Author header */
 .blog-authors-posts-page-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -956,7 +1013,7 @@
   text-align: center;
 }
 
-/* Author posts count and description */
+/* Author posts count/description */
 .blog-authors-posts-page .margin-bottom--lg {
   margin-bottom: 2rem !important;
 }
@@ -969,14 +1026,14 @@
   margin-bottom: 1.5rem;
 }
 
-/* Posts grid styling for author pages */
+/* Author posts grid */
 .blog-authors-posts-page .row {
   --ifm-row-gap: 2rem;
 }
 
 .blog-authors-posts-page .col {
   margin-bottom: 1.5rem;
-  /* Match blog landing: 3 cards per row on desktop */
+  /* 3 cards per row on desktop */
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
 }
@@ -988,7 +1045,7 @@
   }
 }
 
-/* Style the blog post cards in author pages */
+/* Author blog cards */
 .blog-authors-posts-page .margin-bottom--lg article {
   background: radial-gradient(140% 100% at 10% 10%, rgba(255, 255, 255, 0.06), transparent),
     radial-gradient(80% 80% at 90% 80%, rgba(233, 91, 155, 0.18), transparent 60%),
@@ -1032,7 +1089,7 @@
   margin-top: 0.25rem;
 }
 
-/* If a post includes an image in its excerpt, make it look like the card thumb */
+/* Author excerpt images */
 .blog-authors-posts-page .margin-bottom--lg article img {
   width: 100%;
   height: 180px;
@@ -1042,7 +1099,7 @@
   display: block;
 }
 
-/* Tidy the default "Read more" link */
+/* Read more link */
 .blog-authors-posts-page .text--right {
   margin-left: auto;
   align-self: flex-end;
@@ -1057,7 +1114,7 @@
   text-decoration: underline;
 }
 
-/* Author list page styling (if needed) */
+/* Author list */
 .blog-authors-list {
   max-width: 1000px;
   margin: 0 auto;
