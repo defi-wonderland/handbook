@@ -67,7 +67,18 @@
   margin-right: 0.5rem;
 }
 
-/* Landing page CategoryCards icons now use #A39FED directly in SVG files */
+/* Contracts icon */
+.menu__list-item-collapsible .menu__link[href^="/docs/contracts"]::before {
+  content: "";
+  background-image: url("/img/icons/contract-icon.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
 
 /* Font for Aztec category titles */
 .theme-doc-sidebar-item-category
@@ -84,7 +95,10 @@
   .menu__link[href^="/docs/governance"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/privacy"] {
+  .menu__link[href^="/docs/privacy"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/contracts"] {
   font-family:
     "Inter",
     system-ui,

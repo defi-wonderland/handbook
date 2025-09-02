@@ -21,6 +21,12 @@ const localConfig: Config = {
   organizationName: "defi-wonderland",
   projectName: "aztec-handbook",
 
+  // Enable Mermaid support for fenced ```mermaid blocks
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",

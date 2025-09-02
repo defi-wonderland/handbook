@@ -58,6 +58,37 @@ const sidebars: SidebarsConfig = {
       'stack/wrapping-up'
     ],
     },
+    {
+      type: 'category',
+      label: 'Contracts',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'contracts/overview',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Account Contracts',
+          items: [
+            'contracts/account-contracts/overview',
+            'contracts/account-contracts/account-contracts',
+            'contracts/account-contracts/authwit',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Dumb Contracts',
+          items: [
+            'contracts/dumb-contracts/overview',
+            'contracts/dumb-contracts/design',
+            'contracts/dumb-contracts/state',
+          ],
+        },
+        'contracts/wrapping-up'
+      ],
+    },
   ],
 };
 
