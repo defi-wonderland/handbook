@@ -37,6 +37,7 @@ sequenceDiagram
 - Authorization: verify authwits according to the account’s chosen scheme (Schnorr, ECDSA, WebAuthn, MFA, etc.)
 - Replay protection: define and enforce a nonce policy suitable for the account’s UX and risk model
 - Fee policy: decide who pays, how much, and under what sponsorship rules
+- Setup phase semantics: perform fee payment in a non-reversible setup phase so the sequencer is guaranteed to be paid even if subsequent public execution fails
 - Execution rules: ensure fee executes first, then app, and fail safely if any invariant breaks
 
 ## Design principles
