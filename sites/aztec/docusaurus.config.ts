@@ -21,6 +21,11 @@ const localConfig: Config = {
   organizationName: "defi-wonderland",
   projectName: "aztec-handbook",
 
+  markdown: {
+      mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
   presets: [
     [
       "classic",
