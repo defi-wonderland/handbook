@@ -69,6 +69,7 @@ Why this design works
 Invariants
 - If `sender == msg_sender`, no extra approval is needed (self‑submit). Otherwise, public authwit is mandatory.
 - Never mutate app state before the transfer succeeds, or you risk partial effects.
+
 Pitfalls
 - Forgetting to include fee/sponsor context in the authorized message (if your app supports sponsorship).
 - Not scoping the transfer approval nonce tightly; reuse can enable replay.
