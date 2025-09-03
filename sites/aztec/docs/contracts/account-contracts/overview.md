@@ -12,7 +12,7 @@ Aztec makes the user’s account a contract. That contract, not the protocol, de
 
 ## The narrative: from intent to execution
 
-1) The user approves an action in the wallet. The wallet formats two payloads: the app payload (what to call) and the fee payload (how to pay). It then produces an authentication witness over a domain‑separated message.
+1) The user approves an action in the wallet. The wallet formats two payloads: the app payload (what to call) and the fee payload (how to pay). It then produces an authentication witness associated to the payload.
 
 2) The request is sent to the user’s account contract (the origin). Inside `entrypoint`, the account verifies the authwit, checks replay protection (nonce policy), and enforces that the fee payload executes before the app payload.
 
