@@ -35,7 +35,7 @@ Where you keep the verifying public key determines your rotation and cost model.
 
 ## Fees and nonces
 
-Keep fee policy inside the account,paymasters can sponsor, but the account decides when a request is properly funded. Always execute the fee payload before the app payload so sponsorship or gas‑policy failures abort early.
+Keep fee policy inside the account, paymasters can sponsor, but the account decides when a request is properly funded. Always execute the fee payload before the app payload so sponsorship or gas‑policy failures abort early.
 
 For nonces, pick a policy that matches UX and risk. A global monotonic counter gives simple ordering and easy cancellation via bumping. Scoped nonces (per app or per spender) avoid cross‑app blocking at the cost of tracking multiple cursors. For cancellable flows, emit a transaction nullifier tied to the pending request and check it in `entrypoint` to void prior intents. The protocol guarantees unique transaction hashes; the account enforces the intended semantics on top.
 
