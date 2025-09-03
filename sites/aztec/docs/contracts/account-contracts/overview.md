@@ -14,7 +14,7 @@ Aztec makes the user’s account a contract. That contract, not the protocol, de
 
 1) The user approves an action in the wallet. The wallet formats two payloads: the app payload (what to call) and the fee payload (how to pay). It then produces an authentication witness associated to the payload.
 
-2) The request is sent to the user’s account contract (the origin). Inside `entrypoint`, the account verifies the authwit, checks replay protection (nonce policy), and enforces that the fee payload executes before the app payload.
+2) The request is sent to the user’s account contract (the origin). Inside `entrypoint`, the account verifies the authwit, checks replay protection (nonce policy), ensures that the fee payload executes non-reversibly, and executes the app payload.
 
 3) Private execution happens locally in the PXE; only commitments, nullifiers, and public calls leave the client. Public calls are queued and executed publicly, keeping private and public state consistent.
 
