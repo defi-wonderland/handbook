@@ -6,8 +6,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "copy-static": "ts-node src/copyStaticTo.ts",
-    "script:infra:sync-authors": "ts-node src/syncAuthors.ts"
+    "copy-static": "ts-node src/copyStaticTo.ts"
   },
   "dependencies": {
     "js-yaml": "4.1.0",
