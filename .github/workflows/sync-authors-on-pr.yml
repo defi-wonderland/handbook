@@ -43,18 +43,22 @@ jobs:
           USE_RAW_PFP_URLS: 'true'
         run: pnpm --filter @handbook/scripts run script:infra:sync-authors
 
-      - name: Detect changes
+      - name: Detect changes (tracked authors.yml only)
         id: git_status
         run: |
-          echo "changed=$(git status --porcelain | wc -l | tr -d ' ')" >> $GITHUB_OUTPUT
+          if git diff --quiet -- sites/wonderland/blog/authors.yml; then
+            echo "changed=0" >> $GITHUB_OUTPUT
+          else
+            echo "changed=1" >> $GITHUB_OUTPUT
+          fi
 
       - name: Commit changes
         if: steps.git_status.outputs.changed != '0'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sites/wonderland/blog/authors.yml sites/wonderland/static/img/pfp || true
-          git commit -m "chore(ci): sync authors from squad.json"
+          git add sites/wonderland/blog/authors.yml || true
+          git commit -m "chore(ci): sync authors from squad.json" || true
 
       - name: Push changes to PR branch
         if: steps.git_status.outputs.changed != '0' && github.event_name == 'pull_request'
