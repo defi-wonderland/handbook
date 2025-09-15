@@ -1,367 +1,319 @@
 matias-nisenson:
   name: Matias Nisenson
   title: Co-founder & CEO
-  description: "Three-time startup founder and CEO, and founder/GP at a $50M deep-tech VC. Fun fact: helped unearth a new species of titanosaur that roamed the Earth 70 million years ago!"
-  image_url: /img/pfp/Mati.png
-
+  description: '3x Startup founder & CEO. Founder & GP at a $50M deep-tech VC. Fun fact: Helped unearth a brand-new species of titanosaur that roamed the Earth 70 million years ago!'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Mati.png
 skeletor:
   name: Skeletor
-  title: Architect
-  description: "Deployed the first contract on 2017-07-25 and enjoys breaking things. Fun fact: has never been to space."
-  image_url: /img/pfp/Skele.png
+  title: Co-founder & Architect
+  description: 'First contract deployed on 25/07/2017. Enjoys breaking things. Fun fact: Has never been to space.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Skele.png
   page: true
-
 pepo:
   name: Pepo
   title: Co-founder
-  description: "Your hot-takes friend from DeFi summer."
-  image_url: /img/pfp/Pepo.png
-
+  description: Your hot-takes friend from DeFi summer.
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Pepo.png
 gorilla:
   name: Gorilla
   title: CTO
-  description: "Has 10+ years in software development and is addicted to scalability and conventions. Fun fact: arranges the dishwasher like a Tetris game!"
-  image_url: /img/pfp/Gorilla.png
-
+  description: '10+ years in Software Development. Addicted to scalability and conventions. Fun fact: His OCD compels him to arrange the dishwasher like a Tetris game!'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Gorilla.png
 billi:
   name: Billi
   title: COO
-  description: "Addicted to meetings and context switching. Fun fact: loves scaring buns."
-  image_url: /img/pfp/Billi.png
-
+  description: 'Addicted to meetings and context switching. Fun fact: Loves scaring buns. Have you seen any around?'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Billi.png
 weiser:
-  name: Wei3er
+  name: Wei3er Hase
   title: Architect
-  description: "Just a bun from Görli 🥕. Fun fact: afraid of bugs and owls."
-  image_url: /img/pfp/Wei3er.png
+  description: 'Just a bun from Görli 🥕. Fun fact: Afraid of bugs and owls.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Wei3er.png
   page: true
-
 ng:
   name: NG
-  title: Architect
-  description: "Derives joy from finding bugs and reached Top 4 in Curta during the first eight puzzles. Fun fact: can recite words backwards fast."
-  image_url: /img/pfp/NG.png
+  title: Security Lead
+  description: 'Derives joy from finding bugs. Reached Top 4 in Curta during the first eight puzzles. Fun fact: Can recite words backwards fast.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/NG.png
   page: true
-
 ashitaka:
   name: Ashitaka
   title: Developer
-  description: "Solidity dev. Studied telecommunications engineering and philosophy. Fun fact: Pro player of Magic: The Gathering."
-  image_url: /img/pfp/Ashi.png
+  description: 'Solidity dev Studied Telecommunications engineering and philosophy. Fun fact: Pro player of Magic: The Gathering.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Ashi.png
   page: true
-
 gas1cent:
   name: Gas1cent
   title: Engineering Manager
-  description: "Has watched over 1000 movies and vaguely remembers four of them. A big nap2earn proponent. Fun fact: jail dropout."
-  image_url: /img/pfp/Gas.png
-
+  description: 'Watched over 1000 movies, vaguely remembers 4 of them. A big nap2earn proponent. Fun fact: Jail dropout.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Gas.png
 simon-something:
   name: Simon Something
   title: Chief Testing Officer
-  description: "Random diploma collector and assembly fanatic (Huff is cheating). Fun fact: has 99 issues and a bitshift ain't one."
-  image_url: /img/pfp/Doc.png
+  description: 'Random diploma collector. Assembly fanatic (Huff is cheating). Fun fact: Has 99 issues and a bitshift ain''t one.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Doc.png
   page: true
-
-"0xjabberwock":
+0xjabberwock:
   name: 0xJabberwock
   title: Developer
-  description: "Recruited by Wonderland and codes even his life. Fun fact: lifts a dumbbell every day."
-  image_url: /img/pfp/Jabber.png
-
+  description: 'Recruited by Wonderland. Codes even his life. Fun fact: Lifts a dumbbell every day.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Jabber.png
 shaito:
   name: Shaito
   title: Partner Lead
-  description: "Flying bison addicted to crypto and building stuff; normie dev turned Solidity enjoyer. Fun fact: has been rewatching Avatar: The Last Airbender for the past 7 years."
-  image_url: /img/pfp/Shaito.png
-
+  description: 'Flying bison addicted to crypto and building stuff. Normie dev turned Solidity enjoyer. Fun fact: Has been rewatching Avatar: The Last Airbender for the past 7 years.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Shaito.png
 gotzen:
   name: Gotzen
   title: Partner Lead
-  description: "Compulsive optimizer and proud university deserter. Fun fact: really good at voice impressions."
-  image_url: /img/pfp/Gotzen.png
-
+  description: 'Compulsive optimizer. Another University deserter. Fun fact: Really good at voice impressions.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Gotzen.png
 turtlemoji:
   name: Turtlemoji
   title: Chief Security Officer
-  description: "Co-created and helped in multiple onchain and normie products and companies. Loves swimming, video games, anime, science, and debating anything. Fun fact: addicted to Coke (the drink)."
-  image_url: /img/pfp/Turtle.png
-
-"0xraccoon":
+  description: 'Co-created and helped in multiple onchain and normie products/companies. Loves swimming, video games, anime, science and debating anything. Fun fact: Addicted to Coke (the drink).'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Turtle.png
+0xraccoon:
   name: 0xRaccoon
   title: Developer
-  description: "UTN Systems engineer who believes adaptability is essential. Fun fact: likes to travel and enjoy outdoor activities."
-  image_url: /img/pfp/Raccoon.png
-
-"0xaustrian":
+  description: 'UTN Systems engineer. Believes adaptability is an important feature. Fun fact: Likes to travel and do outdoor activities.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Raccoon.png
+0xaustrian:
   name: 0xAustrian
   title: Developer
-  description: "Software developer who learned Solidity because he was bored at work. Fun fact: 90s horror movies fan."
-  image_url: /img/pfp/Austrian.png
-
+  description: 'Software Developer. Learned Solidity because he was bored at work. Fun fact: 90''s horror movies fan.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Austrian.png
 onetony:
   name: OneTony
   title: Developer
-  description: "Studied electrical and computer engineering; previously an open source contributor and independent consultant focused on Ethereum. Fun fact: searching for the One Piece."
-  image_url: /img/pfp/Tony.png
-
+  description: 'Studied Electrical & Computer Engineering. Previously, open source contributor and independent consultant focused on the Ethereum blockchain. Fun fact: Searching for the One Piece 🙂.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Tony.png
 parti:
   name: Parti
-  title: Architect
-  description: "Holds a PhD in Physics and traded particles for nodes. Chaos enjoyer. Fun fact: die-hard Boca Juniors fan."
-  image_url: /img/pfp/Parti.png
+  title: Cryptography Lead
+  description: 'Managed to earn a PhD in Physics. Switched particles for nodes: "Pls Parti, stop asking about the Beacon Chain''s entropy." Chaos enjoyer. Fun fact: Die-hard Boca Juniors fan.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Parti.png
   page: true
-
-"mono":
-  name: Mono
-  title: Researcher
-  description: "Studies IT infrastructure and is a DeFi research and scalability enthusiast. Fun fact: spends spare time in DeFi as well."
-  image_url: /img/pfp/Mono.png
-  page: true
-
 joxes:
   name: Joxes
-  title: Architect
-  description: "Has a background in engineering and thermal analysis and incubated four communities to spread Ethereum's technologies and ethos. Fun fact: uses ΔG = ΔH − TΔS as a mental model to predict project success."
-  image_url: /img/pfp/Joxes.png
-
+  title: Lead Researcher
+  description: 'Background in Engineering and Thermal Analysis. Incubated four communities to spread Ethereum''s technologies and ethos. Fun fact: My mental model refers to ΔG = ΔH − TΔS to predict the success of our next project.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Joxes.png
 ardy:
   name: Ardy
   title: Lead UI
-  description: "Background in engineering and passionate about mathematics and philosophy. Fun fact: bonsai apprentice."
-  image_url: /img/pfp/Ardy.png
-
+  description: 'Background in Engineering. Passionate about mathematics and philosophy. Fun fact: Bonsaist apprentice 🌳.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Ardy.png
 rex:
   name: Rex
-  title: Researcher
-  description: "Background in economics and an abacus ASMR enjoyer. Fun fact: has a wall with about 136 obscure board games."
-  image_url: /img/pfp/Rex.png
+  title: Data Analyst & Researcher
+  description: 'Background in economics. Just your average abacus ASMR enjoyer. Fun fact: Has a wall with about 136 obscure board games.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Rex.png
   page: true
-
 discotech:
   name: Discotech
   title: Developer
-  description: "Interested in blockchain and startups; loves watching and playing football. Boca Juniors fan. Fun fact: recovering disco addict—only on weekdays."
-  image_url: /img/pfp/Discotech.png
-
+  description: 'Interested in blockchain and startups. Loves watching and playing football. Boca Juniors fan. Fun fact: Once won a pair of pants in a FIFA tournament.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Discotech.png
 moebius:
   name: Moebius
-  title: Architect
-  description: "Decentralization and privacy maximalist who loves the mountains. Fun fact: former card magician."
-  image_url: /img/pfp/Moebius.png
-
-enti:
-  name: Enti
-  title: Researcher
-  description: "Electronics engineer who left electrons for the Ethereum transaction supply chain—kind of the same thing. Enjoyer of sound waves. Fun fact: a group of hedgehogs is called an array."
-  image_url: /img/pfp/Enti.png
-
+  title: Developer
+  description: 'Decentralization and privacy maximalist. In love with the mountains. Fun fact: Former card magician.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Moebius.png
 agusduha:
   name: Agusduha
   title: Partner Lead
-  description: "Engineer and crypto enthusiast who loves gaming and football. Fun fact: yearly scammed FIFA player."
-  image_url: /img/pfp/Agus.png
-
+  description: 'Computer Engineer. Crypto enthusiast (or addict). Loves gaming and football. Fun fact: Yearly scammed FIFA player.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Agus.png
 lempire:
   name: Lempire
   title: Developer
-  description: "Enjoys playing chess and practicing Jiu Jitsu. Fun fact: avid reader."
-  image_url: /img/pfp/Lempire.png
-
+  description: 'Likes to play chess and practice Jiu Jitsu. Fun fact: Likes to read books.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Lempire.png
 titi:
   name: Titi
   title: Partner Lead
-  description: "Background in economics; traded bonds for nodes and bakes it till they make it. Fun fact: could happily eat pasta every day for the rest of their life."
-  image_url: /img/pfp/Titi.png
+  description: 'Background in economics. Traded bonds for nodes. Bake it till you make it. Fun fact: Could happily eat pasta every day for the rest of their life.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Titi.png
   page: true
-
 hex:
   name: Hex
   title: Developer
-  description: "Former QC analyst who started in crypto by mining Ravencoin; a self-described multipotentialite. Fun fact: started playing Pokémon TCG as an adult."
-  image_url: /img/pfp/Hex.png
-
+  description: 'Former QC Analyst. Started in crypto mining Ravencoin. Considers himself a multipotentialite. Fun fact: Started playing pokemon tcg as an adult.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Hex.png
 ringo:
   name: Ringo
   title: Financial Analyst
-  description: "Background in economics; worked at Wonderland for over a year behind the scenes. Loves lifting heavy weights, playing football, and golfing. Fun fact: has been breaking cymbals, heads, and sticks since age twelve."
-  image_url: /img/pfp/Ringo.png
-
+  description: 'Background in Economics. He worked at Wonderland for over a year under the hood. Loves lifting heavy shit, playing football, and golfing. Fun Fact: Has been breaking cymbals, heads, and sticks since he was twelve.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Ringo.png
 kenji:
   name: Kenji
   title: Architect
-  description: "Dropped out of civil engineering to become a software developer; self-taught sushi itamae and first member of the off‑chain department. Fun fact: has played the guitar almost daily for the past 20 years."
-  image_url: /img/pfp/kenji.png
-
+  description: 'Dropped out of Civil Engineering to become a Software Developer. Self-taught sushi itamae. 1st member of the Off-chain department. Fun fact: Hasn’t missed a day of guitar playing in 20 years'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/kenji.png
 teddy:
   name: Teddy
   title: Developer
-  description: "Solidity dev who likes lying to machines; cuddly and sleepy but does not technically hibernate. Fun fact: clumsy welder."
-  image_url: /img/pfp/Teddy.png
+  description: 'Solidity dev. Likes lying to machines. Cuddly and sleepy, but technically doesn''t hibernate. Fun fact: Clumsy welder.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Teddy.png
   page: true
-
 ilpepepig:
   name: Ilpepepig
   title: Developer
-  description: "Still wondering what a degree in bioengineering is for. Fun fact: always obsessed with something."
-  image_url: /img/pfp/ilpepepig.png
-
+  description: 'Still wondering what a degree in bioengineering is for. Fun fact: Always obsessed with something.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/ilpepepig.png
 yaco:
   name: Yaco
-  title: Partner Lead
-  description: "Backend and data engineer who enjoys doing stuff that just works. Fun fact: dulce de batata enjoyer and sudoku puzzle enthusiast."
-  image_url: /img/pfp/Yaco.png
-
+  title: Developer
+  description: 'Backend/Data engineer. Enjoys doing stuff that just works. Fun fact: Dulce de batata enjoyer & sudoku puzzle enthusiast.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Yaco.png
 laruku:
   name: Laruku
   title: QA
-  description: "Background in international relations; World of Warcraft player for 11 years and counting and a decidedly bad violinist. Fun fact: buys more stationery than they can use."
-  image_url: /img/pfp/Laruku.png
-
+  description: 'Background in International Relations. World of Warcraft player for 11 years and counting. (Really bad) Violinist. Fun fact: Buy more stationery than they can use.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Laruku.png
 zorzal:
   name: Zorzal
   title: Developer
-  description: "Mushroom grower and recovering RTS/4X games addict. Fun fact: makes homemade pasta at least once a week."
-  image_url: /img/pfp/Zorzal.png
-
+  description: 'Mushroom grower. RTS and 4X games addict in recovery. Makes homemade pasta at least once a week. Fun fact: Argentum Online connoisseur.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Zorzal.png
 flux:
   name: Flux
   title: Developer
-  description: "Caffeine‑addicted dromedary who loves to code, read, and lift heavy stuff. Fun fact: can power‑nap pretty much anywhere."
-  image_url: /img/pfp/Flux.png
-
+  description: 'Caffeine addicted dromedary. Loves to code, read and lift heavy stuff. Fun fact: Can power-nap pretty much anywhere.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Flux.png
 jahabeebs:
   name: Jahabeebs
   title: Developer
-  description: "Typescript specialist who also enjoys tennis and violin and migrates between the U.S. and Colombia. Fun fact: exceptional whistler."
-  image_url: /img/pfp/Jahabeebs.png
-
+  description: 'A macaw who specializes in Typescript by profession but also enjoys tennis and violin. Migratory path between the U.S. and Colombia. Fun fact: Exceptional whistler.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Jahabeebs.png
 shishigami:
   name: Shishigami
   title: Developer
-  description: "Designer turned developer, obsessed with rendering crazy visuals on displays. Fun fact: makes big decisions by talking to plants."
-  image_url: /img/pfp/Shishigami.png
-
+  description: 'Designer turned Developer. Obsessed with rendering crazy stuff on displays. Fun fact: Makes big decisions by talking to plants.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Shishigami.png
 onizuka:
   name: Onizuka
   title: Developer
-  description: "Electronic technician, anime addict, and MMORPG lover. Fun fact: impulsive buyer of unnecessary things."
-  image_url: /img/pfp/Onizuka.png
-
+  description: 'Electronic technician. Anime addict. MMORPG lover. Fun fact: Impulsive buyer of unnecessary things (that’s what they work for).'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Onizuka.png
 funkornaut:
   name: Funkornaut
   title: Developer
-  description: "Solidity developer who previously made beer for a living; big golf guy and yogi. Fun fact: can wiggle ears without touching them."
-  image_url: /img/pfp/Funkornaut.png
-
+  description: 'Solidity developer. Previously made beer for a living. Big golf guy and yogi. Fun fact: Can wiggle ears without touching them.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Funkornaut.png
 lumi:
   name: Lumi
-  title: Researcher
-  description: "Swapped neurons for nodes after working in neuroscience and is currently hacking her way through a BS in Digital Technology at UTDT. Fluent in nerdy talk. Fun fact: alter ego spent a semester rocking out in music school."
-  image_url: /img/pfp/Lumi.png
+  title: Researcher & Tech Writer
+  description: 'Swapped neurons for nodes after working in neuroscience. Currently hacking her way through a BS in Digital Technology at UTDT. Fluent in nerdy talk. Fun fact: Alter ego spent a semester rocking out in music school.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Lumi.png
   page: true
-
 chin:
   name: Chin
   title: Developer
-  description: "Hackathons enjoyer with 15+ symbolic penguins at home who likes to learn random stuff. Fun fact: likes to jump and spin."
-  image_url: /img/pfp/Chin.png
-
+  description: 'Hackathons enjoyooor. Has 15+ (symbolic) penguins in his house. Likes to learn random stuff. Fun fact: Likes to jump and spin.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Chin.png
 ace:
   name: Ace
   title: Developer
-  description: "Software engineer and decentralization fan; coffee enthusiast. Fun fact: conducts really deep investigation on every purchase."
-  image_url: /img/pfp/Ace.png
-
+  description: 'Software Engineer decentralization fan. Coffee enthusiast. Fun Fact: He conducts really deep investigation on every bought he makes.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Ace.png
 daopunk:
   name: Daopunk
   title: Developer
-  description: "Nomadic and planning to outlive capitalism. Fun fact: enjoys clandestine dance parties."
-  image_url: /img/pfp/Daopunk.png
+  description: 'Planning to outlive capitalism. Nomadic. Fun fact: Enjoys clandestine dance parties.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Daopunk.png
   page: true
-  
 jagger:
   name: Jagger
   title: Developer
-  description: "Enthusiast runner who bootstraps the day with coffee, mate, or tea and replaced spreadsheets with code editors. Fun fact: held a 300+ day FIFA streak."
-  image_url: /img/pfp/Jagger.png
-
+  description: 'Enthusiast runner. Coffee, mate, or tea for bootstrapping the day. Replaced spreadsheets with code editors. Fun Fact: Had a +300-day streak playing FIFA.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Jagger.png
 luke:
   name: Luke
-  title: Partner Lead
-  description: "Never-quit lion and Jedi wannabe whose mantra is discipline over talent. Fun fact: ambidextrous with scissors."
-  image_url: /img/pfp/Luke.png
-
+  title: Developer
+  description: 'A never-quit lion. Jedi wannabe. Mantra: Discipline over talent. Fun fact: He is ambidextrous with scissors.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Luke.png
 cooki:
   name: Cooki
   title: Developer
-  description: "Former academic in ethics, evolution, and philosophy who loves hiking in nature and Pokémon. Fun fact: their ‘big toe’ isn’t the biggest."
-  image_url: /img/pfp/Cooki.png
-
+  description: 'Former academic (ethics, evolution, philosophy) Loves hiking in nature and pokemon Fun Fact: my “big toe” isn’t my biggest toe'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Cooki.png
 ghostlee:
   name: GhostLee
   title: Developer
-  description: "Optimization obsessive."
-  image_url: /img/pfp/Ghost.png
-
+  description: Optimize everything
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Ghost.png
 paperclip-minimizer:
   name: Paperclip Minimizer
   title: Researcher
-  description: "Rogue physicist and study subject in multiple undergraduate theses—mostly harmless. Fun fact: might bite."
-  image_url: /img/pfp/Paperclip.png
+  description: 'Rogue physicist Study subject in at least 3 undergrad theses Mostly harmless Fun fact: might bite'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Paperclip.png
   page: true
-
 niha:
   name: Niha
   title: Developer
-  description: "Computer‑engineer‑in‑progress who can turn anything into a competition; into sports and philosophy and known for shouting ‘estudió’ on weekends. Fun fact: allegedly lifted a shovel exactly once."
-  image_url: /img/pfp/Niha.png
+  description: 'Computer Engineer wannabe. Can turn anything into a competition. Loves sports, philosophy and shouting “estudió” on the weekends. Fun fact: records suggest he has lifted a shovel exactly once in his lifetime.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Niha.png
   page: true
-
 akoi-dehoibe:
   name: Akoi Dehoibe
-  title: Architect
-  description: "PhD in theoretical physics with years of work in mathematical modelling, including causal AI; loves sports, languages, and cultures. Fun fact: once gifted Particle 20 kg of frozen fish."
-  image_url: /img/pfp/Akoi.png
-
+  title: Cryptographer
+  description: 'PhD in Theoretical Physics. Worked several years in mathematical modelling applied to several topics (among them, Causal AI). Love sports, languages and cultures. Fun Fact: once he gave 20 kg of frozen fish (pejerrey) to Particle as a present'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Akoi.png
 zeriph:
   name: Zeriph
   title: Researcher
-  description: "Economics background with a specialization in finance; previously worked in asset management. Loves surfing, anime, and sitcoms. Fun fact: three dogs, zero cats."
-  image_url: /img/pfp/Zeriph.png
-
+  description: 'Background in Economics with a specialization in Finance I previously worked in asset management I love surfing, anime and sitcoms. Fun fact: 3 dogs, 0 cats'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Zeriph.png
 leopoldo:
   name: Leopoldo
   title: Developer
-  description: "Enjoys building things and being part of the process; can watch random movies for hours and is an art lover. Fun fact: can’t start the day without coffee."
-  image_url: /img/pfp/Leopoldo.png
-
+  description: 'I like building things and being part of the process. I could watch totally random movies for hours (I really like art in general). Football lover. Fun fact: I can''t start the day without coffee.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Leopoldo.png
 th0r:
   name: Th0r
   title: Developer
-  description: "Smashes bugs and helps decentralize the web; keyboard‑shortcut evangelist. Fun fact: can differentiate ketchup brands by taste alone."
-  image_url: /img/pfp/Thor.png
-
+  description: 'Goat smashing bugs and decentralizing the web. Keyboard shortcut evangelist. Fun fact: Can differentiate ketchup brands only by taste.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Thor.png
 euler:
   name: Euler
   title: Researcher
-  description: "Informatics engineer and data enthusiast who believes data kills denial and prevents disaster. Fun fact: the dog lives like a foodie while the human survives on instant noodles."
-  image_url: /img/pfp/Euler.png
+  description: 'Informatics engineer & data enthusiast. Data kills denial, which prevents disaster. Fun fact: My dog basically lives in a Michelin starred kennel while I survive on instant noodles.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Euler.png
   page: true
 tano:
   name: Tano
   title: Developer
-  description: "Software engineer with a healthy dose of obsession and a Boca Juniors fan happy to talk fútbol any time. Fun fact: uses Brooklyn Nine‑Nine to fall asleep and has rewatched it over 10 times."
-  image_url: /img/pfp/Tano.png
-
+  description: 'Software engineer with a healthy dose of obsession. Boca Juniors fan, willing to talk fútbol at any hour. Fun fact: Uses Brooklyn99 to fall asleep and has rewatched it over 10 times.'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Tano.png
 itadaki:
   name: Itadaki
   title: Developer
-  description: "Vegan anime fan who is scared of the ocean yet learning to surf and trying to open pull requests using the Force. Fun fact: played in a punk rock band at 16."
-  image_url: /img/pfp/Itadaki.png
-
+  description: 'Vegan Anime fan Scared of the ocean, still learning to surf Trying to create pull requests using the Force Fun fact: I played in a punk rock band when I was 16'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Itadaki.png
 frov:
   name: Frov
   title: Developer
-  description: "Software engineer deep into DeFi and privacy; bass player learning drums who loves football and asados. Fun fact: ambidextrous when playing football."
-  image_url: /img/pfp/Frov.png
+  description: 'Software engineer deep into defi and privacy Bass player learning drums Loves football and asados Fun fact: ambidextrous playing football'
+  image_url: https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp/Frov.png
+0xmono:
+  name: 0xMono
+  title: Researcher
+  description: |-
+    - Enrolled in IT infrastructure studies.
+    - Defi research and scalability enthusiast.
+
+    Fun fact: Spends his spare time in DeFi as well.
+edna:
+  name: Edna
+  title: Office Manager
+  description: 'Colombian–Argentine with a degree in International Relations and Political Science. New to the industry; learns at warp speed. Need a favor or a fix? Consider it handled. More humorous than she lets on. Fun fact: Sounds even sharper in Spanish.'
+kubo:
+  name: Kubo
+  title: Recruiter
+  description: 'Optics Likes to ask questions Got into crypto because of a tweet Fun fact: Gets way too competitive when playing board games.'
+mono:
+  name: 0xMono
+  title: Researcher
+  description: 'Enrolled in IT infrastructure studies. Defi research and scalability enthusiast. Fun fact: Spends his spare time in DeFi as well.'
