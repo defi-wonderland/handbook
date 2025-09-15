@@ -73,7 +73,7 @@ jobs:
         if: steps.git_status.outputs.changed != '0' && github.event_name != 'pull_request'
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: chore(ci): sync authors from squad.json
+          commit-message: 'chore(ci): sync authors from squad.json'
           title: "chore: sync authors from squad.json"
           body: |
             Automated sync from `defi-wonderland/web` squad.json.
@@ -82,7 +82,7 @@ jobs:
             - Downloads profile images to `sites/wonderland/static/img/pfp`
 
             See job summary for details.
-          labels: automated, authors-sync
+          labels: 'automated, authors-sync'
           branch: ${{ env.BRANCH_NAME }}
           base: ${{ github.event.repository.default_branch || 'main' }}
 
