@@ -1171,7 +1171,8 @@
 .blog-author-card-posts {
   font-size: 0.85rem;
   color: var(--wonderland-gray-400);
-=======
+}
+
 /* Mermaid diagram styling */
 .mermaid {
   background: transparent !important;
@@ -1180,11 +1181,13 @@
   margin: 1.5rem 0;
 }
 
+/* Optional overrides for Mermaid variables */
 :root {
   --wonderland-accent:   #978cfb;
   --wonderland-lila:     #6b5cff;
   --wonderland-blue-800: #2a3052;
 }
+
 /* Mermaid mindmap styling */
 .mermaid .mindmap-node {
   fill: var(--wonderland-accent) !important;
