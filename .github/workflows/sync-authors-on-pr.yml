@@ -22,16 +22,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm (before setup-node cache)
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22.18.0'
           cache: 'pnpm'
-
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm@10.11.0
-          pnpm -v
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
