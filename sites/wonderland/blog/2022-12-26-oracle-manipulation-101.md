@@ -17,7 +17,7 @@ Price manipulation is the primary concern with liquidity pool-based oracles such
 
 We will focus here on the most common attack type in DeFi, which is targeted at lending protocols. We will discuss this case step by step so that conducting a similar analysis for different markets (synthetics, prediction markets, etc.) becomes straightforward.
 
-For math-degens looking for a more rigorous analysis, check out the more math-focused article [here](https://defi.sucks/insights/oracle-manipulation-101-math-edition).
+For math-degens looking for a more rigorous analysis, check out the more math-focused article [here](./2022-12-26-oracle-manipulation-101-math-edition.md).
 
 ## But why?
 
@@ -34,7 +34,7 @@ Assuming the market participants are rational and are not trying to give money a
 
 ## 1. Cost of Manipulation
 
-When evaluating Uniswap-based oracles, liquid Full Range positions are generally considered safer than concentrated positions. Moving the price over zero (or close to zero) liquidity regions is practically free, so manipulating becomes much more accessible. This claim is, of course, not always valid, but it is in most cases. For more information, see [here](https://uniswap.org/blog/uniswap-v3-oracles), [here](https://docs.euler.finance/euler-protocol/getting-started/methodology/oracle-rating), and the corresponding discussion in the [Math article](https://defi.sucks/insights/oracle-manipulation-101-math-edition).
+When evaluating Uniswap-based oracles, liquid Full Range positions are generally considered safer than concentrated positions. Moving the price over zero (or close to zero) liquidity regions is practically free, so manipulating becomes much more accessible. This claim is, of course, not always valid, but it is in most cases. For more information, see [here](https://uniswap.org/blog/uniswap-v3-oracles), [here](https://docs.euler.finance/euler-protocol/getting-started/methodology/oracle-rating), and the corresponding discussion in the [Math article](./2022-12-26-oracle-manipulation-101-math-edition.md).
 
 However, not even liquid Full Range positions are risk-free. Remember that oracle users often differ from the protocols that provide liquidity for their token. Naturally, the interests between oracle users and the token holders providing liquidity can be misaligned. A lending market that accepts a specific token as collateral cannot know if the available Full Range position will be sticky. As a result, the lending market cannot confidently assign higher tiers/LTVs to them. This issue is one of the main points that [PRICE](https://oracles.rip/) solves.
 
@@ -43,7 +43,7 @@ In the analysis below, we will consider the Full Range positions due to the foll
 1. Consistency with liquidity visibility and security claims.
 2. Requirement for committed Full Range positions for the oracle to work. When adding concentrated positions on top, the manipulation cost will only increase; therefore, this analysis will serve as a "worst-case scenario".
 
-The [Math article](https://defi.sucks/insights/oracle-manipulation-101-math-edition) shows the precise amounts required for manipulating the price in each direction. We have also discussed the $TWAP$, the average price the Uniswap v3 oracle library returns. The $TWAP$ replaced the spot price as a laggier but much safer way of using the oracle.
+The [Math article](./2022-12-26-oracle-manipulation-101-math-edition.md) shows the precise amounts required for manipulating the price in each direction. We have also discussed the $TWAP$, the average price the Uniswap v3 oracle library returns. The $TWAP$ replaced the spot price as a laggier but much safer way of using the oracle.
 
 The following is a reasonably good approximation to compute the final spot price $P_f$ at which an attacker should manipulate the pool for the $TWAP$ to achieve a target value (remember the $TWAP$ is what the attack target reads when calling the oracle):
 
