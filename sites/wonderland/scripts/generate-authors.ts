@@ -114,7 +114,8 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
       ...(title && { title }),
       ...(desc && { description: normalizeText(desc) }),
       ...(pfp && { image_url: await findPfp(pfp.replace('/img/pfp/', '')) }),
-      ...member.socials
+      ...(member.socials ?? {}),
+      page: true
     };
 
     // Filter out falsy values
