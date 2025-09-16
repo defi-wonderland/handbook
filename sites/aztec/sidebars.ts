@@ -60,17 +60,17 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Consensus / Block Productino',
+      label: 'Block Production',
       collapsible: false,
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'consensus-block-production/overview',
+        id: 'block-production/overview',
       },
       items: [
-        'consensus-block-production/sequencing',
-        'consensus-block-production/proving',
-        'consensus-block-production/fallback-mechanisms',
+        'block-production/sequencing',
+        'block-production/proving',
+        'block-production/fallback-mechanisms',
       ],
     },
   ],

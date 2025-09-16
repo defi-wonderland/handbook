@@ -30,9 +30,9 @@ const aztecCategories: Category[] = [
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
-    title: "CONSENSUS",
+    title: "BLOCK PRODUCTION",
     icon: "/img/icons/processes-icon.svg",
-    href: "/docs/consensus-block-production/overview",
+    href: "/docs/block-production/overview",
   },
 ];
 
