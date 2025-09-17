@@ -71,13 +71,6 @@ importers:
         version: 5.6.2
 
   scripts:
-    dependencies:
-      js-yaml:
-        specifier: 4.1.0
-        version: 4.1.0
-      zod:
-        specifier: 3.23.8
-        version: 3.23.8
     devDependencies:
       '@jest/globals':
         specifier: 29.7.0
@@ -85,9 +78,6 @@ importers:
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
-      '@types/js-yaml':
-        specifier: 4.0.9
-        version: 4.0.9
       '@types/node':
         specifier: 24.0.3
         version: 24.0.3
@@ -9256,9 +9246,6 @@ packages:
   yocto-queue@1.2.1:
     resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
     engines: {node: '>=12.20'}
-
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
   zwitch@1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
@@ -20799,8 +20786,6 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   yocto-queue@1.2.1: {}
-
-  zod@3.23.8: {}
 
   zwitch@1.0.5: {}
 
