@@ -113,20 +113,56 @@ the L1 contract by calling `RollupCore::propose` with:
 - The committee attestations
 - Data for blob DA
 
-At this point, the rollup contract will prune any epochs that failed to prove. It will then validate
-the proposal in order to add it to the pending chain.
+At this point, the rollup contract will prune any epochs that failed to prove. It will then
+- Validate the proposal, abort if it fails
+- Add it to the pending chain
+- Handle L1-L2 messages
 
+### Validating the proposal
 
+The following elements are validated:
+- Blob data: checks that the data in the blobs is the same as the data provided for the proofs.
+- Header data: does some sanity checks (e.g. the last archive root in the header must be the last
+  root's archive root, timestamp must be the one corresponding to the slot) as well as checking for
+  data availability.
+- Proposer: checks that the proposer corresponding to the block has properly signed the block.
+
+Attestations aren't validated eagerly during the `propose` call but rather assumed correct
+optimistically. Sequencers validate attestations off-chain during catch-up and, if a mistake is
+found, will invoke the L1 contract's `invalidateBadAttestation` or
+`invalidateInsufficientAttestations` function, in accordance to whether an invalid signature or an
+invalid amount of attestation has been found in an L1 proposed block.
+
+### Updating the pending chain
+
+The L1 contract's storage keeps track of both historical data and temporary data.
+
+The following historical data is updated:
+- Number of pending blocks
+- The archive tree root for this slot
+
+The following data for this block is stored temporarily in a circular storage buffer:
+- Header hash
+- Blob commitments hash
+- Payload digest
+- Slot number
+- Fee header:
+  - Excess mana
+  - Mana used
+  - Fee asset price
+  - Congestion cost
+  - Prover cost
+
+### Handling L1-L2 messages
+
+This consists of consuming the pending L1->L2 messages up to this block's start and inserting the
+L2->L1 messages into the outbox. The later can only be consumed after the epoch is confirmed.
 
 ## Catching-up with the latest block
 
-## TODOs
-
-- [ ] On-chain block commitment: what's in `_blobsInput`?
-- [ ] On-chain block commitment: What will the proposer publish?
-- [ ] On-chain block commitment: What checks does the contract perform?
-- [ ] Catching-up with the latest block
-- [ ] Check whether the contract checks `proposer = proposers[slot]`
+Once a block is persisted in the L1 contract, all sequencers must catch up to it by re-executing the
+transactions in order to have the latest view of the blockchain. At this stage, sequencers will
+ensure the block has the correct amount of attestations.
 
 ## References
 
