@@ -57,7 +57,4 @@
       "last 5 safari version"
     ]
   },
-  "engines": {
-    "node": "22.19.0"
-  }
 }
