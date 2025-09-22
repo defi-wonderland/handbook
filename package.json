@@ -18,7 +18,6 @@
   },
   "packageManager": "pnpm@10.11.0",
   "engines": {
-    "node": "22.18.0",
     "pnpm": "10.11.0"
   }
 }
