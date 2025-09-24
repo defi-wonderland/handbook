@@ -156,7 +156,14 @@ const sidebars: SidebarsConfig = {
               label: "Onboarding",
               items: [
                 "development/solidity/onboarding/getting-started",
-                "development/solidity/onboarding/knowledge-base",
+                {
+                  type: "category",
+                  label: "Knowledge Base",
+                  items: [
+                    "development/solidity/onboarding/knowledge-base/overview",
+                    "development/solidity/onboarding/knowledge-base/recommended-resources",
+                  ],
+                },
                 {
                   type: "category",
                   label: "Challenges",

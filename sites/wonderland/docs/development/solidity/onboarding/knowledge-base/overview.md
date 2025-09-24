@@ -1,3 +1,7 @@
+---
+title: Overview
+---
+
 # Knowledge Base 
 
 The Knowledge Base serves as the cornerstone of our onboarding process. It contains information about our organization’s coding style, best practices, and the tools we use to write, test, and maintain Solidity code. By familiarizing yourself with the Knowledge Base, you ensure that you can align with our standards and workflows.
