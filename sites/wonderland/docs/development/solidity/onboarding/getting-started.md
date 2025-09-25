@@ -8,7 +8,7 @@ This onboarding process is designed to provide you with the necessary knowledge,
 
 The onboarding is divided into two key sections:
 
-- [Knowledge Base](/docs/development/solidity/onboarding/knowledge-base/overview): A comprehensive guide covering coding standards, best practices, and essential tools.
+- [Knowledge Base](/docs/development/solidity/onboarding/knowledge-base): A comprehensive guide covering coding standards, best practices, and essential tools.
 -  [Coding Challenges](/docs/development/solidity/onboarding/challenges/overview): A series of Solidity and Security exercises to assess and refine your skills.
 
 ## 🛰️ Comms
