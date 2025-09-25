@@ -1,7 +1,3 @@
----
-title: Overview
----
-
 # Knowledge Base 
 
 The Knowledge Base serves as the cornerstone of our onboarding process. It contains information about our organization’s coding style, best practices, and the tools we use to write, test, and maintain Solidity code. By familiarizing yourself with the Knowledge Base, you ensure that you can align with our standards and workflows.
@@ -20,6 +16,12 @@ Next, familiarize yourself with our core coding standards:
 - [NatSpec Best Practices](docs/development/solidity/natspec.md)
 - [Solidity Coding Style](docs/development/solidity/coding-style.md)
 - [Gas Optimization Guide](https://www.rareskills.io/post/gas-optimization)
+
+### DeFi & Dapps
+Understanding the DeFi ecosystem is crucial for building robust smart contracts.
+- A curated list of [DeFi & Dapps](docs/development/solidity/defi-dapps.md) resources.
+
+It introduces you to the foundational contracts, standards, and patterns that every DeFi developer should know.
 
 ### Testing Framework
 Testing is fundamental to our development process. Learn about:

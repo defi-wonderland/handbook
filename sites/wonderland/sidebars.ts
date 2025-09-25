@@ -151,19 +151,13 @@ const sidebars: SidebarsConfig = {
           items: [
             "development/solidity/coding-style",
             "development/solidity/natspec",
+            "development/solidity/defi-dapps",
             {
               type: "category",
               label: "Onboarding",
               items: [
                 "development/solidity/onboarding/getting-started",
-                {
-                  type: "category",
-                  label: "Knowledge Base",
-                  items: [
-                    "development/solidity/onboarding/knowledge-base/overview",
-                    "development/solidity/onboarding/knowledge-base/recommended-resources",
-                  ],
-                },
+                "development/solidity/onboarding/knowledge-base",
                 {
                   type: "category",
                   label: "Challenges",

@@ -1,5 +1,5 @@
 ---
-    title: Recommended Resources
+    title: DeFi & Dapps
 ---
 
 Working in DeFi often means standing on the shoulders of giants and using existing code to speed up development. Some contracts are forked more often than others, and with time, they become famous or influential.
@@ -14,7 +14,7 @@ These are the contracts that have shaped DeFi and continue to influence new prot
 
 ### Core Infrastructure
 - [Chainlink](https://docs.chain.link/data-feeds) - The global standard for blockchain connectivity.
-- [Connext](https://docs.connext.network/) - Cross-chain communication protocol.
+- [Everclear](https://www.connext.network/) - Cross-chain clearing and settlement protocol.
 - [Gnosis Safe Multisig](https://github.com/safe-global/safe-smart-account/tree/main/contracts) - Multi-signature wallet standard used across DeFi.
 - [OpenZeppelin Library](https://docs.openzeppelin.com/contracts/5.x/) - The gold standard for secure, audited implementations.
 
