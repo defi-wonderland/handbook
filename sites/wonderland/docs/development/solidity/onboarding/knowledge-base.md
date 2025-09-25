@@ -24,7 +24,19 @@ Understanding the DeFi ecosystem is crucial for building robust smart contracts.
 It introduces you to the foundational contracts, standards, and patterns that every DeFi developer should know.
 
 ### Testing Framework
-Testing is fundamental to our development process. Learn about:
+Testing is fundamental to our development process. We have developed a systematic approach to ensure comprehensive coverage while maintaining test quality and performance.
+
+Key Guidelines:
+- [ ] Test setup should be simple and focused
+- [ ] Tests should cover all logical branches and edge cases.
+- [ ] Every Unit Test should target a single branch or path.
+- [ ] Variables must not be shadowed.
+- [ ] Maintain sync between `.tree` files and `.t.sol` test files.
+- [ ] Every `mockCall()` has the corresponding `expectCall()` verification.
+- [ ] Aim for 1000+ fuzz runs with relevant parameter clamping.
+- [ ] Use `bound()` instead of `vm.assume()` for fuzzing.
+
+Learn about our processes:
 - Our approach to [Unit and Integration Testing](docs/testing/unit-integration.md) with Foundry
 - Our [Solidity Foundry Boilerplate](https://github.com/defi-wonderland/solidity-foundry-boilerplate) - our starter template for Solidity projects
 
