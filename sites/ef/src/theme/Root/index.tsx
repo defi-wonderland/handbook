@@ -4,7 +4,25 @@ export default function Root({ children }: { children: React.ReactNode }) {
   return (
     <SharedRoot
       showDisclaimer
-      disclaimerContent="This handbook is not intended to replace official documentation. This is internal material used for onboarding new team members. We open source it in the hopes that it helps somebody else, but beware it can be outdated on the latest updates."
+      disclaimerContent={
+        <p>
+          This handbook is not intended to replace EF's documentation. This
+          is the internal material we use at Wonderland to onboard new people
+          working with EF as a core development member. We open source it in
+          the hopes that it helps somebody else, but beware it can be outdated
+          on the latest updates. For the most up-to-date information, please
+          refer to the official EF documentation at{" "}
+          <a
+            href="https://ethereum.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "underline" }}
+          >
+            ethereum.org
+          </a>
+          .
+        </p>
+      }
     >
       {children}
     </SharedRoot>

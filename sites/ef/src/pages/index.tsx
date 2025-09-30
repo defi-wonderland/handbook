@@ -1,60 +1,114 @@
 import Layout from "@theme/Layout";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import styles from "./index.module.css";
 import {
+  HeroSection,
   CategoryCards,
+  HandbookSection,
   Category,
+  HeroSectionProps,
+  Handbook,
+  HandbookSectionProps,
   CategoryCardsTheme,
 } from "@handbook/common-config/components";
-import styles from "./index.module.css";
 
-const templateCategories: Category[] = [
+const efCategories: Category[] = [
   {
-    title: "Start",
-    icon: "/img/docusaurus.png",
-    href: "/docs/intro/welcome",
+    title: "WALLET",
+    icon: "/img/icons/map.svg",
+    href: "/docs/background/overview",
   },
   {
-    title: "Documentation",
-    icon: "/img/docusaurus.png",
-    href: "/docs/intro/welcome",
+    title: "PRIVACY POOLS BY KOHAKU",
+    icon: "/img/icons/stack-icon.svg",
+    href: "/docs/stack/overview",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
-    title: "Examples",
-    icon: "/img/docusaurus.png",
-    href: "/docs/intro/welcome",
+    title: "PROTOCOL",
+    icon: "/img/icons/document-currency-dollar.svg",
+    href: "/docs/transactions-and-messaging/overview",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
+  }
+
+];
+
+const efHeroProps: HeroSectionProps = {
+  title: "Ethereum Foundation Handbook",
+  titleImage: "/img/ef-handbook-social.svg",
+  description:
+    "This handbook explores a key privacy initiative from the Ethereum Foundation",
+  buttonText: "Enter the Rabbit Hole",
+  buttonImage: "/common/img/enter-button.svg",
+  buttonLink: "/docs/intro/welcome",
+};
+
+const efHandbooks: Handbook[] = [
+  {
+    title: "Wonderland Handbook",
+    image: "/common/img/wonderland-button-image.png",
+    href: "https://handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/wonderland-button-bg.jpg",
+    },
   },
   {
-    title: "API Reference",
-    icon: "/img/docusaurus.png",
-    href: "/docs/intro/welcome",
+    title: "Optimism Handbook",
+    image: "/common/img/optimism-handbook.svg",
+    href: "https://optimism.handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/background-handbook-card.jpg",
+    },
+  },
+  {
+    title: "Aztec handbook",
+    image: "/common/img/aztec-handbook.svg",
+    href: "https://aztec.handbook.wonderland.xyz",
+    background: {
+      bgType: "wonderland",
+      color: "#625CBFD1",
+    },
   },
 ];
 
-const templateCategoryTheme: CategoryCardsTheme = {
-  gradientStart: "#4f46e5",
-  gradientEnd: "#7c3aed",
+const efHandbookProps: HandbookSectionProps = {
+  handbooks: efHandbooks,
+  title: "ALL HANDBOOKS",
+  description:
+    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+};
+
+const efCategoryTheme: CategoryCardsTheme = {
+  gradientStart: "var(--ef-cyan)",
+  gradientEnd: "var(--ef-blue)",
   iconHoverColorEffect: "none",
 };
 
+const EfBackground = () => <div className={styles.efBackground} />;
+
 function Home(): React.ReactElement {
-  const { siteConfig } = useDocusaurusContext();
-
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+    <Layout description="A curated guide to our best practices, processes, and technical insights.">
+      <style>{`
+        #__docusaurus {
+          overflow: hidden;
+        }
+      `}</style>
       <main className={styles.main}>
-        <div className={styles.hero}>
-          <h1>{siteConfig.title}</h1>
-          <p>{siteConfig.tagline}</p>
-          <Link to="/docs/intro/welcome" className={styles.button}>
-            Get Started
-          </Link>
-        </div>
+        <EfBackground />
+        <section className={styles.centerContent}>
+          <HeroSection {...efHeroProps} />
+          <CategoryCards
+            categories={efCategories}
+            theme={efCategoryTheme}
+            columns={3}
+          />
+        </section>
 
-        <CategoryCards
-          categories={templateCategories}
-          theme={templateCategoryTheme}
-        />
+        <HandbookSection {...efHandbookProps} />
       </main>
     </Layout>
   );
