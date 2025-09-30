@@ -2,14 +2,19 @@
 
 /* Shape, Icons, etc customization */
 :root {
-  --wonderland-accent: #A39FED;
-  --ef-cyan: #a5fcf4;
-  --ef-purple: #c2b5fa;
-  --ef-blue: #7ea4f5;
+  --wonderland-accent: #9292D8; /* Periwinkle Frame */
+  --ef-cyan: #98F7F7; /* Luminous Cyan */
+  --ef-purple: #9292D8; /* Periwinkle Frame */
+  --ef-blue: #4987E5; /* Deep Azure */
+  --ef-gray-light: #C7C7C7; /* Observer Suit */
+  --ef-gray-medium: #8A8A8A; /* Observer Shading */
+  --ef-indigo: #3C3F8D; /* Indigo Shadow */
+  --ef-pink: #FFA3C9; /* Hot Pink Accent */
+  --ef-crimson: #E6637B; /* Crimson Accent */
 }
 
 /* Sidebar menu icons */
-.menu__list-item-collapsible .menu__link[href^="/docs/background"]::before {
+.menu__list-item-collapsible .menu__link[href^="/docs/wallet"]::before {
   content: "";
   background-image: url("/img/icons/map.svg");
   background-size: 1rem 1rem;
@@ -21,7 +26,7 @@
   margin-right: 0.5rem;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
+.menu__list-item-collapsible .menu__link[href^="/docs/privacy-pools-by-kohaku"]::before {
   content: "";
   background-image: url("/img/icons/stack-icon-filled.svg");
   background-size: 1rem 1rem;
@@ -33,7 +38,7 @@
   margin-right: 0.5rem;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/transactions-messaging"]::before {
+.menu__list-item-collapsible .menu__link[href^="/docs/protocol"]::before {
   content: "";
   background-image: url("/img/icons/document-currency-dollar.svg");
   background-size: 1rem 1rem;
@@ -45,45 +50,19 @@
   margin-right: 0.5rem;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/governance"]::before {
-  content: "";
-  background-image: url("/img/icons/governance-icon.svg");
-  background-size: 1rem 1rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-
-.menu__list-item-collapsible .menu__link[href^="/docs/privacy"]::before {
-  content: "";
-  background-image: url("/img/icons/star.svg");
-  background-size: 1rem 1rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  margin-right: 0.5rem;
-}
 
 /* Landing page CategoryCards icons now use #A39FED directly in SVG files */
 
 /* Font for Aztec category titles */
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/background"],
+  .menu__link[href^="/docs/wallet"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/stack"],
+  .menu__link[href^="/docs/privacy-pools-by-kohaku"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/transactions-messaging"],
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href^="/docs/governance"],
+  .menu__link[href^="/docs/protocol"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/privacy"] {
@@ -101,4 +80,84 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+
+/* Custom syntax highlighting colors - EF Cyberpunk Theme */
+.prism-code .token.comment {
+  color: var(--ef-gray-medium) !important; /* Observer Shading for comments */
+}
+
+.prism-code .token.keyword {
+  color: var(--ef-blue) !important; /* Deep Azure for keywords like 'const', 'if', 'await' */
+}
+
+.prism-code .token.string {
+  color: var(--ef-pink) !important; /* Hot Pink Accent for strings */
+}
+
+.prism-code .token.number {
+  color: var(--ef-cyan) !important; /* Luminous Cyan for numbers */
+}
+
+.prism-code .token.function {
+  color: var(--ef-pink) !important; /* Hot Pink Accent for function names */
+}
+
+.prism-code .token.class-name {
+  color: var(--ef-cyan) !important; /* Luminous Cyan for class names */
+}
+
+.prism-code .token.operator {
+  color: var(--ef-gray-light) !important; /* Observer Suit for operators like +, -, = */
+}
+
+.prism-code .token.punctuation {
+  color: var(--ef-gray-light) !important; /* Observer Suit for punctuation */
+}
+
+.prism-code .token.variable {
+  color: var(--wonderland-accent) !important; /* Periwinkle Frame for variables */
+}
+
+.prism-code .token.property {
+  color: var(--wonderland-accent) !important; /* Periwinkle Frame for object properties */
+}
+
+/* Additional tokens for better coverage */
+.prism-code .token.boolean {
+  color: var(--ef-cyan) !important; /* Crimson Accent for true/false */
+}
+
+.prism-code .token.null {
+  color: var(--ef-cyan) !important; /* Crimson Accent for null */
+}
+
+.prism-code .token.undefined {
+  color: var(--ef-cyan) !important; /* Crimson Accent for undefined */
+}
+
+.prism-code .token.regex {
+  color: var(--ef-cyan) !important; /* Crimson Accent for regex patterns */
+}
+
+.prism-code .token.constant {
+  color: var(--ef-cyan) !important; /* Luminous Cyan for constants */
+}
+
+/* Special tokens for enhanced cyberpunk feel */
+.prism-code .token.import {
+  color: var(--ef-blue) !important; /* Deep Azure for imports */
+}
+
+.prism-code .token.export {
+  color: var(--ef-blue) !important; /* Deep Azure for exports */
+}
+
+.prism-code .token.type {
+  color: var(--ef-indigo) !important; /* Indigo Shadow for types */
+}
+
+.prism-code .token.interface {
+  color: var(--ef-indigo) !important; /* Indigo Shadow for interfaces */
 }

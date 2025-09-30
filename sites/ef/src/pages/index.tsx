@@ -15,19 +15,19 @@ const efCategories: Category[] = [
   {
     title: "WALLET",
     icon: "/img/icons/map.svg",
-    href: "/docs/background/overview",
+    href: "/docs/wallet/"
   },
   {
     title: "PRIVACY POOLS BY KOHAKU",
     icon: "/img/icons/stack-icon.svg",
-    href: "/docs/stack/overview",
+    href: "/docs/pp/overview",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
     title: "PROTOCOL",
     icon: "/img/icons/document-currency-dollar.svg",
-    href: "/docs/transactions-and-messaging/overview",
+    href: "/docs/protocol/overview",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   }
