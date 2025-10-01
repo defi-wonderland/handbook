@@ -20,14 +20,12 @@ const efCategories: Category[] = [
   {
     title: "PRIVACY POOLS BY KOHAKU",
     icon: "/img/icons/stack-icon.svg",
-    href: "/docs/pp/overview",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   },
   {
     title: "PROTOCOL",
     icon: "/img/icons/document-currency-dollar.svg",
-    href: "/docs/protocol/overview",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   }

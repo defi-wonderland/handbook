@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
     'intro/welcome',
     {
       type: 'category',
-      label: 'Wallet',
+      label: 'WALLET',
       collapsible: false,
       collapsed: false,
       items: [

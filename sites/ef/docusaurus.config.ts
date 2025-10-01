@@ -3,6 +3,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { merge } from "webpack-merge";
+import { themes as prismThemes } from "prism-react-renderer";
 import commonConfig from "@handbook/common-config/preset/commonDocusaurusConfig";
 import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 
@@ -71,6 +72,11 @@ const localConfig: Config = {
           value: DISCLAIMER_BUTTON_HTML,
         },
       ],
+    },
+    prism: {
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
     },
   } satisfies Preset.ThemeConfig,
 };
