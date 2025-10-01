@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.18.0
+          node-version: 22.19.0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -28,6 +28,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run tests
+      - name: Run scripts tests
         working-directory: scripts
+        run: pnpm test
+
+      - name: Run wonderland tests
+        working-directory: sites/wonderland
         run: pnpm test 
