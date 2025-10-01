@@ -22,36 +22,36 @@ Users' PXEs produce and gossip `Tx` objects. Amongst other information, these co
 - The ZK proof for the private execution
 - The enqueued public calls
 
-These are gossiped to at least one node. Uppon receival of a `Tx` object, a node checks its validity
-and then forwards it to its known pairs. This defines a mempool of transactions that are pending
+These are gossiped to at least one node. Upon receival of a `Tx` object, a node checks its validity
+and then forwards it to its known peers. This defines a mempool of transactions that are pending
 execution. The TX validity check ensures the ZK proof for private execution is valid and that fees
 will be paid correctly.
 
 ### Sequencing
 
-Roughly, when a new epoch begins
+Roughly, when a new epoch begins:
 
 1) A random committee is elected from the validator set
 2) Proposers are sampled from the committee for each of the epoch's slot
 3) Each proposer produces a block. They then broadcast it to the committee for attestations and,
-   uppon collecting enough attestations, publishes to the rollup contract *without proving*
+   upon collecting enough attestations, publishes to the rollup contract *without proving*
 
 ### Proving
 
-Once an epoch is fully sequenced, proving begins in simultaneous to the next epoch's sequencing.
+Once an epoch is fully sequenced, proving happens simultaneously to the next epoch's sequencing.
 Proving is decoupled from sequencing so that a sequencer needn't have the hardware required for
 proving. Instead, a coordination mechanism between provers and sequencers is defined, which allows
 provers to quote their price for proving, and sequencers to bid for one of them.
 
-If the proof arrives to the L1 contract in time (before the next epoch's sequencing is done), the
+If the proof arrives at the L1 contract in time (before the next epoch's sequencing is done), the
 epoch is finalized. Otherwise, both epochs are discarded and block production begins again from the
 last finalized epoch.
 
 ### Fallback mechanisms
 
 There are two fallback mechanisms that enter into effect whenever the happy path is not traversed:
-- Based fallback: ensures liveliness
-- Forced inclussion queue: ensures finality
+- Based fallback: ensures liveness
+- Forced inclusion queue: ensures finality
 
 ## Up next
 

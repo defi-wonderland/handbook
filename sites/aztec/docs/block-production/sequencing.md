@@ -107,7 +107,7 @@ If all check pass, the attester sends the proposer a `BlockAttestation`, consist
 
 ## On-chain block commitment
 
-After reciving the quorum of attestations, the block producer will submit their block proposal to
+After receiving the quorum of attestations, the block producer will submit their block proposal to
 the L1 contract by calling `RollupCore::propose` with:
 - `ProposeArgs` object that includes the proposed block's header
 - The committee attestations
@@ -156,7 +156,7 @@ The following data for this block is stored temporarily in a circular storage bu
 ### Handling L1-L2 messages
 
 This consists of consuming the pending L1->L2 messages up to this block's start and inserting the
-L2->L1 messages into the outbox. The later can only be consumed after the epoch is confirmed.
+L2->L1 messages into the outbox. The latter can only be consumed after the epoch is confirmed.
 
 ## Catching-up with the latest block
 
