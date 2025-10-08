@@ -17,6 +17,26 @@ const localConfig: Config = {
   organizationName: "defi-wonderland", // Usually your GitHub org/user name.
   projectName: "handbook", // Usually your repo name.
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/common/img/favicon.svg',
+        sizes: 'any'
+      }
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/common/img/favicon.ico',
+        sizes: '64x64'
+      }
+    }
+  ],
+
   presets: [
     [
       "classic",
