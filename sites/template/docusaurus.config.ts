@@ -12,7 +12,7 @@ const localConfig: Config = {
   title: "Documentation",
   tagline:
     "A comprehensive guide to our project, processes, and best practices.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://your-domain.com/",

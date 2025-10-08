@@ -9,7 +9,7 @@ const localConfig: Config = {
   title: "Wonderland Handbook",
   tagline:
     "A curated guide to our best practices, processes, and technical insights.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   url: "https://handbook.wonderland.xyz",
   baseUrl: "/",

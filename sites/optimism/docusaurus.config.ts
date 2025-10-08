@@ -9,7 +9,7 @@ import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 const localConfig: Config = {
   title: "OP Handbook",
   tagline: "The Wonderland Onboarding to Optimism",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://optimism.handbook.wonderland.xyz",

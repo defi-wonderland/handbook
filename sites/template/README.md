@@ -37,9 +37,15 @@ pnpm --filter your-new-site build
 ## Customization
 
 1. **Update Configuration**: Edit `docusaurus.config.ts` with your project details
-2. **Add Content**: Replace content in `docs/` directory
-3. **Update Sidebar**: Modify `sidebars.ts` to match your structure
-4. **Add Images**: Place images in `static/img/`
+   - Update `url` and `baseUrl` with your production URL
+   - Update `organizationName` and `projectName`
+2. **Update robots.txt**: Edit `static/robots.txt` with your production sitemap URL
+   ```txt
+   Sitemap: https://your-handbook-url.wonderland.xyz/sitemap.xml
+   ```
+3. **Add Content**: Replace content in `docs/` directory
+4. **Update Sidebar**: Modify `sidebars.ts` to match your structure
+5. **Add Images**: Place images in `static/img/`
 
 ## Project Structure
 
