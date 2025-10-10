@@ -6,7 +6,7 @@ This repository is a **monorepo** containing multiple Docusaurus-based handbooks
 
 ### Node.js Version Management
 
-This monorepo enforces Node.js 22.18.0 and pnpm 10.11.0. Use `.nvmrc` for version management:
+This monorepo enforces Node.js 22.19.0 and pnpm 10.11.0. Use `.nvmrc` for version management:
 
 ```bash
 nvm use
@@ -41,7 +41,7 @@ pnpm --filter wonderland-handbook start
 
 ### Prerequisites
 
-- Node.js (v22.18.0) - Use `.nvmrc` for version management
+- Node.js (v22.19.0) - Use `.nvmrc` for version management
 - pnpm package manager (v10.11.0)
 
 ### Building for Production
