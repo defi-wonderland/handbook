@@ -16,9 +16,9 @@ That means saying _no_ to shortcuts. That means understanding why code patterns 
 
 Here, you'll find the foundations of how we build:
 
-- How do we onboard people across roles
+- How we onboard people across roles
 - What we expect in Solidity, frontend, and offchain code
-- How do we write and share research with clarity and care
+- How we write and share research with clarity and care
 
 Each of these domains is a lens through which we can strengthen the system. And when in doubt, we come back to the one principle that matters most:
 
