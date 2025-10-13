@@ -17,12 +17,6 @@ Next, familiarize yourself with our core coding standards:
 - [Solidity Coding Style](docs/development/solidity/coding-style.md)
 - [Gas Optimization Guide](https://www.rareskills.io/post/gas-optimization)
 
-### DeFi & Dapps
-Understanding the DeFi ecosystem is crucial for building robust smart contracts.
-- A curated list of [DeFi & Dapps](docs/development/solidity/defi-dapps.md) resources.
-
-It introduces you to the foundational contracts, standards, and patterns that every DeFi developer should know.
-
 ### Testing Framework
 Testing is fundamental to our development process. We have developed a systematic approach to ensure comprehensive coverage while maintaining test quality and performance.
 
