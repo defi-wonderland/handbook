@@ -118,7 +118,7 @@ function testOne() public {
 - Any state which can be accessed or reconstructed from the target should be accessed this way (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
 - Always start with validating the initial setup and sanity checks as “property-0”. For instance, address of the deployed contract ≠ 0, calling some constant variables, etc.
 
-    ![Fuzzing sanity check](/img/fuzz-sanity-check.png)
+    ![Fuzzing sanity check](/img/fuzz-sanity-check.jpg)
 
 - Function names:
   - `setUp()` this is the same function as for regular tests, and is executed before each invariant run

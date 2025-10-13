@@ -131,7 +131,7 @@ ItyFuzz is currently the most used concolic execution engines (working with a se
 
 Kontrol relies on an implementation of the EVM bytecode semantic in K (the KEVM).
 
-See the Kontrol docs for a basic test example <https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol>
+See the Kontrol docs for a basic test example [https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol](https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol)
 
 ### Notes
 
@@ -148,11 +148,11 @@ This drastically increase its’ speed for proving properties, and makes it even
 ## Resources
 
 - [Kontrol documentation](https://docs.runtimeverification.com/kontrol)
-- <https://www.youtube.com/watch?v=dMoBd0F4cjQ>
+- [https://www.youtube.com/watch?v=dMoBd0F4cjQ](https://www.youtube.com/watch?v=dMoBd0F4cjQ)
 - More in-depth presentation by Juan Conejero at EthCC this year: [https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool](https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool)
-- Here is an earlier presentation at EthCluj, of both Simbolik and Kontrol: <https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool>
+- Here is an earlier presentation at EthCluj, of both Simbolik and Kontrol: [https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool](https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool)
 - [A more advanced example](https://runtimeverification.com/blog/using-kontrol-to-tackle-complexities-caused-by-dynamically-sized-constructs) of how to use loop invariants in Kontrol for handling unbounded inputs, something unique to Kontrol's capabilities.
 - [A Wonderland podcast](https://drive.google.com/file/d/1KusMkjKsDRe0FV3TFkNr_6jOWxJ0QF6Z/view?usp=sharing) with Palina and Andrei from RuntimeVerification presenting Kontrol - see the kcfg part
-- <https://www.youtube.com/watch?v=9PLnQStkiUo> for a more theoretical talk about K itself, and how Kontrol is built on top of it
+- [https://www.youtube.com/watch?v=9PLnQStkiUo](https://www.youtube.com/watch?v=9PLnQStkiUo) for a more theoretical talk about K itself, and how Kontrol is built on top of it
 - [OP CI Kontrol tests](https://github.com/ethereum-optimism/optimism/tree/develop/packages/contracts-bedrock/test/kontrol)
 - [WETH9 testing](https://github.com/horsefacts/weth-invariant-testing/blob/main/test/WETH9.symbolic.t.sol) with Halmos
