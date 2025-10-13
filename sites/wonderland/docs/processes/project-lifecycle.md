@@ -3,13 +3,13 @@ title: Project Lifecycle
 sidebar_position: 1
 ---
 
-# Immutable code means we have one chance to get it right
+# Immutable code means we have one chance to get it right.
 
 Our project lifecycle systematically eliminates vulnerabilities at every stage. Each phase, from initial design to final deployment, adds a validation layer. **No assumption goes unverified, no edge case is unexplored.**
 
 Users trust their assets to our code, and we take quality seriously. **Quality is paramount for us**, so we strive to exceed expectations in all aspects of our development process, including writing automated tests, creating comprehensive documentation, implementing effective monitoring systems, and more. Our development process is divided into:
 
-## Idea Draft 🎨
+## Idea Draft 🎨 
 
 The foundation of every successful project lies in its initial conception. During this phase, we work closely with partners to understand the project's scope, requirements, and potential challenges.
 
@@ -19,7 +19,7 @@ Before proceeding, both parties must review and approve the Idea Draft. This doc
 
 Find the template: [Idea Draft](https://defi-wonderland.notion.site/idea-draft-template?pvs=4)
 
-## Tech Design 📐
+## Tech Design 📐 
 
 Once the Idea Draft is approved, the Partner Lead, Team Lead and Architect will move on to the Tech Design. This document provides an overview of each contract, external function, and off-chain component, defining how every piece of functionality works and outlining a time estimate. To mitigate risks, we also break the project into smaller milestones—each with its timeline and deliverables—to keep everyone aligned and help achieve the partner’s goals efficiently.
 
@@ -29,7 +29,7 @@ Before moving forward, the Tech Design must be signed by both parties. A Tech De
 
 Find the template here: [Tech Design](https://defi-wonderland.notion.site/tech-design-template?pvs=4)
 
-## Development 👩‍💻
+## Development 👩‍💻 
 
 The Wonderland development team is ready and eager to hit the ground running. Throughout the process, we stay in ongoing contact with our partners to ensure everything is on track and to share our progress along the way.
 
@@ -37,7 +37,7 @@ All our partners have a front-row seat to the action through a real-time view of
 
 We strive to follow strict [code quality and style guidelines](/development/solidity/coding-style.md) while accommodating our partners’ preferred coding style to the best of our capacity. We will also contribute suggestions for code-base improvements, even if they exceed the project’s defined scope.
 
-- **More than 100% test coverage:** All agreed test suites from the tech design must be completed. Sometimes, 100% coverage isn’t enough, so we include fuzzing, E2E edge cases, and invariant tests. Here’s an example: <https://github.com/allo-protocol/allo-v2/tree/v2.1/test>
+- **More than 100% test coverage:** All agreed test suites from the tech design must be completed. Sometimes, 100% coverage isn’t enough, so we include fuzzing, E2E edge cases, and invariant tests. Here’s an example: https://github.com/allo-protocol/allo-v2/tree/v2.1/test
 - **Automated alerts & monitoring dashboards:** Every metric outlined in the tech design is tracked via a dashboard, for example, [Dune](https://dune.com/defi_wonderland/mev-bots) or [Grafana](https://snapshots.raintank.io/dashboard/snapshot/pdIYOBrhqixu0lpidVXH4dsEF1iwclMO?orgId=2). We’ll help set up any required infrastructure if needed, and alerts will be configured to speed up issue response times.
 - **Code standards:** We use [custom Solhint rules](https://github.com/solhint-community/solhint-community) to ensure consistent code quality and accurate reviews. The code must comply with the standard linting and code-quality rules in the tech design.
 - **Deployment scripts:** Automated deployment scripts ensure precise and reliable deployments to all required networks.
@@ -45,16 +45,16 @@ We strive to follow strict [code quality and style guidelines](/development/sol
 
 **Completion requirements: Before moving forward, the latest revision of the code must be approved by our partner.**
 
-## Advanced Testing Campaign 🧪
+## Advanced Testing Campaign 🧪 
 
 As mentioned before, we take our work seriously. Testing at Wonderland is a continuous process that begins before the first line of code is written and extends throughout the entire development lifecycle. Our testing framework reflects years of experience in securing infrastructure.
 
 During development, each Solidity developer is responsible for writing unit and integration tests. These tests aim to cover all major branches and paths of the logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on network forks to replicate real-world behavior. This _QA phase_ ensures continuous monitoring and improvement of the protocol as it evolves.
 
-Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, using formal verification methods and advanced fuzzing using Forge. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios, finalizing the testing process before the protocol moves into production.
+Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios, finalizing the testing process before the protocol moves into production.
 For further reading on how we do testing, see [Testing Campaign Processes](/testing/campaign-processes.md) and [Unit and Integration Testing](/testing/unit-integration.md).
 
-## Internal Reviews 🔍
+## Internal Reviews 🔍 
 
 Millions of dollars rely on the security of on-chain code, and history proves that even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritise security by having developers adopt a “break it” mentality in internal reviews, so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps _lazy_ code or testing from slipping through.
 
@@ -64,7 +64,7 @@ For complete details, refer to [Internal Reviews](/security/internal-reviews.md)
 
 Every fix is checked by the testing and security team.
 
-## QA 👀
+## QA 👀 
 
 Quality is a shared responsibility among all team members, but we have a dedicated QA team because testing independence is important to ensure an unbiased evaluation of the software to be delivered.
 
@@ -78,9 +78,9 @@ We apply:
 - Out-of-the-box thinking to go beyond basic functionality checks and contribute to creating robust, user-friendly, and high-quality dApps.
 - User perspective to test dApps as end-users would, identifying areas where the user experience can be enhanced.
 
-## Emergency Response 🚨
+## Emergency Response 🚨 
 
-The Emergency Plan provides a step-by-step guide for handling emergencies (e.g., exploits, active hacks). Partners can immediately report an incident by using the form available on their Partner page on our Notion. The plan also includes a ready-to-use Discord template —<https://discord.new/aPnYUdJM6mkc> or <https://discord.new/CkADqy5aWsAH—> for quickly creating a **War Room** where trusted members can coordinate actions in real time.
+The Emergency Plan provides a step-by-step guide for handling emergencies (e.g., exploits, active hacks). Partners can immediately report an incident by using the form available on their Partner page on our Notion. The plan also includes a ready-to-use Discord template —https://discord.new/aPnYUdJM6mkc or https://discord.new/CkADqy5aWsAH— for quickly creating a **War Room** where trusted members can coordinate actions in real time.
 
 Once the War Room is set up, a checklist ensures every critical step is covered:
 
