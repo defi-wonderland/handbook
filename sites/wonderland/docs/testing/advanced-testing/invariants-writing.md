@@ -3,6 +3,7 @@
 We take an opiniated approach of having targeted fuzzing campaign and formal verification. To maximize the efficiency (ie benefit/cost), we put a bigger emphasis on *what* we test than on *how* we do it - finding and formalizing the most important invariants being a key objective to do so.
 
 We define *good* invariant as:
+
 - Informative: cover a behaviour not or only partially covered by existing tests (unit or integration) - they bring new information (for instance, an invariant testing if `require(sender == owner)` reverts when the sender is not the owner brings no new information compared to an unit test).
 - Realistic: the pre-condition must be something which is expected or at least achievable without breaking, for instance, EVM invariants with cheatcodes.
 
@@ -11,6 +12,7 @@ To find such, we start by establishing a protocol accounting (assets, liabilitie
 ## Establish protocol accounting
 
 We’ll use the following example throughout this doc:
+
 - WonderPump is a novel ICO protocol
 - It has a single contract, where Grifters can provide a type of tokens and users can send ETH to get it, following a pricing function.
 - The protocol is getting a fee on each sale, in ETH, which can be redeemed via a dedicated function.
@@ -33,8 +35,8 @@ And the related operations:
 
 - A deposit from grifter should increase token deposit and token to sell (ACC-2)
 - A sale should: (ACC-3)
-    - Lower token deposited and token to sell
-    - Increase eth for grifter, for the protocol fee and the eth in balance
+  - Lower token deposited and token to sell
+  - Increase eth for grifter, for the protocol fee and the eth in balance
 - A fee withdrawn should lower eth protocol fee and eth in balance (ACC-4)
 - Grifter withdraw should lower eth for grifter and eth in balance (ACC-5)
 
@@ -58,9 +60,9 @@ One noticeable exception are invariants around arithmetic (see infra).
 - Non-reversion invariants: after writing handler and properties around a call, it is often useful to add post-condition on the revert case (ie make sure every revert is explained)
 - Protocol shutdown: With the accounting invariants in place, one powerful way to test them is to have a shutdown mechanism, which will unwind the whole protocol (pausing, emptying balances, etc), making sure no funds are stuck and all parties are made whole.
 
-### Arithmetic:
+### Arithmetic
 
-Having tightly coupled invariant is, quite obviously, useless. One way to test complex arithmetic is to challenge its mathematical properties instead. These invariants should be reserved when the implementation is not straightforward (assembly or huge complexity).
+Having tightly coupled invariant is, quite obviously, useless (ie pasting the implementation in a test). One way to test complex arithmetic is to challenge its mathematical properties instead. These invariants should be reserved when the implementation is not straightforward (assembly or huge complexity).
 
 example: x*y
 

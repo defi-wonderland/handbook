@@ -2,16 +2,16 @@
 
 This part of the guide covers our best practices for more advanced testing techniques, which are done at the end of the development cycle only (as they're more time and caffeine-consuming) and test the system as a whole.
 
-We add more formalized testing suite following 2 different approaches:
+We add more formalized testing suite one or both of the following approaches:
 
 - stateful property-based fuzzing using Forge
 - stateless symbolic execution using Halmos or Kontrol
 
-Having these 2 extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in *every possible* case (usually statelessly).
+Having these extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in *every possible* case (usually statelessly). In practice, most of our invariants are tested via fuzzing.
 
 # Properties & Invariants
 
-During the design phase of a new project, we start collecting the protocol properties and invariants (either from the new design or pre-existing specification/requirements). At this stage of the development, this means having a bullet point list describing what and how the project will behave. It includes invariants, that are always true, or some more specific scenarios, called properties (the distinction being pedantic only, both terms are used interchangeably).
+During the design phase of a new project, we start collecting the protocol properties and invariants (either from the new design or pre-existing specification/requirements). At this stage of the development, this means having a bullet point list describing what and how the project will behave. It includes invariants, characteristics which are always true, or some more specific scenarios, called properties (the distinction being pedantic only, both terms are used interchangeably).
 
 In short, think of how the protocol would be described as a whole, from a helicopter point of view. With the list of properties, someone should be able to create a system which will behave in the same way as the one tested, without knowing the implementation details.
 
@@ -71,9 +71,9 @@ function mul(uint256 a, uint256 b) external returns(uint256) {
 
 Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps *a lot*. Here are some take-aways from previous project, which *might* help:
 
-- Start by reviewing the properties and invariants. See the doc above on how to find them, keeping in mind that **"having only a few selected critical (and well tested) invariants is therefore better than a list of 50 highly complex, tightly coupled to the implementation, ones"**.
+- Start by reviewing the properties and invariants. See the doc above on how to find them, keeping in mind that **"having only a few selected critical (and well tested) invariants is better than a list of 50 highly complex, poorly defined or understandable, ones"**.
 - Setup for fuzzing or formal verification can be taken from the integration tests - rather as a template than blindly pasting them, as to avoid inheriting any complexity debt coming from setting up a fork for instance.
-- We tend to start from one given path (ie "how to test the first invariant" for instance), including handlers to reach it, then incrementally add to cover other (instead of, for instance, adding handlers for every functions and deal with the complexity later).
+- We tend to start from one given path (ie "how to test the first invariant" for instance), including handlers to cover it, then incrementally add handlers to cover other paths (instead of, for instance, adding handlers for every functions and deal with the complexity later).
 - Test functions are easier to grasp when expressed in Hoare logic (precondition, including pranks; action, as a single call; postcondition). In the rare case where multiple actions are conducted within a single test function, this is expressed as multiple Hoare logic blocks.
 
 ```solidity
@@ -127,7 +127,7 @@ function testOne() public {
 
 ## Reporting found issues
 
-Sometimes when testing, you will find bugs and hopefully they won’t be Medusa and Kontrol bugs but actual errors in the project’s code. The first step in handling the issue should always be notifying the dev team and validating the finding. Then depending on the validity and fixability of the issue we have multiple choices.
+Sometimes when testing, you will find bugs and hopefully they won’t be Forge and Kontrol bugs but actual errors in the project’s code. The first step in handling the issue should always be notifying the dev team and validating the finding. Then depending on the validity and fixability of the issue we have multiple choices.
 
 ### Invalid finding
 
@@ -135,19 +135,12 @@ If the finding could not be confirmed by the dev team, we should look for errors
 
 ### Valid finding
 
-If the finding is confirmed, the first step is always gathering the details and filling in the report under the project’s internal testing page. During the process, you will assign the finding a unique ID.
+If the finding is confirmed, the first step is always gathering the details and filling in the report under the project’s internal testing page. During the process, you will assign the finding a unique ID and severity.
 
-If the issue can be fixed, we should convert the Medusa / Kontrol test into a simple unit or integration test, and specify the issue ID in the test’s natspec.
+If the issue can be fixed, we should convert the Forge / Kontrol test into a simple unit or integration test, and specify the issue ID in the test’s natspec.
 
 If the issue won’t be fixed, we still need a way to reproduce it. To simplify this process, we have settled on the following steps:
 
-- If it doesn’t exist yet, create a `PropertiesFailing` contract and inherit it in `PropertiesParent`
+- If it doesn’t exist yet, create a `PropertiesFailing` contract and inherit it in `Invariant`
 - In the failing properties contract, add a test for the found issue. Make sure to specify the issue ID in the natspec.
-- Append the test name to the `excludeFunctionSignatures` property of the Medusa config. Note that the signature should start with the fuzz contract name:
-
-    ```
-    "excludeFunctionSignatures": [
-      "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
-    ]
-    ```
-  
+- In the test setup, exclude this contract using `excludeContract(address(propertiesFailing))`
