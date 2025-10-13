@@ -10,11 +10,12 @@ We follow an inheritance pattern to standardize the creation of a new forge inva
 - `Invariant` inherits from `Setup` and contains the invariant to test (as *view functions*, notice the reverting call bubbling up pattern for this)
 - `HandlersTarget` inherits from all the handlers, with the target contract as constructor argument
 - `handlers/HandlerFoo` inherits from `HandlersTarget` and contains the handler for the foo function
+- `ExecutionPaths` inherits from `Setup` and contains regular (non-invariants) test funciton to test complete execution paths (see below)
 
 optional, mostly based on the overall complexity of the project:
 
 - `handlers/BaseHandler` contains common helper functions for the handler, or project agnostic handlers (ie `handler_warp` for instance).
-- `handlers/GhostState` contains the ghost variables and related helper functions
+- `handlers/GhostStorage` contains the ghost variables and related helper functions
 
 Here is a visual representation of the structure above.
 
@@ -46,7 +47,7 @@ Invariant is Setup {
     }
 
     function test_reproducer() public {
-        // A reproducer to debug a failing invariant
+        // A reproducer to debug a failing invariant, forge --mt test_reproducer
     }
 }
 
@@ -71,7 +72,7 @@ HandlerFoo is BaseHandler {
 }
 
 // ./test/invariants/fuzz/handlers/BaseHandler.t.sol
-BaseHandler is GhostState {
+BaseHandler is GhostStorage {
     MyContractToTest public myContractToTest;
 
     constructor(MyContractToTest _myContractToTest) {
@@ -83,8 +84,8 @@ BaseHandler is GhostState {
     }
 }
 
-// ./test/invariants/fuzz/handlers/GhostState.t.sol
-GhostState {
+// ./test/invariants/fuzz/handlers/GhostStorage.t.sol
+GhostStorage {
     uint256 public ghost_fooBar;
     bool public failedTx;
 }
