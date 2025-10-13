@@ -4,12 +4,10 @@ This part of the guide covers our best practices for more advanced testing techn
 
 We add more formalized testing suite following 2 different approaches:
 
-- stateful property-based fuzzing using Medusa
+- stateful property-based fuzzing using Forge
 - stateless symbolic execution using Halmos or Kontrol
 
-To guide our testing, we use the properties written during the design phase, updated with any change which might have happened during the implementation.
-
-Having these 2 extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in _every possible_ case (usually statelessly).
+Having these 2 extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in *every possible* case (usually statelessly).
 
 # Properties & Invariants
 
@@ -28,13 +26,13 @@ uint256 totalMinted;
 mapping(address owner => uint256 balance) balanceOf;
 
 function mint(uint256 amount) external {
-	balanceOf[msg.sender] += amount;
-	totalMinted += amount;
+ balanceOf[msg.sender] += amount;
+ totalMinted += amount;
 }
 
 function burn(uint256 amount) external {
   if(balanceOf[msg.sender] < amount) revert("minBal");
-	balanceOf[msg.sender] -= amount;
+ balanceOf[msg.sender] -= amount;
 }
 ```
 
@@ -52,9 +50,9 @@ Special cases: for math library or functions, properties can take the form of th
 
 ```solidity
 function mul(uint256 a, uint256 b) external returns(uint256) {
-		unchecked {
-			if( a*b / a != b) revert("OF");
-		}
+  unchecked {
+   if( a*b / a != b) revert("OF");
+  }
     return a * b;
 }
 ```
@@ -71,12 +69,12 @@ function mul(uint256 a, uint256 b) external returns(uint256) {
 
 ## General tricks
 
-Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps _a lot_. Here are some take-aways from previous project, which _might_ help:
+Many approaches to conduct a testing campaign can be taken and are “correct”, yet having a systematic and well-organized one helps *a lot*. Here are some take-aways from previous project, which *might* help:
 
 - Start by reviewing the properties and invariants. See the doc above on how to find them, keeping in mind that **"having only a few selected critical (and well tested) invariants is therefore better than a list of 50 highly complex, tightly coupled to the implementation, ones"**.
 - Setup for fuzzing or formal verification can be taken from the integration tests - rather as a template than blindly pasting them, as to avoid inheriting any complexity debt coming from setting up a fork for instance.
 - We tend to start from one given path (ie "how to test the first invariant" for instance), including handlers to reach it, then incrementally add to cover other (instead of, for instance, adding handlers for every functions and deal with the complexity later).
-- Test functions are easier to grasp when expressed in Hoare logic (precondition, including pranks - action, as a single call - postcondition). In the rare case where multiple actions are conducted within a single test function, this is expressed as multiple Hoare logic blocks.
+- Test functions are easier to grasp when expressed in Hoare logic (precondition, including pranks; action, as a single call; postcondition). In the rare case where multiple actions are conducted within a single test function, this is expressed as multiple Hoare logic blocks.
 
 ```solidity
 function testOne() public {
@@ -84,12 +82,12 @@ function testOne() public {
   vm.warp(123);
   address caller = address(123);
   deal(caller, 1 ether);
-
+  
   vm.prank(caller);
-
+  
   // Action
   target.deposit{value: 1 ether}();
-
+  
   // Post-condition
   assert(target.balance(caller), 1 ether);
 }
@@ -100,29 +98,32 @@ function testOne() public {
   - Make sure both sides of a revert are covered with try - assert - catch - assert.
   - Mutate the property itself or the target code. See [Mutation testing](../mutation-testing.md) for more details
 
-:::warning
+    <aside>
+    ⚠️
 
-Unlike what you could be used to in regular unit or integration tests, only assert with a condition equals to false will make a test revert - without the previous checks, it is therefore easy to take a passing test for granted, especially as most contracts are using require and revert (in other words, if one doesn't pay attention, one can easily end up testing nothing).
+    Unlike typical unit or integration tests, default behaviour for invariant tests is to only fail when an assertion evaluates to false. Without explicit pre-checks, a test can appear to pass even though nothing meaningful was verified—especially since most contracts use `require` and `revert`. If you’re not careful, you can end up testing nothing.
 
-```solidity
-function testOne() public {
-  require(false);
-}
+    ```solidity
+    function testOne() public {
+      require(false); // this will *not* make the test fail
+    }
+    
+    function testTwo public { 
+      assert(false); // this will
+    }
+    ```
 
-function testTwo public {
-  assert(false);
-}
-```
+    </aside>
 
-:::
-
-- Any state which can be accessed or reconstructed from the target should be (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
+- Any state which can be accessed or reconstructed from the target should be accessed this way (even if some needs to be recomputed, for instance reducing individual balances to a cumulative sum). If there is no way to do so, then a ghost variable should be used (either in the relevant handler, or, usually easier, in a “BaseHandler” contract, with relevant helper functions).
 - Always start with validating the initial setup and sanity checks as “property-0”. For instance, address of the deployed contract ≠ 0, calling some constant variables, etc.
-  ![Fuzzing sanity check](/img/fuzz-sanity-check.jpg)
+
+    ![Fuzzing sanity check](/img/fuzz-sanity-check.png)
+
 - Function names:
-  - `setup_*` functions shouldn’t have assertion, they’re used to set some stuff up, in Medusa, with fuzzed args as constructor cannot have args, same for handlers.
-  - `property_*` functions are targets in assert mode
-  - `prove_*` is the default prefix for Kontrol, `check_*` is the equivalent for Halmos
+  - `setUp()` this is the same function as for regular tests, and is executed before each invariant run
+  - `invariant_*` this is the function which contains the invariant to test
+  _ `handler_*` this is where we implement handlers around contract calls
 
 ## Reporting found issues
 
@@ -143,8 +144,10 @@ If the issue won’t be fixed, we still need a way to reproduce it. To simplify 
 - If it doesn’t exist yet, create a `PropertiesFailing` contract and inherit it in `PropertiesParent`
 - In the failing properties contract, add a test for the found issue. Make sure to specify the issue ID in the natspec.
 - Append the test name to the `excludeFunctionSignatures` property of the Medusa config. Note that the signature should start with the fuzz contract name:
-  ```
-  "excludeFunctionSignatures": [
-    "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
-  ]
-  ```
+
+    ```
+    "excludeFunctionSignatures": [
+      "FuzzTest.property_givenDepositsIsGreaterThanZero_totalWeights_isNotZero()"
+    ]
+    ```
+  
