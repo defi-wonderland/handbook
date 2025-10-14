@@ -66,7 +66,7 @@ function myFancyTest(uint256 fuzzedVariable) public {
 
 ### Number of fuzz runs
 
-The whole point of fuzzing parameters in an unit test is to cover a range of values, lowering the number of runs goes in the exact opposite direction. This can be a codebase-threatening issue as fuzzed unit tests are written differently than their non-fuzzed equivalent: we all assume boundary values (0, 1, max, max - 1, etc.) are being handled by the fuzzer, and don’t write hedge cases tests anymore. This doesn’t end up well if the fuzzer does not have enough runs to explore these (cf the mod 10 example at the bottom of the [onboarding documents](https://www.notion.so/1739a4c092c7801c9b54d0aa53471ee9?pvs=21))
+The whole point of fuzzing parameters in an unit test is to cover a range of values, lowering the number of runs goes in the exact opposite direction. This can be a codebase-threatening issue as fuzzed unit tests are written differently than their non-fuzzed equivalent: we all assume boundary values (0, 1, max, max - 1, etc.) are being handled by the fuzzer, and don't write hedge cases tests anymore. This doesn't end up well if the fuzzer does not have enough runs to explore these (cf the mod 10 example at the bottom of the [unit and integration testing](unit-integration.md#fuzzed-variables))
 
 ```solidity
 // Good
@@ -156,7 +156,7 @@ function testXXX(...) public {
 
 ### Concurrent fuzzed values
 
-Having “giga-polydic” functions is a blockchain paradigm thing. While we can’t really force monadism, trying to fuzz every parameter at once might lead to subefficient behavior. For instance, trying to fuzz every parameter in `function gigadic(uint,uint,uint,uint,myStruct1,address)` might result in not-so-great efficiency. Instead, focus on the parameters relevant to the branch tested.
+Having “giga-polyadic” functions is a blockchain paradigm thing. While we can’t really force monadism, trying to fuzz every parameter at once might lead to subefficient behavior. For instance, trying to fuzz every parameter in `function gigadic(uint,uint,uint,uint,myStruct1,address)` might result in not-so-great efficiency. Instead, focus on the parameters relevant to the branch tested.
 
 ```solidity
 // Good
