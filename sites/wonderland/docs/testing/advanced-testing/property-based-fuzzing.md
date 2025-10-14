@@ -1,10 +1,10 @@
 # Property-based fuzzing
 
-We use Forge's Foundry for our fuzzing campaigns, using coverage guidance and corpus persistence (require forge v1.3.0 or higher).
+We use Forge's Foundry for our fuzzing campaigns, using coverage guidance and corpus persistence (requires forge v1.3.0 or higher and the toml configuration described below).
 
 ## File structure
 
-We follow an inheritance pattern to standardize the creation of a new forge invariant testing suite, even tho if some contracts are empty when not needed. It includes:
+We follow an inheritance pattern to standardize the creation of a new forge invariant testing suite, even if some contracts are empty when not needed. It includes:
 
 - `Setup` deploys the protocol, the handlers, initialize what's needed, *set the target contract and/or selectors*
 - `Invariant` inherits from `Setup` and contains the invariant to test (as *view functions*, notice the reverting call bubbling up pattern for this)
@@ -94,7 +94,7 @@ GhostStorage {
 
 ## Contracts and functions
 
-For forge to properly pick the invariant to test up, they need the `invariant_` prefix. Handler prefix are used for clarity (they *need* to be targeted in the Setup's `targetSelectors`), same as for ghost variables.
+For forge to properly pick up the invariant to test, they need the `invariant_` prefix. Handler prefixes are used for clarity (they *need* to be targeted in the Setup's `targetSelectors`, irrespectively), same as for ghost variables (`ghost_`).
 
 ## Coverage estimation and execution paths
 
@@ -102,7 +102,7 @@ Having view functions to check invariant allows to circumvert one of Forge invar
 
 `ExecutionPaths` inherits from `Setup` (ie inherits all the handlers) and is then used to implement regular forge test (`test_`), using only handlers. These tests are recreating a known execution path, and have assertion along the way, to insure the handlers are all working.
 
-Example taken from the Canon Guard contract:
+Example taken from the Canon Guard contract (this test is run using `forge test --mt test_preApprovedPath_SimpleActions`, demonstrating our handlers are allowing us to walk the happy path):
 
 ```solidity
   /// @notice Test pre-approved transaction with short delay
@@ -138,9 +138,9 @@ Example taken from the Canon Guard contract:
 
 This tests allow to quickly debug handlers when writing them, as well as create lcov files.
 
-## Toml configutaiton
+## foundry.toml configuration
 
-Invariants have their own profile in foundry.toml, a few important (non-default) values needs to be set to fully leverage Forge. `corpus_dir` not only will set the directory where the corpus will be saved, but also will activate coverage guidance - it should always be set. `show_solidity` is useful to quickly copy-paste the failing sequence in a reproducing test (in the `Invariant` contract, as a `test_` function).
+Invariants have their own profile in foundry.toml, a few important (non-default) values needs to be set to fully leverage Forge invariant tests: `corpus_dir` not only will set the directory where the corpus will be saved, but also will activate coverage guidance - it *MUST* always be set to a value. `show_solidity` is useful to quickly copy-paste the failing sequence in a reproducing test (in the `Invariant` contract, as a `test_` function).
 
 ```toml
 [invariant]
@@ -178,9 +178,11 @@ contract HandlerCall is HandlerABC, HandlerDEF {
 }
 ```
 
-- Regularly review the execution paths contract to assess if you're testing what should be tested
+Use case of such skewing is, for instance, adding emphasis on the "classic" execution path, while not entirely discarding others (eg a protocol having an intended fee, but we still want to cover the 0% fee cases).
 
-- if there is an external dependency with a hardcoded address, you can use Forge confort of vm cheatcodes and etch it.
+- Regularly review the execution paths contract to assess if you're testing what should be tested.
+
+- if there is an external dependency with a hardcoded address, you can use Forge comfort of vm cheatcodes and etch it - this includes predeploys.
 
 - When reviewing a PR for a fuzzing campaign, it’s crucial to run the fuzzer for a few minutes and check for coverage gaps in the assertion tests. It’s otherwise too easy to have tests silently skip most of the interesting stuff due to early reverts.
 
@@ -190,6 +192,8 @@ Having a good *and tidy* properties and invariant test suite is nice, but would 
 
 ## Additional Resources
 
-[Building secure contracts](https://github.com/crytic/building-secure-contracts/tree/master/program-analysis/echidna), a Echidna tutorial.
+[Foundry book: invariant tests](https://getfoundry.sh/forge/advanced-testing/invariant-testing/#overview).
 
-[Solutions](https://github.com/crytic/echidna-streaming-series/tree/main) from the Trail of Bits youtube streams.
+[Solutions](https://github.com/crytic/echidna-streaming-series/tree/main) from the Trail of Bits youtube streams, good for references but using a different tool.
+
+[TrailOfBits reusable properties for Echidna](https://blog.trailofbits.com/2023/02/27/reusable-properties-ethereum-contracts-echidna/)

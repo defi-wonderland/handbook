@@ -2,10 +2,10 @@
 
 This part of the guide covers our best practices for more advanced testing techniques, which are done at the end of the development cycle only (as they're more time and caffeine-consuming) and test the system as a whole.
 
-We add more formalized testing suite one or both of the following approaches:
+We add more advanced testing techniques with one or both of the following approaches:
 
-- stateful property-based fuzzing using Forge
-- stateless symbolic execution using Halmos or Kontrol
+- [stateful property-based fuzzing using Forge](./property-based-fuzzing.md)
+- [stateless symbolic execution using Halmos or Kontrol](./formal-verification.md)
 
 Having these extra-steps consolidates the testing framework built around our protocol: unit tests are studying how a given part is working, integration is ensuring how multiple parts are working together during defined cases, property-based fuzzing will now study how the whole protocol is working in a big number of cases with multiple interactions (stateful) and formal verification will study how the protocol is working in *every possible* case (usually statelessly). In practice, most of our invariants are tested via fuzzing.
 
