@@ -18,7 +18,7 @@ Some properties are that they are:
 
 - **Usually one-to-one**: Each note typically has exactly one nullifier when spent, although there are valid patterns (e.g. delegated actions) where a single note may produce multiple nullifiers.
 - **Non-malleable**: Cannot be modified without invalidating the proof.
-- **Unlinkable**: Does not reveal which note or who spent it.
+- **Unlinkable**: Does not reveal which note was spent or who spent it.
 - **Deterministic and unique**: Prevents the reuse of a note within its specific context.
 
 A canonical computation is:  
@@ -79,6 +79,7 @@ Key properties:
 
 - **Append-only**: Nullifiers are only ever added.
 - **Public visibility**: Nullifiers are revealed and stored on-chain.
+<!-- TODO: this math text shows duplicated. fix sometime -->
 - **Efficient verification**: Tree structure enables $O(\log n)$ inclusion checks.
 - **Privacy-preserving**: Nullifiers reveal neither the original note nor the spender.
 
