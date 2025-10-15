@@ -116,7 +116,7 @@ let message_hash = compute_authwit_message_hash_from_call(
 ```
 
 2) Set authorization and immediately consume it in the call
-```noir
+```rust
 set_authorized(&mut context, message_hash, true);
 TokenBridge::at(token_bridge)
   .exit_to_l1_public(storage.portal_address.read(), amount, storage.portal_address.read(), authwit_nonce)
