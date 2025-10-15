@@ -103,7 +103,7 @@ Notes
 ### Example: Public helper computes the same message hash and consumes the approval
 
 1) Compute the same message hash the wallet/account will sign
-```noir
+```rust
 let selector = FunctionSelector::from_signature("burn_public((Field),u128,Field)");
 let message_hash = compute_authwit_message_hash_from_call(
   token_bridge,
