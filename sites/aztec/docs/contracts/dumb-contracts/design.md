@@ -66,6 +66,7 @@ Token::at(input_asset)
 Why this design works
 - The app never verifies signatures. `assert_current_call_valid_authwit_public` computes the same inner hash the wallet/account approved (using `msg_sender`, selector and `args_hash`) and checks it in the canonical auth registry. It only runs when a third party is submitting on behalf of `sender`.
 - `transfer_in_public` is a public operation that requires the token’s own approval logic (often another authwit) to succeed; funds visibly move to this contract before any further action.
+
 Invariants
 - If `sender == msg_sender`, no extra approval is needed (self‑submit). Otherwise, public authwit is mandatory.
 - Never mutate app state before the transfer succeeds, or you risk partial effects.
