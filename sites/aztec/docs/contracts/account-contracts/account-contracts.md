@@ -70,7 +70,7 @@ Aztec addresses are not random; they are commitments to both code and keys. This
 7) Final address
    - `address = x(AddressPublicKey)`
 
-```solidity
+```rust
 contract_class_id           = poseidon2(artifact_hash, fn_tree_root, public_bytecode_commitment)
 salted_initialization_hash  = poseidon2(deployer_address, salt, constructor_hash)
 partial_address             = poseidon2(contract_class_id, salted_initialization_hash)
