@@ -88,7 +88,7 @@ fn swap_private(/* ... */) {
 ```
 
 2) Enqueue the minimal public step to exit to L1
-```noir
+```rust
   Uniswap::at(context.this_address())
     ._approve_bridge_and_exit_input_asset_to_L1(input_asset, input_asset_bridge, input_amount)
     .enqueue(&mut context);
