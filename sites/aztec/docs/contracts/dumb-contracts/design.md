@@ -50,7 +50,7 @@ fn swap_public(sender: AztecAddress, /* ... */) {
 ```
 
 2) If someone else submits, require a public authwit from `sender`
-```noir
+```rust
 if (!sender.eq(context.msg_sender())) {
   assert_current_call_valid_authwit_public(&mut context, sender);
 }
