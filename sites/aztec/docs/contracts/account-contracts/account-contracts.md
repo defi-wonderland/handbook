@@ -128,9 +128,9 @@ Testing. Accept valid authwits and reject mismatches across chain/account/select
 
 ## References
 
-- Keys: https://github.com/AztecProtocol/aztec-packages/blob/master/docs/docs/aztec/concepts/accounts/keys.md
-- Account helper: https://github.com/AztecProtocol/aztec-packages/blob/master/noir-projects/aztec-nr/aztec/src/authwit/account.nr
-- Contract creation: https://github.com/AztecProtocol/aztec-packages/blob/master/docs/docs/aztec/smart_contracts/contract_creation.md
+- Keys: [concepts/accounts/keys.md](https://github.com/AztecProtocol/aztec-packages/blob/master/docs/docs/aztec/concepts/accounts/keys.md)
+- Account helper: [aztec-nr/aztec/src/authwit/account.nr](https://github.com/AztecProtocol/aztec-packages/blob/master/noir-projects/aztec-nr/aztec/src/authwit/account.nr)
+- Contract creation: [smart_contracts/contract_creation.md](https://github.com/AztecProtocol/aztec-packages/blob/master/docs/docs/aztec/smart_contracts/contract_creation.md)
 
 ### Library references (source)
 
