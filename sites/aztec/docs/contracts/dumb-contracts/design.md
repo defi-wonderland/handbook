@@ -44,7 +44,7 @@ Aztec apps have two execution domains:
 Source: `noir-contracts/contracts/app/uniswap_contract/src/main.nr`
 
 1) Public entrypoint with explicit `sender`
-```noir
+```rust
 #[public]
 fn swap_public(sender: AztecAddress, /* ... */) {
 ```
