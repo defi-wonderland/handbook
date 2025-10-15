@@ -129,6 +129,7 @@ What each field means
 - consumer = the contract that must accept the action (here, the token)
 - selector = the exact function to be authorized
 - args = stable encoding of who spends what and under which nonce
+
 Why include chain id and version
 - They prevent cross‑chain or cross‑fork replay. See aztec‑nr `authwit` helpers for the full derivation.
 Optimization note
