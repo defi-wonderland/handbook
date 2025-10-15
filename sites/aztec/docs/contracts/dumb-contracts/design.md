@@ -132,6 +132,7 @@ What each field means
 
 Why include chain id and version
 - They prevent cross‑chain or cross‑fork replay. See aztec‑nr `authwit` helpers for the full derivation.
+
 Optimization note
 - If approve and consume happen in the same tx, public state updates are squashed in the final diff, so the set/consume cost is minimized.
 
