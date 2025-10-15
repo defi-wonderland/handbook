@@ -57,7 +57,7 @@ if (!sender.eq(context.msg_sender())) {
 ```
 
 3) Move funds in (public) before continuing
-```noir
+```rust
 Token::at(input_asset)
   .transfer_in_public(sender, context.this_address(), input_amount, nonce_for_transfer_approval)
   .call(&mut context);
