@@ -16,7 +16,7 @@ On Aztec, applications focus on state transitions and domain logic. Identity, au
 ## What belongs in the app
 
 - Domain state and invariants (balances, positions, orders, etc.)
-- Private logic that consumes user secrets via PXE oracles
+- Private logic that consumes app-siloed user secrets via PXE oracles
 - Public logic that updates public state or coordinates cross‑contract effects
 - Events and selectors that make the contract easy to integrate and index
 
