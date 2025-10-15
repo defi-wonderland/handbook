@@ -9,7 +9,7 @@ Account contracts are the user’s control plane. They own identity and policy: 
 
 ## What the account owns
 
-An account owns identity and policy. It verifies an authentication witness for a specific, domain‑separated message; applies its nonce policy to prevent replay and enforce ordering; and decides who pays fees and under what rules. Every request therefore flows through the account’s rules: the fee payload runs first, the app payload runs second, and if any invariant fails the whole request reverts.
+An account owns identity and policy. It verifies an authentication witness for a specific, domain‑separated message; applies its nonce policy to prevent replay and enforce ordering; and decides who pays fees and under what rules. Every request therefore flows through the account’s rules: the fee payload runs first, the app payload runs second, and if any invariant fails the request cannot be proven.
 
 ## From user intent to execution
 
