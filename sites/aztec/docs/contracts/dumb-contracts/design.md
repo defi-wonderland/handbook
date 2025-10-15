@@ -78,7 +78,7 @@ Pitfalls
 ### Example: Private swap validates secrets, then enqueues minimal public work
 
 1) Private entrypoint validates configs and moves funds to public
-```noir
+```rust
 #[private]
 fn swap_private(/* ... */) {
   // validate bridge config privately, then
