@@ -1,0 +1,30 @@
+/* Custom styles for your documentation site */
+
+/* Shape, Icons, etc customization */
+:root {
+  --wonderland-accent: #2660F5;
+}
+
+/* Center navbar chip vertically */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Add Aerodrome swirl logo to the left of the chip */
+.navbar__brand::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url("/img/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 12px;
+}
