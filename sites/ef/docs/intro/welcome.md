@@ -6,7 +6,7 @@ sidebar_label: Welcome
 
 # Welcome
 
-This is youreeeeeeeeeeeeee documentation site. Start by editing this page and adding your content.
+This is your documentation site. Start by editing this page and adding your content.
 
 ## Quick Start
 

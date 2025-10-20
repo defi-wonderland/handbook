@@ -20,7 +20,7 @@ At its core, a private key is just a very large, unpredictable number. If an adv
 
 The essential problem is that computers are deterministic machines and are exceptionally bad at creating genuine randomness. So where do we get the initial spark of unpredictability, the **entropy**, needed to create a secure key?
 
-A wallet application must look outside its own code and draw from a chaotic source. *Hardware wallets* use a dedicated chip to generate randomness from unpredictable physical phenomena like thermal noise or microscopic variations in silicon. This is considered the gold standard for entropy. Meanwhile *software wallets* do not have dedicated hardware for this task. They rely on the operating system to provide randomness  from unpredictable sources like mouse movements, keyboard input timing or network packet arrivals.
+A wallet application must look outside its own code and draw from a chaotic source. *Hardware wallets* use a [dedicated chip](https://donjon.ledger.com/threat-model/os-random-number-generation/) to generate randomness from unpredictable physical phenomena like thermal noise or microscopic variations in [silicon](https://www.mdpi.com/1099-4300/24/11/1566). This is considered the gold standard for entropy. Meanwhile *software wallets* do not have dedicated hardware for this task. They rely on the operating system to [provide randomness](https://support.metamask.io/es/more-web3/learn/how-does-metamask-generate-your-keys/)  from unpredictable sources like mouse movements, keyboard input timing or network packet arrivals.
 
 :::warning
 If this step is flawed, if the entropy source is predictable, then everything that follows is insecure.
