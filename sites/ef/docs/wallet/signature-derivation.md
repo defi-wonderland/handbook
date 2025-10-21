@@ -10,7 +10,7 @@ Of course, this is not the first attempt to solve this problem. It is worth look
 
 In contrast, our design keeps the derived key inside the wallet, uses a structured and explicit EIP-712 signature ceremony, and employs an unforgeable address hash to block phishing attacks. It aims to solve the key storage problem without introducing the vulnerabilities present in other schemes.
 
-This post will walk through the mechanics of this signature based protocol, which is designed to be fully implemented in software. As the diagram visualizes, we can explore it as a four step process flowing from the user's master seed to a final, application ready secret.
+This chapter will walk through the mechanics of this signature based protocol, which is designed to be fully implemented in software. As the diagram visualizes, we can explore it as a four step process flowing from the user's master seed to a final, application ready secret.
 
 - `(Step 1)` We derive a special purpose, undiscoverable key inside the wallet.
 - `(Step 2)` We use its address to construct an unforgeable EIP-712 challenge.
