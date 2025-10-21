@@ -60,7 +60,7 @@ The wallet's own SDK, however, operating as a privileged actor, is not bound by 
 
 ### Step 2, building the EIP-712 challenge
 
-The next step is to prove control over the master seed by signing a message. Critically, we use the `Privileged-Access Address` from Step 1 to construct an unforgeable challenge. We do this by creating an EIP-712 payload that includes the hash of this address `keccak256(Privileged-Access Address)`.
+The next step is to prove control over the master seed by signing a message. We construct an unforgeable challenge by including an `addressHash` within the EIP-712 payload. This `addressHash` is **the core of the protocol's phishing defense**, it's the `keccak256` hash of the `Privileged-Access Address` from Step 1. Because a phishing site cannot generate this value, any signing request it crafts will be invalid, making the challenge unique to the user's master seed and secure against forgery.
 
 EIP-712 is the ideal tool for this because it ensures signatures can be **deterministically replicated** (crucial for recovery), provides strong **cross context replay resistance** (prevents signatures from being used elsewhere) and enables **informed user consent** through a human readable format.
 
