@@ -181,6 +181,15 @@ This two step KDF ensures that each application receives a unique, cryptographic
   return bytesToHex(appSecret);
 ```
 
+The  `rootSecret` is not limited to generating only one secret per app. A dApp can call the HKDF **Expand** step multiple times with the same `rootSecret` but different info strings to efficiently derive any number of purpose specific keys.
+
+For example, an application like Privacy Pools could generate a single  `rootSecret` and then immediately derive multiple secrets needed for a user action:
+
+```tsx
+ nullifierKey = HKDF-Expand(IKM=rootSecret, info="pp-nullifier-v2", ...)
+ revocationKey = HKDF-Expand(IKM=rootSecret, info="pp-revocation-v2", ...)
+ noteSecret = HKDF-Expand(IKM=rootSecret, info="pp-note-v2", ...)
+```
 ### Conclusion
 
 This signature based derivation protocol is a practical, secure, and immediately deployable solution to the seed fatigue problem that plagues the privacy ecosystem. By cleverly combining existing, well supported standards like BIP-44, EIP-712, and RFC 6979, we can construct a phishing resistant system that works with the wallets millions of people already use.
