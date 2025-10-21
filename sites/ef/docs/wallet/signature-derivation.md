@@ -31,7 +31,7 @@ Let's unpack how each of these steps works and why this specific construction is
 
 ### The mechanism, a four step protocol
 
-Before diving in, it is helpful to define a few key terms. The user's **Master Seed** is the primary secret (typically a BIP-39 mnemonic) that must never leave the wallet. From this, we use a **Dedicated Path** (a unique BIP-44 path) to derive a private key whose public address we will call the **Privileged-Access Address**. The core of the protocol involves transforming entropy from this address and a signature into a final **`appSecret`** for the application.
+Before diving in, it is helpful to define a few key terms. The user's **Master Seed** is the primary secret (typically a BIP-39 mnemonic) that must never leave the wallet. From this, we use a **Dedicated Path** (a unique BIP-44 path) to derive a private key whose public address we will call the **Privileged-Access Address**. The core of the protocol involves transforming cryptographic values from this address and a signature into a final **`appSecret`** for the application.
 
 ### Step 1, deriving the undiscoverable address
 
