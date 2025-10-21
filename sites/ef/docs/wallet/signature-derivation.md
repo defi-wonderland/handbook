@@ -8,7 +8,15 @@ Of course, this is not the first attempt to solve this problem. It is worth look
 
 **EIP-1775 ("App Keys")** targets web dApps by deriving a key via `keccak256(parentPrivKey‖origin)`. This approach requires special firmware support for hashing the parent key, offers no structured EIP-712 consent prompt, and allows any script within the web origin to silently extract the derived key.
 
-In contrast, our design keeps the derived key inside the wallet, uses a structured and explicit EIP-712 signature ceremony, and employs an unforgeable address hash to block phishing attacks. It aims to solve the key storage problem without introducing the vulnerabilities present in other schemes.
+### The naive derivation problem
+
+A simple approach, such as deriving a secret from signing a fixed hash like `sign(keccak256('my_app_secret'))` suffers from several vulnerabilities:
+
+- **No informed consent**: The signing prompt is opaque. It fails to communicate the operation's purpose, asking the user to "blind sign" a hexadecimal string without context.
+- **Poor domain separation**: A signature produced for one application could potentially be replayed and used in a different application or context, as the signed message lacks a unique application identifier.
+- **Phishing risks**: Because the message is fixed and public, a phishing website can ask a user to produce the exact same signature. The phisher can then steal this signature and use it on the legitimate application to reconstruct the user's secret and compromise their account.
+
+A robust derivation protocol must therefore be designed from the ground up to prevent these failures. We design a four step mechanism to provide strong domain separation, phishing resistance, and informed consent by creating a challenge response that is not only unique to the user but also undiscoverable by a malicious actor.
 
 This chapter will walk through the mechanics of this signature based protocol, which is designed to be fully implemented in software. As the diagram visualizes, we can explore it as a four step process flowing from the user's master seed to a final, application ready secret.
 
