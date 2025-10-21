@@ -1,6 +1,13 @@
+# Hardware native derivation
+
 In our last discussion, we explored a signature based method for deriving application secrets, a beautiful workaround that allows us to solve the "seed fatigue" problem using the tools that wallets support today. The process relies on asking the user to sign a specially crafted message, this adds a multistep user flow that feels like a transaction, which can create hesitation and ambiguity for less technical users.
 
 This naturally leads us to ask, what would a solution designed from first principles look like? what if we could build directly on the most secure foundation the user possesses ? their **hardware wallet**.  Doing this requires a small modification to the device's internal software, known as **firmware**. By adding a single, specialized function at the hardware level, we can create a system that is not only simpler but also fundamentally more secure.
+
+:::info A Note on Scope
+While this document focuses on hardware wallets as the gold standard, the concept of a native `derive_app_secret` function is an architectural primitive that applies to any type of wallet. We concentrate on the hardware implementation because it is the most challenging case and offers the strongest security guarantees, but the principles discussed are broadly applicable.
+:::
+
 
 This post will specify that ideal solution a hardware native derivation function, `derive_app_secret`. We will explore its benefits, how it works under the hood, and the broader implications of this new primitive.
 
