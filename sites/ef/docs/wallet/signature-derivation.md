@@ -39,6 +39,10 @@ The protocol's phishing defense is built on a security model of **differing leve
 
 This is a security decision of web3 browsers, the `window.ethereum` Provider API (EIP-1193) that a dApp uses is intentionally minimalistic. It acts as a sandboxed, high level interface that prevents a website from performing dangerous low level actions. A dApp can ask for the user's active account (`eth_requestAccounts`) but it cannot, for example, ask the wallet to reveal an address from an arbitrary derivation path like `m/44'/N'/0'/0/0`.
 
+:::warning
+This security model relies on the integrity of the wallet software itself. If a malicious actor can convince a user to install a compromised wallet clone, this sandboxing is defeated, and the user's master seed is at risk. This is a  trust assumption in all wallet interactions.
+:::
+
 The wallet's own SDK, however, operating as a privileged actor, is not bound by this sandbox. It can use lower level libraries to communicate directly with the wallet's keystore. As seen in the diagram (Step 1), only the Wallet SDK can request the address from this dedicated path, making the resulting **Privileged-Access Address** effectively undiscoverable by a standard dApp.
 
 ```tsx
