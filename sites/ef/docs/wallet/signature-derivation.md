@@ -66,29 +66,31 @@ EIP-712 is the ideal tool for this because it ensures signatures can be **deter
 
 ```tsx
  const addressHash = keccak256(toBytes(signerAddress));
-  const eip712Payload = {
-    domain: {
-      name: "Standardized Secret Derivation",
-      version: "1",
-      verifyingContract: "0x0000000000000000000000000000000000000000"
-    },
-    message: {
-      purpose: "This signature is used to deterministically derive application-specific secrets from your master seed. It is not a transaction and will not cost any gas.",
-      addressHash: addressHash
-    },
-    primaryType: "SecretDerivation",
-    types: {
-      EIP712Domain: [
-        { name: "name", type: "string" },
-        { name: "version", type: "string" },
-        { name: "verifyingContract", type: "address" }
-      ],
-      SecretDerivation: [
-        { name: "purpose", type: "string" },
-        { name: "addressHash", type: "bytes32" }
-      ]
-    }
-  } as const;
+ const eip712Payload = {
+  domain: {
+    name: "Standardized Secret Derivation",
+    version: "1",
+    verifyingContract: "0x0000000000000000000000000000000000000000",
+    salt: keccak256(toBytes(appIdentifier))
+  },
+  message: {
+    purpose: "This signature is used to deterministically derive application-specific secrets from your master seed. It is not a transaction and will not cost any gas.",
+    addressHash: addressHash
+  },
+  primaryType: "SecretDerivation",
+  types: {
+    EIP712Domain: [
+      { name: "name", type: "string" },
+      { name: "version", type: "string" },
+      { name: "verifyingContract", type: "address" },
+      { name: "salt", type: "bytes32" }
+    ],
+    SecretDerivation: [
+      { name: "purpose", type: "string" },
+      { name: "addressHash", type: "bytes32" }
+    ]
+  }
+} as const;
 ```
 
 The security of EIP-712 comes from its use of a **domain separator**. Think of a signature as a key and the message context as a lock. The domain separator ensures that every application has a different, unique lock. A signature generated for Application A (the key) simply will not fit in the lock for Application B. This is achieved by hashing several components together into the final `typedDataHash` that gets signed.
