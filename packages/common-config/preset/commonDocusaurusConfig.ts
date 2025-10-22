@@ -21,7 +21,12 @@ const commonDocusaurusConfig: Partial<Config> = {
       crossorigin: "anonymous",
     },
   ],
-  plugins: ["docusaurus-lunr-search", "vercel-analytics", llmsTxtPlugin, acknowledgementPlugin],
+  plugins: [
+    "docusaurus-lunr-search",
+    "@docusaurus/plugin-vercel-analytics",
+    llmsTxtPlugin,
+    acknowledgementPlugin,
+  ],
   themeConfig: {
     colorMode: {
       defaultMode: "dark",
