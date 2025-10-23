@@ -30,7 +30,7 @@ blocks.
 
 ## Epoch initialization
 
-At the start of an epoch, a committee is elected pseudorandomly, along with the set of committee
+At the start of an epoch, a committee is [elected pseudorandomly](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/l1-contracts/src/core/libraries/crypto/SampleLib.sol#L33), along with the set of committee
 members that will act as proposers. Randomness is sampled from randao at a previous epoch and a
 random seed derived from it:
 
@@ -41,7 +41,7 @@ seed = uint256(keccak256(abi.encode(epoch, randao[epoch-2])))
 The sampling occurs as follows:
 - **Committee**: Draw `TARGET_COMMITTEE_SIZE` indices pseudorandomly *without replacement*. At the
   time of writing, this is done with a Fisher-Yates shuffle algorithm.
-- **Proposers**: Draw 32 indices from the committee *with replacement*.
+- [**Proposers**](https://forum.aztec.network/t/request-for-comments-aztecs-block-production-system/6155): Draw 32 indices from the committee *with replacement*.
 
 ### Validator lookahead
 
@@ -59,7 +59,8 @@ committed state and begin their own block construction and proposal.
 The proposer collects enough `Tx` objects from their view of the mempool to sequence a valid block.
 For any TX ordering, the proposer can simulate their execution *without proving* to know what state
 changes are introduced by the resulting block. After settling for one specific list of TXs, the
-proposer uses the simulation's results to construct a `BlockProposal`, consisting of:
+proposer uses the simulation's results to construct a [`BlockProposal`](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/stdlib/src/p2p/block_proposal.ts#L37)
+, consisting of:
 - `blockNumber`: the block number
 - `signature`: the proposal's signature by the proposer
 - `payload`: what the signature is over
@@ -87,10 +88,10 @@ This check currently ensures:
 
 ## Proposal attestation
 
-When a commitee member receives a block proposal, they should verify the proposal and send a
-`BlockAttestation` back to the proposer. This verification includes the P2P validity check, as well
-as checks that the proposal is consistent with the previous known state, and the proposed block
-executes correctly.
+When a commitee member receives a block proposal, they should [verify the proposal](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/validator-client/src/validator.ts#L251)
+and send a `BlockAttestation` back to the proposer. This verification includes the P2P validity
+check, as well as checks that the proposal is consistent with the previous known state, and the
+proposed block executes correctly.
 
 In detail, the consistency checks are:
 - The block previous to the proposal is known
@@ -120,7 +121,7 @@ At this point, the rollup contract will prune any epochs that failed to prove. I
 
 ### Validating the proposal
 
-The following elements are validated:
+The following elements are [validated](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/p2p/src/msg_validators/block_proposal_validator/block_proposal_validator.ts#L15):
 - Blob data: checks that the data in the blobs is the same as the data provided for the proofs.
 - Header data: does some sanity checks (e.g. the last archive root in the header must be the last
   root's archive root, timestamp must be the one corresponding to the slot) as well as checking for
@@ -135,7 +136,8 @@ invalid amount of attestation has been found in an L1 proposed block.
 
 ### Updating the pending chain
 
-The L1 contract's storage keeps track of both historical data and temporary data.
+The [L1 contract](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/validator-client/src/validator.ts#L251)
+'s storage keeps track of both historical data and temporary data.
 
 The following historical data is updated:
 - Number of pending blocks
@@ -163,14 +165,3 @@ L2->L1 messages into the outbox. The latter can only be consumed after the epoch
 Once a block is persisted in the L1 contract, all sequencers must catch up to it by re-executing the
 transactions in order to have the latest view of the blockchain. At this stage, sequencers will
 ensure the block has the correct amount of attestations.
-
-## References
-
-### Source code
-
-- [Committee computation](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/l1-contracts/src/core/libraries/crypto/SampleLib.sol#L33)
-- [Proposer sampling](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/l1-contracts/src/core/libraries/rollup/ValidatorSelectionLib.sol#L381)
-- [Block proposal](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/stdlib/src/p2p/block_proposal.ts#L37)
-- [P2P validity check](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/p2p/src/msg_validators/block_proposal_validator/block_proposal_validator.ts#L15)
-- [Attesting function](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/yarn-project/validator-client/src/validator.ts#L251)
-- [Rollup core](https://github.com/AztecProtocol/aztec-packages/blob/v2.0.0-nightly.20250820/l1-contracts/src/core/RollupCore.sol)

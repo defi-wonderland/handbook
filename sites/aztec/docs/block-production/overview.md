@@ -1,14 +1,15 @@
 # Overview
 
-Aztec is a Zero-Knowledge SNARK L2. The blockchain's state is committed to in an L1 contract known
-as the *rollup contract*. In order to advance the contract from the current state to the next state,
+Since Aztec is a ZK SNARK L2, the blockchain's state is committed to in an L1 contract known as the
+*rollup contract*. In order to advance the contract from the current state to the next state,
 the rollup contract expects a valid ZK proof of transition.
 
 Aztec blocks are grouped in epochs of 32 blocks each, and the rollup contract expects the proof of
 an entire epoch. Once an epoch's proof is submitted and accepted by the contract, the epoch is
 finalized and no Aztec reorg can happen unless the L1 itself reorgs.
 
-Aztec block production can be divided into four parts:
+[Aztec block production](https://forum.aztec.network/t/request-for-comments-aztecs-block-production-system/6155)
+can be divided into four parts:
 1) Transaction propagation
 2) Sequencing
 3) Proving
@@ -16,16 +17,17 @@ Aztec block production can be divided into four parts:
 
 ### Transaction propagation
 
-Users' PXEs produce and gossip `Tx` objects. Amongst other information, these contain:
+PXEs produce and share [`Tx` objects](https://github.com/AztecProtocol/aztec-packages/blob/286fbfae25b173d372164eedd7b22926eac32b2a/yarn-project/stdlib/src/tx/tx.ts#L27),
+which include the following information:
 - Transaction hash
 - Transaction effects (nullifiers, logs, etc)
 - The ZK proof for the private execution
 - The enqueued public calls
 
-These are gossiped to at least one node. Upon receival of a `Tx` object, a node checks its validity
-and then forwards it to its known peers. This defines a mempool of transactions that are pending
-execution. The TX validity check ensures the ZK proof for private execution is valid and that fees
-will be paid correctly.
+These are gossiped to at least one node. Once a node receives a `Tx` object, it verifies its
+validity and then forwards it to its known peers. This process forms a [mempool](https://learnmeabitcoin.com/technical/mining/memory-pool/),
+which consists of all the transactions that are awaiting execution. The TX validity check ensures
+the ZK proof for private execution is valid and that fees will be paid correctly.
 
 ### Sequencing
 
@@ -56,10 +58,3 @@ There are two fallback mechanisms that enter into effect whenever the happy path
 ## Up next
 
 The following pages explain sequencing, proving, and fallback mechanisms in more detail.
-
-## References
-
-- [Aztec's Block Production System](https://forum.aztec.network/t/request-for-comments-aztecs-block-production-system/6155)
-
-### Source code
-- [Tx object](https://github.com/AztecProtocol/aztec-packages/blob/286fbfae25b173d372164eedd7b22926eac32b2a/yarn-project/stdlib/src/tx/tx.ts#L27)
