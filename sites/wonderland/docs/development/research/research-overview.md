@@ -6,11 +6,11 @@ sidebar_position: 1
 
 # Research Overview
 
-Welcome to the Research section of our development documentation. This section covers our research methodologies, ongoing projects, and findings in the DeFi space.
+Welcome. This section explains how Research fits across the project lifecycle and how we create value (from background work to design reviews and post‑launch notes). If you’re new, skim the [Project Lifecycle](https://handbook.defi.sucks/docs/processes/project-lifecycle) first.
 
 ## What's Inside
-
-- **Technical Writing**: Guidelines and best practices for technical documentation
-- **Onboarding**: Resources and challenges for new research team members
-  - Knowledge Base: Essential information and concepts
-  - Challenges: Hands-on exercises to apply your knowledge 
+- **Manifesto**: The core values we expect from the research team.
+- **Technical Writing**: Guidelines and examples for clear specs, drafts, and reviews
+- **Onboarding**: Resources and challenges for new researchers
+  - Knowledge Base: Essential concepts and references
+  - Challenges: Hands-on exercises aligned to real work 

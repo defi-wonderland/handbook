@@ -28,7 +28,7 @@ When a direction is chosen, we converge on a buildable plan. See [Project Lifecy
 
 ## If something feels off
 
-This work is iterative, not strictly linear. Do it right from the start—don’t move forward on shaky assumptions. Keep writing clear and legible: use diagrams, explain your chain of thought, and assume the reader has no context. See [Technical Writing](/docs/development/research/technical-writing).
+This work is iterative, not strictly linear. Do it right from the start. Don’t move forward on shaky assumptions. Keep writing clear and legible: use diagrams, explain your chain of thought, and assume the reader has no context. See [Technical Writing](/docs/development/research/technical-writing).
 
 ## Tools we reach for
 

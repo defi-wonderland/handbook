@@ -57,6 +57,8 @@ const sidebars: SidebarsConfig = {
           label: "Research",
           items: [
             "development/research/research-overview",
+            "development/research/manifesto",
+            "development/research/methodology",
             "development/research/technical-writing",
             {
               type: "category",
