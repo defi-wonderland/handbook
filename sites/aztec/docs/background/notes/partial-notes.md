@@ -35,7 +35,10 @@ uses the `#[custom_note]` macro instead, which allows for the definition of a cu
 
 The hash is then computed as follows:
 ```rust
-let commitment = poseidon2_hash_with_separator([owner, storage_slot] GENERATOR_INDEX__NOTE_HASH);
+let commitment = poseidon2_hash_with_separator(
+    [owner, randomness, storage_slot],
+    GENERATOR_INDEX__NOTE_HASH,
+);
 let hash = poseidon2_hash_with_separator([commitment, value] GENERATOR_INDEX__NOTE_HASH);
 ```
 
