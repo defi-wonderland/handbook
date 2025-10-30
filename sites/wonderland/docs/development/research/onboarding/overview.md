@@ -37,7 +37,7 @@ The *Fundamentals* section is organized into four parts: **Basics**, **Intermedi
 
 At a glance: we own our output, stay present across the lifecycle, communicate clearly, follow shared structures, give and receive useful feedback, track and own our work, support newcomers, protect thinking time, stay creative, and trust ourselves and each other.
 
-Read the full [manifesto](/docs/development/research/onboarding/research-manifesto.md).
+Read the full [manifesto](/docs/development/research/manifesto).
 
 ## 🛰️ Comms
 
