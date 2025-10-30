@@ -19,7 +19,7 @@ is based in Uniswap V2's constant product formula.
 In order for the AMM to work without outside intervention, the pool's balances for `token0` and
 `token1` are public, and its balance movements after a user's swap will therefore also be public.
 
-Consider an exact-in swap. The input token can be transferred private to public, but the output
+Now, consider an exact-in swap. The input token can be transferred private to public, but the output
 amount depends on things that may happen in public.
 
 Instead of doing a normal public to private transfer, which would reveal the user's address, the AMM
