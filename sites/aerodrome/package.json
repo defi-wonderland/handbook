@@ -1,5 +1,5 @@
 {
-  "name": "wonderland-handbook",
+  "name": "aerodrome",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,17 +12,13 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "copy-static": "pnpm --filter @handbook/scripts copy-static sites/wonderland/static/common",
-    "generate-authors": "ts-node scripts/generate-authors.ts",
-    "test": "jest",
-    "prebuild": "pnpm generate-authors",
-    "build:assets": "pnpm --filter @handbook/common-config build && pnpm copy-static && pnpm generate-authors",
+    "copy-static": "pnpm --filter @handbook/scripts copy-static sites/aerodrome/static/common",
+    "build:assets": "pnpm --filter @handbook/common-config build && pnpm copy-static",
     "build": "pnpm build:assets && docusaurus build --out-dir build"
   },
   "dependencies": {
     "@handbook/common-config": "workspace:*",
     "@docusaurus/core": "3.7.0",
-    "@docusaurus/plugin-content-blog": "3.7.0",
     "@docusaurus/plugin-vercel-analytics": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/theme-mermaid": "3.7.0",
@@ -46,14 +42,7 @@
     "@docusaurus/types": "3.7.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
-    "@types/node": "24.0.3",
-    "@types/jest": "29.5.12",
-    "js-yaml": "4.1.0",
-    "@types/js-yaml": "4.0.9",
-    "ts-node": "10.9.2",
-    "typescript": "5.6.2",
-    "jest": "29.7.0",
-    "ts-jest": "29.1.2"
+    "typescript": "5.6.2"
   },
   "browserslist": {
     "production": [
