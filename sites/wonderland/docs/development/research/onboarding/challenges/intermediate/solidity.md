@@ -1,6 +1,6 @@
 # Solidity
 
-## Staking Reward Calculation | Scenario
+## Part 1: Staking Reward Calculation
 
 You are presented with a staking system where users stake tokens and receive rewards based on their stake and the time they remain staked. The key variables are:
 
@@ -193,7 +193,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 2. Highlight any assumptions or observations you make while analyzing the contract.
 3. Provide suggestions (if applicable) for improvements to the reward calculation logic.
 
-## Standing on the Shoulders of Giants
+## Part 2: Standing on the Shoulders of Giants
 
 This section should emphasize **studying canonical contracts that shaped DeFi** and understanding how they influenced the ecosystem.
 
@@ -218,13 +218,37 @@ The main idea is for you to:
 * [**ERC-4337**](https://www.erc4337.io/) (Account abstraction)
 * Opcodes: **[CREATE, CREATE2, CREATE3,](https://blog.solichain.com/the-ultimate-guide-to-create-create2-and-create3-cc6fe71c6d40) [CREATEX](https://github.com/pcaversaccio/createx?tab=readme-ov-file)**
 
-### Important Note
+## Part 3: Batch Swapper (Assignment)
 
-All of this requires **research-backed examples and case studies** to connect standards and opcodes to **real-world usage** in protocols. This way, you not only learn how they work in theory but also when and why to apply them in practice.
+Build a batch swapper contract that aggregates many users’ deposits of an ERC20 token, performs a single swap for the entire batch, and lets depositors withdraw their share of the output token. The goal is to practice safe ERC20 accounting, access control, and defensive Solidity design while keeping the mechanics simple.
+
+Create a swapper contract that will collect deposits, swap them all at once and allow depositors to withdraw their token.
+
+Why would this be useful? Let's say swapping DAI to WETH costs around 10 and making an ERC20 transfer costs 20. If I would have friends, and my "friends" would want to exchange DAI to ETH as well, a way to save some money would be transferring our DAI to one person that we all trust, he/she would make the swap, and then transfer the respective ETH to each one of us.
+
+This contract aims to allow this functionality while removing the trust assumption in a person. For example, many people would be able to provide DAI, then one single good person (will improve this later) would call a swap function and make the swap for everyone. After this, each person would be able to withdraw their respective ETH.
+
+### Definition of Done
+
+- Has a `fromToken` and a `toToken` property that can be both set in the constructor.
+
+- Has a `provide(amount)` function that will take the amount of the `fromToken` from the function caller.
+
+- Has a swap function that will exchange all provided tokens into the `toToken`
+
+- Has a withdraw function that allows the user that provided the tokens to withdraw the toTokens that he should be allowed to withdraw.
+
+` Make sure the user can withdraw their `fromToken` before in case they were not yet swapped
+
+- Governor (deployer) will need to provide `toToken` liquidity
+
+- Include unit and integration tests
+
+For the sake of simplicity: We can assume a 1 to 1 relationship between `fromToken` and `toToken`. Also there should be enough unit tests and the swap function should be integration tested with a fork of mainnet. Check the [solidity onboarding knowledge base](https://handbook.wonderland.xyz/docs/development/solidity/onboarding/knowledge-base).
 
 ### **How to Submit Your Work**
-- All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
-- Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
-- Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
+- Commit your work to your assigned **GitHub repository** with clear, incremental commits. See [Git Practices](/docs/processes/github/git-practices.md).
+- Include a README with design choices and exact commands to run unit and fork tests.
+- Ensure the repo is self-contained for reviewers to run tests end-to-end.
 
 ## 🍀 Good luck!
