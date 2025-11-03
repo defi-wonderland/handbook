@@ -15,16 +15,15 @@ const efCategories: Category[] = [
   {
     title: "WALLET",
     icon: "/img/icons/map.svg",
-    href: "/docs/wallet/"
+    href: "/docs/wallet/what-is"
   },
   {
-    title: "PRIVACY POOLS BY KOHAKU",
+    title: "PRIVACY POOLS",
     icon: "/img/icons/stack-icon.svg",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
+    href: "/docs/privacy-pools/privacy-by-default"
   },
   {
-    title: "PROTOCOL",
+    title: "ERCs",
     icon: "/img/icons/document-currency-dollar.svg",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",

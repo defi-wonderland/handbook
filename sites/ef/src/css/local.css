@@ -14,7 +14,15 @@
 }
 
 /* Sidebar menu icons */
-.menu__list-item-collapsible .menu__link[href^="/docs/wallet"]::before {
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/wallet"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/wallet/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/wallet/wallet"]::before {
   content: "";
   background-image: url("/img/icons/map.svg");
   background-size: 1rem 1rem;
@@ -26,7 +34,15 @@
   margin-right: 0.5rem;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/privacy-pools-by-kohaku"]::before {
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/privacy-pools"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/intro"]::before {
   content: "";
   background-image: url("/img/icons/stack-icon-filled.svg");
   background-size: 1rem 1rem;
@@ -53,19 +69,51 @@
 
 /* Landing page CategoryCards icons now use #A39FED directly in SVG files */
 
-/* Font for Aztec category titles */
+/* Font for category titles - WALLET (more specific to override global.css) */
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/wallet"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/privacy-pools-by-kohaku"],
+  .menu__link[href="/docs/wallet/"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/protocol"],
+  .menu__link[href="/docs/wallet/intro"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/privacy"] {
+  .menu__link[href="/docs/wallet/wallet"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em !important;
+  color: var(--wonderland-accent) !important; /* Purple color for WALLET */
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Additional override to ensure WALLET styling wins over global.css */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/wallet"] {
+  font-weight: 700 !important;
+  color: var(--ef-cyan) !important;
+  text-transform: uppercase !important;
+}
+
+/* Font for category titles - PRIVACY POOLS (customizable color) */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/privacy-pools"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/"] {
   font-family:
     "Inter",
     system-ui,
@@ -74,7 +122,7 @@
   font-weight: 700 !important;
   line-height: 1 !important;
   letter-spacing: 0.03em;
-  color: var(--wonderland-accent);
+  color: var(--ef-cyan) !important; /* Change this to any color you want (currently cyan) */
   text-transform: uppercase;
   font-size: 0.8rem !important;
   display: flex;

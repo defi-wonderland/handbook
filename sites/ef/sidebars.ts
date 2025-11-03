@@ -20,10 +20,14 @@ const sidebars: SidebarsConfig = {
       label: 'WALLET',
       collapsible: false,
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'wallet/what-is',
+      },
       items: [
         {
           type: 'doc',
-          id: 'wallet/wallet',
+          id: 'wallet/what-is',
           label: 'What is a wallet, really',
         },
         {
@@ -55,6 +59,23 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'wallet/hardware-derivation',
           label: 'The endgame, hardware native derivation',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'PRIVACY POOLS',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'privacy-pools/privacy-by-default',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'privacy-pools/privacy-by-default',
+          label: 'Privacy by default',
         },
       ],
     },
