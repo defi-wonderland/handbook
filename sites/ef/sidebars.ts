@@ -77,6 +77,11 @@ const sidebars: SidebarsConfig = {
           id: 'privacy-pools/privacy-by-default',
           label: 'Privacy by default',
         },
+        {
+          type: 'doc',
+          id: 'privacy-pools/pp-overview',
+          label: 'Privacy Pools overview',
+        },
       ],
     },
   ],
