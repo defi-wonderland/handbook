@@ -1,7 +1,5 @@
 # DeFi
 
-## Understanding Protocol Dynamics
-
 This challenge consists of three stages, each focused on a key area of DeFi: interest rates in lending protocols, fee dynamics in AMMs, and AMM design comparisons. You’ll analyze, calculate and provide insights into how these protocols function and impact users.
 
 ## Stage 1: Interest Rate Analysis in Aave

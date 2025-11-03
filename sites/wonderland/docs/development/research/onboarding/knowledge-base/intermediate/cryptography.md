@@ -4,20 +4,20 @@ If you don't have a background in math, we strongly recommend starting with [thi
 
 > *"At the outbreak of the Second World War, possibly no shortage was more acute, or less publicized, than that of qualified cryptographers." — Laurence D. Smith, Cryptography: The Science of Secret Writing.*
 
-Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cypher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
+Cryptography has long played a decisive role in world affairs. In World War I, a young American cryptographer "threw the General Staff into a state of alarm" at Saint-Mihiel in 1918 by cracking a supposedly "unbreakable" cipher. The implications were clear: secrecy in communication was not optional, but vital. A single compromise could tip the balance of a battle.
 
-By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs, such as the deciphering of German Enigma or Japanese naval codes, had direct strategic consequences. A careless transmission, especially one sent both in cypher and plain text, could reveal entire encryption systems and undermine months of planning.
+By World War II, the role of codebreakers had expanded dramatically. Cryptographic breakthroughs—such as the deciphering of the German Enigma and Japanese naval codes—had direct strategic consequences. A careless transmission, especially one sent both in cipher and plaintext, could reveal entire encryption systems and undermine months of planning.
 
 Today, the battlefield has shifted to digital networks, and cryptography secures everything from bank transfers to blockchain protocols. But the lessons endure: robust encryption and careful key management remain foundational to privacy and security.
 
-Against this historical backdrop, the sections that follow trace the evolution of cryptography. We begin with the three major types of cryptographic primitives, then talk about the pivotal problem of **key distribution**, the **Diffie-Hellman** solution, and the advent of **RSA**. We continue with **elliptic curves**, including **ECDH**, **ECDSA**, and **pairing-based protocols**.
+Against this historical backdrop, the sections that follow trace the evolution of cryptography. We begin with the three major types of cryptographic primitives, then cover the pivotal problem of **key distribution**, the **Diffie-Hellman** solution, and the advent of **RSA**. We continue with **elliptic curves**, including **ECDH**, **ECDSA**, and **pairing-based protocols**.
 
 ## Cryptographic Primitives: Symmetric, Asymmetric, and Hash Functions
 
 ### Symmetric Encryption
 In **symmetric** cryptography, both parties share a *single secret key* used for both encryption and decryption. Algorithms like AES (Advanced Encryption Standard) and ChaCha20 are widely used for their speed and efficiency.
 
-**Drawback:** Key distribution. If Alice and Bob are on different continents, how do they agree on a secret key without interception?
+**Drawback:** key distribution. If Alice and Bob are on different continents, how do they agree on a secret key without interception?
 
 ### Asymmetric (Public-Key) Encryption
 **Asymmetric cryptography** solves this problem with a key pair:
@@ -38,13 +38,13 @@ Hashes underpin digital signatures, Merkle trees, password security, and zero-kn
 
 ## The Problem of Key Distribution
 
-Symmetric systems once required **physical key exchange**. This worked for spies, but not for global internet systems. Even the strongest cyphers are useless if the keys are compromised.
+Symmetric systems once required **physical key exchange**. This worked for spies, but not for global internet systems. Even the strongest ciphers are useless if keys are compromised.
 
 In the 1970s, public-key cryptography changed everything. Anyone can encrypt with Bob's public key, but only Bob can decrypt it with his private key. Today, hybrid systems like TLS combine asymmetric key exchange (RSA or Diffie-Hellman) with symmetric session keys (AES) for performance.
 
 ## Diffie-Hellman: A Breakthrough in Secure Key Exchange
 
-The **Diffie-Hellman (DH)** protocol allows two parties to generate a shared secret over an insecure channel. Here’s how it works (finite field version):
+The **Diffie-Hellman (DH)** protocol allows two parties to generate a shared secret over an insecure channel. Here’s how it works (finite-field version):
 
 1. Choose a large prime $p$ and generator $g$.
 2. Alice picks random $a$, computes $A = g^a \bmod p$.
@@ -53,7 +53,7 @@ The **Diffie-Hellman (DH)** protocol allows two parties to generate a shared sec
 
 The **discrete logarithm problem** protects the exchange: it is hard to derive $a$ or $b$ from $g^a$ or $g^b$.
 
-## RSA: Public-Key Encryption Built on Factorisation
+## RSA: Public-Key Encryption Built on Factorization
 
 **RSA** (1977) was the first practical public-key system. Its security depends on the hardness of factoring large integers.
 
@@ -75,7 +75,7 @@ If an attacker factors $n$, they can find $d$ and break the system. But factorin
 Elliptic curves offer smaller keys and faster operations compared to RSA. An elliptic curve is defined by $y^2 = x^3 + ax + b$ over a finite field. Points on the curve form a group with an addition operation.
 
 ### Advantages
-- **256-bit ECC** key = **3072-bit RSA** key
+- **256-bit ECC** key ~ **3072-bit RSA** key
 - Faster signature generation and verification
 
 ### Elliptic Curve Diffie-Hellman (ECDH)
@@ -107,7 +107,7 @@ Pairings map two elliptic curve points into a finite field, enabling new primiti
 - **BLS signatures** (used in Ethereum staking)
 - **Zero-knowledge proofs** like zk-SNARKs
 
-Pairings are bilinear and non-degenerate, enabling succinct multiparty verifications and aggregations.
+Pairings are bilinear and non-degenerate, enabling succinct multi-party verification and aggregation.
 
 For a deeper intro, check [Vitalik's guide](https://medium.com/@VitalikButerin/exploring-elliptic-curve-pairings-c73c1864e627).
 
