@@ -82,6 +82,27 @@ const sidebars: SidebarsConfig = {
           id: 'privacy-pools/pp-overview',
           label: 'Privacy Pools overview',
         },
+        {
+          type: 'doc',
+          id: 'privacy-pools/notes',
+          label: 'Anatomy of a note',
+        },
+  
+        {
+          type: 'doc',
+          id: 'privacy-pools/batch-withdrawal',
+          label: 'Batch withdrawal',
+        },
+        {
+          type: 'doc',
+          id: 'privacy-pools/note-selection-algorithm',
+          label: 'Note selection algorithm',
+        },
+        {
+          type: 'doc',
+          id: 'privacy-pools/the-proof',
+          label: 'The proof',
+        }
       ],
     },
   ],
