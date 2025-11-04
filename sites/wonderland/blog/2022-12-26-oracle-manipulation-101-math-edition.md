@@ -15,7 +15,7 @@ This article is divided into two.
 
 In the first part, we will present a quick refresher on how Uniswap works specifically tailored to the needs of computing manipulation costs. It'll explore how to move the spot price in an AMM to the desired target for Uniswap v2 and v3.
 
-The second part will show how we obtained the results from the ["Oracle Manipulation 101"](https://defi.sucks/insights/oracle-manipulation-101) article. To do so, we will present step-by-step an attack of a lending protocol in DeFi. This case can be later generalized to different types of markets.
+The second part will show how we obtained the results from the ["Oracle Manipulation 101"](https://wonderland.xyz/insights/oracle-manipulation-101) article. To do so, we will present step-by-step an attack of a lending protocol in DeFi. This case can be later generalized to different types of markets.
 
 You can follow along with the simulations provided in this [colab](https://colab.research.google.com/drive/1RwpF-lKq968mvsyL0jgyw9rO_cTqYxPl?usp=sharing).
 
@@ -265,11 +265,11 @@ You can gain more by playing around at [this link](https://colab.research.google
 
 ## Oracle Manipulation 101 Math
 
-In the [Oracle Manipulation 101 article](https://defi.sucks/insights/oracle-manipulation-101), we have presented a study case for an oracle manipulation analysis. In particular, we have explained how an attack on a lending market can become profitable. This section will show how many of the results we have presented were derived.
+In the [Oracle Manipulation 101 article](https://wonderland.xyz/insights/oracle-manipulation-101), we have presented a study case for an oracle manipulation analysis. In particular, we have explained how an attack on a lending market can become profitable. This section will show how many of the results we have presented were derived.
 
 As a brief rundown, attacks will likely happen if the profit from manipulation exceeds the cost of manipulation. Understanding this is fundamental to setting the parameters that allow for capital efficiency without adding new risks.
 
-The Cost of Manipulation refers to the capital used ti borrow + capital used to move an AMM's price to the desired target. The latter is what we deduced in the Uniswap Math section above, both for Uniswap v2 and v3. As mentioned in [Oracle Manipulation 101](https://defi.sucks/insights/oracle-manipulation-101), we will consider Full Range positions for this analysis, which is consistent with our previous claims about concentrated positions.
+The Cost of Manipulation refers to the capital used ti borrow + capital used to move an AMM's price to the desired target. The latter is what we deduced in the Uniswap Math section above, both for Uniswap v2 and v3. As mentioned in [Oracle Manipulation 101](https://wonderland.xyz/insights/oracle-manipulation-101), we will consider Full Range positions for this analysis, which is consistent with our previous claims about concentrated positions.
 
 We will exclude trading fees for simplicity of reading, but you can trivially add them to the analysis.
 

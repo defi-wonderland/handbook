@@ -25,7 +25,14 @@ const sidebars: SidebarsConfig = {
         id: 'background/overview',
       },
       items: [
-        'background/notes',
+        {
+          type: 'category',
+          label: 'Notes',
+          items: [
+            'background/notes',
+            'background/notes/partial-notes',
+          ],
+        },
         'background/UTXOs',
         'background/nullifiers',
         'background/zero-knowledge-proofs',

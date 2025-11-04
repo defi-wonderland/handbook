@@ -34,7 +34,7 @@ So, what can we do? What is the trust-minimized solution to cross-chain?
 
 ### State proofs: an incomplete path
 
-In a [previous post](https://defi.sucks/insights/current-state-of-storage-proofs), we went deep on state proofs; they allow anyone to verify a claim about a VM’s state from a single cryptographic commitment—the state root. This allows for arbitrary claims about another chain’s state or transactions. Moreover, the same state root is sufficient for every cross-chain application, making it a more scalable solution than passing individual messages around.
+In a [previous post](https://wonderland.xyz/insights/current-state-of-storage-proofs), we went deep on state proofs; they allow anyone to verify a claim about a VM’s state from a single cryptographic commitment—the state root. This allows for arbitrary claims about another chain’s state or transactions. Moreover, the same state root is sufficient for every cross-chain application, making it a more scalable solution than passing individual messages around.
 
 As long as we trust the cryptographic primitives, falsifying a state proof is impossible. But this is only partially true: what if the root is not the right one? Who or how is the root uploaded? This has historically been the most painful point for cross-chain communication.
 
@@ -154,7 +154,7 @@ The problem is that there isn’t a pre-compile nor efficient implementation in 
 
 Here is where ZK comes into play: we can create succinct arguments of knowledge (SNARKs) proving the correct execution of complex offchain computation.
 
-> Quoting from a previous post: https://defi.sucks/insights/current-state-of-storage-proofs
+> Quoting from a previous post: https://wonderland.xyz/insights/current-state-of-storage-proofs
 >
 > [Succinct](https://www.succinct.xyz/) developed a [contract](https://etherscan.io/address/0xaa1383ee33c81ef2274419dd5e0ea5cce4baf6cc#code) that verifies a zk-proof of consensus, where anyone can post a zkSNARK attesting that the sync committee has signed a block header. Their design also requires keeping track of the current sync committee, which is done via a zkSNARK. The protocol is deployed on Ethereum and other chains, but the light client updates are operating [frequently only on Goerli](https://explorer.telepathy.xyz/). Each update in Ethereum costs [300k in gas](https://etherscan.io/tx/0x6d608c89eb97b249f40fc1db4306fe0b5af4d0dec3e1db1b8872b3ddf8c5af75). They enable light client proofs of Ethereum and Gnosis to Ethereum, Gnosis, Arbitrum, Avalanche, Binance, Optimism and Polygon (find the address [here](https://docs.telepathy.xyz/resources/contract-addresses)).
 >
