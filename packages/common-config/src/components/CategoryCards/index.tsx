@@ -19,11 +19,13 @@ export interface CategoryCardsTheme {
 interface CategoryCardsProps {
   categories: Category[];
   theme?: CategoryCardsTheme;
+  columns?: number;
 }
 
 export default function CategoryCards({
   categories,
   theme,
+  columns = 4,
 }: CategoryCardsProps): ReactNode {
   const handleCardClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -56,7 +58,12 @@ export default function CategoryCards({
   const currentTheme = theme || defaultTheme;
 
   return (
-    <div className={styles.categoryCards}>
+    <div 
+      className={styles.categoryCards}
+      style={{
+        gridTemplateColumns: `repeat(${columns}, 1fr)`
+      }}
+    >
       {categories.map((category) => (
         <Link
           key={category.title}
