@@ -34,7 +34,7 @@
         
         Wonderland is the largest core development group in Web3. Our commitment is to a financial future that's open, decentralized, and accessible to all.
         
-        [DeFi sucks](https://wonderland.xyz), but Wonderland is here to make it better.
+        DeFi sucks, but [Wonderland](https://wonderland.xyz) is here to make it better.
         ```
         
     - Add a SECURITY file.
