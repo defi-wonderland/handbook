@@ -23,11 +23,9 @@ const aztecCategories: Category[] = [
     href: "/docs/stack/overview",
   },
   {
-    title: "TRANSACTIONS",
-    icon: "/img/icons/document-currency-dollar.svg",
-    href: "/docs/transactions-and-messaging/overview",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
+    title: "CONTRACTS",
+    icon: "/img/icons/contract-icon.svg",
+    href: "/docs/contracts/overview",
   },
   {
     title: "BLOCK PRODUCTION",
