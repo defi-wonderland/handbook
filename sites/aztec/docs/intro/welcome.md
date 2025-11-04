@@ -32,7 +32,7 @@ You'll explore:
 - **Background**: The core ideas that power Aztec: an introduction to UTXOs, nullifiers, and zero-knowledge proofs, explained in plain language (or at least we tried to)
 - **Stack** (WIP): How all the pieces fit together, from the virtual machine that runs your code to the prover that generates proofs
 - **Transactions & Messaging** (WIP): How private and public executions work, how they talk to each other, and how the whole system communicates with Ethereum
-- **Consensus** (WIP): How the network agrees on what happened without seeing what happened
+- **Block production** (WIP): How the network agrees on what happened without seeing what happened
 
 There are more sections coming soon, from standards to the governance system. Aztec is in the early stages, so this handbook will evolve with the network and with every developer who joins the mission. Feel free to contribute! We're building the infrastructure for a world where privacy is the default, not the exception.
 

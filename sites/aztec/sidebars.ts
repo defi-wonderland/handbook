@@ -65,6 +65,21 @@ const sidebars: SidebarsConfig = {
       'stack/wrapping-up'
     ],
     },
+    {
+      type: 'category',
+      label: 'Block Production',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'block-production/overview',
+      },
+      items: [
+        'block-production/sequencing',
+        'block-production/proving',
+        'block-production/fallback-mechanisms',
+      ],
+    },
   ],
 };
 
