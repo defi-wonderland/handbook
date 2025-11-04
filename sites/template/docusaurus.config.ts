@@ -12,7 +12,7 @@ const localConfig: Config = {
   title: "Documentation",
   tagline:
     "A comprehensive guide to our project, processes, and best practices.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://your-domain.com/",
@@ -24,6 +24,26 @@ const localConfig: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "your-organization", // Usually your GitHub org/user name.
   projectName: "your-project", // Usually your repo name.
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/common/img/favicon.svg',
+        sizes: 'any'
+      }
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/common/img/favicon.ico',
+        sizes: '64x64'
+      }
+    }
+  ],
 
   presets: [
     [

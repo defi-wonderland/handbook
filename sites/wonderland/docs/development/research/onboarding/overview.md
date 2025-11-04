@@ -10,9 +10,9 @@ As you’ve probably seen in the [Project Lifecycle](/docs/processes/project-lif
 
 One of our key responsibilities is keeping the team updated on the latest developments in the ecosystem. This could be a new ERC standard, an updated version of Uniswap, or the emergence of an entirely new protocol. At a high level, our goal is to stay at the forefront.
 
-Beyond that, and just as importantly, the research team plays a key role at the start of every project. Before proposing an Idea Draft, we gather background knowledge on the topic: What technologies does the protocol we’re working with use? What are the underlying technicalities? Are there any vulnerabilities? How can we improve what already exists? Is the improvement necessary? Also, we benchmark other solutions to the problem at hand, analyzing their strengths and weaknesses to produce an informed, opinionated report with recommendations.
+Beyond that, and just as importantly, the research team plays a key role at the start of every project. Before proposing an [Idea Draft](https://defi-wonderland.notion.site/idea-draft-template?source=copy_link), we gather background knowledge on the topic: What technologies does the protocol we’re working with use? What are the underlying technicalities? Are there any vulnerabilities? How can we improve what already exists? Is the improvement necessary? Also, we benchmark other solutions to the problem at hand, analyzing their strengths and weaknesses to produce an informed, opinionated report with recommendations.
 
-In essence, we are sort of the foundation of every project, which is why we exist—to provide the groundwork. From there, we typically collaborate with the Partner Leads and Architects throughout the development of the Tech Design, addressing key questions and assisting with architectural decisions.
+In essence, we are sort of the foundation of every project, which is why we exist: to provide the groundwork. From there, we typically collaborate with the Partner Leads, Team Leads and Architects throughout the development of the [Tech Design](https://defi-wonderland.notion.site/tech-design-template?source=copy_link), addressing key questions and assisting with architectural decisions.
 
 It’s probably one of the most exciting jobs out there. 
 
@@ -20,7 +20,7 @@ It’s probably one of the most exciting jobs out there.
 
 This onboarding is designed to give you a solid foundation in the key areas of our work. During this time, you’ll gain hands-on experience with critical topics, connect with the team, and contribute by solving challenges that reflect your learning.
 
-The idea is for it to be more than just absorbing information—it’s about applying what you learn, asking questions, and starting to create value from day one. Here's what you should expect:
+The idea is for it to be more than just absorbing information, it’s about applying what you learn, asking questions, and starting to create value from day one. Here's what you should expect:
 
 - **Interactive Learning**: little challenges to deepen your understanding of key topics.
 - **Guided Support**: The team will be available to answer your questions and review your work.
@@ -29,16 +29,21 @@ The idea is for it to be more than just absorbing information—it’s about app
 We will cover several sections during the onboarding. In the first part, you will:
 
 - **Explore the Fundamentals**: Learn the essentials of **game theory**, **cryptography**, **token standards**, **interoperability**, **Layer 2s**, **bridges,** and more.
-- **Dive Into Resources**: Access our curated library of articles, videos, and case studies.
-- **Ask Questions**: Ask as many questions as you need—curiosity is key!
+- **Ask Questions**: Ask as many questions as you need: curiosity is key!
 
 The *Fundamentals* section is organized into four parts: **Basics**, **Intermediate**, **DeFi**, and **Core.** Each part includes a series of challenges designed to develop critical analysis, attack modelling, and system design skills. Throughout the process, you’ll receive feedback from the team to refine your approach and build confidence in your work.
 
+## How we work together
+
+At a glance: we own our output, stay present across the lifecycle, communicate clearly, follow shared structures, give and receive useful feedback, track and own our work, support newcomers, protect thinking time, stay creative, and trust ourselves and each other.
+
+Read the full [manifesto](/docs/development/research/manifesto).
+
 ## 🛰️ Comms
 
-- For any questions related to the challenge or other topics, please post them in the `#new-team-member-onboarding-channel` within the onboarding section of Wonderland’s Discord server. Lumi or any available team member will respond to your inquiries.
+- For any questions related to the challenge or other topics, please post them in the `#onboarding` thread with your name. Any available team member will respond to your inquiries.
 - Daily check-ins will be conducted to ensure you are on track and to address any immediate concerns.
-- Weekly virtual coffee sessions will be held to foster team bonding and provide a relaxed environment for open discussions.
+- Weekly virtual / IRL coffee sessions will be held to foster team bonding and provide a relaxed environment for open discussions.
 - Kickoff meetings will be scheduled at the beginning of the onboarding process to outline expectations and goals.
 
 ## 🕰️ Estimated Time

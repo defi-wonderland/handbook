@@ -1,6 +1,6 @@
 # Solidity
 
-## Staking Reward Calculation | Scenario
+## Part 1: Staking Reward Calculation
 
 You are presented with a staking system where users stake tokens and receive rewards based on their stake and the time they remain staked. The key variables are:
 
@@ -10,7 +10,7 @@ You are presented with a staking system where users stake tokens and receive rew
 
 Rewards are distributed based on the proportion of tokens staked by each user, relative to the total staked amount over time. 
 
-## The challenge
+### The challenge
 
 Given the following smart contract, analyze how the reward calculation problem is addressed. Specifically:
 
@@ -193,9 +193,62 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 2. Highlight any assumptions or observations you make while analyzing the contract.
 3. Provide suggestions (if applicable) for improvements to the reward calculation logic.
 
+## Part 2: Standing on the Shoulders of Giants
+
+This section should emphasize **studying canonical contracts that shaped DeFi** and understanding how they influenced the ecosystem.
+
+1. **Start with the [OpenZeppelin Library](https://www.openzeppelin.com/contracts)** documentation as the foundation.
+2. Explore influential contracts:
+   * [Synthetix Staking](https://github.com/Synthetixio/synthetix/blob/develop/contracts/StakingRewards.sol)
+   * [UniswapV2 Pair](https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Pair.sol)
+   * [Gnosis Safe Multisig](https://github.com/safe-global/safe-smart-account/tree/main/contracts)
+   * [Sushi MasterChef](https://github.com/sushiswap/sushiswap/blob/archieve/canary/contracts/MasterChef.sol)
+
+The main idea is for you to:
+
+* Clone the repositories of these protocols.
+* Explore their codebases, focusing on the **specific contracts** highlighted above.
+* Be able to explain **why they are implemented this way** and **how they work**.
+* Produce notes and deliver a **short (live) presentation on one contract of your choice**.
+
+### Core Concepts to Understand
+
+* [**ERC-4626**](https://erc4626.info/) (Vault standard)
+* [**EIP-1559**](https://eips.ethereum.org/EIPS/eip-1559) (Ethereum fee market change)
+* [**ERC-4337**](https://www.erc4337.io/) (Account abstraction)
+* Opcodes: **[CREATE, CREATE2, CREATE3,](https://blog.solichain.com/the-ultimate-guide-to-create-create2-and-create3-cc6fe71c6d40) [CREATEX](https://github.com/pcaversaccio/createx?tab=readme-ov-file)**
+
+## Part 3: Batch Swapper (Assignment)
+
+Build a batch swapper contract that aggregates many users’ deposits of an ERC20 token, performs a single swap for the entire batch, and lets depositors withdraw their share of the output token. The goal is to practice safe ERC20 accounting, access control, and defensive Solidity design while keeping the mechanics simple.
+
+Create a swapper contract that will collect deposits, swap them all at once and allow depositors to withdraw their token.
+
+Why would this be useful? Let's say swapping DAI to WETH costs around 10 and making an ERC20 transfer costs 20. If I would have friends, and my "friends" would want to exchange DAI to ETH as well, a way to save some money would be transferring our DAI to one person that we all trust, he/she would make the swap, and then transfer the respective ETH to each one of us.
+
+This contract aims to allow this functionality while removing the trust assumption in a person. For example, many people would be able to provide DAI, then one single good person (will improve this later) would call a swap function and make the swap for everyone. After this, each person would be able to withdraw their respective ETH.
+
+### Definition of Done
+
+- Has a `fromToken` and a `toToken` property that can be both set in the constructor.
+
+- Has a `provide(amount)` function that will take the amount of the `fromToken` from the function caller.
+
+- Has a swap function that will exchange all provided tokens into the `toToken`
+
+- Has a withdraw function that allows the user that provided the tokens to withdraw the toTokens that he should be allowed to withdraw.
+
+` Make sure the user can withdraw their `fromToken` before in case they were not yet swapped
+
+- Governor (deployer) will need to provide `toToken` liquidity
+
+- Include unit and integration tests
+
+For the sake of simplicity: We can assume a 1 to 1 relationship between `fromToken` and `toToken`. Also there should be enough unit tests and the swap function should be integration tested with a fork of mainnet. Check the [solidity onboarding knowledge base](https://handbook.wonderland.xyz/docs/development/solidity/onboarding/knowledge-base).
+
 ### **How to Submit Your Work**
-- All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
-- Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
-- Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
+- Commit your work to your assigned **GitHub repository** with clear, incremental commits. See [Git Practices](/docs/processes/github/git-practices.md).
+- Include a README with design choices and exact commands to run unit and fork tests.
+- Ensure the repo is self-contained for reviewers to run tests end-to-end.
 
 ## 🍀 Good luck!

@@ -1,51 +1,60 @@
 # Cryptography
 
-## **Analyzing a Vulnerable Diffie-Hellman Implementation**
+This assignment combines **classical cipher-breaking** with the **analysis of cryptographic failures in DeFi privacy systems**. The focus is on reasoning, written explanation, and clear demonstration of concepts.
 
-### **Scenario**
+## **Part 1 – Breaking the Vigenère Cipher**
 
-Alice and Bob are attempting to establish a shared secret using the Diffie-Hellman algorithm. However, they unknowingly introduce a critical vulnerability by using a weak prime number for their calculations. Trudy, an attacker, intercepts their communication and exploits this flaw to compute the shared secret. Your task is to analyze the vulnerability, demonstrate how Trudy exploits it, and explain why the protocol fails in this case.
+A DeFi team once used a **Vigenère cipher** to hide configuration data in GitHub. You intercepted this ciphertext:
 
-### **Modified Diffie-Hellman Implementation**
+```
+LXFOPVEFRNHR XWXKSHVGKDX YHKWQMVHJ EHGJZXPXW BXKNDH 
+LBJWGK XJJGJJBVJ XWKSHGKZM ZHKWQQ QKTSXHW BGJEFH 
+BPHMCVGK XJHGKL XWHJVJDJ EGZKLFHH GTJTHG JXGJTEJ
+```
 
-In this scenario:
+**Hints:**
+* Key length = 5
+* Plaintext contains **DeFi terminology**
+* English text
 
-- Alice and Bob agree on the following **public parameters**:
-    - **P = 15** (a composite number instead of a prime)
-    - **G = 9** (a primitive root modulo P)
-- Alice chooses a private key, **a = 4**, and Bob chooses a private key, **b = 3**
-- They compute their public keys:
-    - Alice:
-        
-        x = G^a mod P = 9^4 mod 15
-        
-    - Bob:
-        
-        y = G^b mod P = 9^3 mod 15
-        
-- They exchange the public keys x and y, and each computes the shared secret key:
-    - Alice:
-        
-        k_a = y^a mod P
-        
-    - Bob:
-        
-        k_b = x^b mod P
-        
-1. Identify and explain the vulnerability in using **P = 15**
-2. Demonstrate how Trudy can brute-force the private keys to compute the shared secret.
-3. Provide a step-by-step breakdown of Trudy's attack.
+**Tasks:**
+1. Use the **Index of Coincidence** to justify the 5-letter key length.
+2. Apply **frequency analysis** to each key position.
+3. Recover the 5-letter key.
+4. Decrypt the plaintext and explain its meaning.
+5. Reflect: Why do substitution ciphers fail against statistical attacks?
 
-### **Questions to Address**
+**Deliverables:**
+* A short report explaining your method and reasoning.
+* The recovered key and decrypted message.
+* (Optional) a script or table showing frequency analysis.
 
-1. Why is using a prime number for P critical in the Diffie-Hellman algorithm?
-2. How does the choice of P = 15 make the shared secret easier to compute for an attacker?
-3. What steps does Trudy follow to compute the shared secret? Provide calculations and notes on the reasoning.
+## **Part 2 - Tornado Cash Privacy Analysis and Improvements**
+Tornado Cash did not rely on weak randomness, and nullifier collisions are not a practical attack under standard assumptions. Instead, most privacy failures in practice come from deanonymization heuristics and user/operational patterns. Your job is to analyze the actual privacy model, common leakage vectors, and how newer designs (e.g., Privacy Pools) adjust the trade-offs.
+
+**Background facts (read carefully before you analyze)**
+- Notes are constructed with high-entropy secrets generated via secure RNG (two ~31-byte values such as `nullifier` and `secret`).
+- Commitments are computed in-circuit from these secrets; a `nullifierHash` prevents double-spends and is tracked on-chain.
+- Hashes used are SNARK-friendly (e.g., MiMC or Poseidon variants). Collisions are computationally infeasible; double-spend attempts are blocked by the spent-nullifier set.
+- Merkle membership is enforced inside the zkSNARK. Bypassing it would require a proof-system/verification break, not just an invalid off-chain proof.
+
+**Tasks:**
+1. Explain the Tornado Cash note model: what are `nullifier`, `secret`, `commitment`, and `nullifierHash`? Why does high-entropy RNG matter here?
+2. Analyze practical deanonymization heuristics:
+- Fixed denominations and timing correlation between deposit and withdrawal
+- Relayer/gas/fee patterns and UX artifacts that leak linkage
+= Small or tainted anonymity sets and their impact
+3. Propose mitigations and best practices to reduce linkage risk within Tornado-style mixers (operational guidance, relayer hygiene, delaying strategies, denomination choice, etc.).
+4. Compare with **Privacy Pools**: explain association sets and selective disclosures, and how they shift the privacy-compliance trade-off. Where do they help, and what new trade-offs do they introduce?
+
+**Deliverables:**
+- A written privacy analysis focused on real-world deanonymization heuristics and mitigations.
+- A correct explanation of the note construction and nullifier design (debunking weak-randomness and collision misconceptions).
+- A short comparison: **Tornado Cash vs. Privacy Pools**.
 
 ### **How to Submit Your Work**
-
 - All work for your chosen challenge must be committed to the **GitHub repository** assigned to you during onboarding.
 - Structure your commits clearly, with meaningful messages that outline the progress of your work. See [Git Practices](/docs/processes/github/git-practices.md) for reference.
 - Ensure your final submission is well-organized, with supporting files, diagrams, or models included as needed.
 
-## 🍀 Good luck!
+## 🍀 Good luck!

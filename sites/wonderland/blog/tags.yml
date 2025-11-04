@@ -1,19 +1,28 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+Cryptography:
+  label: Cryptography
+Verification:
+  label: Verification
+Cross-chain:
+  label: Cross-chain
+MEV:
+  label: MEV
+Flashbots:
+  label: Flashbots
+Price:
+  label: Price
+Oracles:
+  label: Oracles
+Uniswap V3:
+  label: Uniswap V3
+Math:
+  label: Math
+Consensus:
+  label: Consensus
+DeFi:
+  label: DeFi
+Security:
+  label: Security
+Whitehack:
+  label: Whitehack
+Devtools:
+  label: Devtools

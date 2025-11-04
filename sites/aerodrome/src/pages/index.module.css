@@ -1,0 +1,79 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0;
+  padding-top: 0;
+}
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 90%;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 6rem;
+  padding-top: 3rem;
+}
+
+.aerodromeBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.aerodromeBackground::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/common/img/common-background.png") no-repeat center 0;
+  background-size: cover;
+  filter: hue-rotate(210deg) saturate(140%);
+}
+
+.aerodromeBackground::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 51, 255, 0.20) 0%, rgba(4, 51, 255, 0.00) 40%),
+              radial-gradient(60% 50% at 50% 75%, rgba(4, 51, 255, 0.25) 0%, rgba(4, 51, 255, 0.00) 60%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .centerContent {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: 1rem 0;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .centerContent {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 6rem;
+  }
+}

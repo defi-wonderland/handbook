@@ -3,11 +3,11 @@ title: Best Practices
 sidebar_position: 1
 ---
 
-# Tech Writing Best Practices
+# Technical Writing Best Practices
 
 ![image.png](/img/meme-tech.jpg)
 
-Documenting the code, protocols and models we work with is a key part of a project's success. Any stray confusion or misused phrase might send people down the wrong path. If you’ve worked in software, you know how quickly a tiny misunderstanding can balloon into huge chaos. That’s where technical writing comes in. It’s this practice of wrangling complexity into clarity —distilling volumes of detail into instructions even a newcomer can follow. **We care about ensuring that what we build can be used without confusion.**
+Documenting the code, protocols and models we work with is a key part of a project's success. Any stray confusion or misused phrase might send people down the wrong path. If you’ve worked in software, you know how quickly a tiny misunderstanding can balloon into huge chaos. That’s where technical writing comes in. It’s this practice of wrangling complexity into clarity, distilling volumes of detail into instructions even a newcomer can follow. **We care about ensuring that what we build can be used without confusion.**
 
 # Core Principles
 
@@ -17,7 +17,7 @@ Who’s reading this? Researchers? Developers? Each group has different backgrou
 
 ## Use active voice
 
-Prefer _“The user does the transaction”_ to _“The transaction is done by the user.”_ Active voice shows **who** is doing **what**, cutting clutter and building clarity—perfect for any instructions.
+Prefer _“The user does the transaction”_ to _“The transaction is done by the user.”_ Active voice shows **who** is doing **what**, cutting clutter and building clarity, perfect for any instructions.
 
 ## No fluff
 
@@ -29,7 +29,7 @@ Use **headers**, **bullet points**, and **short paragraphs**. Readers can skim k
 
 ## Step-by-Step, not an avalanche
 
-Code runs in a logical sequence—your writing should, too. Keep the order clear, from start to finish. If you have to reference a later section, leave a roadmap so nobody panics searching for the missing pieces.
+Code runs in a logical sequence: your writing should, too. Keep the order clear, from start to finish. If you have to reference a later section, leave a roadmap so nobody panics searching for the missing pieces.
 
 ## Define new or unfamiliar terms
 
@@ -37,11 +37,11 @@ Code runs in a logical sequence—your writing should, too. Keep the order clear
 
 ## Stay consistent with terms
 
-Don’t rename something halfway through—people will wonder if it’s a different concept altogether. Once you call it _“Optimism Rollup Cluster”,_ don’t suddenly switch to “_Superchain”_. Consistency is the difference between smooth comprehension and user confusion.
+Don’t rename something halfway through, people will wonder if it’s a different concept altogether. Once you call it _“Optimism Rollup Cluster”,_ don’t suddenly switch to “_Superchain”_. Consistency is the difference between smooth comprehension and user confusion.
 
 ## Use acronyms properly
 
-On the first mention, **bold** the full term and put the acronym in parentheses—**Layer 2 (L2)**. After that, you can use L2 throughout. If you only use an acronym a couple of times, consider skipping it altogether; too many acronyms weigh on the reader’s mental load.
+On the first mention, **bold** the full term and put the acronym in parentheses: **Layer 2 (L2)**. After that, you can use L2 throughout. If you only use an acronym a couple of times, consider skipping it altogether; too many acronyms weigh on the reader’s mental load.
 
 ## Recognize ambiguous pronouns
 
@@ -63,11 +63,11 @@ Remove those beginnings to make sentences more direct. Compare:
 
 ## Keep Sentences & paragraphs manageable
 
-Too long? Break it up. A big, chunky paragraph is an easy place for crucial info to get lost —don’t write more than three sentences in one paragraph, unless it’s necessary. And if you’re piling up run-on sentences, you risk burying your main point.
+Too long? Break it up. A big, chunky paragraph is an easy place for crucial info to get lost. Don’t write more than three sentences in one paragraph, unless it’s necessary. And if you’re piling up run-on sentences, you risk burying your main point.
 
 ## Use effective argumentation
 
-Avoid blanket statements like “X is better” or “Y is worse” without data or a clear rationale. Present your reasoning or evidence—give the “why” behind your claim. If comparisons are involved, support them with references or metrics so readers can see the facts.
+Avoid blanket statements like “X is better” or “Y is worse” without data or a clear rationale. Present your reasoning or evidence, give the “why” behind your claim. If comparisons are involved, support them with references or metrics so readers can see the facts.
 
 ## Quantify when possible
 
@@ -75,11 +75,11 @@ Steer clear of vague terms like “far,” “too much,” or “too little.” 
 
 ## Provide references
 
-Reference relevant materials—whether they’re academic papers, blog posts, or internal docs. Attach links or citations where appropriate. If you mention an existing standard or best practice, guide the reader to it. Let them dig deeper if they choose.
+Reference relevant materials, whether they’re academic papers, blog posts, or internal docs. Attach links or citations where appropriate. If you mention an existing standard or best practice, guide the reader to it. Let them dig deeper if they choose.
 
 ## Not all can be explained with plain words!
 
-A picture is worth a thousand words. Utilize the resources available to you. Most text editors let you add pictures, tables, code snippets, and diagrams — the use of Figma, Excalidraw or Mermaid is allowed!
+A picture is worth a thousand words. Utilize the resources available to you. Most text editors let you add pictures, tables, code snippets, and diagrams. The use of Figma, Excalidraw or Mermaid is allowed!
 
 ![image.png](/img/tech-writing-meme-2.jpg)
 

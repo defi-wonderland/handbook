@@ -6,7 +6,7 @@ This repository is a **monorepo** containing multiple Docusaurus-based handbooks
 
 ### Node.js Version Management
 
-This monorepo enforces Node.js 22.18.0 and pnpm 10.11.0. Use `.nvmrc` for version management:
+This monorepo enforces Node.js 22.19.0 and pnpm 10.11.0. Use `.nvmrc` for version management:
 
 ```bash
 nvm use
@@ -28,7 +28,7 @@ From the root of the monorepo:
 ```bash
 pnpm install                                   # Install all dependencies across packages/sites
 pnpm --filter [name]-handbook build:assets     # Build common files, and copy them into the specific site
-pnpm --filter [name]-handbook start              # Start the site locally
+pnpm --filter [name]-handbook start            # Start the site locally
 ```
 
 **Example with the Wonderland handbook:**
@@ -41,7 +41,7 @@ pnpm --filter wonderland-handbook start
 
 ### Prerequisites
 
-- Node.js (v22.18.0) - Use `.nvmrc` for version management
+- Node.js (v22.19.0) - Use `.nvmrc` for version management
 - pnpm package manager (v10.11.0)
 
 ### Building for Production
@@ -65,16 +65,19 @@ pnpm create-handbook <site-name>
 ```
 
 This will:
+
 1. Create a new site in `sites/<site-name>` based on the template
 2. Update the package.json with the correct site name
 3. Set up all necessary configurations
 
 **Example:**
+
 ```bash
 pnpm create-handbook my-new-handbook
 ```
 
 After creation, you can build and start the new site:
+
 ```bash
 cd sites/my-new-handbook
 pnpm build:assets

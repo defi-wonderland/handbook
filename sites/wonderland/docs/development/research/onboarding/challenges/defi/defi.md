@@ -1,7 +1,5 @@
 # DeFi
 
-## Understanding Protocol Dynamics
-
 This challenge consists of three stages, each focused on a key area of DeFi: interest rates in lending protocols, fee dynamics in AMMs, and AMM design comparisons. You’ll analyze, calculate and provide insights into how these protocols function and impact users.
 
 ## Stage 1: Interest Rate Analysis in Aave
@@ -51,7 +49,7 @@ Using the provided Aave interest rate contract, analyze how changes to interest 
   - Example values for `optimalUsageRatio`, `slope1`, and `slope2` can help anchor your analysis.
   - Assume realistic utilization rates (e.g., 50%, 80%, and 100%) to test your scenarios.
 
-## Stage 2: Comparing AMMs — Uniswap V2 vs. Curve StableSwap
+## Stage 2: Comparing AMMs - Uniswap V2 vs. Curve StableSwap
 
 We already learned in [How an AMM works](https://handbook.wonderland.xyz/docs/development/research/onboarding/knowledge-base/defi/amm) that AMMs use different curve designs to optimize for specific use cases. The challenge in this stage is to compare the efficiency and behaviour of Uniswap V2 and Curve StableSwap for a stable pair (e.g USDC/DAI) by answering:
 
