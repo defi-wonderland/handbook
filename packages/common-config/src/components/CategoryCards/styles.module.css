@@ -7,14 +7,14 @@
   margin-top: 1.5rem;
   padding: 0 0;
   margin-bottom: 2rem;
-  max-width: 66rem;
+  max-width: 80rem;
   justify-items: center;
 }
 
 .categoryCard {
   background: rgba(255, 255, 255, 0.08);
   height: 7.5rem;
-  width: 15.6rem;
+  width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   display: flex;
@@ -95,6 +95,7 @@
   position: relative;
   z-index: 1;
   text-decoration: none !important;
+  white-space: nowrap;
 }
 
 .categoryTitle::after {
