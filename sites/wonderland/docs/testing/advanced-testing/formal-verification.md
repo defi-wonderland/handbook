@@ -1,6 +1,6 @@
 # Formal verification
 
-While all other tests aim to find bugs using specific values (such as 123, address(69), etc.), even when guided by coverage like Medusa, they can only demonstrate the presence of a bug, not its absence. Formal verification, on the other hand, allows the opposite. It provides mathematical certainty by proving the correctness of the system being tested - essentially confirming the absence of bugs, *given the properties being assessed*.
+While all other tests aim to find bugs using specific values (such as 123, address(69), etc.), even when guided by coverage like Forge or Medusa, they can only demonstrate the presence of a bug, not its absence. Formal verification, on the other hand, allows the opposite. It provides mathematical certainty by proving the correctness of the system being tested - essentially confirming the absence of bugs, *given the properties being assessed*.
 
 ## Symbolic Execution
 
@@ -18,7 +18,7 @@ function abs(int256 x) public returns(int256) {
 ```
 
 We can rewrite it as the following logic formula:
-`x < 0 implies result=-x (1) AND x >= 0 implies result=x (2)`   
+`x < 0 implies result=-x (1) AND x >= 0 implies result=x (2)`
 
 And now add the following property we’d like to prove, which is the intended behaviour of an abs function, ie return positive values only: `assert(result >= 0); (3)`
 
@@ -47,18 +47,18 @@ A simplified way the SAT solver would solve this is (DLLP(T), as z3 would use fo
 - if there is no other unit clause, chose another literal: try setting b1 to false -> it doesn't change others clauses
 - try b3 true -> b4 needs to be true then (!b3 || b4 is therefore true) -> this is solved with (b1 F, b2 T/F, b3 T, b4 T)
 
-After having solved this boolean formula, the solution is “fed” back to the theory solver, which basically starts from the solved statement, and check if "it makes sense". In the example above this would mean converting back to arithmetic and look for impossible results. 
+After having solved this boolean formula, the solution is “fed” back to the theory solver, which basically starts from the solved statement, and check if "it makes sense". In the example above this would mean converting back to arithmetic and look for impossible results.
 
 > b1 F means x >= 0
 b2 can be whatever, result is -x or is not
 b3 T means x >= 0
 b4 T means result == x
 b5 T means result >= 0
-> 
+>
 
 this system can be simplified as `(x >= 0) and (result = x) and (result >= 0)`, which gather no contradiction/the system is satisfiable and we’ve proved it (we can produce examples, like x = 1 and result = 1 for instance), the solver will return SAT.
 
-One of the most used SMT solver/prover is [Z3](https://github.com/Z3Prover/z3/wiki#background), built by Microsoft. It is the default solver for solc, Halmos or some parts of Kontrol. 
+One of the most used SMT solver/prover is [Z3](https://github.com/Z3Prover/z3/wiki#background), built by Microsoft. It is the default solver for solc, Halmos or some parts of Kontrol.
 
 ## Concolic execution
 
@@ -77,13 +77,13 @@ In practice, each run starts with a concrete value (initially random, within the
 
 ```solidity
 function tryMe(uint256 x) public {
-	uint256 y = x + 2; // (1)
-	uint256 z;
-	
-	if (y > 5) z = 15; 
-	else z = 1; 
+ uint256 y = x + 2; // (1)
+ uint256 z;
+ 
+ if (y > 5) z = 15; 
+ else z = 1; 
 
-	if(y != 0) emit Heyaaaa();
+ if(y != 0) emit Heyaaaa();
 }
 ```
 
@@ -99,7 +99,7 @@ The next step is where we actually leverage symbolic execution (until now, we on
 
 In our example, if we are on the depth-first side of the force, we’ll negate the latest predicate, and then “going up” (ie first negate `(αx + 2 != 0)`, explore, and only after we don’t have new paths condition, negate `(αx + 2 > 5)`).
 
-This comes with one of the key optimization of concolic execution: as all predicates *preceding* the one we negate are still valid in that path (eg our path condition is `P1 and P2 and P3 and P4` , if we mutate P3, we cannot keep P4 - we don’t know anything about that predicate anymore - *but* P1 and P2 are still part of that path condition and are satisfiable), our solver can reuse these (in 2 ways: either reusing this prefix as is, the space to explore being reduced; either via ”incremental solving” where the solver keep track of previous assertions). 
+This comes with one of the key optimization of concolic execution: as all predicates *preceding* the one we negate are still valid in that path (eg our path condition is `P1 and P2 and P3 and P4` , if we mutate P3, we cannot keep P4 - we don’t know anything about that predicate anymore - *but* P1 and P2 are still part of that path condition and are satisfiable), our solver can reuse these (in 2 ways: either reusing this prefix as is, the space to explore being reduced; either via ”incremental solving” where the solver keep track of previous assertions).
 
 In other words, for any given simple path condition with n predicates (simple as in “straight line”, without loop or subbranches), the number of time we call the solver is in O(n) while the global “cost of solving” (ie how much we need to solve new predicates/we cannot reuse previous ones) in O(n^2) (ie 1 + 2 + …+ n = n(n+1)/2 which is n^2 complexity). In comparison, a symbolic execution based solving would solve every branches, from scratch (meaning O(2^n) calls to the solver, each having the same n predicates to solve (we don’t reuse), or a O(n x 2^n) global cost).
 
@@ -117,7 +117,7 @@ K is a framework for formally defining a programming languages or hardware. Kont
 
 To do so, Kontrol rewrite what’s called the *configuration* (the state - ie memory, storage, etc - organised in nested cells) using the language semantic defined in K. It then rewrite the reachability claims themselves, to check if any configuration satisfying the pre-conditions can be rewritten into one satisfying the post-condition ("under these assumptions, all executions must eventually satisfy this condition").
 
-As Kontrol isn't building path constraints to solve them (as a symbolic execution engine would), but rather focus on working directly on the semantic itself, it allows handling things which are usually hard for solvers (unbounded loops for instance). For specific, non-trivial, properties, Kontrol supports *auxiliay lemmas*, allowing providing intermediate results, to "guide" the proof. 
+As Kontrol isn't building path constraints to solve them (as a symbolic execution engine would), but rather focus on working directly on the semantic itself, it allows handling things which are usually hard for solvers (unbounded loops for instance). For specific, non-trivial, properties, Kontrol supports *auxiliay lemmas*, allowing providing intermediate results, to "guide" the proof.
 
 ## Tools
 
@@ -129,9 +129,9 @@ ItyFuzz is currently the most used concolic execution engines (working with a se
 
 ## Kontrol
 
-Kontrol relies on an implementation of the EVM bytecode semantic in K (the KEVM). 
+Kontrol relies on an implementation of the EVM bytecode semantic in K (the KEVM).
 
-See the Kontrol docs for a basic test example https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol 
+See the Kontrol docs for a basic test example [https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol](https://docs.runtimeverification.com/kontrol/guides/kontrol-example/property-verification-using-kontrol)
 
 ### Notes
 
@@ -148,11 +148,11 @@ This drastically increase its’ speed for proving properties, and makes it even
 ## Resources
 
 - [Kontrol documentation](https://docs.runtimeverification.com/kontrol)
-- https://www.youtube.com/watch?v=dMoBd0F4cjQ
+- [https://www.youtube.com/watch?v=dMoBd0F4cjQ](https://www.youtube.com/watch?v=dMoBd0F4cjQ)
 - More in-depth presentation by Juan Conejero at EthCC this year: [https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool](https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool)
-- Here is an earlier presentation at EthCluj, of both Simbolik and Kontrol: https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool
+- Here is an earlier presentation at EthCluj, of both Simbolik and Kontrol: [https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool](https://ethcc.io/archive/Getting-started-with-Kontrol-a-formal-verification-tool)
 - [A more advanced example](https://runtimeverification.com/blog/using-kontrol-to-tackle-complexities-caused-by-dynamically-sized-constructs) of how to use loop invariants in Kontrol for handling unbounded inputs, something unique to Kontrol's capabilities.
 - [A Wonderland podcast](https://drive.google.com/file/d/1KusMkjKsDRe0FV3TFkNr_6jOWxJ0QF6Z/view?usp=sharing) with Palina and Andrei from RuntimeVerification presenting Kontrol - see the kcfg part
-- https://www.youtube.com/watch?v=9PLnQStkiUo for a more theoretical talk about K itself, and how Kontrol is built on top of it
+- [https://www.youtube.com/watch?v=9PLnQStkiUo](https://www.youtube.com/watch?v=9PLnQStkiUo) for a more theoretical talk about K itself, and how Kontrol is built on top of it
 - [OP CI Kontrol tests](https://github.com/ethereum-optimism/optimism/tree/develop/packages/contracts-bedrock/test/kontrol)
 - [WETH9 testing](https://github.com/horsefacts/weth-invariant-testing/blob/main/test/WETH9.symbolic.t.sol) with Halmos

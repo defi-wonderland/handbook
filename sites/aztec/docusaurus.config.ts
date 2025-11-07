@@ -11,7 +11,7 @@ import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 const localConfig: Config = {
   title: "Aztec Handbook",
   tagline: "The Wonderland Onboarding to Aztec",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://aztec.handbook.wonderland.xyz",
@@ -20,6 +20,31 @@ const localConfig: Config = {
   baseUrl: "/",
   organizationName: "defi-wonderland",
   projectName: "aztec-handbook",
+
+  markdown: {
+      mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/common/img/favicon.svg',
+        sizes: 'any'
+      }
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/common/img/favicon.ico',
+        sizes: '64x64'
+      }
+    }
+  ],
 
   presets: [
     [

@@ -5,24 +5,37 @@ import rehypeKatex from "rehype-katex";
 import { merge } from "webpack-merge";
 import commonConfig from "@handbook/common-config/preset/commonDocusaurusConfig";
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const localConfig: Config = {
   title: "Wonderland Handbook",
   tagline:
     "A curated guide to our best practices, processes, and technical insights.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
-  // Set the production url of your site here
   url: "https://handbook.wonderland.xyz",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "defi-wonderland", // Usually your GitHub org/user name.
   projectName: "handbook", // Usually your repo name.
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/common/img/favicon.svg',
+        sizes: 'any'
+      }
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/common/img/favicon.ico',
+        sizes: '64x64'
+      }
+    }
+  ],
 
   presets: [
     [
@@ -36,7 +49,23 @@ const localConfig: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          editUrl: "https://github.com/defi-wonderland/handbook/tree/main/sites/wonderland",
+          // Hide the default sidebar on blog list pages
+          blogSidebarCount: 0,
+          postsPerPage: 12,
+          // Enable author pages (path relative to the blog directory)
+          // NOTE: authors.yml is auto-generated at build time from squad.json
+          // See scripts/generate-authors.ts and prebuild script in package.json
+          authorsMapPath: "authors.yml",
+          authorsBasePath: "authors",
+          // Force Docusaurus to use our custom author posts page component
+          blogAuthorsPostsComponent: "@site/src/theme/BlogAuthorsPostsPage",
+          // Enable math for blog MDX as posts contain formulas
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
         theme: {
           customCss: [
             "./src/css/local.css",
@@ -54,6 +83,12 @@ const localConfig: Config = {
   themes: ['@docusaurus/theme-mermaid'],
 
   themeConfig: {
+    stylesheets: [
+      {
+        href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
+        type: "text/css",
+      },
+    ],
     image: "img/wonderland-social-card.png",
     navbar: {
       logo: {
@@ -62,7 +97,13 @@ const localConfig: Config = {
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
-      items: [],
+      items: [
+        {
+          to: "/blog",
+          label: "Blog",
+          position: "right",
+        },
+      ],
     },
     mermaid: {
       theme: { light: 'base', dark: 'dark' },

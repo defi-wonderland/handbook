@@ -28,6 +28,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run tests
+      - name: Run scripts tests
         working-directory: scripts
+        run: pnpm test
+
+      - name: Run wonderland tests
+        working-directory: sites/wonderland
         run: pnpm test 

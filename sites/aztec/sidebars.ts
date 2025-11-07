@@ -25,7 +25,14 @@ const sidebars: SidebarsConfig = {
         id: 'background/overview',
       },
       items: [
-        'background/notes',
+        {
+          type: 'category',
+          label: 'Notes',
+          items: [
+            'background/notes',
+            'background/notes/partial-notes',
+          ],
+        },
         'background/UTXOs',
         'background/nullifiers',
         'background/zero-knowledge-proofs',
@@ -57,6 +64,69 @@ const sidebars: SidebarsConfig = {
       'stack/transaction-lifecycle',
       'stack/wrapping-up'
     ],
+    },
+    {
+      type: 'category',
+      label: 'Contracts',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'contracts/overview',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Account Contracts',
+          items: [
+            'contracts/account-contracts/overview',
+            'contracts/account-contracts/account-contracts',
+            'contracts/account-contracts/authwit'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Dumb Contracts',
+          items: [
+            'contracts/dumb-contracts/overview',
+            'contracts/dumb-contracts/design',
+            'contracts/dumb-contracts/state',
+          ],
+        },
+        {
+          type: 'doc',
+          label: 'Wrapping Up',
+          id: 'contracts/wrapping-up',
+        },
+      ],
+    },
+    // {
+    //   type: 'category',
+    //   label: 'Block Production',
+    //   collapsible: false,
+    //   collapsed: false,
+    //   link: {
+    //     type: 'doc',
+    //     id: 'block-production/overview',
+    //   },
+    //   items: [
+    //     'block-production/sequencing',
+    //     'block-production/proving',
+    //     'block-production/fallback-mechanisms',
+    //   ],
+    // },
+    {
+      type: 'category',
+      label: 'Block Production',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'block-production/overview',
+      },
+      items: [
+        'block-production/sequencing',
+      ],
     },
   ],
 };

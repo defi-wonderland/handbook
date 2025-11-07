@@ -59,7 +59,7 @@ Add the following configuration:
 
 ```
 [user]
-        email = your-anon@defi.sucks
+        email = your-anon@wonderland.xyz
         name = 0xYourAlias
         signingkey = <gpg_key>
 [commit]
@@ -89,7 +89,7 @@ When prompted:
 ### Generate DeFi SSH key
 
 ```bash
-ssh-keygen -t ed25519 -C "your-anon@defi.sucks"
+ssh-keygen -t ed25519 -C "your-anon@wonderland.xyz"
 ```
 
 When prompted:

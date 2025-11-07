@@ -23,18 +23,14 @@ const aztecCategories: Category[] = [
     href: "/docs/stack/overview",
   },
   {
-    title: "TRANSACTIONS",
-    icon: "/img/icons/document-currency-dollar.svg",
-    href: "/docs/transactions-and-messaging/overview",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
+    title: "CONTRACTS",
+    icon: "/img/icons/contract-icon.svg",
+    href: "/docs/contracts/overview",
   },
   {
-    title: "CONSENSUS",
+    title: "BLOCK PRODUCTION",
     icon: "/img/icons/processes-icon.svg",
-    href: "/docs/consensus-block-production/overview",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
+    href: "/docs/block-production/overview",
   },
 ];
 
