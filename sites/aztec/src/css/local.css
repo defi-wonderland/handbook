@@ -21,7 +21,19 @@
 
 .menu__list-item-collapsible .menu__link[href^="/docs/stack"]::before {
   content: "";
-  background-image: url("/img/icons/stack-icon-filled.svg");
+  background-image: url("/img/icons/stack-icon.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.menu__list-item-collapsible .menu__link[href^="/docs/block-production"]::before {
+  content: "";
+  background-image: url("/img/icons/processes-icon.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -96,6 +108,9 @@
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/privacy"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/block-production"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/contracts"] {
