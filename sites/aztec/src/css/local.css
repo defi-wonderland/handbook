@@ -2,12 +2,17 @@
 
 /* Shape, Icons, etc customization */
 :root {
-  --wonderland-accent: #D5FF2A;
-  --aztec-purple: #D5FF2A;
-  background-color: #2E0700;
+  /* Aztec tokens */
+  --aztec-accent: #D5FF2A;
+  --aztec-surface: #2E0700;
+
+  /* Bridge to shared styles */
+  --wonderland-accent: var(--aztec-accent);
+  --aztec-purple: var(--aztec-accent);
+  background-color: var(--aztec-surface);
 
   /* Docs primary (Infima) */
-  --ifm-color-primary: #D5FF2A;
+  --ifm-color-primary: var(--aztec-accent);
   --ifm-color-primary-dark: #b1d61a;
   --ifm-color-primary-darker: #91b516;
   --ifm-color-primary-light: #e1ff6b;
@@ -16,10 +21,11 @@
 
 /* Override shared surface token only on docs pages so local theme wins */
 html.docs-doc-page {
-  --wonderland-blue-950: #2E0700 !important;
-  --ifm-background-surface-color: #2E0700 !important;
-  --ifm-card-background-color: #2E0700 !important;
-  --ifm-background-color: #2E0700 !important; /* affects disclaimer modal bg */
+  --wonderland-blue-950: var(--aztec-surface) !important;
+  --ifm-background-surface-color: var(--aztec-surface) !important;
+  --ifm-card-background-color: var(--aztec-surface) !important;
+  --ifm-background-color: var(--aztec-surface) !important; /* affects disclaimer modal bg */
+  --ifm-code-background: var(--aztec-surface) !important;
 }
 
 /* Sidebar menu icons */
@@ -147,12 +153,12 @@ html.docs-doc-page {
 }
 
 .navbar {
-  background-color: #2E0700 !important;
+  background-color: var(--aztec-surface) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 nav.navbar.navbar--fixed-top {
-  background-color: #2E0700 !important;
+  background-color: var(--aztec-surface) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -161,13 +167,13 @@ nav.navbar.navbar--fixed-top {
 .menu,
 html.docs-doc-page .theme-doc-sidebar-container,
 html.docs-doc-page .menu {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Sidebar (mobile drawer) */
 .navbar-sidebar {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -177,33 +183,18 @@ html.docs-doc-page .menu {
 }
 
 .menu__list .menu__link:hover {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   color: #ffffff !important;
 }
 
 .menu__link--active:not(.menu__link--sublist) {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   color: #ffffff !important;
 }
 
-/* Ensure main section titles are yellow */
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href^="/docs/background"],
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href^="/docs/stack"],
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href^="/docs/block-production"],
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href^="/docs/contracts"] {
-  color: var(--wonderland-accent) !important;
-}
 /* Collapse sidebar button */
 .theme-doc-sidebar-container button[class*="collapseSidebarButton"] {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: #ffffff !important;
 }
@@ -221,10 +212,10 @@ html.docs-doc-page .menu {
 }
 /* Callouts (admonitions) */
 .alert {
-  --ifm-alert-background-color: #2E0700 !important;
-  --ifm-alert-border-color: #D5FF2A !important;
-  background: #2E0700 !important;
-  border: 1px solid #D5FF2A !important;
+  --ifm-alert-background-color: var(--aztec-surface) !important;
+  --ifm-alert-border-color: var(--aztec-accent) !important;
+  background: var(--aztec-surface) !important;
+  border: 1px solid var(--aztec-accent) !important;
   color: #ffffff;
 }
 
@@ -233,39 +224,39 @@ html.docs-doc-page .menu {
 .alert--danger,
 .alert--secondary,
 .alert--success {
-  --ifm-alert-background-color: #2E0700 !important;
-  --ifm-alert-border-color: #D5FF2A !important;
+  --ifm-alert-background-color: var(--aztec-surface) !important;
+  --ifm-alert-border-color: var(--aztec-accent) !important;
 }
 
 /* Codeblock accents */
 .theme-code-block__title,
 div[class*="codeBlockTitle"],
 [class*="playgroundHeader"] {
-  border-bottom: 1px solid #D5FF2A !important;
+  border-bottom: 1px solid var(--aztec-accent) !important;
 }
 
 /* Navbar searchbar accent overrides */
 .navbar.navbar--dark {
-  --ifm-navbar-search-input-background-color: #2E0700;
+  --ifm-navbar-search-input-background-color: var(--aztec-surface);
 }
 
 .navbar__search-input {
-  background-color: #2E0700 !important;
+  background-color: var(--aztec-surface) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .navbar__search .algolia-autocomplete {
-  --ifm-background-color: #2E0700;
+  --ifm-background-color: var(--aztec-surface);
 }
 
 .navbar__search .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion,
 .navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
-  background: #2E0700 !important;
+  background: var(--aztec-surface) !important;
 }
 
 /* Table of contents accent */
@@ -274,11 +265,11 @@ div[class*="codeBlockTitle"],
 }
 .table-of-contents__link:hover,
 .table-of-contents__link--active {
-  color: #D5FF2A !important;
+  color: var(--aztec-accent) !important;
 }
 
 .table-of-contents {
-  border-left: 1px solid #D5FF2A !important;
+  border-left: 1px solid var(--aztec-accent) !important;
 }
 
 /* Navbar toggle/close icons - force white */
@@ -296,62 +287,46 @@ div[class*="codeBlockTitle"],
 
 /* Disclaimer button accent */
 #disclaimer-btn {
-  color: #D5FF2A !important;
+  color: var(--aztec-accent) !important;
 }
 #disclaimer-btn:hover {
-  color: #D5FF2A !important;
+  color: var(--aztec-accent) !important;
   opacity: 0.9;
 }
 /* Pagination button highlight */
 .pagination-nav__link {
-  border: 1px solid #D5FF2A !important;
+  border: 1px solid var(--aztec-accent) !important;
 }
 
 .pagination-nav__link:hover {
-  border: 1px solid #D5FF2A !important;
+  border: 1px solid var(--aztec-accent) !important;
 }
 
 /* Breadcrumb tabs */
 .breadcrumbs__link {
-  background: #2E0700 !important;
-  color: #D5FF2A !important;
-  border: 1px solid #D5FF2A !important;
+  background: var(--aztec-surface) !important;
+  color: var(--aztec-accent) !important;
+  border: 1px solid var(--aztec-accent) !important;
   border-radius: 9999px !important;
   padding: 0.4rem 0.8rem !important;
 }
 
 .breadcrumbs__item--active .breadcrumbs__link {
-  background: #2E0700 !important;
-  color: #D5FF2A !important;
-  border-color: #D5FF2A !important;
+  background: var(--aztec-surface) !important;
+  color: var(--aztec-accent) !important;
+  border-color: var(--aztec-accent) !important;
 }
 
 .breadcrumbs__link:hover {
-  color: #D5FF2A !important;
-  border-color: #D5FF2A !important;
+  color: var(--aztec-accent) !important;
+  border-color: var(--aztec-accent) !important;
 }
 
-/* Codeblock background override to Aztec maroon */
-.theme-code-block,
-div[class^="codeBlock"],
-div[class^="codeBlockContainer"],
-div[class^="codeBlockContent"],
-.prism-code,
-pre[class*="language-"],
-code[class*="language-"],
-.code-block-container {
-  background-color: #2E0700 !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-.theme-code-block::before {
-  background: #2E0700 !important;
-}
-
-.token,
-.token-line,
-.token span,
-[class*="codeLine"] {
-  background: #2E0700 !important;
+/* Focus states for accessibility */
+.menu__link:focus-visible,
+.breadcrumbs__link:focus-visible,
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"]:focus-visible,
+#disclaimer-btn:focus-visible {
+  outline: 2px solid var(--aztec-accent) !important;
+  outline-offset: 2px;
 }
