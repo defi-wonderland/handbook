@@ -105,6 +105,45 @@ const sidebars: SidebarsConfig = {
         }
       ],
     },
+    {
+      type: 'category',
+      label: 'KOHAKU',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'kohaku/overview',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'kohaku/overview',
+          label: 'Overview',
+        },
+        {
+          type: 'doc',
+          id: 'kohaku/account-abstraction',
+          label: 'Account abstraction',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'INTEROP',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'interop/coming-soon',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'interop/coming-soon',
+          label: 'Coming soon',
+        },
+      ],
+    },
   ],
 };
 

@@ -54,6 +54,43 @@
   margin-right: 0.5rem;
 }
 
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/kohaku"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/kohaku/"]::before {
+  content: "";
+  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/interop"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/coming-soon"]::before {
+  content: "";
+  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
 .menu__list-item-collapsible .menu__link[href^="/docs/protocol"]::before {
   content: "";
   background-image: url("/img/icons/document-currency-dollar.svg");
@@ -123,6 +160,55 @@
   line-height: 1 !important;
   letter-spacing: 0.03em;
   color: var(--ef-cyan) !important; /* Change this to any color you want (currently cyan) */
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Font for category titles - KOHAKU */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/kohaku"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/kohaku/"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--ef-cyan) !important;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Font for category titles - INTEROP */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/interop"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/coming-soon"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--ef-cyan) !important;
   text-transform: uppercase;
   font-size: 0.8rem !important;
   display: flex;

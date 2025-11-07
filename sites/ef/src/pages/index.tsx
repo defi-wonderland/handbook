@@ -23,7 +23,12 @@ const efCategories: Category[] = [
     href: "/docs/privacy-pools/privacy-by-default"
   },
   {
-    title: "ERCs",
+    title: "KOHAKU",
+    icon: "/img/icons/document-currency-dollar.svg",
+    href: "/docs/kohaku/overview"
+  },
+  {
+    title: "INTEROP",
     icon: "/img/icons/document-currency-dollar.svg",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
@@ -101,7 +106,7 @@ function Home(): React.ReactElement {
           <CategoryCards
             categories={efCategories}
             theme={efCategoryTheme}
-            columns={3}
+            columns={4}
           />
         </section>
 

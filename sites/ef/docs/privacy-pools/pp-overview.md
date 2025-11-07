@@ -42,7 +42,7 @@ Finally, because the protocol is designed to be fully non-custodial, you are alw
 
 It's helpful to visualize the whole flow as a sequence of actions between the key actors.
 
-[Diagram The Privacy Pools Interaction Flow]
+![PP overview](/img/diagrams/pp_overview.png)
 
 ### What’s Next Going Deeper
 
@@ -52,5 +52,3 @@ This overview explains the conceptual model of Privacy Pools and the roles of th
 This part introduces the *what*. It establishes the **note** as the core object of the entire system and the foundation upon which all privacy is built.
 - **How do privacy pools work?**
 Now that the reader understands Notes, we can explain the machinery that protects them. This document covers the *how*, detailing the ZK proofs, smart contracts, and relayers that works together.
-- **The User Journey** 
-This document puts everything together, referencing the concepts from the first two articles. This shows the *application* of the tech in a real world scenario.
