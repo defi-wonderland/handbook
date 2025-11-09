@@ -30,7 +30,7 @@
 
 /* Aztec background */
 .aztecBackground {
-  background: url("/common/img/common-background-aztec.png") no-repeat center 0;
+  background: url("/common/img/common-background-aztec.svg") no-repeat center 0;
   background-size: cover;
   min-height: 100vh;
   position: absolute;

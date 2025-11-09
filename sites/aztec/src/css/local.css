@@ -3,8 +3,8 @@
 /* Shape, Icons, etc customization */
 :root {
   /* Aztec tokens */
-  --aztec-accent: #D5FF2A;
-  --aztec-surface: #2E0700;
+  --aztec-accent: #FFFFFF;
+  --aztec-surface: #00122E;
 
   /* Bridge to shared styles */
   --wonderland-accent: var(--aztec-accent);
@@ -13,10 +13,10 @@
 
   /* Docs primary (Infima) */
   --ifm-color-primary: var(--aztec-accent);
-  --ifm-color-primary-dark: #b1d61a;
-  --ifm-color-primary-darker: #91b516;
-  --ifm-color-primary-light: #e1ff6b;
-  --ifm-color-primary-lighter: #eeff9c;
+  --ifm-color-primary-dark: #E6E6E6;
+  --ifm-color-primary-darker: #CCCCCC;
+  --ifm-color-primary-light: #FFFFFF;
+  --ifm-color-primary-lighter: #FFFFFF;
 }
 
 /* Override shared surface token only on docs pages so local theme wins */
@@ -204,7 +204,7 @@ html.docs-doc-page .menu {
   color: #ffffff !important;
 }
 .theme-doc-sidebar-container button[class*="collapseSidebarButton"]:hover {
-  color: #D5FF2A !important;
+  color: var(--aztec-accent) !important;
 }
 .theme-doc-sidebar-container button[class*="collapseSidebarButton"] svg path {
   fill: none !important;
@@ -292,6 +292,18 @@ div[class*="codeBlockTitle"],
 #disclaimer-btn:hover {
   color: var(--aztec-accent) !important;
   opacity: 0.9;
+}
+
+#disclaimer-btn img[src$="information-circle.svg"],
+img[src$="information-circle.svg"],
+img[src*="/img/icons/information-circle.svg"],
+img[src*="/common/img/icons/information-circle.svg"] {
+  filter: brightness(0) invert(1) !important;
+}
+#disclaimer-btn svg,
+#disclaimer-btn svg * {
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
 }
 /* Pagination button highlight */
 .pagination-nav__link {
