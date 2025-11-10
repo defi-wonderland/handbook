@@ -2,8 +2,30 @@
 
 /* Shape, Icons, etc customization */
 :root {
-  --wonderland-accent: #A39FED;
-  --aztec-purple: #625CBF;
+  /* Aztec tokens */
+  --aztec-accent: #FFFFFF;
+  --aztec-surface: #00122E;
+
+  /* Bridge to shared styles */
+  --wonderland-accent: var(--aztec-accent);
+  --aztec-purple: var(--aztec-accent);
+  background-color: var(--aztec-surface);
+
+  /* Docs primary (Infima) */
+  --ifm-color-primary: var(--aztec-accent);
+  --ifm-color-primary-dark: #E6E6E6;
+  --ifm-color-primary-darker: #CCCCCC;
+  --ifm-color-primary-light: #FFFFFF;
+  --ifm-color-primary-lighter: #FFFFFF;
+}
+
+/* Override shared surface token only on docs pages so local theme wins */
+html.docs-doc-page {
+  --wonderland-blue-950: var(--aztec-surface) !important;
+  --ifm-background-surface-color: var(--aztec-surface) !important;
+  --ifm-card-background-color: var(--aztec-surface) !important;
+  --ifm-background-color: var(--aztec-surface) !important; /* affects disclaimer modal bg */
+  --ifm-code-background: var(--aztec-surface) !important;
 }
 
 /* Sidebar menu icons */
@@ -128,4 +150,195 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.navbar {
+  background-color: var(--aztec-surface) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav.navbar.navbar--fixed-top {
+  background-color: var(--aztec-surface) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Sidebar (desktop + menu list) */
+.theme-doc-sidebar-container,
+.menu,
+html.docs-doc-page .theme-doc-sidebar-container,
+html.docs-doc-page .menu {
+  background: var(--aztec-surface) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Sidebar (mobile drawer) */
+.navbar-sidebar {
+  background: var(--aztec-surface) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Sidebar accent overrides */
+.menu__link {
+  color: #ffffff !important;
+}
+
+.menu__list .menu__link:hover {
+  background: var(--aztec-surface) !important;
+  color: #ffffff !important;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--aztec-surface) !important;
+  color: #ffffff !important;
+}
+
+/* Collapse sidebar button */
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"] {
+  background: var(--aztec-surface) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Collapse button icon colors */
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"] {
+  color: #ffffff !important;
+}
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"]:hover {
+  color: var(--aztec-accent) !important;
+}
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"] svg path {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+/* Callouts (admonitions) */
+.alert {
+  --ifm-alert-background-color: var(--aztec-surface) !important;
+  --ifm-alert-border-color: var(--aztec-accent) !important;
+  background: var(--aztec-surface) !important;
+  border: 1px solid var(--aztec-accent) !important;
+  color: #ffffff;
+}
+
+.alert--info,
+.alert--warning,
+.alert--danger,
+.alert--secondary,
+.alert--success {
+  --ifm-alert-background-color: var(--aztec-surface) !important;
+  --ifm-alert-border-color: var(--aztec-accent) !important;
+}
+
+/* Codeblock accents */
+.theme-code-block__title,
+div[class*="codeBlockTitle"],
+[class*="playgroundHeader"] {
+  border-bottom: 1px solid var(--aztec-accent) !important;
+}
+
+/* Navbar searchbar accent overrides */
+.navbar.navbar--dark {
+  --ifm-navbar-search-input-background-color: var(--aztec-surface);
+}
+
+.navbar__search-input {
+  background-color: var(--aztec-surface) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.navbar__search .algolia-autocomplete {
+  --ifm-background-color: var(--aztec-surface);
+}
+
+.navbar__search .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+  background: var(--aztec-surface) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion,
+.navbar__search .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+  background: var(--aztec-surface) !important;
+}
+
+/* Table of contents accent */
+.table-of-contents__link {
+  color: #ffffff !important;
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--aztec-accent) !important;
+}
+
+.table-of-contents {
+  border-left: 1px solid var(--aztec-accent) !important;
+}
+
+/* Navbar toggle/close icons - force white */
+.navbar__toggle,
+.navbar-sidebar__close {
+  color: #ffffff !important;
+}
+.navbar__toggle svg,
+.navbar__toggle svg path,
+.navbar-sidebar__close svg,
+.navbar-sidebar__close svg path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Disclaimer button accent */
+#disclaimer-btn {
+  color: var(--aztec-accent) !important;
+}
+#disclaimer-btn:hover {
+  color: var(--aztec-accent) !important;
+  opacity: 0.9;
+}
+
+#disclaimer-btn img[src$="information-circle.svg"],
+img[src$="information-circle.svg"],
+img[src*="/img/icons/information-circle.svg"],
+img[src*="/common/img/icons/information-circle.svg"] {
+  filter: brightness(0) invert(1) !important;
+}
+#disclaimer-btn svg,
+#disclaimer-btn svg * {
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+}
+/* Pagination button highlight */
+.pagination-nav__link {
+  border: 1px solid var(--aztec-accent) !important;
+}
+
+.pagination-nav__link:hover {
+  border: 1px solid var(--aztec-accent) !important;
+}
+
+/* Breadcrumb tabs */
+.breadcrumbs__link {
+  background: var(--aztec-surface) !important;
+  color: var(--aztec-accent) !important;
+  border: 1px solid var(--aztec-accent) !important;
+  border-radius: 9999px !important;
+  padding: 0.4rem 0.8rem !important;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: var(--aztec-surface) !important;
+  color: var(--aztec-accent) !important;
+  border-color: var(--aztec-accent) !important;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--aztec-accent) !important;
+  border-color: var(--aztec-accent) !important;
+}
+
+/* Focus states for accessibility */
+.menu__link:focus-visible,
+.breadcrumbs__link:focus-visible,
+.theme-doc-sidebar-container button[class*="collapseSidebarButton"]:focus-visible,
+#disclaimer-btn:focus-visible {
+  outline: 2px solid var(--aztec-accent) !important;
+  outline-offset: 2px;
 }
