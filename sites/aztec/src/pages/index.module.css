@@ -30,7 +30,7 @@
 
 /* Aztec background */
 .aztecBackground {
-  background: url("/common/img/common-background.png") no-repeat center 0;
+  background: url("/common/img/common-background-aztec.svg") no-repeat center 0;
   background-size: cover;
   min-height: 100vh;
   position: absolute;
@@ -39,7 +39,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  filter: hue-rotate(240deg) saturate(1.1) brightness(0.8);
+  filter: none;
 }
 
 @media (max-width: 1200px) {
