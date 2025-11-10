@@ -17,16 +17,16 @@
     "build": "pnpm build:assets && docusaurus build --out-dir build"
   },
   "dependencies": {
-    "@handbook/common-config": "workspace:*",
+    "@cookbookdev/docsbot": "^4.25.15",
     "@docusaurus/core": "3.7.0",
     "@docusaurus/plugin-vercel-analytics": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/theme-mermaid": "3.7.0",
+    "@handbook/common-config": "workspace:*",
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
     "acorn": "8.14.1",
     "clsx": "2.0.0",
-    "webpack-merge": "6.0.1",
     "docusaurus-lunr-search": "3.6.0",
     "katex": "0.16.21",
     "lunr": "2.3.9",
@@ -34,7 +34,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "rehype-katex": "7.0.1",
-    "remark-math": "6.0.0"
+    "remark-math": "6.0.0",
+    "webpack-merge": "6.0.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.7.0",

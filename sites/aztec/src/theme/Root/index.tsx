@@ -1,4 +1,5 @@
 import { Root as SharedRoot } from "@handbook/common-config/theme";
+import ChefAI from '@site/src/components/ChefAI'
 
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
@@ -25,6 +26,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
       }
     >
       {children}
+      <ChefAI />
     </SharedRoot>
   );
 }
