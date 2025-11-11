@@ -14,6 +14,8 @@ Our testing framework is built on industry best practices and battle-tested appr
 
 [Unit and Integration Testing](./unit-integration.md)
 
+[Happy Tests Checklist](./checklist.md)
+
 [Mutation Testing](./mutation-testing.md)
 
 ### Advanced Testing
