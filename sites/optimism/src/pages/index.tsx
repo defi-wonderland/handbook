@@ -32,6 +32,11 @@ const optimismCategories: Category[] = [
     icon: "/img/icons/processes-icon.svg",
     href: "/docs/processes/overview",
   },
+  {
+    title: "GUIDELINES",
+    icon: "/img/icons/guidelines-icon.svg",
+    href: "/docs/guides/overview",
+  },
 ];
 
 const optimismHeroProps: HeroSectionProps = {
