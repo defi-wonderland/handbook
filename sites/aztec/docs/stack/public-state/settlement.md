@@ -95,7 +95,7 @@ export type InboxMessage = {
 :::
 #### Field‑by‑field cheat‑sheet
 
-| Field         | Where stored              | Why it exists                                               | Contract ref                                |
+| Field         | Where is it stored              | Why it exists                                               | Contract ref                                |
 | ------------- | ------------------------- | ----------------------------------------------------------- | ------------------------------------------- |
 | `index`       | Inbox tree leaf & bitmap  | Uniqueness + nullifier derivation                           | `Inbox.sendL2Message()` lines 73‑80         |
 | `secretHash`  | Leaf only (not in Outbox) | Lets user prove they own the message without revealing when | Same file, constructor comment              |

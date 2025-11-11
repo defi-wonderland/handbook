@@ -129,7 +129,7 @@ A key aspect of the UTXO model is that spending a note often involves creating o
 
 ## Private Payment Example
 
-Now, an example of a private payment: let's say that Alice wants to pay Bob 25 DAI privately. In a highlevel:
+Now, a high-level example of a private payment: let's say that Alice wants to pay Bob 25 DAI privately.
 
 ### Sender's Action (Alice):
 
@@ -165,4 +165,4 @@ Later, when Bob wishes to spend his 25 DAI note (e.g. to pay Karl), he initiates
 
 - A unique nullifier for that 25 DAI note is computed and published to the nullifier tree, marking it as spent.
 
-Similar to Alice's action, Bob's circuit would then create new notes (e.g. a payment note for Carol and a change note for Bob himself) as part of this transaction.
+Similar to Alice's action, Bob's circuit would then create new notes (e.g. a payment note for Karl and a change note for Bob himself) as part of this transaction.
