@@ -1,6 +1,6 @@
 # Sequencing
 
-Each epoch is sequenced *without proving* until it is complete. Such chain of unproven blocks is
+Each epoch is sequenced *without proving* until it's complete. Such chain of unproven blocks is
 called the *pending chain*, which is dispatched for proving only after it's been completely
 sequenced.
 
@@ -64,7 +64,7 @@ proposer uses the simulation's results to construct a [`BlockProposal`](https://
 - `blockNumber`: the block number
 - `signature`: the proposal's signature by the proposer
 - `payload`: what the signature is over
-  - block header, including the archive root after this block is added
+  - block header, including the archive root before this block is added
   - archive root after block
   - state after block
 - `txHashes`: TX hashes

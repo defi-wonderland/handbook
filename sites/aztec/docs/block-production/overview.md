@@ -36,7 +36,7 @@ Roughly, when a new epoch begins:
 1) A random committee is elected from the validator set
 2) Proposers are sampled from the committee for each of the epoch's slot
 3) Each proposer produces a block. They then broadcast it to the committee for attestations and,
-   upon collecting enough attestations, publishes to the rollup contract *without proving*
+   upon collecting enough attestations, publish to the rollup contract *without proving*
 
 ### Proving
 
