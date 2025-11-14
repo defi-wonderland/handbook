@@ -125,6 +125,11 @@ const sidebars: SidebarsConfig = {
           id: 'kohaku/account-abstraction',
           label: 'Account abstraction',
         },
+        {
+          type: 'doc',
+          id: 'kohaku/trustless-rpc',
+          label: 'Trustless RPC',
+        },
       ],
     },
     {
