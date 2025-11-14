@@ -130,6 +130,11 @@ const sidebars: SidebarsConfig = {
           id: 'kohaku/trustless-rpc',
           label: 'Trustless RPC',
         },
+        {
+          type: 'doc',
+          id: 'kohaku/relayers',
+          label: 'Relayers',
+        },
       ],
     },
     {

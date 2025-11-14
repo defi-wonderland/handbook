@@ -51,6 +51,12 @@ const localConfig: Config = {
     ],
   ],
 
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
+
   themeConfig: {
     image: "img/social-card.png",
     navbar: {
@@ -77,6 +83,12 @@ const localConfig: Config = {
       theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
       additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
+    },
+    mermaid: {
+      theme: { light: 'base', dark: 'dark' },
+      options: {
+        theme: 'dark',
+      },
     },
   } satisfies Preset.ThemeConfig,
 };
