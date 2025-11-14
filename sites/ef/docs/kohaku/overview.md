@@ -12,9 +12,11 @@ The key insight is that these are UX problems, and the primary battlefield is th
 
 ## A multiplied identity
 
-The core mental model for Ethereum users has always been simple, one user equals one address. This model is shattering. An L2 centric world means you have an address on Arbitrum, on Optimism, and so on. Smart contract wallets complicate this further and privacy could rely on **stealth addresses**, where you generate a new, cryptographically unlinkable address for every single interaction.
+The core mental model for Ethereum users has always been simple, one user equals one address. This model is shattering. An L2 centric world means you have an address on Arbitrum, on Optimism, and so on. Smart contract wallets complicate this further, and the privacy transition could rely on stealth addresses, where you generate a new, cryptographically unlinkable address for every single interaction.
 
-Improving scaling, security and privacy simultaneously creates a tangled web of coordination issues that pulls the user's identity apart. Without a new cohesive approach, the user experience will become so complex that centralized solutions will win.
+But the problem runs deeper than just user facing complexity. The reason the privacy transition is lagging is that building these features is extremely difficult. For a wallet team to offer private sends or social recovery today, they need deep, specialized knowledge of cryptography and a zoo of different privacy protocols. This high barrier to entry is what prevents privacy from becoming a standard feature.
+
+This creates a dual challenge on the one hand, a tangled web of coordination issues that pulls the user's identity apart, and on the other, immense technical complexity that stops developers from building the solutions. Without a new cohesive approach that solves this for *both* users and developers, the experience will become so complex that centralized, non private solutions will win.
 
 ## A public goods toolkit
 
