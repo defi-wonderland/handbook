@@ -10,22 +10,21 @@ import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const localConfig: Config = {
-  title: "Documentation",
+  title: "Ethereum Foundation Handbook",
   tagline:
     "A comprehensive guide to our project, processes, and best practices.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-domain.com/",
+  url: "https://ef.handbook.wonderland.xyz",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "your-organization", // Usually your GitHub org/user name.
-  projectName: "your-project", // Usually your repo name.
+  organizationName: "defi-wonderland",
+  projectName: "ef-handbook",
 
   presets: [
     [
@@ -67,11 +66,6 @@ const localConfig: Config = {
       },
       style: "dark",
       items: [
-        {
-          to: "https://your-website.com",
-          position: "right",
-          label: "Website",
-        },
         {
           type: "html",
           position: "right",

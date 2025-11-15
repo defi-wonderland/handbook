@@ -68,6 +68,15 @@ const wonderlandHandbooks: Handbook[] = [
       color: "#625CBFD1",
     },
   },
+  {
+    title: "Ethereum Foundation Handbook",
+    image: "/common/img/ef-logo.svg",
+    href: "https://ef.handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/background-handbook-card.jpg",
+    },
+  },
 ];
 
 const wonderlandHandbookProps: HandbookSectionProps = {
