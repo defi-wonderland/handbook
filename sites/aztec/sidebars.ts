@@ -126,6 +126,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'block-production/sequencing',
+        'block-production/proving',
       ],
     },
   ],
