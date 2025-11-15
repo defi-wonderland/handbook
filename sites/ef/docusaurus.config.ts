@@ -51,12 +51,18 @@ const localConfig: Config = {
     ],
   ],
 
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
+
   themeConfig: {
     image: "img/social-card.png",
     navbar: {
       logo: {
         alt: "Documentation",
-        src: "img/logo.svg",
+        src: "img/wonderland-ef-navbar-logo.svg",
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
@@ -77,6 +83,12 @@ const localConfig: Config = {
       theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
       additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
+    },
+    mermaid: {
+      theme: { light: 'base', dark: 'dark' },
+      options: {
+        theme: 'dark',
+      },
     },
   } satisfies Preset.ThemeConfig,
 };

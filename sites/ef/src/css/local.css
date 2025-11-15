@@ -3,7 +3,7 @@
 /* Shape, Icons, etc customization */
 :root {
   --wonderland-accent: #9292D8; /* Periwinkle Frame */
-  --ef-cyan: #98F7F7; /* Luminous Cyan */
+  --ef-cyan: #88AAF1; /* Luminous Cyan */
   --ef-purple: #9292D8; /* Periwinkle Frame */
   --ef-blue: #4987E5; /* Deep Azure */
   --ef-gray-light: #C7C7C7; /* Observer Suit */
@@ -13,22 +13,23 @@
   --ef-crimson: #E6637B; /* Crimson Accent */
 }
 
-/* Sidebar menu icons */
-.menu__list-item-collapsible .menu__link[href^="/docs/wallet"]::before {
-  content: "";
-  background-image: url("/img/icons/map.svg");
-  background-size: 1rem 1rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  margin-right: 0.5rem;
+/* Category card titles on index page */
+.categoryTitle {
+  color: #C9B3F5 !important;
 }
 
-.menu__list-item-collapsible .menu__link[href^="/docs/privacy-pools-by-kohaku"]::before {
+/* Sidebar menu icons */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/wallet"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/wallet/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/wallet/wallet"]::before {
   content: "";
-  background-image: url("/img/icons/stack-icon-filled.svg");
+  background-image: url("/img/icons/cursor-arrow-ripple.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -36,6 +37,67 @@
   height: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/privacy-pools"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/intro"]::before {
+  content: "";
+  background-image: url("/img/icons/key.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/kohaku"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/kohaku/"]::before {
+  content: "";
+  background-image: url("/img/icons/squares-2x2.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/interop"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/"]::before,
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/coming-soon"]::before {
+  content: "";
+  background-image: url("/img/icons/cube-transparent.svg");
+  background-size: 1rem 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/protocol"]::before {
@@ -50,22 +112,53 @@
   margin-right: 0.5rem;
 }
 
-
 /* Landing page CategoryCards icons now use #A39FED directly in SVG files */
 
-/* Font for Aztec category titles */
+/* Font for category titles - WALLET (more specific to override global.css) */
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
   .menu__link[href^="/docs/wallet"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/privacy-pools-by-kohaku"],
+  .menu__link[href="/docs/wallet/"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/protocol"],
+  .menu__link[href="/docs/wallet/intro"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/privacy"] {
+  .menu__link[href="/docs/wallet/wallet"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em !important;
+  color: var(--wonderland-accent) !important; /* Purple color for WALLET */
+  text-transform: uppercase !important;
+  font-size: 0.8rem !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Additional override to ensure WALLET styling wins over global.css */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/wallet"] {
+  font-weight: 700 !important;
+  color: var(--ef-cyan) !important;
+  text-transform: uppercase !important;
+}
+
+/* Font for category titles - PRIVACY POOLS (customizable color) */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/privacy-pools"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/privacy-pools/"] {
   font-family:
     "Inter",
     system-ui,
@@ -74,7 +167,56 @@
   font-weight: 700 !important;
   line-height: 1 !important;
   letter-spacing: 0.03em;
-  color: var(--wonderland-accent);
+  color: var(--ef-cyan) !important; /* Change this to any color you want (currently cyan) */
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Font for category titles - KOHAKU */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/kohaku"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/kohaku/"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--ef-cyan) !important;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Font for category titles - INTEROP */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/interop"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/coming-soon"] {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.03em;
+  color: var(--ef-cyan) !important;
   text-transform: uppercase;
   font-size: 0.8rem !important;
   display: flex;

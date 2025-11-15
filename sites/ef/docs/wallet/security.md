@@ -26,11 +26,11 @@ However this is a dangerous path, a naive attempt to implement such a feature co
 
 ### **Application attacks**
 
-Application attacks are the **most common threat**. They involve exploiting the application layer, typically through phishing or malware, to trick a user or their software into doing something malicious.
+Application attacks are the most common threat. Such an attack could succeed not by breaking the protocol itself, but by exploiting a **flawed implementation** of it.
 
-Let's imagine a **naive approach** to our problem a simple function call like `wallet.deriveSecret("app-name")`. A legitimate application, like PrivacyPools, would call this to get its key. The problem is, a phishing site or malicious dApp can make the *exact same call*. The wallet software, in this naive design, has no way to distinguish the legitimate request from the fraudulent one. The user might be presented with a generic prompt like "Allow secret derivation?", and with a single click, they would hand over the secret for their private data to an attacker.
+If a developer implements the protocol but makes a critical mistake like using the user's **public** wallet address for the derivation process instead of the special, undiscoverable **`Privileged-Access Address`** required by the signature derivation process that we will explain later. A phishing site, which already knows the target's public address, could then perfectly construct the exact same EIP-712 challenge that the legitimate application would create. The user would be prompted with what appears to be a valid request and, with one click, produce a signature. The attacker, having stolen this signature and knowing the public address used, could then run the final derivation step themselves and steal the user's `appSecret`.
 
-The key insight here is that the system lacks a mechanism for the wallet to verify the identity of the requester. Any protocol for deriving secrets **must** have a robust and unforgable way for the wallet to know who is asking for the key.
+The key insight here is that the protocol's security hinges on using a piece of information that is **undiscoverable** by the dApp. By tying the challenge to a hidden address that only the wallet can derive, the correct protocol creates an unforgeable link. An attacker simply cannot guess this address, making it impossible for them to construct the valid challenge needed to execute the attack.
 
 ### **Authentication attacks**
 

@@ -56,6 +56,11 @@ const commonDocusaurusConfig: Partial<Config> = {
               to: "https://aztec.handbook.wonderland.xyz",
               target: "_self",
             },
+            {
+              label: "Ethereum Foundation",
+              to: "https://ef.handbook.wonderland.xyz",
+              target: "_self",
+            },
           ],
         },
         {

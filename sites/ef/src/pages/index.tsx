@@ -13,19 +13,14 @@ import {
 
 const efCategories: Category[] = [
   {
-    title: "WALLET",
-    icon: "/img/icons/map.svg",
-    href: "/docs/wallet/"
+    title: "PRIVACY",
+    icon: "/img/icons/key.svg",
+    href: "/docs/kohaku/overview"
   },
   {
-    title: "PRIVACY POOLS BY KOHAKU",
-    icon: "/img/icons/stack-icon.svg",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
-  },
-  {
-    title: "PROTOCOL",
-    icon: "/img/icons/document-currency-dollar.svg",
+    title: "INTEROP",
+    icon: "/img/icons/cube-transparent.svg",
+    href: "/docs/interop/coming-soon",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   }
@@ -102,7 +97,7 @@ function Home(): React.ReactElement {
           <CategoryCards
             categories={efCategories}
             theme={efCategoryTheme}
-            columns={3}
+            columns={2}
           />
         </section>
 

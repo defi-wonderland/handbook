@@ -17,44 +17,126 @@ const sidebars: SidebarsConfig = {
     'intro/welcome',
     {
       type: 'category',
-      label: 'WALLET',
+      label: 'KOHAKU',
       collapsible: false,
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'kohaku/overview',
+      },
       items: [
         {
-          type: 'doc',
-          id: 'wallet/wallet',
-          label: 'What is a wallet, really',
+          type: 'category',
+          label: 'Security & Trust Assumptions',
+          collapsible: true,
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'kohaku/trustless-rpc',
+              label: 'Trustless RPC',
+            },
+            {
+              type: 'doc',
+              id: 'kohaku/relayers',
+              label: 'Relayers',
+            },
+            {
+              type: 'doc',
+              id: 'kohaku/account-abstraction',
+              label: 'Account abstraction',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'wallet/mechanisms',
-          label: 'Understanding wallet mechanisms',
+          type: 'category',
+          label: 'WALLET',
+          collapsible: false,
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'wallet/what-is',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'wallet/what-is',
+              label: 'What is a wallet, really',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/mechanisms',
+              label: 'Understanding wallet mechanisms',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/mnemonic',
+              label: 'On words and keys, a guide to Mnemonic Phrases',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/security',
+              label: 'Mapping the derivation attack surface',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/problem-frame',
+              label: 'Framing the seed problem',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/signature-derivation',
+              label: 'Deriving secrets from signatures',
+            },
+            {
+              type: 'doc',
+              id: 'wallet/hardware-derivation',
+              label: 'The endgame, hardware native derivation',
+            },
+          ],
         },
         {
-          type: 'doc',
-          id: 'wallet/mnemonic',
-          label: 'On words and keys, a guide to Mnemonic Phrases',
-        },
-        {
-          type: 'doc',
-          id: 'wallet/security',
-          label: 'Mapping the derivation attack surface',
-        },
-        {
-          type: 'doc',
-          id: 'wallet/problem-frame',
-          label: 'Framing the seed problem',
-        },
-        {
-          type: 'doc',
-          id: 'wallet/signature-derivation',
-          label: 'Deriving secrets from signatures',
-        },
-        {
-          type: 'doc',
-          id: 'wallet/hardware-derivation',
-          label: 'The endgame, hardware native derivation',
+          type: 'category',
+          label: 'PRIVACY POOLS',
+          collapsible: false,
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'privacy-pools/privacy-by-default',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'privacy-pools/privacy-by-default',
+              label: 'Privacy by default',
+            },
+            {
+              type: 'doc',
+              id: 'privacy-pools/pp-overview',
+              label: 'Privacy Pools overview',
+            },
+            {
+              type: 'doc',
+              id: 'privacy-pools/notes',
+              label: 'Anatomy of a note',
+            },
+      
+            {
+              type: 'doc',
+              id: 'privacy-pools/batch-withdrawal',
+              label: 'Batch withdrawal',
+            },
+            {
+              type: 'doc',
+              id: 'privacy-pools/note-selection-algorithm',
+              label: 'Note selection algorithm',
+            },
+            {
+              type: 'doc',
+              id: 'privacy-pools/the-proof',
+              label: 'The proof',
+            }
+          ],
         },
       ],
     },
