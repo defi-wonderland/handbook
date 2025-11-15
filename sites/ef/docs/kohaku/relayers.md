@@ -117,5 +117,4 @@ The privacy paymaster model should be generic enough to work with any privacy pr
 
 This architecture represents a fundamental improvement over relayers. It's trustless, decentralized through the Shared Mempool, and composable with other privacy primitives. The key insight is that account abstraction isn't just about better UX—it's a fundamental privacy tool when combined with zero-knowledge proofs and network-layer privacy.
 
-For more details on ERC-4337, see the [official documentation](https://docs.erc4337.io/).
 

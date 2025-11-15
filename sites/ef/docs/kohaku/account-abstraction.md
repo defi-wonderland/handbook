@@ -57,3 +57,5 @@ This means any EOA can now leverage the entire infrastructure built for 4337.
 - An EOA user can **batch** an approve and a swap into one atomic action.
 
 EIP-7702 provides the native protocol hook and ERC-4337 provides the rich application layer services. Together, they unify Ethereum's accounts. The ultimate goal is an experience where the user doesn't know or care about account types. There is just *their account,* a secure and programmable entry point to the decentralized web.
+
+For more details on ERC-4337, see the [official documentation](https://docs.erc4337.io/).
