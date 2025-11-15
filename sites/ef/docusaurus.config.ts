@@ -62,7 +62,7 @@ const localConfig: Config = {
     navbar: {
       logo: {
         alt: "Documentation",
-        src: "img/logo.svg",
+        src: "img/wonderland-ef-navbar-logo.svg",
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
