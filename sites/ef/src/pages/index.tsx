@@ -13,17 +13,7 @@ import {
 
 const efCategories: Category[] = [
   {
-    title: "WALLET",
-    icon: "/img/icons/map.svg",
-    href: "/docs/wallet/what-is"
-  },
-  {
-    title: "PRIVACY POOLS",
-    icon: "/img/icons/stack-icon.svg",
-    href: "/docs/privacy-pools/privacy-by-default"
-  },
-  {
-    title: "KOHAKU",
+    title: "PRIVACY",
     icon: "/img/icons/document-currency-dollar.svg",
     href: "/docs/kohaku/overview"
   },
@@ -106,7 +96,7 @@ function Home(): React.ReactElement {
           <CategoryCards
             categories={efCategories}
             theme={efCategoryTheme}
-            columns={4}
+            columns={2}
           />
         </section>
 

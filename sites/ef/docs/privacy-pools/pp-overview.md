@@ -44,7 +44,7 @@ It's helpful to visualize the whole flow as a sequence of actions between the ke
 
 ![PP overview](/img/diagrams/pp_overview.png)
 
-### What’s Next Going Deeper
+### What’s Next? Going Deeper
 
 This overview explains the conceptual model of Privacy Pools and the roles of the different actors. Now, to move from theory to practice, we must explore the engineering that makes this possible. Our guide from here is broken down into three focused parts.
 
