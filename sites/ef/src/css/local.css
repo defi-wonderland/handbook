@@ -3,7 +3,7 @@
 /* Shape, Icons, etc customization */
 :root {
   --wonderland-accent: #9292D8; /* Periwinkle Frame */
-  --ef-cyan: #98F7F7; /* Luminous Cyan */
+  --ef-cyan: #88AAF1; /* Luminous Cyan */
   --ef-purple: #9292D8; /* Periwinkle Frame */
   --ef-blue: #4987E5; /* Deep Azure */
   --ef-gray-light: #C7C7C7; /* Observer Suit */
@@ -11,6 +11,11 @@
   --ef-indigo: #3C3F8D; /* Indigo Shadow */
   --ef-pink: #FFA3C9; /* Hot Pink Accent */
   --ef-crimson: #E6637B; /* Crimson Accent */
+}
+
+/* Category card titles on index page */
+.categoryTitle {
+  color: #C9B3F5 !important;
 }
 
 /* Sidebar menu icons */
@@ -24,7 +29,7 @@
   .menu__list-item-collapsible
   .menu__link[href="/docs/wallet/wallet"]::before {
   content: "";
-  background-image: url("/img/icons/map.svg");
+  background-image: url("/img/icons/cursor-arrow-ripple.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,6 +37,7 @@
   height: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .theme-doc-sidebar-item-category
@@ -44,7 +50,7 @@
   .menu__list-item-collapsible
   .menu__link[href="/docs/privacy-pools/intro"]::before {
   content: "";
-  background-image: url("/img/icons/stack-icon-filled.svg");
+  background-image: url("/img/icons/key.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -52,6 +58,7 @@
   height: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .theme-doc-sidebar-item-category
@@ -61,7 +68,7 @@
   .menu__list-item-collapsible
   .menu__link[href="/docs/kohaku/"]::before {
   content: "";
-  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-image: url("/img/icons/squares-2x2.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -69,6 +76,7 @@
   height: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .theme-doc-sidebar-item-category
@@ -81,7 +89,7 @@
   .menu__list-item-collapsible
   .menu__link[href="/docs/interop/coming-soon"]::before {
   content: "";
-  background-image: url("/img/icons/document-currency-dollar.svg");
+  background-image: url("/img/icons/cube-transparent.svg");
   background-size: 1rem 1rem;
   background-repeat: no-repeat;
   background-position: center;
@@ -89,6 +97,7 @@
   height: 1rem;
   display: inline-block;
   margin-right: 0.5rem;
+  filter: brightness(0) invert(1);
 }
 
 .menu__list-item-collapsible .menu__link[href^="/docs/protocol"]::before {
@@ -102,7 +111,6 @@
   display: inline-block;
   margin-right: 0.5rem;
 }
-
 
 /* Landing page CategoryCards icons now use #A39FED directly in SVG files */
 

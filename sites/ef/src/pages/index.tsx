@@ -14,12 +14,13 @@ import {
 const efCategories: Category[] = [
   {
     title: "PRIVACY",
-    icon: "/img/icons/document-currency-dollar.svg",
+    icon: "/img/icons/key.svg",
     href: "/docs/kohaku/overview"
   },
   {
     title: "INTEROP",
-    icon: "/img/icons/document-currency-dollar.svg",
+    icon: "/img/icons/cube-transparent.svg",
+    href: "/docs/interop/coming-soon",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
   }

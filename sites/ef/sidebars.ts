@@ -140,23 +140,6 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    {
-      type: 'category',
-      label: 'INTEROP',
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'interop/coming-soon',
-      },
-      items: [
-        {
-          type: 'doc',
-          id: 'interop/coming-soon',
-          label: 'Coming soon',
-        },
-      ],
-    },
   ],
 };
 
