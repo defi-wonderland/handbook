@@ -65,7 +65,7 @@ const optimismHandbooks: Handbook[] = [
   },
   {
     title: "Ethereum Foundation Handbook",
-    image: "/common/img/ef-logo.svg",
+    image: "/common/img/ef-logo.png",
     href: "https://ef.handbook.wonderland.xyz",
     background: {
       bgType: "other",
