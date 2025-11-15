@@ -73,7 +73,7 @@ const aztecHandbooks: Handbook[] = [
     href: "https://ef.handbook.wonderland.xyz",
     background: {
       bgType: "other",
-      bgImage: "/common/img/background-handbook-card.jpg",
+      bgImage: "/common/img/ef-social-card.png",
     },
   },
 ];

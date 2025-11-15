@@ -12,7 +12,7 @@ import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 const localConfig: Config = {
   title: "Ethereum Foundation Handbook",
   tagline:
-    "A comprehensive guide to our project, processes, and best practices.",
+    "Exploring privacy initiatives and interoperability solutions advancing the Ethereum ecosystem.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -60,7 +60,7 @@ const localConfig: Config = {
     image: "img/social-card.png",
     navbar: {
       logo: {
-        alt: "Documentation",
+        alt: "Ethereum Foundation Handbook",
         src: "img/wonderland-ef-navbar-logo.svg",
         style: { height: "100%", width: "auto" },
       },
