@@ -9,13 +9,33 @@ const localConfig: Config = {
   title: "Wonderland Handbook",
   tagline:
     "A curated guide to our best practices, processes, and technical insights.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   url: "https://handbook.wonderland.xyz",
   baseUrl: "/",
 
   organizationName: "defi-wonderland", // Usually your GitHub org/user name.
   projectName: "handbook", // Usually your repo name.
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/common/img/favicon.svg',
+        sizes: 'any'
+      }
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/common/img/favicon.ico',
+        sizes: '64x64'
+      }
+    }
+  ],
 
   presets: [
     [

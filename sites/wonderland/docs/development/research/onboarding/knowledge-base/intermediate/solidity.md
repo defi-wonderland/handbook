@@ -45,7 +45,7 @@ Libraries such as OpenZeppelin provide well-audited abstract bases (e.g., token 
 
 #### Inheritance and modules
 
-Solidity supports multiple inheritance, and production contracts typically compose audited modules—`Ownable`, `AccessControl`, `Pausable`, `ReentrancyGuard`—instead of reimplementing common features.
+Solidity supports multiple inheritance, and production contracts typically compose audited modules—`Ownable`, `AccessControl`, `Pausable`, `ReentrancyGuard`, instead of reimplementing common features.
 
 When reading such contracts, verify which parent implementation actually executes (C3 linearization defines method resolution), how constructors or initializers are invoked, and whether functions are correctly marked `virtual`/`override` with compatible visibility. Watch for function selector collisions across parents and for unintended storage layout interactions when multiple ancestors define state.
 

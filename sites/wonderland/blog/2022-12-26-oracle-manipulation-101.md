@@ -104,7 +104,7 @@ Before PoS, for relevant enough markets, manipulating the price back to the init
 
 Let's assume that the attacker knows that arbitrage will happen and that the pool has a Full Range position with liquidity $L$. In this situation, the best plan is to borrow as much as possible (sell high) using the capital obtained from the manipulation. They could then swap the difference for a price close to $P_i$.
 
-> ✅ We showed in the [Math article](https://defi.sucks/insights/oracle-manipulation-101-math-edition) that this attack could be profitable only if the attack length is close to the length of the $TWAP$. This can be easily taken into account by setting the correct parameters.
+> ✅ We showed in the [Math article](https://wonderland.xyz/insights/oracle-manipulation-101-math-edition) that this attack could be profitable only if the attack length is close to the length of the $TWAP$. This can be easily taken into account by setting the correct parameters.
 >
 > Attacking a pool with healthy liquidity was extremely hard to do pre-PoS.
 
@@ -152,7 +152,7 @@ How would an optimal attack scheme look post-PoS for a validator with $n$ consec
 
 An attacker could also manipulate the TWAP without getting arbitraged if they propose several non-consecutive batches of blocks where they must sacrifice the final block of each batch to close the manipulation.
 
-> ⚠️ The [Math article](https://defi.sucks/insights/oracle-manipulation-101-math-edition) shows that this attack can easily reach profitability, even after considering the $TWAP$. Increasing the $TWAP$ parameters will require the attacker to have a more significant up-front capital (redeemable after the attack). The absence of arbitrage in this scenario makes everything smoother from the attacker's perspective.
+> ⚠️ The [Math article](https://wonderland.xyz/insights/oracle-manipulation-101-math-edition) shows that this attack can easily reach profitability, even after considering the $TWAP$. Increasing the $TWAP$ parameters will require the attacker to have a more significant up-front capital (redeemable after the attack). The absence of arbitrage in this scenario makes everything smoother from the attacker's perspective.
 
 ![img/blog-posts/oracle-manipulation-101/graph-2.jpg](/img/blog-posts-img/oracle-manipulation-101/graph-2.jpg)
 

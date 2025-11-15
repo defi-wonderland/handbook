@@ -1,0 +1,1 @@
+export { DocRootLayoutSidebarExpandButton as default } from '@handbook/common-config/theme'; 

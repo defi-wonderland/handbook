@@ -1,4 +1,4 @@
-# Unit Integration Testing
+# Unit and Integration Testing
 
 ## Or how I learned to stop worrying and love the tests
 
@@ -25,7 +25,7 @@ Not all logic can be mocked. One notorious exception is multiple calls to the sa
 
 </aside>
 
-### 📝 Exercise: spot which part of this unit would require being mocked.
+### 📝 Exercise: spot which part of this unit would require being mocked
 
 📝 Bonus: write these mocks - do not forget to`expect` these calls, too!
 
@@ -48,7 +48,7 @@ function foo(uint256 input) external {
 
 <details>
 <summary>✅ Solution</summary>
-    
+
     There are 2 external calls which must be mocked: `token.balanceOf` and `vault.bonus`.
     
     Here are the mocks, using `abi.encodeCall` to generate the calldata:
@@ -269,7 +269,7 @@ function foo(uint256 in) external returns(bool) {
 ```
 
 <details>
-<summary>✅ Solution</summary>    
+<summary>✅ Solution</summary>
     There are 2 branches and 2 identical paths. Testing both is ideal.
 </details>
 
@@ -311,7 +311,7 @@ function foo(uint256 in1, uint256 in2) external returns(uint256) {
 
 <details>
 <summary>✅ Solution</summary>
-    
+
     There are 2 branches corresponding to the 2 if's but 4 paths: in1 lte or gt 100, and in2 lte or gt 100. Even though the ifs look independent, they have an effect on the same underlying variable `tmp` and are therefore not. The 4 paths should be tested.
 </details>
 
@@ -325,7 +325,7 @@ function foo(uint256 in1, uint256 in2) external returns(bool) {
 
 <details>
 <summary>✅ Solution</summary>
-    
+
     There are 3 branches and 4 paths. The 2 ifs are here independents, i.e. in1 has no influence on in2, and therefore testing every paths is not bringing any new meaningful information.
     Here, the paths taken in `foo(500, 1)` and `foo(500, 500)`, even though different, are not useful to test, because with the first if being true, in2 has no effect.
 </details>
@@ -571,7 +571,7 @@ function test_fooWhenOneIsSmaller() external {
 
 <details>
 <summary>✅ Solution</summary>
-    
+
     The condition being greater than or equal (`>=`), both cases are in the same paths (and can be part of the same range of fuzzed values).
     
     ```solidity
