@@ -10,22 +10,21 @@ import { DISCLAIMER_BUTTON_HTML } from "@handbook/common-config/config";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const localConfig: Config = {
-  title: "Documentation",
+  title: "Ethereum Foundation Handbook",
   tagline:
-    "A comprehensive guide to our project, processes, and best practices.",
+    "Exploring privacy initiatives and interoperability solutions advancing the Ethereum ecosystem.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://your-domain.com/",
+  url: "https://ef.handbook.wonderland.xyz",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "your-organization", // Usually your GitHub org/user name.
-  projectName: "your-project", // Usually your repo name.
+  organizationName: "defi-wonderland",
+  projectName: "ef-handbook",
 
   presets: [
     [
@@ -51,21 +50,22 @@ const localConfig: Config = {
     ],
   ],
 
+  markdown: {
+    mermaid: true,
+  },
+
+  themes: ['@docusaurus/theme-mermaid'],
+
   themeConfig: {
     image: "img/social-card.png",
     navbar: {
       logo: {
-        alt: "Documentation",
-        src: "img/logo.svg",
+        alt: "Ethereum Foundation Handbook",
+        src: "img/wonderland-ef-navbar-logo.svg",
         style: { height: "100%", width: "auto" },
       },
       style: "dark",
       items: [
-        {
-          to: "https://your-website.com",
-          position: "right",
-          label: "Website",
-        },
         {
           type: "html",
           position: "right",
@@ -77,6 +77,12 @@ const localConfig: Config = {
       theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
       additionalLanguages: ["solidity", "bash", "mermaid", "java", "nasm"],
+    },
+    mermaid: {
+      theme: { light: 'base', dark: 'dark' },
+      options: {
+        theme: 'dark',
+      },
     },
   } satisfies Preset.ThemeConfig,
 };

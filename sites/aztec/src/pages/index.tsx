@@ -67,6 +67,15 @@ const aztecHandbooks: Handbook[] = [
       bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
+  {
+    title: "Ethereum Foundation Handbook",
+    image: "/common/img/ef-logo.svg",
+    href: "https://ef.handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/ef-social-card.png",
+    },
+  },
 ];
 
 const aztecHandbookProps: HandbookSectionProps = {
