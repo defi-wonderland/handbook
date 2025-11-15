@@ -33,11 +33,6 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: 'doc',
-              id: 'kohaku/account-abstraction',
-              label: 'Account abstraction',
-            },
-            {
-              type: 'doc',
               id: 'kohaku/trustless-rpc',
               label: 'Trustless RPC',
             },
@@ -45,6 +40,11 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               id: 'kohaku/relayers',
               label: 'Relayers',
+            },
+            {
+              type: 'doc',
+              id: 'kohaku/account-abstraction',
+              label: 'Account abstraction',
             },
           ],
         },
