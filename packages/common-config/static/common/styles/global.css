@@ -1482,6 +1482,21 @@ div[class*="buttonGroup"] button {
   transition: opacity 0.3s ease;
 }
 
+/* Ethereum Foundation logo */
+.dropdown__menu li:nth-child(4) .dropdown__link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("/common/img/ef-logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
 .dropdown__link:hover {
   background: var(--wonderland-blue-900) !important;
   color: var(--wonderland-gray-200) !important;

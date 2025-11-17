@@ -11,40 +11,33 @@ import {
   CategoryCardsTheme,
 } from "@handbook/common-config/components";
 
-const optimismCategories: Category[] = [
+const efCategories: Category[] = [
   {
-    title: "STACK",
-    icon: "/img/icons/stack-icon.svg",
-    href: "/docs/stack/overview",
+    title: "PRIVACY",
+    icon: "/img/icons/key.svg",
+    href: "/docs/kohaku/overview"
   },
   {
     title: "INTEROP",
-    icon: "/img/icons/interop-icon.svg",
-    href: "/docs/interoperability/overview",
-  },
-  {
-    title: "GOVERNANCE",
-    icon: "/img/icons/governance-icon.svg",
-    href: "/docs/governance/governance-overview",
-  },
-  {
-    title: "PROCESSES",
-    icon: "/img/icons/processes-icon.svg",
-    href: "/docs/processes/overview",
-  },
+    icon: "/img/icons/cube-transparent.svg",
+    href: "/docs/interop/coming-soon",
+    comingSoon: true,
+    comingSoonBanner: "/common/img/coming-soon-banner.png",
+  }
+
 ];
 
-const optimismHeroProps: HeroSectionProps = {
-  title: "OP Handbook",
-  titleImage: "/img/op-handbook-social.svg",
+const efHeroProps: HeroSectionProps = {
+  title: "Ethereum Foundation Handbook",
+  titleImage: "/img/ef-handbook-social.svg",
   description:
-    "New to Optimism? This handbook is your guide through all the things you need to know before you get started. Cheers!",
+    "This handbook explores a key privacy initiative from the Ethereum Foundation",
   buttonText: "Enter the Rabbit Hole",
   buttonImage: "/common/img/enter-button.svg",
-  buttonLink: "/docs/welcome",
+  buttonLink: "/docs/intro/welcome",
 };
 
-const optimismHandbooks: Handbook[] = [
+const efHandbooks: Handbook[] = [
   {
     title: "Wonderland Handbook",
     image: "/common/img/wonderland-button-image.png",
@@ -52,6 +45,15 @@ const optimismHandbooks: Handbook[] = [
     background: {
       bgType: "other",
       bgImage: "/common/img/wonderland-button-bg.jpg",
+    },
+  },
+  {
+    title: "Optimism Handbook",
+    image: "/common/img/optimism-handbook.svg",
+    href: "https://optimism.handbook.wonderland.xyz",
+    background: {
+      bgType: "other",
+      bgImage: "/common/img/background-handbook-card.jpg",
     },
   },
   {
@@ -63,30 +65,22 @@ const optimismHandbooks: Handbook[] = [
       color: "#625CBFD1",
     },
   },
-  {
-    title: "Ethereum Foundation Handbook",
-    image: "/common/img/ef-logo.png",
-    href: "https://ef.handbook.wonderland.xyz",
-    background: {
-      bgType: "other",
-      bgImage: "/common/img/ef-social-card.png",
-    },
-  },
 ];
 
-const optimismHandbookProps: HandbookSectionProps = {
-  handbooks: optimismHandbooks,
+const efHandbookProps: HandbookSectionProps = {
+  handbooks: efHandbooks,
   title: "ALL HANDBOOKS",
   description:
     "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
 };
 
-const optimismCategoryTheme: CategoryCardsTheme = {
-  gradientStart: "var(--op-red)",
-  gradientEnd: "var(--op-red-light)",
+const efCategoryTheme: CategoryCardsTheme = {
+  gradientStart: "var(--ef-cyan)",
+  gradientEnd: "var(--ef-blue)",
   iconHoverColorEffect: "none",
 };
-const OptimismBackground = () => <div className={styles.optimismBackground} />;
+
+const EfBackground = () => <div className={styles.efBackground} />;
 
 function Home(): React.ReactElement {
   return (
@@ -97,16 +91,17 @@ function Home(): React.ReactElement {
         }
       `}</style>
       <main className={styles.main}>
-        <OptimismBackground />
+        <EfBackground />
         <section className={styles.centerContent}>
-          <HeroSection {...optimismHeroProps} />
+          <HeroSection {...efHeroProps} />
           <CategoryCards
-            categories={optimismCategories}
-            theme={optimismCategoryTheme}
+            categories={efCategories}
+            theme={efCategoryTheme}
+            columns={2}
           />
         </section>
 
-        <HandbookSection {...optimismHandbookProps} />
+        <HandbookSection {...efHandbookProps} />
       </main>
     </Layout>
   );
