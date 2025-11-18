@@ -65,7 +65,15 @@ function HandbookCard({ handbook, isDefault = false }: HandbookCardProps) {
           style={{ backgroundColor: handbook.background.color }}
         ></div>
       )}
-      <img src={handbook.image} alt="" className={styles.handbooksCardIcon} />
+      <img
+        src={handbook.image}
+        alt=""
+        className={`${styles.handbooksCardIcon} ${
+          handbook.title.toLowerCase().includes("aztec")
+            ? styles.handbooksCardIconAztec
+            : ""
+        }`}
+      />
     </a>
   );
 }

@@ -162,6 +162,10 @@ a.handbooksCard:hover {
   position: relative;
 }
 
+.handbooksCardIconAztec {
+  max-width: 65%;
+}
+
 .colorOverlay {
   position: absolute;
   top: 0;
