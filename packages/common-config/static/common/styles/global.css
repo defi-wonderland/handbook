@@ -1441,7 +1441,7 @@ div[class*="buttonGroup"] button {
   background: var(--wonderland-blue-950) !important;
   border: 1px solid var(--wonderland-blue-800) !important;
   border-radius: 0.5rem;
-  width: 12.5rem;
+  width: 15.5rem;
 }
 
 .dropdown__link {
