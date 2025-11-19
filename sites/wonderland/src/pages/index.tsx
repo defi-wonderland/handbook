@@ -64,8 +64,8 @@ const wonderlandHandbooks: Handbook[] = [
     image: "/common/img/aztec-handbook.svg",
     href: "https://aztec.handbook.wonderland.xyz",
     background: {
-      bgType: "wonderland",
-      color: "#625CBFD1",
+      bgType: "other",
+      bgImage: "/common/img/aztec-background-handbook-card.jpg",
     },
   },
   {

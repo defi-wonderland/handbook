@@ -85,6 +85,11 @@ html[data-theme="dark"] {
 
   /* Sidebar width customization */
   --doc-sidebar-hidden-width: 3.5rem;
+
+  /* Layout widths */
+  --ifm-container-width: 1200px;
+  --ifm-container-width-xl: 1320px;
+  --ifm-content-width: 700px;
 }
 
 /* Sharp Grotesk Font Faces */
@@ -371,6 +376,26 @@ article {
 
 [class*="docItemContainer"] {
   min-height: 90vh !important;
+}
+
+/* Constrain site-wide container width */
+.container {
+  max-width: var(--ifm-container-width);
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--ifm-container-width-xl);
+  }
+}
+
+/* Constrain markdown content width for readability */
+.theme-doc-markdown,
+.markdown {
+  max-width: var(--ifm-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* Navbar styling */
@@ -1416,7 +1441,7 @@ div[class*="buttonGroup"] button {
   background: var(--wonderland-blue-950) !important;
   border: 1px solid var(--wonderland-blue-800) !important;
   border-radius: 0.5rem;
-  width: 12.5rem;
+  width: 15.5rem;
 }
 
 .dropdown__link {
