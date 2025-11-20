@@ -59,59 +59,7 @@
   pointer-events: none;
 }
 
-/* Optimized twinkling stars galaxy background - reduced from 200+ to 20 gradients */
-.efBackground::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(2px 2px at 12% 18%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1.5px 1.5px at 34% 52%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(2px 2px at 56% 67%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1px 1px at 78% 41%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(1.5px 1.5px at 89% 73%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(2px 2px at 15% 58%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(1px 1px at 48% 46%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1.5px 1.5px at 71% 22%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(2px 2px at 93% 88%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1px 1px at 26% 81%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(1.5px 1.5px at 64% 31%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(2px 2px at 86% 65%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(1.5px 1.5px at 13% 91%, rgba(184, 250, 246, 0.8), transparent),
-    radial-gradient(1px 1px at 47% 96%, rgba(184, 250, 246, 0.7), transparent),
-    radial-gradient(1.5px 1.5px at 74% 3%, rgba(184, 250, 246, 0.8), transparent),
-    radial-gradient(1px 1px at 91% 49%, rgba(184, 250, 246, 0.7), transparent),
-    radial-gradient(1.5px 1.5px at 35% 8%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1px 1px at 68% 85%, rgba(136, 170, 241, 1), transparent),
-    radial-gradient(2px 2px at 22% 39%, rgba(201, 179, 245, 1), transparent),
-    radial-gradient(1.5px 1.5px at 81% 14%, rgba(136, 170, 241, 1), transparent);
-  background-size: 200% 200%;
-  background-position: 0 0;
-  opacity: 0.6;
-  animation: twinkle 4s ease-in-out infinite, starsMove 60s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-@keyframes starsMove {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
+/* Removed EF gradient stars - using Wonderland's StarsBackground component instead */
 
 @media (max-width: 1200px) {
   .centerContent {
