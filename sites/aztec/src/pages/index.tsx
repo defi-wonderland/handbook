@@ -65,11 +65,11 @@ const aztecHandbooks: Handbook[] = [
   },
   {
     title: "Ethereum Foundation Handbook",
-    image: "/common/img/ef-logo.png",
+    image: "/common/img/ef-handbook.svg",
     href: "https://ef.handbook.wonderland.xyz",
     background: {
       bgType: "other",
-      bgImage: "/common/img/ef-social-card.png",
+      bgImage: "/common/img/ef-background-handbook-card.png",
     },
   },
 ];

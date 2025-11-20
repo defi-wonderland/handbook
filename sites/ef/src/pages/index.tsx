@@ -4,6 +4,7 @@ import {
   HeroSection,
   CategoryCards,
   HandbookSection,
+  StarsBackground,
   Category,
   HeroSectionProps,
   Handbook,
@@ -91,6 +92,7 @@ function Home(): React.ReactElement {
         }
       `}</style>
       <main className={styles.main}>
+        <StarsBackground zIndex={-1} />
         <EfBackground />
         <section className={styles.centerContent}>
           <HeroSection {...efHeroProps} />
