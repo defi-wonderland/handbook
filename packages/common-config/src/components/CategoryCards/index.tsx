@@ -58,11 +58,11 @@ export default function CategoryCards({
   const currentTheme = theme || defaultTheme;
 
   return (
-    <div 
+    <div
       className={styles.categoryCards}
       style={{
-        gridTemplateColumns: `repeat(${columns}, 1fr)`
-      }}
+        '--columns': columns
+      } as React.CSSProperties}
     >
       {categories.map((category) => (
         <Link

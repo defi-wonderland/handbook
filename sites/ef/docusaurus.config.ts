@@ -13,7 +13,7 @@ const localConfig: Config = {
   title: "Ethereum Foundation Handbook",
   tagline:
     "Exploring privacy initiatives and interoperability solutions advancing the Ethereum ecosystem.",
-  favicon: "img/favicon.ico",
+  favicon: "common/img/favicon.svg",
 
   // Set the production url of your site here
   url: "https://ef.handbook.wonderland.xyz",
