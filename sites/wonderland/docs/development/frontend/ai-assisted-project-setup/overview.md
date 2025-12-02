@@ -39,5 +39,5 @@ The AI-assisted lifecycle is split into four distinct stages. Please follow them
   Translating TDDs into prompts for visual mockups using UXCanvas and other generative design tools.
 - [**3. Repository Scaffolding**](/docs/development/frontend/ai-assisted-project-setup/repo-scaffolding)
   Generating the actual code base, folder structure, and initial components using Cursor or PureCode.
-- [**4. Automated Testing**](/docs/development/frontend/ai-assisted-project-setup/testing)
+- [**4. Automated Testing**](/docs/development/frontend/ai-assisted-project-setup/test)
   Establishing the baseline for End-to-End tests using Synpress and Playwright.
