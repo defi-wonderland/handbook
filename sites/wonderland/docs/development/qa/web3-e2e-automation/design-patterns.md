@@ -9,6 +9,8 @@ By applying design patterns, teams can:
 - Simplify onboarding of new contributors.
 - Adapt quickly to UI or business logic changes.
 
+> ℹ️ The examples in this section use Playwright with JavaScript and TypeScript.
+
 ## AAA (Arrange-Act-Assert)
 
 Every test is divided into three parts:
