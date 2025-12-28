@@ -52,7 +52,7 @@ siloed_slot = hash([contract_address, raw_slot], PUBLIC_DATA_LEAF)
 ```
 
 :::note Comparison to Solidity
-Conceptually similar to Solidity’s storage slots, but with a key difference: Solidity does not let you directly control slot allocation (see `ethereum/solidity#597` and discussion in [Allow specifying storage locations](https://github.com/ethereum/solidity/issues/597)). In aztec-nr, slot addresses are derived programmatically, giving the developer explicit control over allocation and namespacing, and avoiding compiler-controlled layout constraints.
+Conceptually similar to Solidity’s storage slots, but with a key difference: Solidity does not let you directly control slot allocation (see discussion in [`ethereum/solidity/issue/597`: Allow specifying storage locations](https://github.com/ethereum/solidity/issues/597)). In aztec-nr, slot addresses are derived programmatically, giving the developer explicit control over allocation and namespacing, and avoiding compiler-controlled layout constraints.
 :::
 
 This means that one contract cannot overwrite another contract’s state, even if their raw slot encodings collide.
@@ -98,9 +98,11 @@ When the `contract_storage_read` syscall is invoked:
 1. The **slot address** is loaded from memory, with tag `u32`
 2. A **siloed key** is computed from the contract + slot
 3. A **Merkle membership proof** is performed against the Public Data Tree (an Indexed Merkle Tree)
-4. The read value is returned into VM memory at a destination offset, tagged as `field` (this is not a storage write)
+4. The read value is returned into VM memory at a destination offset, tagged as `field`
 
+:::note
 The “write” in step 4 refers to placing the returned value into AVM main memory so the contract can use it in subsequent instructions. The Public Data Tree is not modified by reads.
+:::
 
 ![contract-storage-read](/img/diagrams/memory-check.png)
 
