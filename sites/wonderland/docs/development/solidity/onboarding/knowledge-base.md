@@ -18,8 +18,11 @@ Next, familiarize yourself with our core coding standards:
 - [Gas Optimization Guide](https://www.rareskills.io/post/gas-optimization)
 
 ### Testing Framework
-Testing is fundamental to our development process. Learn about:
+Testing is fundamental to our development process. We have developed a systematic approach to ensure comprehensive coverage while maintaining test quality and performance.
+
+Learn about our processes:
 - Our approach to [Unit and Integration Testing](docs/testing/unit-integration.md) with Foundry
+- Our [Happy Tests Checklist](docs/testing/checklist.md)
 - Our [Solidity Foundry Boilerplate](https://github.com/defi-wonderland/solidity-foundry-boilerplate) - our starter template for Solidity projects
 
 Once you're comfortable with these guidelines, you'll be ready to tackle the challenges!
