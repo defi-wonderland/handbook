@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import BlogPostPage from "@theme-original/BlogPostPage";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Authors from "@site/src/theme/BlogPostItem/Header/Authors";
 import { useScrollReset } from "@site/src/hooks/useScrollReset";
 
 export default function BlogPostPageWrapper(props: any) {
+  const { siteConfig } = useDocusaurusContext();
   const Content = props?.content as React.ComponentType<any> & { metadata?: any };
   const meta = Content?.metadata || props?.metadata || {};
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -31,9 +33,11 @@ export default function BlogPostPageWrapper(props: any) {
       <section className="wl-post-extras">
         <div className="wl-share">
           {(() => {
-            const currentUrl = typeof window !== "undefined" ? window.location.href : meta?.permalink ?? "";
-            const shareText = `I went through the @Wonderland's blog rabbit hole 🐇 Take a look at this post 👉${meta?.title ?? ""}\n${currentUrl}`;
-            const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+            const baseUrl = siteConfig.url.replace(/\/$/, "");
+            const permalink = meta?.permalink ?? "";
+            const currentUrl = `${baseUrl}${permalink}`;
+            const shareText = `I went through the @Wonderland's blog rabbit hole 🐇 Take a look at this post 👉${meta?.title ?? ""}`;
+            const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(currentUrl)}`;
             return (
               <a
                 className="wl-share-button"
