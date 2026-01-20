@@ -32,8 +32,8 @@ export default function BlogPostPageWrapper(props: any) {
         <div className="wl-share">
           {(() => {
             const currentUrl = typeof window !== "undefined" ? window.location.href : meta?.permalink ?? "";
-            const shareText = `I went through the @Wonderland's blog rabbit hole 🐇 Take a look at this post 👉${meta?.title ?? ""}\n${currentUrl}`;
-            const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+            const shareText = `I went through the @Wonderland's blog rabbit hole 🐇 Take a look at this post 👉${meta?.title ?? ""}`;
+            const intent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(currentUrl)}`;
             return (
               <a
                 className="wl-share-button"
