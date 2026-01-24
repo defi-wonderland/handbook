@@ -261,6 +261,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         "testing/unit-integration",
+        "testing/checklist",
         "testing/mutation-testing",
         {
           type: "category",
