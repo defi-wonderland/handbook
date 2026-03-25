@@ -83,7 +83,7 @@ const wonderlandHandbookProps: HandbookSectionProps = {
   handbooks: wonderlandHandbooks,
   title: "PARTNER HANDBOOKS",
   description:
-    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors. We share it openly in case it's useful to others.",
+    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors.",
   className: "handbooksSectionWonderland",
 };
 
