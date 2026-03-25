@@ -78,7 +78,7 @@ const aztecHandbookProps: HandbookSectionProps = {
   handbooks: aztecHandbooks,
   title: "ALL HANDBOOKS",
   description:
-    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors. We share it openly in case it's useful to others.",
 };
 
 const aztecCategoryTheme: CategoryCardsTheme = {
