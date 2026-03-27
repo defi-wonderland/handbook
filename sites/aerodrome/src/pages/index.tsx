@@ -12,10 +12,26 @@ import {
 } from "@handbook/common-config/components";
 
 const aerodromeCategories: Category[] = [
-  { title: "EXAMPLE", icon: "/img/docusaurus.png", href: "/docs/intro/welcome" },
-  { title: "EXAMPLE", icon: "/img/docusaurus.png", href: "/docs/intro/welcome" },
-  { title: "EXAMPLE", icon: "/img/docusaurus.png", href: "/docs/intro/welcome" },
-  { title: "EXAMPLE", icon: "/img/docusaurus.png", href: "/docs/intro/welcome" },
+  {
+    title: "EXAMPLE",
+    icon: "/img/docusaurus.png",
+    href: "/docs/intro/welcome",
+  },
+  {
+    title: "EXAMPLE",
+    icon: "/img/docusaurus.png",
+    href: "/docs/intro/welcome",
+  },
+  {
+    title: "EXAMPLE",
+    icon: "/img/docusaurus.png",
+    href: "/docs/intro/welcome",
+  },
+  {
+    title: "EXAMPLE",
+    icon: "/img/docusaurus.png",
+    href: "/docs/intro/welcome",
+  },
 ];
 
 const aerodromeHeroProps: HeroSectionProps = {
@@ -34,7 +50,7 @@ const aerodromeHandbookProps: HandbookSectionProps = {
   handbooks: aerodromeHandbooks,
   title: "ALL HANDBOOKS",
   description:
-    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates.",
+    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors.",
 };
 
 const aerodromeCategoryTheme: CategoryCardsTheme = {
@@ -43,7 +59,9 @@ const aerodromeCategoryTheme: CategoryCardsTheme = {
   iconHoverColorEffect: "none",
 };
 
-const AerodromeBackground = () => <div className={styles.aerodromeBackground} />;
+const AerodromeBackground = () => (
+  <div className={styles.aerodromeBackground} />
+);
 
 function Home(): React.ReactElement {
   return (
@@ -55,7 +73,10 @@ function Home(): React.ReactElement {
         <AerodromeBackground />
         <section className={styles.centerContent}>
           <HeroSection {...aerodromeHeroProps} />
-          <CategoryCards categories={aerodromeCategories} theme={aerodromeCategoryTheme} />
+          <CategoryCards
+            categories={aerodromeCategories}
+            theme={aerodromeCategoryTheme}
+          />
         </section>
         {aerodromeHandbooks.length > 0 && (
           <HandbookSection {...aerodromeHandbookProps} />

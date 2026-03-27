@@ -43,7 +43,7 @@ const wonderlandHeroProps: HeroSectionProps = {
   title: "Wonderland Handbook",
   titleImage: "/img/wonderland-handbook-title.svg",
   description:
-    "At Wonderland, we believe that the ecosystem thrives on collaboration and shared knowledge. This handbook is our living repository: a curated guide to our best practices, processes, and technical insights.",
+    "Good systems outlive the people who built them. These handbooks are how we make sure ours do: Our best practices, technical standards, and onboarding guides for the teams we work with.",
   buttonText: "Go down the rabbit hole",
   buttonImage: "/common/img/enter-button.svg",
   buttonLink: "/docs/intro/welcome",
@@ -83,7 +83,7 @@ const wonderlandHandbookProps: HandbookSectionProps = {
   handbooks: wonderlandHandbooks,
   title: "PARTNER HANDBOOKS",
   description:
-    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors.",
   className: "handbooksSectionWonderland",
 };
 

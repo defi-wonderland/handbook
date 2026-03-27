@@ -16,7 +16,7 @@ const efCategories: Category[] = [
   {
     title: "PRIVACY",
     icon: "/img/icons/key.svg",
-    href: "/docs/kohaku/overview"
+    href: "/docs/kohaku/overview",
   },
   {
     title: "INTEROP",
@@ -24,8 +24,7 @@ const efCategories: Category[] = [
     href: "/docs/interop/coming-soon",
     comingSoon: true,
     comingSoonBanner: "/common/img/coming-soon-banner.png",
-  }
-
+  },
 ];
 
 const efHeroProps: HeroSectionProps = {
@@ -72,7 +71,7 @@ const efHandbookProps: HandbookSectionProps = {
   handbooks: efHandbooks,
   title: "ALL HANDBOOKS",
   description:
-    "These handbooks are internal onboarding material created by Wonderland for working with our partners. It's not official documentation and may not reflect the latest updates. We share it openly in case it's useful to others.",
+    "These handbooks are internal material created for working with our partners. They're not official documentation and may not reflect the latest updates. We share them openly because useful knowledge shouldn't sit behind closed doors.",
 };
 
 const efCategoryTheme: CategoryCardsTheme = {
