@@ -12,48 +12,55 @@ authors: [funkornaut]
 <!-- evmvm - kasper -->
 <!-- route - Milo -->
 
-## The Largest CTF Ever!
+## The Largest Live Crypto CTF Ever!
 <!-- @note could add something about developing challenges and or planning a CTF in this age of AI -->
 
-Wonderland hosted the largest Web3 CTF ever run at EthCC 2026. Twenty-seven challenges, five of them on Aztec's privacy-first L2, built by some of the sharpest minds in web3 security: Runtime Verification, Riley Holterhus, Patrick Collins, Milo Truck, 0xEVom, WhiteHatMage, Josselin Feist, and Kasper all contributed challenges alongside NG and the rest of the Wonderland team. Aztec sponsored the event and brought an entirely different attack surface to the table. At least 34 teams solved one or more flags.
+Wonderland has been running CTFs for years. It started small and has been growing every year, always with the same goal: bring people together, learn something new, and have fun doing it. This year at EthCC in Cannes, it became the largest live web3 CTF ever run. Hosted at [ctf.wonderland.xyz](https://ctf.wonderland.xyz), twenty-seven challenges across Solidity and Aztec Noir, built by some of the sharpest minds in web3 security: Riley Holterhus, Patrick Collins, Milo Truck, 0xEVom, WhiteHatMage, Josselin Feist, and Kasper, alongside NG and the rest of the Wonderland team.
 
-If you've never been to a Wonderland CTF, it's not a quiet room with headphones. Loud music, Wonderland people wandering between teams starting conversations, distractions at every turn. It's competitive but it doesn't take itself too seriously. New this year was the arena, a sectioned-off space at the venue with provided laptops, no internet, and no AI. Just you, the CLI, and the contract.
+Doors opened at 3 PM on the ground floor of the Palais des Festivals and over 110 people walked in, with some participants also joining remotely. By 4:05 PM the timer was running and people were hacking. Over the next four hours the room had a life of its own: music from the speakers, a live Pokemon card opening stream on one side where we pulled a Jynx (bigger reaction than some of the first bloods), Wonderland staff walking between tables starting conversations, and somewhere in the middle of all that, challenges were falling. First bloods started dropping, points decayed as more teams piled onto the same flags, new challenges unlocked in waves, and the brave ones started walking into the Arena, the thing that made this CTF unlike anything else out there. The leaderboard kept reshuffling for four hours straight.
 
-This post walks through each challenge. For the ones we built in-house, you get the full breakdown: what the contract does, where it breaks, and how to exploit it. For the contributed challenges, we have the original description and a link to the author's writeup. Start wherever looks interesting.
+At least 34 teams drew blood over the course of the competition, and most of the challenge authors were right there in the room watching people wrestle with the problems they had written. Some challenges fell fast, others held on for hours before someone finally cracked them. MiloTruck's "Route" was the only one that survived the full four hours without a single solve. When the clock hit 8:05 PM, the leaderboard froze and the room shifted from hacking mode to ceremony mode. Third place: CannesFlagFestival. Second: PremiumKimchi. And first place, the winners of the largest live web3 CTF ever run: ZKittens. $30,000 in prizes and oversized physical checks on stage for all three, the kind you see on TV and never think you'll hold in real life.
+
+The whole thing went exactly how we wanted it to go. Months of planning, a brutal set of challenges, a hundred moving parts, and it all came together. We walked out of the venue exhausted and happy.
+
+This post walks through each challenge. First Aztec, then the Solidity ones, each with the full exploit breakdown or a link to the author's writeup. At the end we cover the Arena and the other challenges that required being physically present. Start wherever looks interesting.
 
 
 ## Aztec
-Aztec brought a different kind of challenge enviroment to the competition. Not harder in the traditional sense, but foreign to most. Aztec's privacy-first design where private functions execute client-side inside a local proving environment (the PXE), both private and pulic state exists, and every account is a smart contract by default provides a new surface for bugs to hide. If you've spent years building intuition around the EVM's execution model, much of it still applies, and Aztec's public side acts very similarlly to how the evm works. In any enviroment as a security researcher you're still tracing state transitions, mapping trust boundaries, and looking for gaps between what a developer assumed and what the protocol actually guarantees. But, in these Aztec challenges, the primitives underneath have changed. 
 
-Five challenges explored this terrain, from address derivation fundamentals up through fee-payment phase manipulation and circuit-level call routing. Of the 5,454 Aztec points available, 1,577 went unclaimed. One flag, The Observatory, survived the full competition and was cracked only ten minutes after the clock expired. Full writeups for all five are [here](https://www.notion.so/defi-wonderland/Aztec-CTF-3379a4c092c7804eacdbe3a70aaf748c).
+Aztec brought a different kind of challenge to the table. Not harder in the traditional sense, but foreign to most. Private functions execute client-side, both private and public state coexist, and every account is a smart contract by default. If you've built your intuition around the EVM, some of it carries over, but the primitives underneath have changed.
 
-## Fixed Depoits
-By Runtime verification 
+Five challenges explored this terrain, from address derivation fundamentals up through fee-payment phase manipulation and circuit-level call routing. One flag, The Observatory, survived the full four hours and was cracked only ten minutes after the clock expired. Close, but no cigar. Full writeups for all five are [here](https://www.notion.so/defi-wonderland/Aztec-CTF-3379a4c092c7804eacdbe3a70aaf748c).
+
+## Solidity
+
+### Fixed Deposits
+By Runtime Verification
 
 Fixed Deposits is a simple contract that allows users to deposit and withdraw funds. However, it contains a vulnerability that can be exploited to steal funds from the vault. The goal is to exploit this vulnerability to steal 10 times the player's initial balance from the vault. Find the solution [here](https://runtimeverification.com/blog/wonderland-ctf-2026)
 
 
-## Liquid Omens
-By 0xEVom 
+### Liquid Omens
+By 0xEVom
 
 The omen monks run a compact liquidation venue. One borrower is already underwater, the system is still well funded, and enough oUSD is sitting somewhere it should not be easy to reach. Find the solution [here](https://github.com/0xEVom/audits/blob/main/ctfs/liquid-omens-writeup.md#liquid-omens-ctf-writeup)
 
 
-## Encoded Spell
-By WhiteHatMage 
+### Encoded Spell
+By WhiteHatMage
 
 Powerful spells require intricate incantations. Only well-versed mages can unleash the power of ancient runes. Find the solution [here](https://whitehatmage.github.io/posts/encoded-spell-ctf-writeup/)
 
-## Balance Proof
-By Riely Holterhus 
+### Balance Proof
+By Riley Holterhus
 Can you prove a validator's balance is over 100,000 ETH? Find the solution [here](https://www.rileyholterhus.com/writing/beacon-balance)
 
-## Infinity Send
-By Patrick Collins 
+### Infinity Send
+By Patrick Collins
 
 The Wonderland treasury has deployed a new token distribution system. It carefully validates every transfer request before forwarding it to the multisig, checking recipients, amounts, and totals all add up. Surely nothing can go wrong if the math checks out... right? Find the solution [here](https://patrickalphac.medium.com/token-sender-ctf-writeup-dfe49d0e2db0)
 
-## Route
+### Route
 <!-- NEED WRITE UP -->
 By Milo Truck "Cooked too much"
 
@@ -73,16 +80,16 @@ One market warns snipers to wait for dawn,
 But asks the wrong question and lets me move on.
 
 Name my destination, where victory's mine:
-From humble first coin to the forty-ninth sign. 
+From humble first coin to the forty-ninth sign.
 
 Find the solution [here](todo)
 
-## Piegon
+### Pigeon
 By NG
 
 A friend once told me pigeons make for wondrous message carriers, as long as they rest. Else, he said, they can become exhausted. Find the solution [here](https://www.notion.so/defi-wonderland/RedMemory-33b9a4c092c780bab8e8fb8bad6a9115?source=copy_link#33b9a4c092c780f08e18ff585fc953fb)
 
-## Overseer
+### Overseer
 By NG
 
 Guilds monopolize crafts. In so doing, they gatekeep competition. Why can I not sell and master my craft? Why must I pay their usurious prices? Why are only the descendants, acquaintances, and children of those in power accepted as apprentices?
@@ -91,7 +98,7 @@ May they fall from their horses! They are pests unseen in crops yet to be sown. 
 
 A masterpiece they ask of journeymen if his desire is to become a master. I may not be a journeyman, but I am on a journey, and I will show them a masterpiece. Find the solution [here](https://www.notion.so/defi-wonderland/RedMemory-33b9a4c092c780bab8e8fb8bad6a9115?source=copy_link#33b9a4c092c780768ea0ecf1eeb0768c)
 
-## Cheese Lending 
+### Cheese Lending
 <!-- NEED WRITE UP -->
 By Josselin Feist
 
@@ -107,20 +114,20 @@ Your mission: prove them wrong. Break the invariants and show that this market i
 
 Find the solution [here](todo)
 
-## EVMVM 
+### EVMVM
 <!-- NEED WRITE UP -->
-By Kasper 
+By Kasper
 
 We have EVMs on Solana, Cosmos and as ZK circuits. But why has no one ever built an EVM for Ethereum?! I really think this is the next billion dollar idea. I don’t have any money for an audit so let’s just hope I don’t get hacked.
 
 Find the solution [here](todo)
 
 
-## Stakehouse
+### Stakehouse
 
 **Goal:** Drain the `StakeHouse` vault below 1 ETH. It starts with 10.
 
-### The challenge
+**The challenge**
 
 `StakeHouse` is a minimal ETH staking vault: deposit ETH, get shares, burn shares to withdraw. The withdraw function calculates your ETH share, sends it, then updates the accounting:
 
@@ -139,13 +146,13 @@ function withdraw(uint256 _shares) external override {
 }
 ```
 
-### The break
+**The break**
 
 Textbook Checks-Effects-Interactions violation. The ETH transfer fires before `sharesOf` and `totalShares` are decremented. When the vault sends ETH to a contract, that contract's `receive()` runs before the accounting updates.
 
 The trick is that simple recursive re-entry into `withdraw()` wouldn't do much on its own because your shares don't grow between calls. Instead, the attacker *re-deposits* the received ETH during the `receive()` callback. Because the share accounting is still stale, the deposit mints shares at a rate that doesn't reflect the withdrawal that's mid-flight. Each cycle: withdraw (get ETH before burn) -> re-deposit (mint shares at stale rate) -> original withdraw returns and burns old shares, but attacker holds fresh shares worth more than they put in. Fifteen cycles and the vault is dust.
 
-### How to prevent it
+**How to prevent it**
 
 Move the share accounting above the ETH transfer:
 
@@ -161,11 +168,11 @@ Update state before interacting with the outside world. A reentrancy guard works
 
 ---
 
-## Blackout
+### Blackout
 
 **Goal:** Drain the `SentinelGate` vault to 0 ETH. The player has a balance deposited but is blacklisted.
 
-### The challenge
+**The challenge**
 
 `SentinelGate` is an ETH vault with per-address balances and a blacklist. The withdrawal logic lives in a `fallback` using inline assembly for "gas efficiency." The blacklist check loads a raw 32-byte word from calldata, hashes it against the `blacklisted` mapping slot, and reverts if the address is blocked. Then a Solidity `address` variable is assigned from the same calldata position, the balance is looked up, zeroed, and the ETH sent:
 
@@ -186,7 +193,7 @@ assembly {
 }
 ```
 
-### The break
+**The break**
 
 The blacklist check and the balance lookup disagree about what an "address" is. `calldataload(4)` returns a full 256-bit word. The blacklist was *set* through a normal Solidity function where the `address` type masks the key to 160 bits. So the blacklist entry lives at `keccak256(clean_address, slot)`. But the inline assembly hashes the *raw* 256-bit word, so if the upper 12 bytes are non-zero, it produces a different storage slot entirely. The lookup returns false, blacklist bypassed.
 
@@ -199,17 +206,17 @@ address(gate).call(abi.encodePacked(ISentinelGate.withdrawAll.selector, _dirtyPl
 
 One transaction, vault drained.
 
-### How to prevent it
+**How to prevent it**
 
 Solidity's `address` type silently masks to 160 bits, but `calldataload` gives you the raw 256-bit word. If you hash the raw word for one operation and the masked value for another, you get a type confusion bug. The fix: mask the calldata to 160 bits *before* the blacklist check, or skip assembly for security-critical lookups entirely.
 
 ---
 
-## Sentinel Protocol
+### Sentinel Protocol
 
 **Goal:** Drain the `SentinelVault` to 0 ETH. Only registered modules can call `operatorWithdraw()`, and only contracts with an approved codehash can register.
 
-### The challenge
+**The challenge**
 
 `SentinelVault` whitelists approved code hashes. To withdraw, you need a registered module, and to register, the module must have an approved codehash at registration time:
 
@@ -231,13 +238,13 @@ function registerModule(address _module) external override {
 
 The only approved codehash belongs to `EchoModule`, a trivial contract with a `ping()` function and a `decommission()` that calls `selfdestruct`.
 
-### The break
+**The break**
 
 The vault checks codehash at registration but never again. Once registered, `isRegistered` stays true forever regardless of what code lives at that address later.
 
 This is a metamorphic contract attack. Using CREATE2, you deploy a contract at a deterministic address, register it, destroy it, then redeploy *different* code at the same address. The vault still trusts it.
 
-The wrinkle is EIP-6780 (Cancun hard fork): `selfdestruct` only clears code and storage when it happens in the *same transaction* as creation. So the deploy-register-destroy sequence has to be atomic. 
+The wrinkle is EIP-6780 (Cancun hard fork): `selfdestruct` only clears code and storage when it happens in the *same transaction* as creation. So the deploy-register-destroy sequence has to be atomic.
 
 The full sequence:
 1. Build a CREATE2 factory with constant initcode that copies whatever `implementation` is currently set (same initcode means same salt always produces the same address)
@@ -246,7 +253,7 @@ The full sequence:
 4. Deploy again with the same salt. Same address, different code, still registered
 5. Call `drain()` and `operatorWithdraw()` works because the address is still trusted
 
-### How to prevent it
+**How to prevent it**
 
 Point-in-time codehash validation means nothing if the code at an address can change. Re-validate at the moment of use:
 
@@ -258,11 +265,11 @@ if (currentHash != record.codeHash) revert SentinelVault_CodeHashChanged();
 
 ---
 
-## Meridian Credits
+### Meridian Credits
 
 **Goal:** Accumulate 1,150,000 MRC tokens across a network of EIP-7702 delegated reserve stations.
 
-### The challenge
+**The challenge**
 
 A sprawling system simulating a digital currency concordat. Seven reserve station EOAs are each delegated (via EIP-7702) to different smart contract implementations, each with a mint cap for the MRC token. Three stations need to be exploited:
 
@@ -271,7 +278,7 @@ A sprawling system simulating a digital currency concordat. Seven reserve statio
 - **Drift Sector** (0 cap, receives 150K from AXIOM): a `BatchExecutor` with Boreas as its `allowanceSource`
 - **Helix Citadel** (500K cap): a `SafeSmartWallet` with a `CannonGuard` and pre-approved capsule
 
-### The break
+**The break**
 
 **Boreas (500K):** EIP-7702 lets an EOA re-delegate to a new implementation at any time. When Boreas was re-delegated from V1 to V2, the storage context shifted. OpenZeppelin's `Initializable` tracks version numbers in a specific storage slot, but from V2's perspective that slot reads as 0. Since V2 uses `reinitializer(2)` and 2 > 0, the initializer passes. Call `initialize(player, [])` to take ownership, then `execute()` to mint 500K MRC.
 
@@ -279,7 +286,7 @@ A sprawling system simulating a digital currency concordat. Seven reserve statio
 
 **Helix Citadel (500K):** During deployment, a `TransactionCapsule` was created pre-approving `mint(address,uint256)` on the MRC token. The `executeApprovedCapsule()` function validates the capsule and executes the operation, but has no access control, so anyone can call it. Find the active capsule via `cannonGuard.getCapsules(helixCitadel)`, call `executeApprovedCapsule(capsule, abi.encode(player, 500_000e18))`, and the wallet mints as Helix.
 
-### How to prevent it
+**How to prevent it**
 
 EIP-7702 storage persists between delegations. When an EOA re-delegates to a new implementation, the old storage is still there, but the new contract interprets it under its own layout. `Initializable` version checks can pass when they shouldn't because the new implementation reads a stale or misaligned slot. If you're building contracts that might be 7702 delegation targets or use 7702 from and EOA, don't assume a clean storage slate.
 
@@ -287,11 +294,11 @@ The capsule system validated *what* could be done but not *who* could trigger it
 
 ---
 
-## Score
+### Score
 
 **Goal:** Drain the `Score` contract's 10 ETH by calling `solve()` with the correct indices, while surviving a post-transfer gas limit check.
 
-### The challenge
+**The challenge**
 
 `Score` is a math puzzle with a gas twist. Players call `solve()` with a set of indices. The contract combines the corresponding elements using a rotation parameter from an Oracle, and if the result matches a target hash, it sends the contract's 10 ETH to the player. But there's a catch after the transfer: an assembly block checks if remaining gas exceeds a random threshold (10K-50K), and reverts if it does. So even with the right answer, you need to deal with the gas check.
 
@@ -323,7 +330,7 @@ function solve(uint256[] calldata _indices) external {
 }
 ```
 
-### The break
+**The break**
 
 The accumulator math simplifies dramatically when `rotation = 0`. The mask becomes 0, the bit rotation is a no-op, and the entire loop collapses to `_accumulator = _accumulator XOR _element`. Pure XOR, a linear operation over GF(2). The Oracle's `getRotation()` mixes entropy, scale, contribution count, and `selfbalance()` together. `poke()` mutates the entropy, and sending ETH to the Oracle shifts `selfbalance()`. Both give you control over the rotation output. Make 3 contributions (the minimum), then work either lever until `getRotation()` returns 0.
 
@@ -331,7 +338,7 @@ With rotation at 0, finding indices where the XOR of their elements equals the t
 
 The gas check is the last obstacle. The threshold is random, so you can't calibrate the outer gas limit. The trick uses the EVM's 63/64 rule: external calls forward at most 63/64 of available gas. Delegate the player EOA (via EIP-7702) to a contract whose `receive()` burns all forwarded gas in a loop. After the ETH transfer returns, only ~1/64 of the gas remains, well below any threshold in the 10K-50K range.
 
-### How to prevent it
+**How to prevent it**
 
 When a mixing parameter can be forced to a degenerate value, complex nonlinear operations collapse to linear algebra. Test your math at the boundaries, especially zero.
 
@@ -339,11 +346,11 @@ Post-call `gas()` checks assumed EOAs couldn't run code on receive. With EIP-770
 
 ---
 
-## Ludopathy
+### Ludopathy
 
 **Goal:** Drain the Ludopathy betting contract below 1 ETH. It holds 15 ETH in its prize pool.
 
-### The challenge
+**The challenge**
 
 Ludopathy is an on-chain betting game. Players bet on numbers, the owner picks a winner, and winners claim a prize. During deployment, the owner placed three large bets totaling 15 ETH across several numbers and then selected 999 as the winner. Nobody bet on 999, so the 15 ETH sits unclaimed and the round is closed.
 
@@ -374,7 +381,7 @@ function claimPrize(uint48 _roundId) external {
 }
 ```
 
-### The break
+**The break**
 
 Three bugs stacked on top of each other.
 
@@ -384,7 +391,7 @@ Three bugs stacked on top of each other.
 
 **`claimPrize` never sets `claimed = true`.** The function checks `_winningBet.claimed` but never flips it. And the prize is paid via `.call{value: ...}`, so a contract's `receive()` runs before `claimPrize` returns, and you can re-enter and claim again. The prize per claim is `(1 + 0) * 1.5 = 1.5 ETH`. The contract holds 15 ETH. Ten re-entries drains it.
 
-### How to prevent it
+**How to prevent it**
 
 Each bug is a common class of mistake, and they compound:
 
@@ -396,11 +403,11 @@ Each bug is a common class of mistake, and they compound:
 
 ---
 
-## UECallNft
+### UECallNft
 
 **Goal:** Get the player to hold 5 or more NFTs. The contract has 5 NFTs in circulation (ids 1-5), all owned by random addresses. There's 0.05 ETH in the contract.
 
-### The challenge
+**The challenge**
 
 `UECallNft` is an ERC721 with a buyback feature. Holders can sell an NFT back to the contract for 25% of the mint price. There's also an owner-only mint function, and the "owner" is the contract itself:
 
@@ -430,7 +437,7 @@ modifier hasSoldCheck() {
 }
 ```
 
-### The break
+**The break**
 
 **`sellNft` is a universal call gadget.** Both `_recipient` and `_data` are caller-controlled. Set `_recipient = address(nftContract)` and `_data = abi.encodeWithSignature("mintOwner(address)", attacker)`, and the contract sends 0.0025 ETH to *itself* carrying `mintOwner` calldata. Since `msg.sender` for that inner call is `address(this)`, the `onlyOwner` check passes. A buyback function just became an unrestricted self-call mechanism. Also, `sellNft` doesn't verify `msg.sender` owns the NFT being burned. Solmate's `_burn` just requires the token to exist.
 
@@ -438,21 +445,23 @@ modifier hasSoldCheck() {
 
 The full chain per iteration: call `sellNft(id, nftContract, mintOwnerCalldata)` -> contract calls itself with `mintOwner(attacker)` -> `_safeMint` triggers `onERC721Received` -> callback calls `sellNft` again with the next id. The ETH never runs out because the contract sends to itself. The `uecsInCirculation` cap of 10 holds because each iteration mints one and burns one. At peak nesting depth (5 mints before any burns unwind), circulation hits exactly 10. Five old NFTs burned, five new ones minted, all in one transaction.
 
-### How to prevent it
+**How to prevent it**
 
 Letting the caller control both the target and calldata of a `.call` is about as dangerous as it gets in Solidity. Combined with `onlyOwner` checking `msg.sender == address(this)`, this is a confused deputy. The contract trusts that calling itself must be intentional, but an attacker can force that self-call through any function with an external call. The `hasSoldCheck` modifier pattern of `_; state = true;` is a reentrancy vector. Set the flag *before* the body, not after. And verify ownership before burning.
 
 ## You Just Had To Be There
 
-Not every challenge lived on a screen. Some required being physically present at the venue, whether that meant sitting in front of a locked-down laptop, racing other teams in real time, or staring at a flyer covered in emojis. You couldn't solve these from home.
+Not every challenge lived on a screen. Some required showing up, walking into a supervised zone with your own laptop, or racing the entire room to land a transaction first, or staring at a paper flyer trying to crack a seed phrase. You couldn't solve these from home and you couldn't prompt your way through them.
 
-### The Arena: Precompile20 & Red Memory
+### The Arena: Precompile20 and Red Memory
 
-The arena was a sectioned-off area at the venue with dedicated laptops. No internet. No AI. A member of the Wonderland team standing behind you to make sure you didn't cheat. Just you, a terminal, and the contract. Pure brain power and hacking skills.
+The Arena was the centerpiece of this year's event. A sectioned-off area at the venue where you walked in alone with your laptop. No internet, no AI, no phone, no teammates. A Wonderland team member stood behind you the entire time making sure the rules were respected. Just you, a terminal, and the contract.
 
-Two challenges ran in the arena: **Precompile20** (medium) and **Red Memory** (legendary).
+What surprised us was how seriously everyone took it. No pushback, no attempts to bend the rules. People got it. The Arena was where you proved you could actually do it yourself, and the points reflected that. It was nearly impossible to win the CTF without stepping in, and the teams that placed knew it. Early on most people were focused on the regular challenges, stacking points, hunting first bloods. But as the leaderboard tightened, the Arena became the move. ZKittens and CannesFlagFestival both solved Precompile20, the medium tier. Several brave souls went for Red Memory, the legendary. None of them cracked it. It stood.
 
-#### Precompile20
+Two challenges ran in the Arena: **Precompile20** (medium) and **Red Memory** (legendary).
+
+### Precompile20
 
 **Goal:** Get the player's token balance to 5 or more. The player starts with 2 tokens. Alice, Bob, and Carl each have 1.
 
@@ -470,7 +479,7 @@ The transfer function calls `address(1)` with the hash and signature, then uses 
 ```solidity
 assembly {
     let ret := mload(_returnedData)     // loads the length of the bytes array
-    if iszero(ret) { _gifter := ret }   // length == 0 → _gifter = 0
+    if iszero(ret) { _gifter := ret }   // length == 0 -> _gifter = 0
     if iszero(iszero(ret)) { _gifter := mload(add(_returnedData, 32)) }
 }
 ```
@@ -481,7 +490,7 @@ Second, `ecrecover` doesn't revert on bad inputs. It returns empty bytes and suc
 
 **How to prevent it:** `address(0)` is not a black hole. Minting to it creates a real balance. If your burn mechanism needs to preserve `totalSupply`, use a dedicated dead address or track the math separately. OpenZeppelin's ERC20 blocks minting to `address(0)` for this reason. And `ecrecover` doesn't revert on bad inputs, so always check `_returnedData.length == 32` before interpreting the result. The assembly here conflates "ecrecover returned nothing" with "ecrecover returned address(0)." Using `abi.decode` would have reverted on empty data.
 
-#### Red Memory
+### Red Memory
 
 *The hearts beat, disembodied, to the rhythm of the chants. A claw of red ink lacerates color from your sight. The tremors creep into your soul and like a log you snap. The room fades into crimson gates. It's time to get good.*
 
@@ -489,11 +498,11 @@ Red Memory was the legendary-tier arena challenge. Same conditions: no internet,
 
 ---
 
-### White Hat Rescue: Time To White Hat & Alice Not Again
+### White Hat Rescue: Time To White Hat and Alice Not Again
 
 These two challenges were live white hat simulations. Alice's private key was leaked to every team at the same time. She had a pending withdrawal waiting to execute, and the clock was ticking. Teams had to rescue her funds before another team claimed them or a simulated attacker did.
 
-It wasn't about finding a bug. It was about speed. You had Alice's key, you knew the funds were at risk, and so did everyone else in the room. Get the rescue transaction in first or watch someone else take it. Two rounds ran during the competition, Time To White Hat and Alice Not Again, each a fresh scenario with the same format.
+It wasn't about finding a bug. It was about speed. You had Alice's key, you knew the funds were at risk, and so did everyone else in the room. Get the rescue transaction in first or watch someone else take it. Two rounds ran during the competition: **Time To White Hat** and **Alice Not Again**, each a fresh scenario with the same format.
 
 ---
 
@@ -511,10 +520,12 @@ The solution, the mnemonic in order: **monkey goat pig lobster frog lion squirre
 
 ## Until Next Time
 
-Thanks to our sponsors, Trail of Bits, Aztec, Envio, Grego AI, Pashov Audit Group, and Runtime Verification, for making this event possible. Thanks to every challenge author who contributed problems and writeups. And most importantly, thanks to every team that showed up, sat in the noise, and hacked.
+None of this happens without the people who believed in it early. Trail of Bits, Aztec, Runtime Verification, Envio, Pashov Audit Group, and Grego AI put their names and their money behind an event that had never been done at this scale. Runtime Verification went further and built a challenge on top of their sponsorship. Aztec's sponsorship brought an entirely new attack surface to the competition, with five Noir challenges built by Wonderland's Aztec team. Thanks to every challenge author who built problems and wrote up their solutions. Thanks to the Wonderland team, every single person, regardless of role, who put months of work into making this happen. And thanks to every team that registered, showed up, sat in the noise, and hacked.
 
-We hope you had fun and walked away having learned something new, whether that was your first reentrancy exploit or your first time reasoning about ZK execution phases.
+We said it at the opening and it held true all four hours: the goal was to learn, to connect, and to have fun. The prize pool was there and the competition was real, but the best moments were the ones that had nothing to do with the scoreboard. A team figuring out something they'd never seen before. Someone walking out of the Arena with a grin. The room at 4:05 when the countdown hit zero and everyone started hacking at once.
 
-The landscape is shifting fast. AI can solve a growing number of these challenges out of the box, and that bar is only going up. The kinds of CTFs we can run today, the kinds of bugs that still require human intuition to find, that window is narrowing. Which makes events like this more important, not less. The people in that room are the ones pushing the edge of what gets caught before it hits production.
+AI is changing this space fast. It can solve a growing number of these challenges out of the box, and that bar will keep going up. The kinds of CTFs we can run today, the kinds of bugs that still require a human to find, that window is narrowing. Which makes events like this more important, not less. The people in that room are the ones pushing the edge of what gets caught before it hits production.
 
-Keep doing what you do. Web3 is safer because of it. 
+Keep doing what you do. Web3 is safer because of it.
+
+See you down the rabbit hole.
