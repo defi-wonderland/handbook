@@ -15,22 +15,93 @@ authors: [funkornaut]
 ## The Largest Live Crypto CTF Ever!
 <!-- @note could add something about developing challenges and or planning a CTF in this age of AI -->
 
-Wonderland has been running CTFs for years. It started small and has been growing every year, always with the same goal: bring people together, learn something new, and have fun doing it. This year at EthCC in Cannes, it became the largest live web3 CTF ever run. Hosted at [ctf.wonderland.xyz](https://ctf.wonderland.xyz), twenty-seven challenges across Solidity and Aztec Noir, built by some of the sharpest minds in web3 security: Riley Holterhus, Patrick Collins, Milo Truck, 0xEVom, WhiteHatMage, Josselin Feist, and Kasper, alongside the Wonderland team.
+Wonderland has been running CTFs for years. It started small and has been growing every year, always with the same goal: bring people together, learn something new, and have fun doing it. This year at EthCC in Cannes, it became the largest live web3 CTF ever run. Hosted at [ctf.wonderland.xyz](https://ctf.wonderland.xyz), twenty-seven challenges across Solidity and Aztec Noir, built by some of the sharpest minds in web3 security: Riley Holterhus, Patrick Collins, Milo Truck, 0xEVom, WhiteHatMage, Josselin Feist, and Kasper, alongside NG and the rest of the Wonderland team.
 
 Doors opened at 3 PM on the ground floor of the Palais des Festivals and over 110 people walked in, with some participants also joining remotely. By 4:05 PM the timer was running and people were hacking. Over the next four hours the room had a life of its own: music from the speakers, a live Pokemon card opening stream on one side where we pulled a Jynx (bigger reaction than some of the first bloods), Wonderland staff walking between tables starting conversations, and somewhere in the middle of all that, challenges were falling. First bloods started dropping, points decayed as more teams piled onto the same flags, new challenges unlocked in waves, and the brave ones started walking into the Arena, the thing that made this CTF unlike anything else out there. The leaderboard kept reshuffling for four hours straight.
 
-At least 34 teams drew blood over the course of the competition, and most of the challenge authors were right there in the room watching people wrestle with the problems they had written. Some challenges fell fast, others held on for hours before someone finally cracked them. MiloTruck's "Route" was the only one that survived the full four hours without a single solve. When the clock hit 8:05 PM, the leaderboard froze and the room shifted from hacking mode to ceremony mode. Third place: CannesFlagFestival. Second: PremiumKimchi. And first place, the winners of the largest live web3 CTF ever run: ZKittens. $30,000 in prizes and oversized physical checks on stage for all three, the kind you see on TV and never think you'll hold in real life.
+At least 34 teams drew blood over the course of the competition, and most of the challenge authors were right there in the room watching people wrestle with the problems they had written. Some challenges fell fast, others held on for hours before someone finally cracked them. Only two challenges survived the full four hours without a single solve: MiloTruck's "Route" and Aztec's "The Observatory" (which fell ten minutes after the clock expired). When the clock hit 8:05 PM, the leaderboard froze and the room shifted from hacking mode to ceremony mode. Third place: CannesFlagFestival. Second: PremiumKimchi. And first place, the winners of the largest live web3 CTF ever run: ZKittens. $30,000 in prizes and oversized physical checks on stage for all three, the kind you see on TV and never think you'll hold in real life.
 
 The whole thing went exactly how we wanted it to go. Months of planning, a brutal set of challenges, a hundred moving parts, and it all came together. We walked out of the venue exhausted and happy.
 
-This post walks through each challenge. First Aztec, then the Solidity ones, each with the full exploit breakdown or a link to the author's writeup. At the end we cover the Arena and the other challenges that required being physically present. Start wherever looks interesting.
+This post walks through each challenge. We start with the Arena and the challenges that required being physically present, then Aztec, then the Solidity ones, each with the full exploit breakdown or a link to the author's writeup. Start wherever looks interesting.
 
+
+## You Just Had To Be There
+
+Not every challenge lived on a screen. Some required showing up, walking into a supervised zone with your own laptop, or racing the entire room to land a transaction first, or staring at a paper flyer trying to crack a seed phrase. You couldn't solve these from home and you couldn't prompt your way through them.
+
+### The Arena: Precompile20 and Red Memory
+
+The Arena was the centerpiece of this year's event. A sectioned-off area at the venue where you walked in alone with your laptop. No internet, no AI, no phone, no teammates. A Wonderland team member stood behind you the entire time making sure the rules were respected. Just you, a terminal, and the contract. The catch: you had to spend points you'd earned from regular challenges to buy a slot, and if you failed, those points were gone. But the reward for solving was massive. High stakes, high reward.
+
+Every time someone bought a slot we announced it over the mic and the room broke into applause. You could feel the nervousness from across the venue. Some participants were visibly shaking as they sat down. One person attempted both tiers, medium and legendary, and did a small meditation before approaching the table each time to get focused. Didn't crack either one, but walked away grinning. That was the Arena. It wasn't just about solving it.
+
+What surprised us was how seriously everyone took it. No pushback, no attempts to bend the rules. People got it. The Arena was where you proved you could actually do it yourself, and the points reflected that. It was nearly impossible to win the CTF without stepping in, and the teams that placed knew it. Early on most people were focused on the regular challenges, stacking points, hunting first bloods. But as the leaderboard tightened, the Arena became the move. ZKittens and CannesFlagFestival both solved Precompile20, the medium tier. Several brave souls went for Red Memory, the legendary. None of them cracked it. It stood.
+
+Two challenges ran in the Arena: **Precompile20** (medium) and **Red Memory** (legendary).
+
+### Precompile20
+
+**Goal:** Get the player's token balance to 5 or more. The player starts with 2 tokens. Alice, Bob, and Carl each have 1.
+
+`Precompile20` is an ERC20 that uses the `ecrecover` precompile (`address(1)`) for a signature-based transfer system. Someone signs a message authorizing a transfer, you present the signature, ecrecover recovers the signer's address, and tokens move from them to you. There's also a `burnTokens` function:
+
+```solidity
+function burnTokens(address _from, uint256 _amount) external {
+    _mint(address(0), _amount);
+    _burn(_from, _amount);
+}
+```
+
+The transfer function calls `address(1)` with the hash and signature, then uses assembly to interpret the return data:
+
+```solidity
+assembly {
+    let ret := mload(_returnedData)     // loads the length of the bytes array
+    if iszero(ret) { _gifter := ret }   // length == 0 -> _gifter = 0
+    if iszero(iszero(ret)) { _gifter := mload(add(_returnedData, 32)) }
+}
+```
+
+**The break:** Two bugs combine. First, `burnTokens` calls `_mint(address(0), _amount)`, which gives `address(0)` a real ERC20 balance. The comment says "burn without diminishing totalSupply," but `address(0)` is a valid mapping key like any other. Burn Alice's, Bob's, and Carl's tokens and `address(0)` holds 3.
+
+Second, `ecrecover` doesn't revert on bad inputs. It returns empty bytes and succeeds. When the assembly block gets a zero-length return, `ret` (the bytes length) is 0, so the first branch fires: `_gifter = 0`. That's `address(0)`. Feed `transferTokens` a garbage signature (`v=27, r=0, s=0`) and it reads "address(0) is gifting you tokens." Since address(0) actually has a balance now, the transfer goes through. Player goes from 2 to 5 tokens.
+
+**How to prevent it:** `address(0)` is not a black hole. Minting to it creates a real balance. If your burn mechanism needs to preserve `totalSupply`, use a dedicated dead address or track the math separately. OpenZeppelin's ERC20 blocks minting to `address(0)` for this reason. And `ecrecover` doesn't revert on bad inputs, so always check `_returnedData.length == 32` before interpreting the result. The assembly here conflates "ecrecover returned nothing" with "ecrecover returned address(0)." Using `abi.decode` would have reverted on empty data.
+
+### Red Memory
+
+*The hearts beat, disembodied, to the rhythm of the chants. A claw of red ink lacerates color from your sight. The tremors creep into your soul and like a log you snap. The room fades into crimson gates. It's time to get good.*
+
+Red Memory was the legendary-tier arena challenge. Same conditions: no internet, no AI, someone watching. Find the full solution [here](https://www.notion.so/defi-wonderland/RedMemory-33b9a4c092c780bab8e8fb8bad6a9115).
+
+---
+
+### White Hat Rescue: Time To White Hat and Alice Not Again
+
+These two challenges were live white hat simulations. Alice's private key was leaked to every team at the same time. She had a pending withdrawal waiting to execute, and the clock was ticking. Teams had to rescue her funds before another team claimed them or a simulated attacker did.
+
+It wasn't about finding a bug. It was about speed. You had Alice's key, you knew the funds were at risk, and so did everyone else in the room. Get the rescue transaction in first or watch someone else take it. Two rounds ran during the competition: **Time To White Hat** and **Alice Not Again**, each a fresh scenario with the same format.
+
+---
+
+### Scrambled Zoo
+
+The Scrambled Zoo wasn't on a screen at all. Participants received a physical flyer at the venue:
+
+![Scrambled Zoo flyer](/img/scrambled-zoo.png)
+
+The challenge: find the zookeeper's private key. The flyer shows a Wonderland logo, the function selector `0xa096bb3e()`, if you know, you know, and a row of animal emojis along the bottom edge. Each emoji represents a word in a BIP-39 mnemonic phrase. Participants had to identify the animals, figure out the correct order, and derive the zookeeper's private key from the resulting seed phrase. Then call the contract's `solve()` function as the zookeeper to claim the flag.
+
+The solution, the mnemonic in order: **monkey goat pig lobster frog lion squirrel gorilla dragon rabbit panda whale**.
+
+---
 
 ## Aztec
 
 Aztec brought a different kind of challenge to the table. Not harder in the traditional sense, but foreign to most. Private functions execute client-side, both private and public state coexist, and every account is a smart contract by default. If you've built your intuition around the EVM, some of it carries over, but the primitives underneath have changed.
 
-Five challenges explored this terrain, from address derivation fundamentals up through fee-payment phase manipulation and circuit-level call routing. One flag, The Observatory, survived the full four hours and was cracked only ten minutes after the clock expired. Close, but no cigar. Full writeups for all five are [here](https://www.notion.so/defi-wonderland/Aztec-CTF-3379a4c092c7804eacdbe3a70aaf748c).
+Five challenges explored this terrain, from address derivation fundamentals up through fee-payment phase manipulation and circuit-level call routing. Full writeups for all five are [here](https://www.notion.so/defi-wonderland/Aztec-CTF-3379a4c092c7804eacdbe3a70aaf748c).
 
 ## Solidity
 
@@ -448,75 +519,6 @@ The full chain per iteration: call `sellNft(id, nftContract, mintOwnerCalldata)`
 **How to prevent it**
 
 Letting the caller control both the target and calldata of a `.call` is about as dangerous as it gets in Solidity. Combined with `onlyOwner` checking `msg.sender == address(this)`, this is a confused deputy. The contract trusts that calling itself must be intentional, but an attacker can force that self-call through any function with an external call. The `hasSoldCheck` modifier pattern of `_; state = true;` is a reentrancy vector. Set the flag *before* the body, not after. And verify ownership before burning.
-
-## You Just Had To Be There
-
-Not every challenge lived on a screen. Some required showing up, walking into a supervised zone with your own laptop, or racing the entire room to land a transaction first, or staring at a paper flyer trying to crack a seed phrase. You couldn't solve these from home and you couldn't prompt your way through them.
-
-### The Arena: Precompile20 and Red Memory
-
-The Arena was the centerpiece of this year's event. A sectioned-off area at the venue where you walked in alone with your laptop. No internet, no AI, no phone, no teammates. A Wonderland team member stood behind you the entire time making sure the rules were respected. Just you, a terminal, and the contract.
-
-What surprised us was how seriously everyone took it. No pushback, no attempts to bend the rules. People got it. The Arena was where you proved you could actually do it yourself, and the points reflected that. It was nearly impossible to win the CTF without stepping in, and the teams that placed knew it. Early on most people were focused on the regular challenges, stacking points, hunting first bloods. But as the leaderboard tightened, the Arena became the move. ZKittens and CannesFlagFestival both solved Precompile20, the medium tier. Several brave souls went for Red Memory, the legendary. None of them cracked it. It stood.
-
-Two challenges ran in the Arena: **Precompile20** (medium) and **Red Memory** (legendary).
-
-### Precompile20
-
-**Goal:** Get the player's token balance to 5 or more. The player starts with 2 tokens. Alice, Bob, and Carl each have 1.
-
-`Precompile20` is an ERC20 that uses the `ecrecover` precompile (`address(1)`) for a signature-based transfer system. Someone signs a message authorizing a transfer, you present the signature, ecrecover recovers the signer's address, and tokens move from them to you. There's also a `burnTokens` function:
-
-```solidity
-function burnTokens(address _from, uint256 _amount) external {
-    _mint(address(0), _amount);
-    _burn(_from, _amount);
-}
-```
-
-The transfer function calls `address(1)` with the hash and signature, then uses assembly to interpret the return data:
-
-```solidity
-assembly {
-    let ret := mload(_returnedData)     // loads the length of the bytes array
-    if iszero(ret) { _gifter := ret }   // length == 0 -> _gifter = 0
-    if iszero(iszero(ret)) { _gifter := mload(add(_returnedData, 32)) }
-}
-```
-
-**The break:** Two bugs combine. First, `burnTokens` calls `_mint(address(0), _amount)`, which gives `address(0)` a real ERC20 balance. The comment says "burn without diminishing totalSupply," but `address(0)` is a valid mapping key like any other. Burn Alice's, Bob's, and Carl's tokens and `address(0)` holds 3.
-
-Second, `ecrecover` doesn't revert on bad inputs. It returns empty bytes and succeeds. When the assembly block gets a zero-length return, `ret` (the bytes length) is 0, so the first branch fires: `_gifter = 0`. That's `address(0)`. Feed `transferTokens` a garbage signature (`v=27, r=0, s=0`) and it reads "address(0) is gifting you tokens." Since address(0) actually has a balance now, the transfer goes through. Player goes from 2 to 5 tokens.
-
-**How to prevent it:** `address(0)` is not a black hole. Minting to it creates a real balance. If your burn mechanism needs to preserve `totalSupply`, use a dedicated dead address or track the math separately. OpenZeppelin's ERC20 blocks minting to `address(0)` for this reason. And `ecrecover` doesn't revert on bad inputs, so always check `_returnedData.length == 32` before interpreting the result. The assembly here conflates "ecrecover returned nothing" with "ecrecover returned address(0)." Using `abi.decode` would have reverted on empty data.
-
-### Red Memory
-
-*The hearts beat, disembodied, to the rhythm of the chants. A claw of red ink lacerates color from your sight. The tremors creep into your soul and like a log you snap. The room fades into crimson gates. It's time to get good.*
-
-Red Memory was the legendary-tier arena challenge. Same conditions: no internet, no AI, someone watching. Find the full solution [here](https://www.notion.so/defi-wonderland/RedMemory-33b9a4c092c780bab8e8fb8bad6a9115).
-
----
-
-### White Hat Rescue: Time To White Hat and Alice Not Again
-
-These two challenges were live white hat simulations. Alice's private key was leaked to every team at the same time. She had a pending withdrawal waiting to execute, and the clock was ticking. Teams had to rescue her funds before another team claimed them or a simulated attacker did.
-
-It wasn't about finding a bug. It was about speed. You had Alice's key, you knew the funds were at risk, and so did everyone else in the room. Get the rescue transaction in first or watch someone else take it. Two rounds ran during the competition: **Time To White Hat** and **Alice Not Again**, each a fresh scenario with the same format.
-
----
-
-### Scrambled Zoo
-
-The Scrambled Zoo wasn't on a screen at all. Participants received a physical flyer at the venue:
-
-![Scrambled Zoo flyer](/img/scrambled-zoo.png)
-
-The challenge: find the zookeeper's private key. The flyer shows a Wonderland logo, the function selector `0xa096bb3e()`, if you know, you know, and a row of animal emojis along the bottom edge. Each emoji represents a word in a BIP-39 mnemonic phrase. Participants had to identify the animals, figure out the correct order, and derive the zookeeper's private key from the resulting seed phrase. Then call the contract's `solve()` function as the zookeeper to claim the flag.
-
-The solution, the mnemonic in order: **monkey goat pig lobster frog lion squirrel gorilla dragon rabbit panda whale**.
-
----
 
 ## Until Next Time
 
