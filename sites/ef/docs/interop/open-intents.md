@@ -4,7 +4,7 @@
 
 Cross-chain operations today depend on proprietary integrations. Building on a single bridge locks the integration into that bridge. Users only get the rates it offers, with no way to compare against other options.
 
-The [Open Intents Framework (OIF)](https://www.notion.so/29cd9895554181e2966fe6585980ca9b?pvs=21) is a collaborative effort to standardize how intents are coordinated. Built around [ERC-7683](https://eips.ethereum.org/EIPS/eip-7683) (the cross-chain intent standard), the framework includes [specifications](https://github.com/openintentsframework/oif-specs), [reference contracts](https://github.com/openintentsframework/oif-contracts), a [reference solver](https://github.com/openintentsframework/oif-solver) and [aggregator](https://github.com/openintentsframework/oif-aggregator) that any team can use or build on. Wonderland contributes to the framework alongside the EF, Hyperlane, OpenZeppelin, Across, LiFi and others.
+The [Open Intents Framework (OIF)](https://docs.openintents.xyz/) is a collaborative effort to standardize how intents are coordinated. Built around [ERC-7683](https://eips.ethereum.org/EIPS/eip-7683) (the cross-chain intent standard), the framework includes [specifications](https://github.com/openintentsframework/oif-specs), [reference contracts](https://github.com/openintentsframework/oif-contracts), a [reference solver](https://github.com/openintentsframework/oif-solver) and [aggregator](https://github.com/openintentsframework/oif-aggregator) that any team can use or build on. Wonderland contributes to the framework alongside the EF, Hyperlane, OpenZeppelin, Across, LiFi and others.
 
 > 📌 To learn more about this initiative, visit the [Open Intents landing page](https://openintents.xyz/).
 

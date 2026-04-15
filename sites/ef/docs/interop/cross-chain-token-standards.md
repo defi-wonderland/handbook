@@ -12,7 +12,7 @@ All these standards solve real problems. However, none achieved significant adop
 
 ## The timing was not right
 
-Just like the lesson learned in our section [ERC-5792 and EIP-7702: a retrospective](https://www.notion.so/ERC-5792-and-EIP-7702-a-retrospective-30a9a4c092c7805c889cd0be52b5bcee?pvs=21) , the mistake of looking for a solution to a problem already solved repeats itself here. It is a game theory problem. Each bridge already has its own standard working and being the first to adopt a unified one means opening the door for your clients to migrate to the competition. What is interesting about this scenario is that staying put has no cost, if this mentality is adopted by the entire ecosystem, the result is a standard with very low adoption.
+Just like the lesson learned in our section [ERC-5792 and EIP-7702: a retrospective](./erc-5792-eip-7702.md) , the mistake of looking for a solution to a problem already solved repeats itself here. It is a game theory problem. Each bridge already has its own standard working and being the first to adopt a unified one means opening the door for your clients to migrate to the competition. What is interesting about this scenario is that staying put has no cost, if this mentality is adopted by the entire ecosystem, the result is a standard with very low adoption.
 
 Every major messaging protocol has already deployed its own interface, put contracts on dozens of chains and onboarded clients. LayerZero supports over [150 chains](https://layerzeroscan.com/). Wormhole has processed over [70B in cumulative volume](https://messari.io/report/wormhole-scaling-interoperability-across-chains-and-institutions). Axelar, Hyperlane and Chainlink CCIP each carved out their own segment with specialized security models and tooling.
 
@@ -42,7 +42,7 @@ Displacing already functional standards, even if fragmented, must offer real imp
 
 The same dynamics that blocked ERC-7786 appear in cross-chain token standards. Each protocol built its own framework ([OFT](https://docs.layerzero.network/v2/concepts/applications/oft-standard), [NTT](https://wormhole.com/products/native-token-transfers), [ITS](https://www.axelar.network/its), [CCT](https://docs.chain.link/ccip/concepts/cross-chain-token), Warp Token) and the open standards failed to displace them.
 
-[Adoption numbers](https://messari.io/report/layerzero-scaling-stablecoin-issuers-with-the-oft-standard) can be misleading. As of May 2025 it would seem that OFT is the dominant standard with "$150B supported". But if we look at that number more closely, $138.6B come from a single partnership with Tether's USDT0 through a lock-and-mint wrapper and native OFTs represent only 4.6% ($11.4B). The fragmentation persists.
+[Adoption numbers](https://messari.io/report/layerzero-scaling-stablecoin-issuers-with-the-oft-standard) can be misleading. As of May 2025 it would seem that OFT is the dominant standard with "\$150B supported". But if we look at that number more closely, \$138.6B come from a single partnership with Tether's USDT0 through a lock-and-mint wrapper and native OFTs represent only 4.6% (\$11.4B). The fragmentation persists.
 
 ## What would need to change?
 
