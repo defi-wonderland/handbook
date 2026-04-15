@@ -6,7 +6,7 @@ ERC-7786 defines a standard interface for cross-chain messaging. The standard st
 
 Cross-chain token standards tried to do the same for token portability. Both xERC20 (driven by Connext and Wonderland) and ERC-7802 (proposed by Optimism and Uniswap) allow a token to work with any bridge without being tied to a single one.
 
-**So, what is the difference?** These standards differ in how much control they give the issuer. xERC2 offers granular control with bridge whitelisting and minting rate limits per bridge. On the other hand, ERC-7802 limits itself to the minimum, two `crosschainMint` and `crosschainBurn` functions.
+**So, what is the difference?** These standards differ in how much control they give the issuer. xERC20 offers granular control with bridge whitelisting and minting rate limits per bridge. On the other hand, ERC-7802 limits itself to the minimum, two `crosschainMint` and `crosschainBurn` functions.
 
 All these standards solve real problems. However, none achieved significant adoption.
 

@@ -31,6 +31,6 @@ The standards define two representations: a human-readable name, and a compact b
 
 To bring these standards to life we collaborated with Unruggable on an [onchain chain registry](https://ens.domains/blog/post/on-eth-chain-registry) (`on.eth`), which was approved for use by the ENS DAO.
 
-We also developed a dedicated typescript package for easy integration of interoperable addresses, `@wonderland/interop-addresses.`
+We also developed a dedicated typescript package for easy integration of interoperable addresses, `@wonderland/interop-addresses`
 
 > 📌 To learn more, feel free to check our [documentation](https://docs.interop.wonderland.xyz/addresses), explore the [landing page](https://interopaddress.com/) and interact with the [demo app](https://interop.wonderland.xyz/addresses).
