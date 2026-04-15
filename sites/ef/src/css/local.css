@@ -100,6 +100,20 @@
   filter: brightness(0) invert(1);
 }
 
+/* DEEP DIVES icon - overrides the interop default */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/deep-dives"]::before {
+  background-image: url("/img/icons/book-open.svg");
+}
+
+/* APPENDIX icon - overrides the interop default */
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href="/docs/interop/glossary"]::before {
+  background-image: url("/img/icons/information-circle.svg");
+}
+
 .menu__list-item-collapsible .menu__link[href^="/docs/protocol"]::before {
   content: "";
   background-image: url("/img/icons/document-currency-dollar.svg");

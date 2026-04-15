@@ -2,9 +2,9 @@
 
 ## A standard everyone needs, but that no one adopts
 
-ERC-7786 defines a standard interface for cross-chain messaging. The standard starts from the following idea: if it were possible for all bridges to expose the same API, developers could switch providers without rewriting their contracts and building bridge-agnostic applications would become practical.
+[ERC-7786](https://eips.ethereum.org/EIPS/eip-7786) defines a standard interface for cross-chain messaging. The standard starts from the following idea: if it were possible for all bridges to expose the same API, developers could switch providers without rewriting their contracts and building bridge-agnostic applications would become practical.
 
-Cross-chain token standards tried to do the same for token portability. Both xERC20 (driven by Connext and Wonderland) and ERC-7802 (proposed by Optimism and Uniswap) allow a token to work with any bridge without being tied to a single one.
+Cross-chain token standards tried to do the same for token portability. Both [xERC20](https://www.xerc20.com/) (driven by Connext and Wonderland) and [ERC-7802](https://eips.ethereum.org/EIPS/eip-7802) (proposed by Optimism and Uniswap) allow a token to work with any bridge without being tied to a single one.
 
 **So, what is the difference?** These standards differ in how much control they give the issuer. xERC20 offers granular control with bridge whitelisting and minting rate limits per bridge. On the other hand, ERC-7802 limits itself to the minimum, two `crosschainMint` and `crosschainBurn` functions.
 
@@ -34,7 +34,7 @@ Given that ERC-7786 exists, the rational response for any individual bridge that
 
 Even if timing and incentives aligned, ERC-7786 faces another problem. It wraps existing bridges but does not add any additional layer. Every major messaging protocol already provides its own verification layer.
 
-Previously, aggregation projects like [Glacis](https://www.glacislabs.com/), [Hashi](https://crosschain-alliance.gitbook.io/hashi) and xERC20 had the same adoption problems. The problem is that a standard interface over already functional solutions does not generate incentives for adoption. On the other hand, it can end up introducing integration risk, as was the case with [Glacis](https://www.glacislabs.com/) and [Hashi](https://crosschain-alliance.gitbook.io/hashi).
+Previously, aggregation projects like [Glacis](https://www.glacislabs.com/), [Hashi](https://crosschain-alliance.gitbook.io/hashi) and xERC20 had the same adoption problems. The problem is that a standard interface over already functional solutions does not generate incentives for adoption. On the other hand, it can end up introducing integration risk, as was the case with Glacis and Hashi.
 
 Displacing already functional standards, even if fragmented, must offer real improvements in security and/or incentives that justify the migration.
 

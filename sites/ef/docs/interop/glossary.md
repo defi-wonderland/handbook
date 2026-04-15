@@ -11,4 +11,4 @@
 | **Intent** | What the user wants to do, expressed as "send X tokens from chain A to chain B" |
 | **Solver** | An actor that fulfills intents. They compete to offer the best price |
 | **Open Intents Framework (OIF)** | Modular infrastructure for intent layers: origination, fulfillment, settlement and rebalancing. Collaborative effort between the EF, Hyperlane, OpenZeppelin, Wonderland and others |
-| **Interoperable Address** | An address that carries its chain info with it, following ERC-7930 |
+| **Interoperable Address** | An address that carries its chain info with it, following [ERC-7930](https://eips.ethereum.org/EIPS/eip-7930) |
