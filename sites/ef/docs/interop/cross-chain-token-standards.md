@@ -92,7 +92,6 @@ Finally, although custom verification mechanisms offer benefits, default configu
 - [LiFi — Comparing Token Frameworks](https://li.fi/knowledge-hub/comparing-token-frameworks/)
 - [xERC20 (Connext)](https://www.connext.network/xerc20)
 - [Arbitrum Interoperability Post](https://medium.com/offchainlabs/bringing-interoperability-to-arbitrum-and-ethereum-ba97ea99d9ff)
-- [@kramnotmark on ERC-7786](https://x.com/kramnotmark/status/1907508307541295312)
 - [LayerZero — The Default is Many Chains](https://layerzero.network/blog/the-default-is-many-chains)
 - [Messari — LayerZero Stablecoin Report](https://messari.io/report/layerzero-scaling-stablecoin-issuers-with-the-oft-standard)
 - [Messari — Wormhole Report](https://messari.io/report/wormhole-scaling-interoperability-across-chains-and-institutions)
