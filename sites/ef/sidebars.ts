@@ -184,23 +184,6 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'A FRAMEWORK FOR STANDARD ADOPTION',
-          collapsible: false,
-          collapsed: false,
-          link: {
-            type: 'doc',
-            id: 'interop/framework-standard-adoption',
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'interop/framework-standard-adoption',
-              label: 'The framework',
-            },
-          ],
-        },
-        {
-          type: 'category',
           label: 'APPENDIX',
           collapsible: false,
           collapsed: false,
