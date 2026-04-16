@@ -4,13 +4,19 @@ title: Welcome
 sidebar_label: Welcome
 ---
 
-# Welcome
+# Welcome to the Ethereum Foundation Handbook
 
-This is your documentation site. Start by editing this page and adding your content.
+Whether you want to understand how interoperability works, build with the tooling we've developed, figure out why some standards take off and others don't, or are curious about privacy on Ethereum, this guide is for you.
 
-## Quick Start
+Ethereum is a decentralized network where anyone can build applications and move value without intermediaries. Interoperability and privacy are problems we're working to solve. This handbook helps you get there.
 
-1. Edit this file to add your content
-2. Update `sidebars.ts` to organize your navigation
-3. Add more pages in the `docs/` directory
-4. Customize `docusaurus.config.ts` with your project details 
+You'll find:
+
+- An overview of interoperability on Ethereum
+- Standards and tooling for chain-specific addresses and cross-chain operations
+- Research into why some EIPs succeed and others don't
+- A privacy toolkit for wallets, covering trust assumptions and privacy pools
+
+This is a living document. It grows as the work evolves.
+
+Welcome aboard 🛠️

@@ -84,10 +84,7 @@
   .menu__link[href^="/docs/interop"]::before,
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href="/docs/interop/"]::before,
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href="/docs/interop/coming-soon"]::before {
+  .menu__link[href="/docs/interop/"]::before {
   content: "";
   background-image: url("/img/icons/cube-transparent.svg");
   background-size: 1rem 1rem;
@@ -218,10 +215,7 @@
   .menu__link[href^="/docs/interop"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href="/docs/interop/"],
-.theme-doc-sidebar-item-category
-  .menu__list-item-collapsible
-  .menu__link[href="/docs/interop/coming-soon"] {
+  .menu__link[href="/docs/interop/"] {
   font-family:
     "Inter",
     system-ui,
