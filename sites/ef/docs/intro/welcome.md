@@ -8,7 +8,7 @@ sidebar_label: Welcome
 
 Whether you want to understand how interoperability works, build with the tooling we've developed, figure out why some standards take off and others don't, or are curious about privacy on Ethereum, this guide is for you.
 
-Ethereum is a decentralized network where anyone can build applications and move value without intermediaries. Interoperability and privacy are problems we're working to solve. This handbook helps you get there.
+Ethereum is a decentralized network where anyone can build applications and move value without intermediaries, where interoperability and privacy are areas we're looking to improve. This handbook shows you how.
 
 You'll find:
 
