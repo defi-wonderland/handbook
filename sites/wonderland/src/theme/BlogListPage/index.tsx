@@ -28,7 +28,7 @@ const Card = ({ post }: { post: any }) => <BlogCard post={post} />;
 
 export default function BlogListPage(props: any) {
   const posts = (props?.items || []).map((i: any) => i.content);
-  const [first, second, third, fourth, ...rest] = posts;
+  const [first, second, ...rest] = posts;
   const { siteConfig } = useDocusaurusContext();
   const resetScrollToTop = useScrollReset(['/blog']);
 
@@ -47,10 +47,11 @@ export default function BlogListPage(props: any) {
               <div className="wl-highlights__primary">
                 <BlogCard post={first} className="wl-post-card--primary" />
               </div>
-              <div className="wl-highlights__side">
-                {second && <BlogCard post={second} className="wl-post-card--compact" />}
-                {fourth && <BlogCard post={fourth} className="wl-post-card--compact" />}
-              </div>
+              {second && (
+                <div className="wl-highlights__side">
+                  <BlogCard post={second} className="wl-post-card--compact" />
+                </div>
+              )}
             </section>
           )}
 

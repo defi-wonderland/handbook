@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import BlogPostPage from "@theme-original/BlogPostPage";
+import { useLocation } from "@docusaurus/router";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Authors from "@site/src/theme/BlogPostItem/Header/Authors";
 import { useScrollReset } from "@site/src/hooks/useScrollReset";
@@ -11,10 +12,12 @@ export default function BlogPostPageWrapper(props: any) {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const resetScrollToTop = useScrollReset(['/blog']);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     resetScrollToTop();
-  }, [resetScrollToTop]);
+    // Only reset on pathname change — hash changes (anchor links) must not trigger reset.
+  }, [pathname]);
 
   return (
     <div className="wl-post-page-wrapper">

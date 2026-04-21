@@ -188,7 +188,11 @@
 
 .wl-author { display: inline-flex; align-items: flex-start; gap: 0.5rem; }
 .wl-avatar { width: 24px; height: 24px; border-radius: 999px; border: 2px solid var(--card-surface); object-fit: cover; }
-.wl-author__name { color: var(--text-muted); font-weight: 500; max-width: 12ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.wl-author__name { color: var(--text-strong); font-weight: 600; max-width: 14ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* Hide author title/role in listing cards — shown on the author page */
+.wl-post-card .wl-author__title { display: none; }
+.wl-post-card .wl-author { align-items: center; }
 .wl-author__extra { background: var(--chip-bg); color: var(--chip-text); font-weight: 600; margin-left: 0.25rem; padding: .125rem .375rem; border-radius: 999px; font-size: .75rem; }
 
 .wl-author__name-link { color: inherit; text-decoration: none; transition: color 0.3s ease; font-weight: 500; }
@@ -239,7 +243,7 @@
   overflow: hidden;
 }
 
-.wl-highlights__side { display: grid; grid-template-rows: 1fr 1fr; gap: 1rem; height: var(--highlight-height); }
+.wl-highlights__side { display: grid; grid-template-rows: 1fr; gap: 1rem; height: var(--highlight-height); }
 
 /* Compact highlight cards */
 .wl-post-card--compact {
@@ -249,24 +253,29 @@
   gap: 1rem;
   align-items: start;
 }
-.wl-post-card--compact { padding: var(--space-4); }
+.wl-post-card--compact { padding: var(--space-6); }
 .wl-post-card--compact .wl-post-card__thumb { align-self: start; }
-.wl-highlights__side .wl-post-card--compact { grid-template-columns: 30% 1fr; }
-.wl-highlights__side .wl-post-card--compact .wl-post-card__thumb {
-  aspect-ratio: auto;
-  width: 100%;
+.wl-highlights__side .wl-post-card--compact {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   height: 100%;
-  min-height: 0;
 }
-.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; }
-.wl-post-card--compact .wl-post-card__meta { margin-top: auto; padding-top: var(--space-2); }
+.wl-highlights__side .wl-post-card--compact .wl-post-card__thumb {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
+}
+.wl-post-card--compact .wl-post-card__body { padding: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-start; gap: 0.5rem; flex: 1; min-height: 0; }
+.wl-highlights__side .wl-post-card--compact .wl-post-card__meta { margin-top: auto !important; padding-top: var(--space-3); }
 .wl-post-card--compact .wl-post-card__title {
   font-size: 1.2rem;
   line-height: 1.25;
   margin: 0.15rem 0 0.35rem;
 }
 .wl-post-card--compact .wl-post-card__excerpt { margin-top: 0.4rem; }
-.wl-post-card--compact .wl-post-card__excerpt { display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+.wl-post-card--compact .wl-post-card__excerpt { display: -webkit-box; line-clamp: 4; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
 .wl-post-card--compact .wl-post-card__date { font-size: 0.8125rem; opacity: 0.9; }
 
 /* Compact author/meta tweaks */
@@ -1217,4 +1226,27 @@
 
 .mermaid text {
   fill: #ffffff !important;
+}
+
+/* Blog post heading hierarchy — size only, no extra spacing changes */
+.wl-post-original .markdown h2 {
+  font-size: 2.25rem !important;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.wl-post-original .markdown h3 {
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.wl-post-original .markdown h4 {
+  font-size: 1rem !important;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--wonderland-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
