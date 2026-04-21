@@ -1230,7 +1230,7 @@
 
 /* Blog post heading hierarchy — size only, no extra spacing changes */
 .wl-post-original .markdown h2 {
-  font-size: 2.25rem !important;
+  font-size: 2rem !important;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
