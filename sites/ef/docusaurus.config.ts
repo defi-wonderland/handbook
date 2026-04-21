@@ -36,6 +36,8 @@ const localConfig: Config = {
           // Please change this to your repo.
           // Remove this to remove the 'edit this page' links.
           editUrl: "https://github.com/defi-wonderland/handbook/tree/main/sites/ef",
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },

@@ -21,9 +21,7 @@ const efCategories: Category[] = [
   {
     title: "INTEROP",
     icon: "/img/icons/cube-transparent.svg",
-    href: "/docs/interop/coming-soon",
-    comingSoon: true,
-    comingSoonBanner: "/common/img/coming-soon-banner.png",
+    href: "/docs/interop/intro-interop",
   },
 ];
 
