@@ -17,6 +17,67 @@ const sidebars: SidebarsConfig = {
     'intro/welcome',
     {
       type: 'category',
+      label: 'INTEROP',
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'interop/intro-interop',
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'interop/chain-specific-addresses',
+          label: 'Chain-specific addresses',
+        },
+        {
+          type: 'doc',
+          id: 'interop/open-intents',
+          label: 'Open Intents and cross-chain interoperability',
+        },
+        {
+          type: 'category',
+          label: 'DEEP DIVES',
+          collapsible: false,
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'interop/deep-dives',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'interop/erc-5792-eip-7702',
+              label: 'ERC-5792 and EIP-7702: wallet communication',
+            },
+            {
+              type: 'doc',
+              id: 'interop/cross-chain-token-standards',
+              label: 'Cross-chain token standards and ERC-7786',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'APPENDIX',
+          collapsible: false,
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'interop/glossary',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'interop/glossary',
+              label: 'Glossary',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'KOHAKU',
       collapsible: false,
       collapsed: false,
@@ -120,7 +181,7 @@ const sidebars: SidebarsConfig = {
               id: 'privacy-pools/notes',
               label: 'Anatomy of a note',
             },
-      
+
             {
               type: 'doc',
               id: 'privacy-pools/batch-withdrawal',
