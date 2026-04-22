@@ -476,7 +476,7 @@
 .wl-post-author-avatar { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--wonderland-blue-800); object-fit: cover; }
 .wl-post-authors-avatars { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
 .wl-post-author-avatar--lg { width: 48px; height: 48px; }
-.wl-post-author-line { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--wonderland-gray-300); }
+.wl-post-author-line { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; color: var(--wonderland-gray-300); }
 .wl-post-authors-line { display: inline-flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
 .wl-post-author { display: inline-flex; align-items: center; gap: 0.35rem; }
 .wl-post-author-sep { margin: 0 0.25rem; opacity: 0.6; }
@@ -493,7 +493,7 @@
   text-decoration: none; 
   border-bottom-color: var(--wonderland-accent);
 }
-.wl-post-bullet { opacity: 0.6; }
+.wl-post-bullet { display: none; }
 .wl-post-date { color: var(--wonderland-gray-400); }
 
 /* Legacy hero H1/H2 */

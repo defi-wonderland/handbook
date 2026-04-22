@@ -4,7 +4,7 @@ title: EthCC 2026 CTF Solutions
 description: An overview of the largest live crypto CTF in history hosted at EthCC 2026 with summaries of each challenge and links to official writeups of the solutions.
 date: 2026-04-21
 tags: [CTF, Security, Solidity, Aztec]
-authors: [funkornaut, weiser, ng, luke, lera]
+authors: [funkornaut, weiser, ng, luke, lera, simon-something]
 image: /img/blog-posts-img/ctf-2026/cover.png
 ---
 
@@ -1215,7 +1215,7 @@ We have EVMs on Solana, Cosmos and as ZK circuits. But why has no one ever built
 
 
 ### Stakehouse {#stakehouse}
-By Wonderland
+By Simon Something
 
 **Goal:** Drain the `StakeHouse` vault below 1 ETH. It starts with 10.
 
@@ -1266,7 +1266,7 @@ Update state before interacting with the outside world. A reentrancy guard works
 </details>
 
 ### Blackout {#blackout}
-By Wonderland
+By Simon Something
 
 **Goal:** Drain the `SentinelGate` vault to 0 ETH. The player has a balance deposited but is blacklisted.
 
@@ -1316,7 +1316,7 @@ Solidity's `address` type silently masks to 160 bits, but `calldataload` gives y
 </details>
 
 ### Sentinel Protocol {#sentinel-protocol}
-By Wonderland
+By Simon Something
 
 **Goal:** Drain the `SentinelVault` to 0 ETH. Only registered modules can call `operatorWithdraw()`, and only contracts with an approved codehash can register.
 
