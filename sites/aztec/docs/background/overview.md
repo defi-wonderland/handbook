@@ -16,6 +16,6 @@ Aztec also maintains **two types of state**:
 - **Private state** is structured around **notes** and tracked using Merkle trees of notes and nullifiers (we will define all of that in a bit).
 - **Public state** resembles a traditional Ethereum-style network, with global state updates written to a public data tree.
 
-In the rest following pages, we’ll define key terms, like UTXOs, notes, nullifiers, zero-knowledge proofs, and circuits that form the foundation of Aztec’s privacy model. 
+In the following pages, we’ll define key terms, like UTXOs, notes, nullifiers, zero-knowledge proofs, and circuits that form the foundation of Aztec’s privacy model. 
 
 Let's get private!
