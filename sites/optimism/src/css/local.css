@@ -23,6 +23,10 @@
   background-image: url("/img/icons/processes-icon-filled.svg");
 }
 
+.menu__list-item-collapsible .menu__link[href^="/docs/guides"]::before {
+  background-image: url("/img/icons/guidelines-icon-filled.svg");
+}
+
 /* Font for Optimism category titles */
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
@@ -35,7 +39,10 @@
   .menu__link[href^="/docs/governance"],
 .theme-doc-sidebar-item-category
   .menu__list-item-collapsible
-  .menu__link[href^="/docs/processes"] {
+  .menu__link[href^="/docs/processes"],
+.theme-doc-sidebar-item-category
+  .menu__list-item-collapsible
+  .menu__link[href^="/docs/guides"] {
   font-family:
     "Inter",
     system-ui,
