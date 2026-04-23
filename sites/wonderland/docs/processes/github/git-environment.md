@@ -1,12 +1,12 @@
 # Git Enviroment
 
 :::tip
-The most secure approach is to create a separate user account on your computer for your anonymous profile, completely isolating it from your one. **This provides the strongest separation of concerns and security.**
+The most secure approach is to create a separate user account on your computer for your anonymous profile, completely isolating it from your existing one. **This provides the strongest separation of concerns and security.**
 :::
 
 The following guide describes how to configure both profiles under a single user account if you choose not to create a separate user. However, be aware that this is less secure than full user isolation.
 
-This guide walks you through setting up dual Git environments on WSL2 - one for personal use and another for anonymous DeFi use. You'll learn how to:
+This guide walks you through setting up dual Git environments on WSL2 - one for personal use and another for anonymous (anon, if you're a cool kid) use. You'll learn how to:
 
 - Configure separate Git profiles with different identities
 - Generate and manage SSH keys for each profile
@@ -21,11 +21,11 @@ This guide walks you through setting up dual Git environments on WSL2 - one for 
 
 ## Directory Structure Setup
 
-Create separate directories for personal and DeFi development:
+Create separate directories for personal and anon development:
 
 ```bash
 mkdir ~/personal
-mkdir ~/defi
+mkdir ~/anon
 ```
 
 ## Git Profile Configuration
@@ -49,10 +49,10 @@ Add the following configuration (replace with your details):
         gpgsign = true
 ```
 
-### Create DeFi Profile
+### Create anon Profile
 
 ```bash
-nano ~/.gitconfig-defi
+nano ~/.gitconfig-anon
 ```
 
 Add the following configuration:
@@ -72,7 +72,7 @@ Add the following configuration:
 
 ```bash
 mkdir -p ~/.ssh/personal
-mkdir -p ~/.ssh/defi
+mkdir -p ~/.ssh/anon
 ```
 
 ### Generate personal SSH key
@@ -86,7 +86,7 @@ When prompted:
 - Save to: `/home/your_user/.ssh/personal/id_ed25519`
 - Set passphrase (optional)
 
-### Generate DeFi SSH key
+### Generate anon SSH key
 
 ```bash
 ssh-keygen -t ed25519 -C "your-anon@wonderland.xyz"
@@ -94,7 +94,7 @@ ssh-keygen -t ed25519 -C "your-anon@wonderland.xyz"
 
 When prompted:
 
-- Save to: `/home/your_user/.ssh/defi/id_ed25519`
+- Save to: `/home/your_user/.ssh/anon/id_ed25519`
 - Set passphrase (optional)
 
 ### Add SSH keys to GitHub
@@ -103,8 +103,8 @@ When prompted:
 # View personal key
 cat ~/.ssh/personal/id_ed25519.pub
 
-# View DeFi key
-cat ~/.ssh/defi/id_ed25519.pub
+# View anon key
+cat ~/.ssh/anon/id_ed25519.pub
 ```
 
 Add each public key to the corresponding GitHub account under Settings → SSH Keys.
@@ -142,7 +142,7 @@ Add the output to GitHub under Settings → GPG Keys.
 
 ### Update your Git configs with the GPG key ID:
 
-- Edit both `~/.gitconfig-personal` and `~/.gitconfig-defi`
+- Edit both `~/.gitconfig-personal` and `~/.gitconfig-anon`
 - Add the key ID to the `signingkey` field
 
 ## Profile Integration
@@ -158,8 +158,8 @@ Add:
 ```
 [includeIf "gitdir:~/personal/"]
         path = .gitconfig-personal
-[includeIf "gitdir:~/defi/"]
-        path = .gitconfig-defi
+[includeIf "gitdir:~/anon/"]
+        path = .gitconfig-anon
 [program]
         pgp = /usr/bin/gpg
 [core]
@@ -175,11 +175,11 @@ nano ~/.ssh/config
 Add:
 
 ```
-Host github-defi
+Host github-anon
         HostName github.com
         User git
         IdentitiesOnly yes
-        IdentityFile ~/.ssh/defi/id_ed25519
+        IdentityFile ~/.ssh/anon/id_ed25519
 
 Host github.com
         HostName github.com
@@ -204,10 +204,10 @@ For personal repos:
 git clone git@github.com:owner/repo.git
 ```
 
-For DeFi repos:
+For anon repos:
 
 ```bash
-git clone git@github-defi:owner/repo.git
+git clone git@github-anon:owner/repo.git
 ```
 
 ### Verifying Setup
@@ -218,8 +218,8 @@ Test SSH connection:
 # Personal
 ssh -T git@github.com
 
-# DeFi
-ssh -T git@github-defi
+# anon
+ssh -T git@github-anon
 ```
 
 Test GPG signing:
@@ -260,12 +260,12 @@ echo "test" | gpg --clearsign
 ```bash
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/personal/id_ed25519
-ssh-add ~/.ssh/defi/id_ed25519
+ssh-add ~/.ssh/anon/id_ed25519
 ```
 
 2. Verify key permissions:
 
 ```bash
 chmod 600 ~/.ssh/personal/id_ed25519
-chmod 600 ~/.ssh/defi/id_ed25519
+chmod 600 ~/.ssh/anon/id_ed25519
 ```

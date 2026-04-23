@@ -1,7 +1,7 @@
 # Hardware Requirements for Signers
 
 :::tip
-- **DOs:**
+- **DO:**
     - Use an isolated device **solely** for signing transactions.
     - Enable biometric verification (face ID, fingerprint).
     - Set up remote wipe/lock features.
