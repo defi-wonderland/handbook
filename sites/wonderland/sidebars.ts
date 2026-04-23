@@ -176,6 +176,26 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "category",
+          label: "Circom",
+          items: [
+            "development/circom/coding-style",
+            {
+              type: "category",
+              label: "Onboarding",
+              items: [
+                "development/circom/onboarding/getting-started",
+                "development/circom/onboarding/zk-fundamentals",
+                "development/circom/onboarding/circom-language",
+                "development/circom/onboarding/challenges",
+                "development/circom/onboarding/best-practices",
+                "development/circom/onboarding/testing-guidelines",
+                "development/circom/onboarding/tornado-cash",
+              ],
+            },
+          ],
+        },
+        {
+          type: "category",
           label: "Offchain",
           items: [
             "development/offchain/best-practices",
