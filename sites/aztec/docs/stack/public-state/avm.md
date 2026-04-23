@@ -1,212 +1,107 @@
 # Aztec Virtual Machine (AVM)
 
 :::warning
-If you are new developer starting to work on Aztec, feel free to skip this section. It's a quick walkthrough through the AVM, but it is not extremely necessary to read.
+If you are a new developer starting to work on Aztec, feel free to skip this section. It's a quick walkthrough of the AVM and not strictly necessary to read. The most up-to-date version will always be found in the Aztec repository. 
 :::
 
-This section is a bottom‑up walkthrough of **how public Aztec code actually runs**. We go from a Noir `fn public …` on your IDE, all the way to an AVM proof that any Ethereum node can check.
+This section is a bottom‑up walkthrough of **how public Aztec code actually runs**. We go from a Noir snippet in your IDE all the way to an AVM proof that any Ethereum node can verify. The goal is to provide quick links to implementations and serve as a handy guide.
+
+At a high level, you write a Noir public function, the transpiler converts Brillig into AVM bytecode, and the sequencer simulates that bytecode, recording side effects and gas. Those side effects feed the public kernel. The transpiler’s entry point is in [`avm-transpiler/src/transpile.rs`](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs) and the instruction encoding is defined in [`avm-transpiler/src/instructions.rs`](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs).
+
+The AVM behaves like a classic fetch -> decode -> execute VM with explicit control flow (`JUMP_32`, `JUMPI_32`, `INTERNALCALL`, `INTERNALRETURN`, `RETURN`, `REVERT_*`) defined in [`avm-transpiler/src/opcodes.rs`](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/opcodes.rs). During transpilation, a Brillig -> AVM program‑counter map is maintained and jump targets are resolved after layout ([PC mapping and resolution](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L445-L449), [resolution pass](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L480-L514)).
+
+Type information is carried on instructions via `AvmTypeTag` (e.g., `SET_*`, `CAST_*`), for reference see [`AvmTypeTag` in instructions.rs](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs#L107-L119) and [SET/CAST generation](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L989-L1061)). Gas is visible at call boundaries and through environment getters: `CALL`/`STATICCALL` take `(l2_gas, da_gas)` operands ([calls](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L602-L644)), the VM exposes `l2GasLeft`/`daGasLeft` via `GETENVVAR_16` ([env getters](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L952-L973)), and the simulator reports L2 gas usage ([e2e assertion](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/end-to-end/src/e2e_avm_simulator.test.ts#L98-L109)).
+
+External calls run in forked side‑effect traces, which achieves isolation: on revert, child side effects are discarded. On success they merge into the parent ([fork/merge in SideEffectTrace](https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts#L95-L139)). The modules here support SHA‑256 compression, Poseidon2 permutation, Keccak‑f[1600] permutation, ToRadix (big‑endian), and ECADD directly; MSM is compiled as a procedure during transpilation ([gadget and procedure handling](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L1174-L1319)). This page focuses on the transpiler and simulator, proving happens downstream using the side effects produced here.
 
 ## From Noir Source to AVM Byte‑code
 
-1. **Compile → ACIR**: `noirc` turns each public function into an ACIR program.
+1. **Compile -> ACIR**: `noirc` turns each public function into an ACIR program.
 
-2. **Transpile → AVM**: `aztec-avm-transpiler` in
-   [`src/main.rs`](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/avm-transpiler/src/main.rs) walks every
-   `BrilligCall` inside the single ACIR function, extracts the Brillig op‑list and replaces it with
-   AVM instructions:
+2. **Transpile -> AVM**: The transpiler maps Brillig opcodes to AVM opcodes and emits final bytecode via `brillig_to_avm`, also returning a Brillig→AVM PC map for debugging and error attribution:
+   - [Transpiler entry](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs)
+   - [Instruction encoding](https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs)
 
    ```rust
    // Pseudocode
    let brillig = extract_brillig_from_acir(&acir_prog);
-   let (avm, map) = brillig_to_avm(brillig); // returns Vec<AvmInstruction>
+   let (bytecode, pc_map) = brillig_to_avm(&brillig); // returns (Vec<u8>, Vec<usize>)
    ```
 
-3. **Pack & Commit**: The byte‑code is Base‑64 encoded and hashed (Poseidon) into a commitment. The class ID and commitment become part of the “contract class hint”:
+3. **Pack & Commit**: The AVM bytecode comes from the transpiler. Commitment/validation live elsewhere, this page focuses on transpiler and simulator behavior.
 
    ```rust
    AvmContractClassHint { class_id, artifact_hash, private_functions_root, packed_bytecode }
    ```
 
-   That commitment is verified at deploy‑time by the *Bytecode‑Validation Circuit*.
+The bytecode commitment is validated during deployment by protocol circuits. 
 
 ## Bootstrapping a Public Call
 
-When a user asks the sequencer to run `myToken.transferPublic()`, the prover constructs the **Session Input**:
-
-```text
-AvmSessionInputs {
-  globals,                     // L1 block data, random seed …
-  address   = contract,        // AztecAddress being executed
-  sender    = caller,
-  l2GasLeft = gasSettings.l2,
-  daGasLeft = gasSettings.da,
-  calldata  = encoded args,
-  …
-}
-```
-Three things are immediately initialised:
-
-* **Execution Env.**: calldata, sender, fee table.
-* **Machine State**: `pc = 0`, `callPtr = 1`, the tagged memory heap.
-* **Gas Controller**:`l2GasLeft`, `daGasLeft` (clamped by `clampGasSettingsForAVM`).
+When a user asks the sequencer to run a public function, the AVM simulator receives calldata and reads execution context via environment opcodes (e.g. address, sender, gas left) exposed by `GETENVVAR_16`. See:
+- Env getters map: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L952-L973`
+- Opcode set: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/opcodes.rs`
 
 Everything is now ready for the main loop.
 
-## One Clock‑Cycle in the AVM
+## Instruction Encoding & Execution
 
-> Instruction fetch ➜ decode ➜ sub‑ops ➜ commit (repeat until `RETURN` or `REVERT`).
-
-1. **Fetch**: `BytecodeTable.lookup(callPtr, pc)` returns an `AvmInstruction`.
-2. **Decode**: The static lookup table translates the opcode into a list of *sub‑operations*.
-3. **Dispatch**:
-   * Memory ops → **Memory Controller** (`LOAD`, `STORE`).
-   * ALU / Hash → dedicated **Chiplet** (e.g. `SHA256COMPRESSION`).
-   * Storage ↔ **Storage Controller** (`SLOAD`, `SSTORE`).
-   * Flow → **Control‑Flow Unit** (update `pc`, maybe push/pop call stack).
-   * Side‑effects → **Accumulator** (`EMITNOTEHASH`, `SENDL2TOL1MSG`).
-4. **Update gas**: each op debits `daGas` or `l2Gas` (see `opcodes.yml`).
-5. **Increment CLK**: next row in the circuit trace.
-
-### Worked example: `ADD<u32> a b dst`
-
-| Sub‑Op  | Component | Source      | Destination |
-| ------- | --------- | ----------- | ----------- |
-| `LOAD`  | Memory    | `M[a]`      | `I_a`       |
-| `LOAD`  | Memory    | `M[b]`      | `I_b`       |
-| `ADD`   | ALU       | `I_a`/`I_b` | `I_c`       |
-| `STORE` | Memory    | `I_c`       | `M[dst]`    |
-
-All four sub‑ops fit in **one** clock row because no chiplet exceeds row budget.
+AVM instructions are variable‑length, but consistent: opcode -> addressing‑mode (if present) -> operands -> optional type tag -> immediates. Addressing‑mode packs, per operand, an “indirect” bit and a “relative” bit. The word is U8 if $<= 4$ operands, else U16. Operands are encoded as U8/U16/U32/U64/U128 or Field immediates.
+- Encoding order: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs#L61-L80`
+- Addressing‑mode bits: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs#L180-L203`
+- Operand encodings: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs#L121-L156`
 
 ## Memory & Type‑Tags
 
-* **Address space**: 2³² words, addressed by `u32`.
-* **Tag set**: `{uninit,u8,u16,u32,u64,u128,field}`.
-* **Rule**: first read of a word after `CALL` sees `0/uninit`; every later read must match the last `STORE`.
-
-The Memory table columns are:
-
-```
-CALL_PTR | CLK | ADDR | VAL | TAG | IN_TAG | RW | TAG_ERR
-```
-
-A mismatch sets `TAG_ERR` ⇒ proof fails.
+Type tags in this layer live on instructions (e.g. `SET_*`, `CAST_*`) via `AvmTypeTag`.
+- `AvmTypeTag`: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/instructions.rs#L107-L119`
+- `SET_*`/`CAST_*` generation: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L989-L1061`
 
 ## Public Storage Access
 
-High‑level Noir uses `PublicMutable<T>`.
-When `storage.admin.write(newAdmin)` is compiled:
+Public storage is accessed via `SLOAD`/`SSTORE` opcodes in the AVM bytecode, produced by the transpiler’s foreign call handlers:
+- Opcodes: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/opcodes.rs#L148-L160`
+- Transpiler handlers: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L1660-L1696` and `#L1564-L1600`
 
-1. Guest code hashes slot with contract address → `siloedSlot`.
-2. Compiler emits `SSTORE` with operands `(slotPtr, valPtr)`.
-3. Storage Controller translates into two Merkle operations on the **Public Data Tree** and appends a `ContractStorageUpdateRequest` to the side‑effect list.
+Side effects (including storage writes) are recorded by the simulator’s `SideEffectTrace` with per‑tx limits and a monotonically increasing counter:
+- `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts#L60-L113`
+- Storage write limits and warm/cold tracking: `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts#L153-L194`
 
-Reads (`admin.read()`) create a `ContractStorageRead` object and perform a Merkle *membership* proof instead.
+## Internal Control Flow
 
-## Nested Calls & Call Pointers
+Control flow is explicit: `JUMP_32`, `JUMPI_32`, `INTERNALCALL`, `INTERNALRETURN`, `RETURN`, `REVERT_*`. The transpiler also keeps a Brillig→AVM PC map and resolves jumps once all code (including procedures) is laid out:
+- Opcodes: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/opcodes.rs#L44-L47`
+- Jump resolution and PC mapping: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L445-L449` and `#L480-L514`
 
-`INTERNALCALL` sub‑op does:
+## Gas
 
-```
-newPtr   = nextCallPtr++      // 2,3,4,… in execution order
-push {pc+1, curPtr} onto stack
-pc       = 0
-callPtr  = newPtr
-```
+- CALL/STATICCALL take explicit `l2_gas` and `da_gas` operands; environment getters expose `l2GasLeft` and `daGasLeft`:
+  - Calls: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L602-L644`
+  - Env getters (including gas left): `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L952-L973`
+- L2 gas usage is tracked in simulation outputs; see the E2E test assertion:
+  - `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/end-to-end/src/e2e_avm_simulator.test.ts#L98-L109`
 
-Each pointer owns its byte‑code slice, memory segment and gas budget.
-On `INTERNALRETURN`, the previous context is restored.
+## Accrued Sub‑state (Side Effects)
 
+The simulator buffers side effects (public data writes, note hashes, nullifiers, L2→L1 messages, public logs) with a counter and enforces protocol limits:
+- `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts#L60-L113`
+- Limits and recorders: `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts#L204-L250`
 
-## Gas Accounting in Two Dimensions
+## Public Call Phases
 
-* **l2Gas**: execution work proved in AVM.
-* **daGas**: calldata hashed in L1 blobs.
-
-Every sub‑op carries a `(daCost,l2Cost)` pair.
-`clampGasSettingsForAVM` ensures `l2GasUsed_private + l2GasUsed_public ≤ MAX_L2_GAS_PER_TX`.
-
-At the end the circuit computes
-
-```
-transactionFee = (gasUsed.da * feePerDaGas) + (gasUsed.l2 * feePerL2Gas)
-```
-
-and exposes it as a public input.
-
-## Accrued Sub‑state
-
-During execution the Accumulator buffers:
-
-* **noteHashes**, **nullifiers**
-* **L2→L1 messages** (`SENDL2TOL1MSG`) with Eth recipient.
-* **Unencrypted logs** for ETH watchers.
-
-At the end these vectors are packed into
-`AvmCircuitPublicInputs.accumulatedData` and passed to the public‑kernel circuit.
-
-## Circuit Boundary & Public Inputs
-
-Public columns:
-
-```
-sessionInputs             // one row
-calldata[ N ]             // fixed length
-worldStateAccessTrace.*   // many rows
-accruedSubstate.*         // many rows
-sessionResults            // one row (gas left, reverted?)
-```
-
-These are exactly the fields of `AvmCircuitPublicInputs` defined in
-`avm_circuit_public_inputs.ts`. A one‑to‑one lookup links each table in the proof to the corresponding column in the public inputs vector.
+Public calls are processed in three phases: Setup (non‑revertible), App Logic (revertible), and Teardown (non‑revertible). See:
+- `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/utils.ts#L3-L16`
 
 ## End‑to‑End Example (cheat‑sheet)
 
-1. **Dev:** writes:
-
-   ```rust
-   #[public]
-   fn set_admin(new_admin: AztecAddress) {
-       assert(context.msg_sender() == storage.admin.read());
-       storage.admin.write(new_admin);
-   }
-   ```
-
-2. **Client**: compile & transpile → AVM class commitment.
-
-3. **Tx**: includes calldata `[selector, new_admin]` and gas settings.
-
-4. **AVM** executes:
-
-   | CLK | callPtr | pc | OP                  |               Gas |
-   | --: | ------: | -: | ------------------- | ----------------: | 
-   |   0 |       1 |  0 | `CALLDATACOPY`      |          read arg | 
-   |   1 |       1 |  1 | `SLOAD` (`admin`)   | +membership proof |
-   |   2 |       1 |  2 | `EQ_8` + `REVERT_8` |            branch |
-   |   3 |       1 |  3 | `SSTORE` (`admin`)  |       +update req |
-   |   4 |       1 |  4 | `RETURN`            |            finish |
-
-5. **Circuit**: proves rows 0‑4 and outputs `accumulatedData` with one
-   `ContractStorageUpdateRequest`.
-
-6. **Public‑kernel**: re‑hashes the updated slot, updates the indexed Merkle tree root, and feeds the final proof to the Rollup circuit.
+Put together: calldata is copied in (`CALLDATACOPY`), storage is read or updated (`SLOAD`/`SSTORE`), conditions branch with `JUMPI_32`, external calls use `CALL`/`STATICCALL` (with `(l2_gas, da_gas)` and HeapVector args), and execution terminates with `RETURN` or `REVERT_*`.
 
 ### To keep in mind...
 
-* AVM byte‑code is generated mechanically from Brillig, committed at deploy time, and proven at runtime.
-* Execution is **row‑based**: fetch, decode to sub‑ops, feed to specialised controllers/chiplets.
-* Memory and Storage are Merkle‑enforced; type‑tags keep Noir and runtime in lock‑step.
-* Two‑dimensional gas model (`da`, `l2`) is baked into every sub‑op.
-* The circuit exposes exactly the data the next kernel needs, nothing more, nothing less.
-
-## References
-- [AVM Transpiler](https://github.com/AztecProtocol/aztec-packages/tree/7e505bcd7fcd90a7d5fe893194272157cc9ec848/avm-transpiler)
-- [AVM TypeScript](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/avm/avm.ts)
-- [AVM Circuit Public Inputs](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/avm/avm_circuit_public_inputs.ts)
-- [Contract Storage Read](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/avm/contract_storage_read.ts)
-- [Gas](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/avm/gas.ts)
-- [Message Pack](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/avm/message_pack.ts)
-- [Instruction Set](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/docs/docs/protocol-specs/public-vm/instruction-set.mdx)
-- [Type Structs](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/docs/docs/protocol-specs/public-vm/type-structs.md)
-- [AVM Circuit](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/docs/docs/protocol-specs/public-vm/avm-circuit.md)
-- [Gas Settings](https://github.com/AztecProtocol/aztec-packages/blob/7e505bcd7fcd90a7d5fe893194272157cc9ec848/yarn-project/stdlib/src/gas/gas_settings.ts)
+- AVM bytecode is generated mechanically from Brillig by the transpiler: `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs`
+- Addressing modes: per‑operand indirect/relative bits; instruction layout is opcode -> addressing‑mode -> operands -> optional tag -> immediates.
+- Public storage, logs, messages, note hashes, and nullifiers are recorded via the simulator’s side‑effect trace with per‑tx limits: `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/side_effect_trace.ts`
+- Public calls execute across Setup/App‑Logic/Teardown phases: `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/simulator/src/public/utils.ts#L3-L16`
+- L2 gas usage is observable in simulation outputs; CALL/STATICCALL take `(l2_gas, da_gas)` operands:
+   - `https://github.com/AztecProtocol/aztec-packages/blob/next/avm-transpiler/src/transpile.rs#L602-L644`
+   - `https://github.com/AztecProtocol/aztec-packages/blob/next/yarn-project/end-to-end/src/e2e_avm_simulator.test.ts#L98-L109`
