@@ -52,8 +52,8 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: 'doc',
-              id: 'interop/cross-chain-token-standards',
-              label: 'Cross-chain token standards and ERC-7786',
+              id: 'interop/erc-7786',
+              label: 'ERC-7786',
             },
           ],
         },
