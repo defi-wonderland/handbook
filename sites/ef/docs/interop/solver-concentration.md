@@ -21,7 +21,7 @@ A first consideration is what solvers have to do to participate in a given inten
 - Registration: does a solver need to register to participate? If so, how are solvers approved (or not)? Is there some cost or bond to do so?
 - Order flow: are intents purely onchain, or do solvers need to subscribe to an offchain API for gasless orders? In either case is there an offchain quoting system to connect to?
 - Competition: fastest fill wins, a period of exclusivity, a Dutch auction?
-- Integration: how much custom work does the solver need to do to to fill and settle intents?
+- Integration: how much custom work does the solver need to do to fill and settle intents?
 
 Different protocols take different approaches on each of these dimensions. For example Across uses temporal exclusivity on a per-order basis, where a nominated relayer (registered in the `exclusive-relayer` repo) gets a deadline to fill an order before it opens to other solvers. Relay sits at the opposite end, with its team running the sole trusted solver. 1inch Fusion+ gates participation behind a whitelist of resolvers, where solvers must stake 1INCH to qualify. The protocol routes orders through its offchain order book and resolves each fill via a Dutch auction over HTLC escrows. In deBridge the barrier to entry is the ability to detect and claim orders before other solvers, so solver selection comes down to speed.
 
