@@ -55,6 +55,11 @@ const sidebars: SidebarsConfig = {
               id: 'interop/erc-7786',
               label: 'ERC-7786',
             },
+            {
+              type: 'doc',
+              id: 'interop/solver-concentration',
+              label: 'Intent protocols and solver concentration',
+            },
           ],
         },
         {
