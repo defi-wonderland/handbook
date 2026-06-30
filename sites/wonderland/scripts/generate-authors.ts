@@ -2,8 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const SQUAD_URL = 'https://raw.githubusercontent.com/defi-wonderland/web/dev/src/data/squad.json';
-const PFP_BASE = 'https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp';
+// Squad data and profile pictures are vendored into this repo (see
+// data/squad.json and static/img/pfp/; refresh steps in data/README.md).
+// They used to be fetched at build time from the (now private)
+// defi-wonderland/web repo over unauthenticated raw.githubusercontent.com,
+// which 404s and left authors.yml ungenerated -> the Docusaurus build then
+// failed to resolve blog author keys. Reading local files keeps the build
+// hermetic and deterministic.
+const SQUAD_PATH = path.resolve(__dirname, '..', 'data', 'squad.json');
+const PFP_DIR = path.resolve(__dirname, '..', 'static', 'img', 'pfp');
+const PFP_PUBLIC_BASE = '/img/pfp';
 const AUTHORS_PATH = path.resolve(process.cwd(), 'blog', 'authors.yml');
 
 // Aliases: original-slug -> target-slug OR original-slug -> display-name
@@ -66,29 +74,29 @@ const normalizeText = (text: string): string =>
       .replace(/\s{2,}/g, ' ')
       .trim();
 
-const findPfp = async (baseName: string): Promise<string | null> => {
+// Resolve a profile picture against the vendored static/img/pfp directory and
+// return the public (Docusaurus-served) path, or null if no file matches.
+const findPfp = (baseName: string): string | null => {
   const candidates = /\.[a-zA-Z0-9]+$/.test(baseName)
     ? [baseName]
     : ['png', 'jpg', 'jpeg', 'webp', 'svg'].map(ext => `${baseName}.${ext}`);
 
   for (const candidate of candidates) {
-    try {
-      const url = `${PFP_BASE}/${encodeURIComponent(candidate)}`;
-      const response = await fetch(url, { method: 'HEAD' });
-      if (response.ok) return url;
-    } catch {}
+    if (fs.existsSync(path.join(PFP_DIR, candidate))) {
+      return `${PFP_PUBLIC_BASE}/${encodeURIComponent(candidate)}`;
+    }
   }
   return null;
 };
 
 async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
-  console.log('🔄 Fetching squad data...');
+  console.log('🔄 Reading vendored squad data...');
 
   const existing = fs.existsSync(AUTHORS_PATH)
     ? yaml.load(fs.readFileSync(AUTHORS_PATH, 'utf8')) || {}
     : {};
 
-  const squad = await fetch(SQUAD_URL).then(r => r.json()) as SquadMember[];
+  const squad = JSON.parse(fs.readFileSync(SQUAD_PATH, 'utf8')) as SquadMember[];
   const authors: Record<string, AuthorEntry> = {};
 
   for (const member of squad) {
@@ -113,7 +121,7 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
       name: finalName, // Use final name (either original or overridden)
       ...(title && { title }),
       ...(desc && { description: normalizeText(desc) }),
-      ...(pfp && { image_url: await findPfp(pfp.replace('/img/pfp/', '')) }),
+      ...(pfp && { image_url: findPfp(pfp.replace('/img/pfp/', '')) }),
       ...(member.socials ?? {}),
       page: true
     };
@@ -129,9 +137,14 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
   return authors;
 }
 
-// Run if this script is executed directly
+// Run if this script is executed directly. Fail loudly (non-zero exit) so a
+// missing/invalid squad file breaks the build instead of silently producing an
+// empty authors map that fails later inside `docusaurus build`.
 if (process.argv[1]?.endsWith('generate-authors.ts')) {
-  generateAuthors().catch(console.error);
+  generateAuthors().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
 
 export { generateAuthors };
