@@ -3,7 +3,8 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 // Squad data and profile pictures are vendored into this repo (see
-// data/squad.json and static/img/pfp/; refresh steps in data/README.md).
+// data/squad.json and static/img/pfp/). Refresh them by re-copying from the
+// private defi-wonderland/web repo (src/data/squad.json and public/img/pfp/).
 // They used to be fetched at build time from the (now private)
 // defi-wonderland/web repo over unauthenticated raw.githubusercontent.com,
 // which 404s and left authors.yml ungenerated -> the Docusaurus build then
