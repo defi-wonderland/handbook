@@ -136,7 +136,10 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
       name: finalName, // Use final name (either original or overridden)
       ...(title && { title }),
       ...(desc && { description: normalizeText(desc) }),
-      ...(imageUrl && { image_url: imageUrl }),
+      // Key on `pfp` (declared), not `imageUrl` (resolved): when a declared PFP
+      // no longer resolves, write image_url: null so the falsy-value filter
+      // below drops any stale value carried over from `existing`.
+      ...(pfp && { image_url: imageUrl }),
       ...(member.socials ?? {}),
       page: true
     };
