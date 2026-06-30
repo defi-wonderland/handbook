@@ -99,6 +99,7 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
 
   const squad = JSON.parse(fs.readFileSync(SQUAD_PATH, 'utf8')) as SquadMember[];
   const authors: Record<string, AuthorEntry> = {};
+  const missingPfps: string[] = [];
 
   for (const member of squad) {
     const derivedSlug = getSlug(member);
@@ -117,12 +118,25 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
     const desc = pick(member, ['bio', 'description', 'about']);
     const pfp = pick(member, ['pfp', 'image', 'avatar', 'photo']);
 
+    // A member declares a profile picture but no matching file is vendored:
+    // warn so a stale/partial snapshot is visible instead of silently dropping
+    // the avatar. The completeness test (generate-authors.test.ts) turns this
+    // into a hard failure in CI.
+    let imageUrl: string | null = null;
+    if (pfp) {
+      imageUrl = findPfp(pfp.replace('/img/pfp/', ''));
+      if (!imageUrl) {
+        missingPfps.push(`${finalSlug} (pfp: ${pfp})`);
+        console.warn(`⚠️  No vendored profile picture for "${finalSlug}" (pfp: ${pfp}) in static/img/pfp/ — refresh the snapshot.`);
+      }
+    }
+
     const author = {
       ...existing[finalSlug], // Preserve existing custom fields first
       name: finalName, // Use final name (either original or overridden)
       ...(title && { title }),
       ...(desc && { description: normalizeText(desc) }),
-      ...(pfp && { image_url: findPfp(pfp.replace('/img/pfp/', '')) }),
+      ...(imageUrl && { image_url: imageUrl }),
       ...(member.socials ?? {}),
       page: true
     };
@@ -134,6 +148,9 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
 
   fs.writeFileSync(AUTHORS_PATH, yaml.dump(authors, { indent: 2, lineWidth: -1 }));
   console.log(`✅ Generated ${Object.keys(authors).length} authors`);
+  if (missingPfps.length) {
+    console.warn(`⚠️  ${missingPfps.length} author(s) reference a profile picture with no vendored file: ${missingPfps.join(', ')}`);
+  }
 
   return authors;
 }

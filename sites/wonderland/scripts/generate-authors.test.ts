@@ -103,4 +103,31 @@ describe("generate-authors", () => {
       );
     }
   });
+
+  test("vendored snapshot is complete: every referenced pfp file exists", () => {
+    // Guards against a stale/partial snapshot: a member can declare a pfp whose
+    // file was never vendored, in which case generate-authors silently drops
+    // image_url. Mirror findPfp's candidate resolution and require a match.
+    const pfpDir = path.resolve(__dirname, "..", "static", "img", "pfp");
+    const squad = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, "..", "data", "squad.json"), "utf8")
+    );
+
+    const missing: string[] = [];
+    for (const member of squad) {
+      const pfp = [member.pfp, member.image, member.avatar, member.photo].find(
+        (v) => typeof v === "string" && v.trim()
+      );
+      if (!pfp) continue;
+      const base = pfp.replace("/img/pfp/", "");
+      const candidates = /\.[a-zA-Z0-9]+$/.test(base)
+        ? [base]
+        : ["png", "jpg", "jpeg", "webp", "svg"].map((ext) => `${base}.${ext}`);
+      if (!candidates.some((c) => fs.existsSync(path.join(pfpDir, c)))) {
+        missing.push(pfp);
+      }
+    }
+
+    expect(missing).toEqual([]);
+  });
 });
