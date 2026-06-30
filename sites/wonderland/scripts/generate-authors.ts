@@ -2,10 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-// Squad data and profile pictures are vendored into this repo (see
-// data/squad.json and static/img/pfp/). Refresh them by re-copying from the
-// private defi-wonderland/web repo (src/data/squad.json and public/img/pfp/).
-// They used to be fetched at build time from the (now private)
+// Blog author data + profile pictures are vendored into this repo
+// (data/squad.json + static/img/pfp/). The blog is the only consumer of squad
+// data, so only the squad members who appear as blog post authors are vendored
+// — not the full team. Adding a post by a new author means adding that member
+// (and their PFP) here; the completeness test in generate-authors.test.ts fails
+// if a referenced author is missing.
+//
+// This data used to be fetched at build time from the (now private)
 // defi-wonderland/web repo over unauthenticated raw.githubusercontent.com,
 // which 404s and left authors.yml ungenerated -> the Docusaurus build then
 // failed to resolve blog author keys. Reading local files keeps the build
