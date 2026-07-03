@@ -49,7 +49,7 @@ Every time an L2 user on an OP Stack chain wants to send messages or withdraw fu
 Without it, Rex would have to manually guesstimate the overhead for posting transaction data on Ethereum, so this predeploy automates it for him : )
 :::
     
-3. **Sending a message out with `L2CrossDomainMessager` (`0x4200000000000000000000000000000000000007` )**
+3. **Sending a message out with `L2CrossDomainMessenger` (`0x4200000000000000000000000000000000000007` )**
     
     It seems like the whole research team needs to do things with predeploys! Now, Mono wants to instruct some L1 contract (an automated vault for example, or a bridging contract) to do something on his behalf. He will need to send a cross-domain message from L2 to L1. 
     
