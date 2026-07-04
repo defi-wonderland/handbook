@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Skeletor Spaceman",
+    "position": "Co-founder & Architect",
+    "image": "/img/pfp/Skele.png",
+    "description": "- First contract deployed on 25/07/2017.\n- Enjoys breaking things.\n\nFun fact: Has never been to space."
+  },
+  {
+    "name": "Lera",
+    "position": "CMO",
+    "image": "/img/pfp/Lera.png",
+    "description": "- Background in Linguistics & History.\n- Mountain fanatic.\n\nFun fact: Likes to play medieval sports."
+  },
+  {
+    "name": "Wei3er Hase",
+    "position": "Onchain - Architect",
+    "image": "/img/pfp/Wei3er.png",
+    "description": "- Just a bun from Görli 🥕.\n\nFun fact: Afraid of bugs and owls."
+  },
+  {
+    "name": "NG",
+    "position": "Onchain Security - Department Lead",
+    "image": "/img/pfp/NG.png",
+    "description": "- Derives joy from finding bugs.\n- Reached Top 4 in Curta during the first eight puzzles.\n\nFun fact: Can recite words backwards fast."
+  },
+  {
+    "name": "Simon Something",
+    "position": "Operations - Department Lead",
+    "image": "/img/pfp/Doc.png",
+    "description": "- Random diploma collector.\n- Assembly fanatic (Huff is cheating).\n\nFun fact: Has 99 issues and a bitshift ain't one."
+  },
+  {
+    "name": "Parti",
+    "position": "Cryptography - Department Lead",
+    "image": "/img/pfp/Parti.png",
+    "description": "- Recovering quantum physicist turned cryptographer.\n- Finds peace hiking and fishing in Patagonia, loses it watching Boca Juniors.\n\nFun fact: Reads Dostoevsky to maintain a healthy baseline of existential dread."
+  },
+  {
+    "name": "0xMono",
+    "position": "Research - Department Lead",
+    "image": "/img/pfp/Mono.png",
+    "description": "- Enrolled in IT infrastructure studies.\n- Defi research and scalability enthusiast.\n\nFun fact: Spends his spare time in DeFi as well."
+  },
+  {
+    "name": "Teddy",
+    "position": "Onchain - Developer",
+    "image": "/img/pfp/Teddy.png",
+    "description": "- Solidity dev.\n- Likes lying to machines.\n- Cuddly and sleepy, but technically doesn't hibernate.\n\nFun fact: Clumsy welder."
+  },
+  {
+    "name": "Funkornaut",
+    "position": "Onchain - Developer",
+    "image": "/img/pfp/Funkornaut.png",
+    "description": "- Solidity developer.\n- Previously made beer for a living.\n- Big golf guy and yogi.\n\nFun fact: Can wiggle ears without touching them."
+  },
+  {
+    "name": "Lumi",
+    "position": "Research - Researcher",
+    "image": "/img/pfp/Lumi.png",
+    "description": "- Swapped neurons for nodes after working in neuroscience.\n- Currently hacking her way through a BS in Digital Technology at UTDT.\n- Fluent in nerdy talk.\n\nFun fact: Alter ego spent a semester rocking out in music school."
+  },
+  {
+    "name": "Luke",
+    "position": "Partner Lead",
+    "image": "/img/pfp/Luke.png",
+    "description": "- A never-quit lion.\n- Jedi wannabe.\n- Mantra: Discipline over talent.\n\nFun fact: He is ambidextrous with scissors."
+  }
+]

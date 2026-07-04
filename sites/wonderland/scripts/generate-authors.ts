@@ -2,8 +2,21 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-const SQUAD_URL = 'https://raw.githubusercontent.com/defi-wonderland/web/dev/src/data/squad.json';
-const PFP_BASE = 'https://raw.githubusercontent.com/defi-wonderland/web/dev/public/img/pfp';
+// Blog author data + profile pictures are vendored into this repo
+// (data/squad.json + static/img/pfp/). The blog is the only consumer of squad
+// data, so only the squad members who appear as blog post authors are vendored
+// — not the full team. Adding a post by a new author means adding that member
+// (and their PFP) here; the completeness test in generate-authors.test.ts fails
+// if a referenced author is missing.
+//
+// This data used to be fetched at build time from the (now private)
+// defi-wonderland/web repo over unauthenticated raw.githubusercontent.com,
+// which 404s and left authors.yml ungenerated -> the Docusaurus build then
+// failed to resolve blog author keys. Reading local files keeps the build
+// hermetic and deterministic.
+const SQUAD_PATH = path.resolve(__dirname, '..', 'data', 'squad.json');
+const PFP_DIR = path.resolve(__dirname, '..', 'static', 'img', 'pfp');
+const PFP_PUBLIC_BASE = '/img/pfp';
 const AUTHORS_PATH = path.resolve(process.cwd(), 'blog', 'authors.yml');
 
 // Aliases: original-slug -> target-slug OR original-slug -> display-name
@@ -66,30 +79,31 @@ const normalizeText = (text: string): string =>
       .replace(/\s{2,}/g, ' ')
       .trim();
 
-const findPfp = async (baseName: string): Promise<string | null> => {
+// Resolve a profile picture against the vendored static/img/pfp directory and
+// return the public (Docusaurus-served) path, or null if no file matches.
+const findPfp = (baseName: string): string | null => {
   const candidates = /\.[a-zA-Z0-9]+$/.test(baseName)
     ? [baseName]
     : ['png', 'jpg', 'jpeg', 'webp', 'svg'].map(ext => `${baseName}.${ext}`);
 
   for (const candidate of candidates) {
-    try {
-      const url = `${PFP_BASE}/${encodeURIComponent(candidate)}`;
-      const response = await fetch(url, { method: 'HEAD' });
-      if (response.ok) return url;
-    } catch {}
+    if (fs.existsSync(path.join(PFP_DIR, candidate))) {
+      return `${PFP_PUBLIC_BASE}/${encodeURIComponent(candidate)}`;
+    }
   }
   return null;
 };
 
 async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
-  console.log('🔄 Fetching squad data...');
+  console.log('🔄 Reading vendored squad data...');
 
   const existing = fs.existsSync(AUTHORS_PATH)
     ? yaml.load(fs.readFileSync(AUTHORS_PATH, 'utf8')) || {}
     : {};
 
-  const squad = await fetch(SQUAD_URL).then(r => r.json()) as SquadMember[];
+  const squad = JSON.parse(fs.readFileSync(SQUAD_PATH, 'utf8')) as SquadMember[];
   const authors: Record<string, AuthorEntry> = {};
+  const missingPfps: string[] = [];
 
   for (const member of squad) {
     const derivedSlug = getSlug(member);
@@ -108,12 +122,28 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
     const desc = pick(member, ['bio', 'description', 'about']);
     const pfp = pick(member, ['pfp', 'image', 'avatar', 'photo']);
 
+    // A member declares a profile picture but no matching file is vendored:
+    // warn so a stale/partial snapshot is visible instead of silently dropping
+    // the avatar. The completeness test (generate-authors.test.ts) turns this
+    // into a hard failure in CI.
+    let imageUrl: string | null = null;
+    if (pfp) {
+      imageUrl = findPfp(pfp.replace('/img/pfp/', ''));
+      if (!imageUrl) {
+        missingPfps.push(`${finalSlug} (pfp: ${pfp})`);
+        console.warn(`⚠️  No vendored profile picture for "${finalSlug}" (pfp: ${pfp}) in static/img/pfp/ — refresh the snapshot.`);
+      }
+    }
+
     const author = {
       ...existing[finalSlug], // Preserve existing custom fields first
       name: finalName, // Use final name (either original or overridden)
       ...(title && { title }),
       ...(desc && { description: normalizeText(desc) }),
-      ...(pfp && { image_url: await findPfp(pfp.replace('/img/pfp/', '')) }),
+      // Key on `pfp` (declared), not `imageUrl` (resolved): when a declared PFP
+      // no longer resolves, write image_url: null so the falsy-value filter
+      // below drops any stale value carried over from `existing`.
+      ...(pfp && { image_url: imageUrl }),
       ...(member.socials ?? {}),
       page: true
     };
@@ -125,13 +155,21 @@ async function generateAuthors(): Promise<Record<string, AuthorEntry>> {
 
   fs.writeFileSync(AUTHORS_PATH, yaml.dump(authors, { indent: 2, lineWidth: -1 }));
   console.log(`✅ Generated ${Object.keys(authors).length} authors`);
+  if (missingPfps.length) {
+    console.warn(`⚠️  ${missingPfps.length} author(s) reference a profile picture with no vendored file: ${missingPfps.join(', ')}`);
+  }
 
   return authors;
 }
 
-// Run if this script is executed directly
+// Run if this script is executed directly. Fail loudly (non-zero exit) so a
+// missing/invalid squad file breaks the build instead of silently producing an
+// empty authors map that fails later inside `docusaurus build`.
 if (process.argv[1]?.endsWith('generate-authors.ts')) {
-  generateAuthors().catch(console.error);
+  generateAuthors().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
 
 export { generateAuthors };
