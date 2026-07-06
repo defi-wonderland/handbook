@@ -205,6 +205,17 @@ const sidebars: SidebarsConfig = {
                 "development/frontend/onboarding/frontend-dev-challenge",
               ],
             },
+            {
+              type: "category",
+              label: "AI-Assisted Project Setup",
+              items: [
+                "development/frontend/ai-assisted-project-setup/overview",
+                "development/frontend/ai-assisted-project-setup/tech-design",
+                "development/frontend/ai-assisted-project-setup/ui-generation",
+                "development/frontend/ai-assisted-project-setup/repo-scaffolding",
+                "development/frontend/ai-assisted-project-setup/test",
+              ],
+            },
           ],
         },
         {
