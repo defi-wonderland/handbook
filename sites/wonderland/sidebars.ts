@@ -153,6 +153,7 @@ const sidebars: SidebarsConfig = {
           items: [
             "development/solidity/coding-style",
             "development/solidity/natspec",
+            "development/solidity/defi-dapps",
             {
               type: "category",
               label: "Onboarding",
