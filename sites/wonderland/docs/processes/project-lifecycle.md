@@ -37,7 +37,7 @@ All our partners have a front-row seat to the action through a real-time view of
 
 We strive to follow strict [code quality and style guidelines](/development/solidity/coding-style.md) while accommodating our partners’ preferred coding style to the best of our capacity. We will also contribute suggestions for code-base improvements, even if they exceed the project’s defined scope.
 
-- **More than 100% test coverage:** All agreed test suites from the tech design must be completed. Sometimes, 100% coverage isn’t enough, so we include fuzzing, E2E edge cases, and invariant tests. Here’s an example: https://github.com/allo-protocol/allo-v2/tree/v2.1/test
+- **More than 100% test coverage:** All agreed test suites from the tech design must be completed. For smart contracts 100% test coverage is _just the starting point_, so we include fuzzing, E2E edge cases, and invariant tests. Here’s an example: https://github.com/allo-protocol/allo-v2/tree/v2.1/test
 - **Automated alerts & monitoring dashboards:** Every metric outlined in the tech design is tracked via a dashboard, for example, [Dune](https://dune.com/defi_wonderland/mev-bots) or [Grafana](https://snapshots.raintank.io/dashboard/snapshot/pdIYOBrhqixu0lpidVXH4dsEF1iwclMO?orgId=2). We’ll help set up any required infrastructure if needed, and alerts will be configured to speed up issue response times.
 - **Code standards:** We use [custom Solhint rules](https://github.com/solhint-community/solhint-community) to ensure consistent code quality and accurate reviews. The code must comply with the standard linting and code-quality rules in the tech design.
 - **Deployment scripts:** Automated deployment scripts ensure precise and reliable deployments to all required networks.
@@ -47,16 +47,16 @@ We strive to follow strict [code quality and style guidelines](/development/sol
 
 ## Advanced Testing Campaign 🧪 
 
-As mentioned before, we take our work seriously. Testing at Wonderland is a continuous process that begins before the first line of code is written and extends throughout the entire development lifecycle. Our testing framework reflects years of experience in securing infrastructure.
+As mentioned before, we take testing seriously. Testing at Wonderland is a continuous process that begins before the first line of code is written and extends throughout the entire development lifecycle. Our testing framework reflects years of experience in securing infrastructure.
 
-During development, each Solidity developer is responsible for writing unit and integration tests. These tests aim to cover all major branches and paths of the logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on network forks to replicate real-world behavior. This _QA phase_ ensures continuous monitoring and improvement of the protocol as it evolves.
+During development, every Solidity developer is responsible for writing unit and integration tests. The former aim to cover all major branches and paths of the business logic, ensuring every segment of code works as intended. Meanwhile, integration tests validate how different parts of the system interact, often running on forked environments replicating real-world behavior. This _QA phase_ ensures continuous monitoring and improvement of the protocol as it evolves.
 
-Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios, finalizing the testing process before the protocol moves into production.
+Once development is complete, the project undergoes an internal review and more advanced testing, led by a specialized team. This team focuses on invariants, formal verification methods, and advanced fuzzing using tools like Echidna and Medusa. Detailed properties (documented in a `PROPERTIES.md` file, and agreed upon in the tech design phase) guide this phase to ensure nothing is missed. This step confirms that the system meets higher-level correctness standards and can handle unexpected scenarios, finalizing the testing process before the protocol moves into production.
 For further reading on how we do testing, see [Testing Campaign Processes](/testing/campaign-processes.md) and [Unit and Integration Testing](/testing/unit-integration.md).
 
 ## Internal Reviews 🔍 
 
-Millions of dollars rely on the security of on-chain code, and history proves that even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritise security by having developers adopt a “break it” mentality in internal reviews, so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps _lazy_ code or testing from slipping through.
+Millions of dollars rely on the security of on-chain code, and history proves that even a single oversight can cause devastating losses. At Wonderland, we treat every codebase as critical infrastructure, reinforcing the mantra that security must be present at each phase of development—from ideation, design, and coding, right through to deployment and beyond. We prioritise security by deliberately tasking OCD-ridden animals to break our designs & implementations in an explicit development phase we call 'internal review', so any potential flaws are discovered before an external audit or public launch. This ensures we don’t lean solely on third-party auditors for final protection and keeps _lazy_ code or testing from slipping through.
 
 Our internal review process kicks in once development is finished and the code is _frozen._ A specialized Security Team (or developers who switch to an attacking mindset) meticulously examines the code for bugs, logic flaws, and opportunities to improve best practices and security. If critical issues are found, we conduct internal post-mortems to learn how they went unnoticed, then immediately fix and recheck before delivering the revised code to external auditors. This multi-layered approach—coupled with thoughtful fix management, code-based complexity estimates, and thorough post-review analysis—helps us produce robust and resilient protocols.
 
@@ -81,6 +81,8 @@ We apply:
 ## Emergency Response 🚨 
 
 The Emergency Plan provides a step-by-step guide for handling emergencies (e.g., exploits, active hacks). Partners can immediately report an incident by using the form available on their Partner page on our Notion. The plan also includes a ready-to-use Discord template —https://discord.new/aPnYUdJM6mkc or https://discord.new/CkADqy5aWsAH— for quickly creating a **War Room** where trusted members can coordinate actions in real time.
+
+<!-- TODO: shill how our offchain tools could proactively detect & notify about the emergency? -->
 
 Once the War Room is set up, a checklist ensures every critical step is covered:
 
