@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Document -->
+  <path d="M8.5 6.75h10.0c.4 0 .8.16 1.06.44l3.25 3.25c.28.28.44.66.44 1.06V24.5c0 .83-.67 1.5-1.5 1.5H8.5c-.83 0-1.5-.67-1.5-1.5V8.25c0-.83.67-1.5 1.5-1.5Z" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dog-ear indicator -->
+  <path d="M19.5 6.75V10c0 .83.67 1.5 1.5 1.5h3.25" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Code brackets -->
+  <path d="M12.25 14.75l-2 2 2 2" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.75 14.75l2 2-2 2" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15.25 20.25l1.5-7.0" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Check badge -->
+  <circle cx="22.5" cy="23.0" r="3.25" stroke="#FF0420" stroke-width="1.5"/>
+  <path d="M21.0 23.0l1.0 1.0 2.0-2.0" stroke="#FF0420" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

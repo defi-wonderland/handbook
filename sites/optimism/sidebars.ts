@@ -98,6 +98,21 @@ const sidebars: SidebarsConfig = {
         "processes/challenge",
       ],
     },
+    {
+      type: "category",
+      label: "Guidelines",
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: "doc",
+        id: "guides/overview",
+      },
+      items: [
+        "guides/overview",
+        "guides/testing-guidelines",
+        "guides/coding-guidelines",
+      ],
+    },
   ],
 };
 
